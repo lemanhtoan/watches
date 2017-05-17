@@ -1,0 +1,11 @@
+﻿https://scodeweb.com/laravel-fullcode-va-database-website-ban-hang-dien-thoai-may-tinh-tin-tuc-bang-laravel-5.html
+
+Cài đặt database:  database/myshop.sql. tiến hành import database
+
+config trong file .env cho phù hợp  localhost/url
+
+Link và tk admin: acc admin:  /admin/login
+
+email: scodeweb2016 @gmail.com
+
+pass: 1212123
