@@ -3,7 +3,7 @@ jQuery(function(){
 	
 	jQuery('#camera_wrap_1').camera({
 		
-		height: '300',
+		height: '415',
 		loader: 'bar',
         alignment: 'center',
         time: 3000,

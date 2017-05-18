@@ -29,5 +29,7 @@
     <script src="{!!url('public/js/validate/jquery.validate.min.js')!!}"></script>
     <script src="{!!url('public/js/validate/jquery.validate.js')!!}"></script>
 
+    <script type='text/javascript' src='{!!url('public/js/site.js')!!}'></script> 
+
   </body>
 </html>
