@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{!!url('public/images/logo.png')!!}" alt="logo" width="50" height="20">
 
-    <title>Fshop : Hệ thông bán hàng trực tuyến SCODEWEB</title>
+    <title>XWATCH - Đồng hồ chính hãng. Số 1 về dịch vụ bảo hành, hậu mãi</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{!!url('public/bootstrap/css/bootstrap.min.css')!!}" rel="stylesheet">
@@ -21,15 +21,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
-    <style>
-        body {
-            font-family: 'Lato';
-        }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-    </style>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     {{-- <link href="{!!url('public/bootstrap/css/ie10-viewport-bug-workaround.css')!!}" rel="stylesheet"> --}}
 
@@ -51,13 +42,5 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <div id="divAdLeft" style="display: none; position: absolute;  margin-top: 50px;">       
-      <a href="http://api.hostinger.vn/redir/1309904" target="_blank"><img src="http://www.hostinger.vn/banners/vn/hostinger-160x600-1.gif" alt="Hosting Miễn Phí" border="0" width="170" height="600" /></a>
-    </div>
-    <div id="divAdRight" style="display: none; position: absolute;margin-top: 50px">      
-      <a href="http://api.hostinger.vn/redir/1309904" target="_blank"><img src="http://www.hostinger.vn/banners/vn/hostinger-160x600-2.gif" alt="Hosting Miễn Phí" border="0" width="170" height="600" /></a>
-    </div> 
-{{--     <script>       
-        document.write("<script type='text/javascript' language='javascript'> MainContentW = 1150;LeftBannerW = 150;RightBannerW = 150;LeftAdjust = 35;RightAdjust = 0;TopAdjust = 5;ShowAdDiv();window.onresize=ShowAdDiv;;<\/script>");      
-    </script> --}}
+
   </head>
