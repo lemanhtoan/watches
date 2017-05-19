@@ -70,15 +70,7 @@
 
               <div class="col-xs-12 col-sm-12 col-md-12 no-paddng">
               @if(Cart::count() !=0)
-                @if (Auth::guest())
-                  <div class="input-group">
-                      <select name="paymethod" id="inputPaymethod" class="form-control" required="required">
-                        <option value="cod">COD (thanh toán khi nhận hàng)</option>
-                        <option value="paypal">Paypal (Thanh toán qua Paypal)</option>                      
-                      </select>
-                    </div>
-                  <a class="btn btn-large btn-warning pull-right" href="{!!url('/login')!!}" >Tiến hàng thanh toán</a>
-                @else
+
                   <form action="{!!url('/dat-hang')!!}" method="get" accept-charset="utf-8">                    
                     <div class="input-group">
                     <label for="paymethod">Chọn phương thức thanh toán</label>
@@ -86,13 +78,14 @@
                         <option value="">Hãy chọn phương thức thanh toán</option> 
                         <option value="paypal">Thanh toán trực tuyến ( Paypal )</option> 
                         <option value="cod"> Thanh toán khi nhận hàng ( COD )</option>
+                        <option value="cod"> Thanh toán tại cửa hàng</option>
                       </select>
                     </div>
                     <hr>
                       <button type="submit" class="btn btn-danger pull-right">Tiến hành thanh toán</button>
                       <a href="{!!url('/')!!}" type="button" class="btn btn-large btn-primary pull-left">Tiếp tục mua hàng</a>
                   </form>
-                @endif
+
               @endif
               </div>
               <hr>

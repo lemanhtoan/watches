@@ -3,11 +3,11 @@ jQuery(function(){
 	
 	jQuery('#camera_wrap_1').camera({
 		
-		height: '415',
+		height: '600',
 		loader: 'bar',
         alignment: 'center',
         time: 3000,
-		pagination: true,
+		pagination: false,
 		thumbnails: false
 	});
     jQuery('#camera_wrap_2').camera({

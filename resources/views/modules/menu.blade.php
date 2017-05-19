@@ -9,46 +9,48 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <ul class=" pull-right">
 
-                    <div class="navbar-header">
+                        <div class="navbar-header">
                         <span class="visible-xs pull-left"
                               style="font-size:30px;cursor:pointer; padding-left: 10px; color: #ecf0f1;"
                               onclick="openNav()">&#9776; </span>
-                        <span class="visible-xs pull-right"
-                              style="font-size:20px;cursor:pointer; padding-right: 10px; padding-top: 8px; color: #FFFFFF;">
+                            <span class="visible-xs pull-right"
+                                  style="font-size:20px;cursor:pointer; padding-right: 10px; padding-top: 8px; color: #FFFFFF;">
                             <!-- Authentication Links -->
-                            @if (Auth::guest())
-                                <a class="top-a" href="{{ url('/') }}"> Home </a>  &nbsp;
-                                <a href="#" data-toggle="modal" data-target="#login-modal" style="color:#e67e22;"> Đăng nhập </a>
-                                {{-- <a class="top-a" href="{{ url('/login') }}">Login</a> --}}
-                            @else
-                                <a class="top-a" href="{{ url('/user') }}"
-                                   style="color:#c0392b;"><strong>{!!Auth::user()->name!!}</strong></a>
-                                <a class="top-a" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i><small>Thoát</small></a>
-                            @endif
+                                @if (Auth::guest())
+                                    <a class="top-a" href="{{ url('/') }}"> Home </a>  &nbsp;
+                                    <a href="#" data-toggle="modal" data-target="#login-modal" style="color:#e67e22;"> Đăng nhập </a>
+                                    {{-- <a class="top-a" href="{{ url('/login') }}">Login</a> --}}
+                                @else
+                                    <a class="top-a" href="{{ url('/user') }}"
+                                       style="color:#c0392b;"><strong>{!!Auth::user()->name!!}</strong></a>
+                                    <a class="top-a" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i><small>Thoát</small></a>
+                                @endif
                         </span>
-                    </div>
+                        </div>
 
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a href="#" data-toggle="modal" data-target="#login-modal"><span
+                                            class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/user') }}">Thông tin cá nhân</a></li>
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('/user') }}">Thông tin cá nhân</a></li>
+                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+
+                        <li>
+                            <a href="{!!url('gio-hang')!!}"> <span class="glyphicon glyphicon-shopping-cart"></span> Giỏ
+                                Hàng </a>
                         </li>
-                    @endif
-
-                    <li>
-                        <a href="{!!url('gio-hang')!!}"> <span class="glyphicon glyphicon-shopping-cart"></span> Giỏ
-                            Hàng </a>
-                    </li>
 
                     </ul>
                 </div>
@@ -61,14 +63,17 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
-                <a href="{!!url('/')!!}"><img src="https://www.cdn.xwatch.vn/wp-content/uploads/2017/03/logo-website-xwatch-6.png" alt="" class="lol-main"></a>
+                <a href="{!!url('/')!!}"><img
+                            src="https://www.cdn.xwatch.vn/wp-content/uploads/2017/03/logo-website-xwatch-6.png" alt=""
+                            class="lol-main"></a>
             </div><!-- logo-->
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                 <form id="mainSearch" class="navbar-form" role="search">
                     <div class="input-group add-on frm-input">
                         <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
+                            </button>
                         </div>
                     </div>
 
@@ -86,8 +91,11 @@
             </div><!-- search-->
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
                 <div class="box-support">
-                    <div class="support-address"><a href="" class="whitecolor"><span class="d-block upper redcolor"><i class="fa fa-map-marker"></i> Địa chỉ</span> cửa hàng</a></div>
-                    <div class="support-hotline"><span class="d-block upper redcolor"><i class="fa fa-phone"></i> Hotline</span> <span class="phone-numbers-inline"><a href="tel:19000325" rel="nofollow" class="gg-phone-conversion">19000325</a></span></div>
+                    <div class="support-address"><a href="" class="whitecolor"><span class="d-block upper redcolor"><i
+                                        class="fa fa-map-marker"></i> Địa chỉ</span> cửa hàng</a></div>
+                    <div class="support-hotline"><span class="d-block upper redcolor"><i class="fa fa-phone"></i> Hotline</span>
+                        <span class="phone-numbers-inline"><a href="tel:19000325" rel="nofollow"
+                                                              class="gg-phone-conversion">19000325</a></span></div>
                 </div>
             </div><!-- help - support-->
         </div>
@@ -95,151 +103,200 @@
 
     <!-- mega menu -->
 
-  <nav class="navbar navbar-default" id="megaMenu">
+    <nav class="navbar navbar-default" id="megaMenu">
 
-   <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
 
 
-    <div class="collapse navbar-collapse js-navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="dropdown mega-dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Danh mục sản phẩm</a>
+            <div class="collapse navbar-collapse js-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="toogleDropdown" class="dropdown mega-dropdown mn-lv1">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Danh mục
+                            sản phẩm</a>
 
-          <ul class="dropdown-menu mega-dropdown-menu row">
-            <li class="col-sm-3">
-              <ul>
-                <li class="dropdown-header">New in Stores</li>
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                  <div class="carousel-inner">
-                    <div class="item active">
-                      <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
-                      <h4><small>Summer dress floral prints</small></h4>
-                      <button class="btn btn-primary" type="button">49,99 €</button>
-                      <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
-                    </div>
-                    <!-- End Item -->
-                    <div class="item">
-                      <a href="#"><img src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
-                      <h4><small>Gold sandals with shiny touch</small></h4>
-                      <button class="btn btn-primary" type="button">9,99 €</button>
-                      <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
-                    </div>
-                    <!-- End Item -->
-                    <div class="item">
-                      <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
-                      <h4><small>Denin jacket stamped</small></h4>
-                      <button class="btn btn-primary" type="button">49,99 €</button>
-                      <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>
-                    </div>
-                    <!-- End Item -->
-                  </div>
-                  <!-- End Carousel Inner -->
-                </div>
-                <!-- /.carousel -->
-                <li class="divider"></li>
-                <li><a href="#">View all Collection <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-              </ul>
-            </li>
-            <li class="col-sm-3">
-              <ul>
-                <li class="dropdown-header">Dresses</li>
-                <li><a href="#">Unique Features</a></li>
-                <li><a href="#">Image Responsive</a></li>
-                <li><a href="#">Auto Carousel</a></li>
-                <li><a href="#">Newsletter Form</a></li>
-                <li><a href="#">Four columns</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Tops</li>
-                <li><a href="#">Good Typography</a></li>
-              </ul>
-            </li>
-            <li class="col-sm-3">
-              <ul>
-                <li class="dropdown-header">Jackets</li>
-                <li><a href="#">Easy to customize</a></li>
-                <li><a href="#">Glyphicons</a></li>
-                <li><a href="#">Pull Right Elements</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Pants</li>
-                <li><a href="#">Coloured Headers</a></li>
-                <li><a href="#">Primary Buttons & Default</a></li>
-                <li><a href="#">Calls to action</a></li>
-              </ul>
-            </li>
-            <li class="col-sm-3">
-              <ul>
-                <li class="dropdown-header">Accessories</li>
-                <li><a href="#">Default Navbar</a></li>
-                <li><a href="#">Lovely Fonts</a></li>
-                <li><a href="#">Responsive Dropdown </a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Newsletter</li>
-                <form class="form" role="form">
-                  <div class="form-group">
-                    <label class="sr-only" for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email">
-                  </div>
-                  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                </form>
-              </ul>
-            </li>
-          </ul>
+                        <ul class="dropdown-menu mega-dropdown-menu row">
+                            <li class="col-sm-15">
+                                <ul>
+                                    <li class="dropdown-header">New in Stores</li>
+                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="item active">
+                                                <a href="#"><img
+                                                            src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection"
+                                                            class="img-responsive" alt="product 1"></a>
+                                                <h4>
+                                                    <small>Summer dress floral prints</small>
+                                                </h4>
+                                                <button class="btn btn-primary" type="button">49,99 €</button>
+                                                <button href="#" class="btn btn-default" type="button"><span
+                                                            class="glyphicon glyphicon-heart"></span> Add to Wishlist
+                                                </button>
+                                            </div>
+                                            <!-- End Item -->
+                                            <div class="item">
+                                                <a href="#"><img
+                                                            src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection"
+                                                            class="img-responsive" alt="product 2"></a>
+                                                <h4>
+                                                    <small>Gold sandals with shiny touch</small>
+                                                </h4>
+                                                <button class="btn btn-primary" type="button">9,99 €</button>
+                                                <button href="#" class="btn btn-default" type="button"><span
+                                                            class="glyphicon glyphicon-heart"></span> Add to Wishlist
+                                                </button>
+                                            </div>
+                                            <!-- End Item -->
+                                            <div class="item">
+                                                <a href="#"><img
+                                                            src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection"
+                                                            class="img-responsive" alt="product 3"></a>
+                                                <h4>
+                                                    <small>Denin jacket stamped</small>
+                                                </h4>
+                                                <button class="btn btn-primary" type="button">49,99 €</button>
+                                                <button href="#" class="btn btn-default" type="button"><span
+                                                            class="glyphicon glyphicon-heart"></span> Add to Wishlist
+                                                </button>
+                                            </div>
+                                            <!-- End Item -->
+                                        </div>
+                                        <!-- End Carousel Inner -->
+                                    </div>
+                                    <!-- /.carousel -->
+                                    <li class="divider"></li>
+                                    <li><a href="#">View all Collection <span
+                                                    class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-15">
+                                <ul>
+                                    <li class="dropdown-header">Dresses</li>
+                                    <li><a href="#">Unique Features</a></li>
+                                    <li><a href="#">Image Responsive</a></li>
+                                    <li><a href="#">Auto Carousel</a></li>
+                                    <li><a href="#">Newsletter Form</a></li>
+                                    <li><a href="#">Four columns</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Tops</li>
+                                    <li><a href="#">Good Typography</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-15">
+                                <ul>
+                                    <li class="dropdown-header">Jackets</li>
+                                    <li><a href="#">Easy to customize</a></li>
+                                    <li><a href="#">Glyphicons</a></li>
+                                    <li><a href="#">Pull Right Elements</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Pants</li>
+                                    <li><a href="#">Coloured Headers</a></li>
+                                    <li><a href="#">Primary Buttons & Default</a></li>
+                                    <li><a href="#">Calls to action</a></li>
+                                </ul>
+                            </li>
+                            <li class="col-sm-15">
+                                <ul>
+                                    <li class="dropdown-header">Accessories</li>
+                                    <li><a href="#">Default Navbar</a></li>
+                                    <li><a href="#">Lovely Fonts</a></li>
+                                    <li><a href="#">Responsive Dropdown </a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Newsletter</li>
+                                    <form class="form" role="form">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="email">Email address</label>
+                                            <input type="email" class="form-control" id="email"
+                                                   placeholder="Enter email">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                    </form>
+                                </ul>
+                            </li>
 
-        </li>
+                            <li class="col-sm-15">
+                                <ul>
+                                    <li class="dropdown-header">Accessories</li>
+                                    <li><a href="#">Default Navbar</a></li>
+                                    <li><a href="#">Lovely Fonts</a></li>
+                                    <li><a href="#">Responsive Dropdown </a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">Newsletter</li>
+                                    <form class="form" role="form">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="email">Email address</label>
+                                            <input type="email" class="form-control" id="email"
+                                                   placeholder="Enter email">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                                    </form>
+                                </ul>
+                            </li>
+                        </ul>
 
-        <li>
-            <a href="{!!url('mobile')!!}">Đồng hồ nam </a>
-        </li>
+                    </li>
 
-        <li>
-            <a href="{!!url('laptop')!!}"> Đồng hồ Thụy Sĩ </a>
-        </li>
-        <li>
-            <a href="{!!url('pc')!!}"> Video Xchannel </a>
-        </li>
-        <li>
-            <a href="{!!url('tin-tuc')!!}"> Kiến thức đồng hồ </a>
-        </li>
-         <li>
-            <a href="{!!url('tin-tuc')!!}"> Về Xwatch </a>
-        </li>
-         <li>
-            <a href="{!!url('tin-tuc')!!}"> Liên hệ </a>
-        </li>
+                    <li class="{!! set_active('mobile') !!} mn-lv1">
+                        <a href="{!!url('mobile')!!}">Đồng hồ nam </a>
+                    </li>
 
-        <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
+                    <li class="{!! set_active('laptop') !!} mn-lv1">
+                        <a href="{!!url('laptop')!!}"> Đồng hồ Thụy Sĩ </a>
+                    </li>
+                    <li class="{!! set_active('pc') !!} mn-lv1">
+                        <a href="{!!url('pc')!!}"> Video Xchannel </a>
+                    </li>
+                    <li class="dropdown mn-lv1">
+                        <a href="{!!url('tin-tuc')!!}" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false">Kiến thức đồng hồ <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{!!url('tin-tuc')!!}"> Về Xwatch </a>
+                    </li>
+                    <li>
+                        <a href="{!!url('tin-tuc')!!}"> Liên hệ </a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
-              </li>
 
-      </ul>
+            </div>
+            <!-- /.nav-collapse -->
 
-    </div>
-    <!-- /.nav-collapse -->
-  
-    </div>
+        </div>
 
-</nav>
+    </nav>
 
-<!-- end mega menu -->
+    <!-- end mega menu -->
 
 </div>
 <!-- main menu  navbar -->
-
 
 
 <!-- left slider bar nav -->

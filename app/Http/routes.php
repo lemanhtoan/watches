@@ -47,7 +47,7 @@ Route::group(['middleware' => 'admin'], function () {
            Route::get('edit/{id}',['as'  =>'geteditcat','uses' => 'CategoryController@getedit'])->where('id','[0-9]+');
            Route::post('edit/{id}',['as' =>'posteditcat','uses' => 'CategoryController@postedit'])->where('id','[0-9]+');
     	});
-         // -------------------- quan ly danh muc--------------------
+         // -------------------- quan ly san pham--------------------
         Route::group(['prefix' => '/sanpham'], function() {
            Route::get('/{loai}/add',['as'        =>'getaddpro','uses' => 'ProductsController@getadd']);
            Route::post('/{loai}/add',['as'       =>'postaddpro','uses' => 'ProductsController@postadd']);
@@ -58,7 +58,7 @@ Route::group(['middleware' => 'admin'], function () {
            Route::get('/{loai}/edit/{id}',['as'  =>'geteditpro','uses' => 'ProductsController@getedit'])->where('id','[0-9]+');
            Route::post('/{loai}/edit/{id}',['as' =>'posteditpro','uses' => 'ProductsController@postedit'])->where('id','[0-9]+');
       });
-       // -------------------- quan ly danh muc-----------------------------
+       // -------------------- quan ly tin tuc-----------------------------
         Route::group(['prefix' => '/news'], function() {
            Route::get('/add',['as'        =>'getaddnews','uses' => 'NewsController@getadd']);
            Route::post('/add',['as'       =>'postaddnews','uses' => 'NewsController@postadd']);

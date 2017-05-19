@@ -570,7 +570,7 @@ a.bg-danger:hover {
 .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
 	color: #fff;
 	background-color: #30a5ff;
-}*/
+}
 
 .sidebar ul.nav ul,
 .sidebar ul.nav ul li {
@@ -927,6 +927,15 @@ h1.page-header {
 	border-color: #ddd;
 	height: 65px;
 	overflow: scroll;
+}
+
+/*CUSTOM CSS*/
+li.end-item {
+	position: fixed;
+	bottom: 50px;
+	left: 15px;
+	color: #30a5ff;
+	font-weight: bold;
 }
 
 

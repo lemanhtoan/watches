@@ -6,6 +6,6 @@ config trong file .env cho phù hợp  localhost/url
 
 Link và tk admin: acc admin:  /admin/login
 
-email: scodeweb2016 @gmail.com
+email: toanktv.it@gmail.com
 
 pass: 1212123

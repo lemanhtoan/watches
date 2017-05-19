@@ -17,7 +17,7 @@
         ?>
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Dashboard</h1>
+				<h1 class="page-header">Quản trị Shop</h1>
 			</div>
 		</div><!--/.row-->
 		
@@ -30,7 +30,7 @@
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
 							<div class="large">{!!$oder!!}</div>
-							<div class="text-muted"> tổng đơn hàng</div>
+							<div class="text-muted"> Tổng đơn hàng</div>
 						</div>
 					</div>
 				</div>
@@ -128,11 +128,7 @@
 			</div>
 		</div><!--/.row-->
 								
-		<div class="row">
-			<div class="col-md-8">
-				<small>Coppyright 2016</small>
-			</div><!--/.col-->
-		</div><!--/.row-->
+
 	</div>	<!--/.main-->
 <!-- =====================================main content - noi dung chinh trong chu -->
 @endsection

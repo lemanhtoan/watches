@@ -5,13 +5,13 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Dơn đặt hàng</li>
+				<li class="active">Khách hàng</li>
 			</ol>
 		</div><!--/.row-->
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel-heading">
-					Danh sách đơn đặt hàng						
+					Danh sách Khách hàng
 				</div>
 				<div class="panel panel-default">					
 					@if (count($errors) > 0)

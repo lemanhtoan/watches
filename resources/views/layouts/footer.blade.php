@@ -2,8 +2,7 @@
       <div class="container">
         <hr>
         <footer>
-          © 2007 - 2016 Công Ty Cổ Phần Bán Lẻ Kỹ Thuật Số SCODEWEB / Địa chỉ: TP. BMT / GPĐKKD số: Websitr đang thử nghiệm. <br>
-          Thiết Kế Bởi : <a href="https://www.facebook.com/scodeweb" title="" target="#">Lhson</a>
+          © <?php echo date('Y'); ?> Công Ty Cổ Phần Watches / Địa chỉ: TP. HN / GPĐKKD số: Website đang thử nghiệm. <br>
       </footer>
       </div>
     </div>
@@ -29,7 +28,8 @@
     <script src="{!!url('public/js/validate/jquery.validate.min.js')!!}"></script>
     <script src="{!!url('public/js/validate/jquery.validate.js')!!}"></script>
 
-    <script type='text/javascript' src='{!!url('public/js/site.js')!!}'></script> 
+    <script src="{!!url('public/js/owl-carousel/owl.carousel.js')!!}"></script>
+    <script type='text/javascript' src="{!!url('public/js/site.js')!!}"></script>
 
   </body>
 </html>

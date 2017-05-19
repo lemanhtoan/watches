@@ -43,4 +43,10 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="{!!url('public/css/owl-carousel/owl.carousel.css')!!}">
+
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="{!!url('public/css/owl-carousel/owl.theme.css')!!}">
+
   </head>
