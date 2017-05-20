@@ -38,9 +38,8 @@
 				      		<div class="form-group">
 					      		<label for="input-id">Chọn danh mục</label>
 					      		<select name="sltCate" id="inputSltCate" required class="form-control">
-					      			<option value="">--Chọn thương hiệu--</option>
 					      			@foreach($cat as $dt)
-					      				<option value="{!!$dt->id!!}" >{!!'--|--|'.$dt->name!!}</option> 	
+					      				<option <?php if ($pro["cat_id"] == $dt->id) { echo "selected='selected'";} ?> value="{!!$dt->id!!}" >{!!'--|--|'.$dt->name!!}</option>
 					      			@endforeach	
 					      		</select>
 				      		</div>
@@ -48,6 +47,10 @@
 				      			<label for="input-id">Tên sản phẩm</label>
 				      			<input type="text" name="txtname" id="inputTxtname" class="form-control" value="{!! old('txtname',isset($pro["name"]) ? $pro["name"] : null) !!}"  required="required">
 				      		</div>
+							<div cclass="form-group">
+								<label for="input-id">Giá bán</label>
+								<input type="number" name="txtprice" id="inputtxtprice" class="form-control" value="{!! old('txtproname',isset($pro["price"]) ? $pro["price"] : null) !!}" required="required">
+							</div>
 				      		<div class="form-group">
 				      			<label for="input-id">Điểm nổi bật</label>
 				      			<input type="text" name="txtintro" id="inputTxtintro" class="form-control" value="{!! old('txtintro',isset($pro["intro"]) ? $pro["intro"] : null) !!}" required="required">
@@ -57,27 +60,24 @@
 				      			<input type="text" name="txtpacket" id="inputtxtpacket" value="{!! old('txtpacket',isset($pro["packet"]) ? $pro["packet"] : null) !!}" class="form-control" >
 				      		</div>
 				      		<div class="form-group">
-				      			<label for="input-id">Khuyễn mãi (tối đa 3 mục vào 3 ô)</label>
+				      			<label for="input-id">Khuyến mãi (tối đa 3 mục vào 3 ô)</label>
 				      			<div class="row">
 					      			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					      				khuyễn mại 1 : <input type="text" name="txtpromo1" id="inputtxtpromo1" value="{!! old('txtpromo1',isset($pro["promo1"]) ? $pro["promo1"] : null) !!}" class="form-control" >
+										Khuyến mãi 1 : <input type="text" name="txtpromo1" id="inputtxtpromo1" value="{!! old('txtpromo1',isset($pro["promo1"]) ? $pro["promo1"] : null) !!}" class="form-control" >
 					      			</div>
 					      			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					      				khuyễn mại 2 : <input type="text" name="txtpromo2" id="inputtxtpromo2" value="{!! old('txtpromo2',isset($pro["promo2"]) ? $pro["promo2"] : null) !!}" class="form-control" >
+										Khuyến mãi 2 : <input type="text" name="txtpromo2" id="inputtxtpromo2" value="{!! old('txtpromo2',isset($pro["promo2"]) ? $pro["promo2"] : null) !!}" class="form-control" >
 					      			</div>
 					      			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					      				khuyễn mại 3 : <input type="text" name="txtpromo3" id="inputtxtpromo3" value="{!! old('txtpromo3',isset($pro["promo3"]) ? $pro["promo3"] : null) !!}" class="form-control" >
+										Khuyến mãi 3 : <input type="text" name="txtpromo3" id="inputtxtpromo3" value="{!! old('txtpromo3',isset($pro["promo3"]) ? $pro["promo3"] : null) !!}" class="form-control" >
 					      			</div>
 					      		</div>				      			
 				      		</div>
 				      		<div class="form-group">				      			
 				      			<div class="row">
-					      			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					      			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					      				Hình ảnh : <input type="file" name="txtimg" accept="image/png" id="inputtxtimg"  class="form-control" >
-					      				Ảnh cũ: <img src="{!!url('uploads/products/'.$pro->images)!!}" alt="{!!$pro->images!!}" width="80" height="60">
-					      			</div>
-					      			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-					      				Giá bán : <input type="number" name="txtprice" id="inputtxtprice" class="form-control" value="{!! old('txtproname',isset($pro["price"]) ? $pro["price"] : null) !!}" required="required">
+					      				Ảnh cũ: <img src="{!!url('uploads/products/'.$pro->images)!!}" alt="{!!$pro->images!!}" width="80">
 					      			</div>
 					      			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 					      				Tag : <input type="text" name="txttag" id="inputtag" value="{!! old('txtproname',isset($pro["tag"]) ? $pro["tag"] : null) !!}" class="form-control">
@@ -86,50 +86,63 @@
 				      		</div>
 				      	@if($loai!=19)
 				      		<div class="form-group">
-				      			<label for="input-id"> Chi tiết cấu hình sản phẩm</label>
+
+								<label for="input-id"> Chi tiết cấu hình sản phẩm</label>
 				      			<div class="row">
-					      			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-					      				Cpu : <input type="text" name="txtCpu" id="inputtxtCpu" value="{!! old('txtCpu',isset($pro->pro_details->cpu) ? $pro->pro_details->cpu : null) !!}" class="form-control" >
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Phân nhóm : <input type="text" name="w_group" value="{!! old('w_group',isset($pro->pro_details->w_group) ? $pro->pro_details->w_group : null) !!}" class="form-control" >
 					      			</div>
-					      			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-					      				RAM : <input type="text" name="txtRam" id="inputtxtRam" value="{!! old('txtRam',isset($pro->pro_details->ram) ? $pro->pro_details->ram : null) !!}" class="form-control" >
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Nhãn hiệu : <input type="text" name="w_branch" value="{!! old('w_branch',isset($pro->pro_details->w_branch) ? $pro->pro_details->w_branch : null) !!}" class="form-control" >
 					      			</div>
-					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
-					      				Bộ nhớ trong : <input type="text" name="txtStorage" id="inputtxtStorage" value="{!! old('txtStorage',isset($pro->pro_details->storage) ? $pro->pro_details->storage : null) !!}" class="form-control" >
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Xuất xứ : <input type="text" name="w_country" value="{!! old('w_country',isset($pro->pro_details->w_country) ? $pro->pro_details->w_country : null) !!}" class="form-control" >
 					      			</div>
-					      			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2" style="padding-left: 0;">
-					      				Thẻ nhớ <input type="text" name="txtExtend" id="inputtxtExtend" value="{!! old('txtExtend',isset($pro->pro_details->exten_memmory) ? $pro->pro_details->exten_memmory : null) !!}" class="form-control">
-					      			</div>
-					      		</div>
-					      		<div class="row">
-					      			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					      				Màn hình : <input type="text" name="txtScreen" id="inputtxtscreen" value="{!! old('txtScreen',isset($pro->pro_details->screen) ? $pro->pro_details->screen : null) !!}" class="form-control" >
-					      			</div>
-					      			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					      				VGA : <input type="text" name="txtVga" id="inputtxtVga" value="{!! old('txtVga',isset($pro->pro_details->vga) ? $pro->pro_details->vga : null) !!}" class="form-control">
-					      			</div>
-					      			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-					      				Cammera Trước : <input type="text" name="txtCam1" id="inputtxtCam1" value="{!! old('txtCam1',isset($pro->pro_details->cam1) ? $pro->pro_details->cam1 : null) !!}" class="form-control" >
-					      			</div>
-					      			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-					      				Cammera Sau: <input type="text" name="txtCam2" id="inputtxtCam2" value="{!! old('txtCam2',isset($pro->pro_details->cam2) ? $pro->pro_details->cam2 : null) !!}" class="form-control" >
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Dòng sản phẩm: <input type="text" name="w_role"  value="{!! old('w_role',isset($pro->pro_details->w_role) ? $pro->pro_details->w_role : null) !!}" class="form-control">
 					      			</div>
 					      		</div>
 					      		<div class="row">
-					      			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					      				SIM hỗ trợ : <input type="text" name="txtSIM" id="inputtxtSIM" value="{!! old('txtSIM',isset($pro->pro_details->sim) ? $pro->pro_details->sim : null) !!}" class="form-control" >
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Kiểu máy : <input type="text" name="w_type"  value="{!! old('w_type',isset($pro->pro_details->w_type) ? $pro->pro_details->w_type : null) !!}" class="form-control" >
 					      			</div>
-					      			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					      				Kết nối : <input type="text" name="txtConnect" id="inputtxtConnect" value="{!! old('txtConnect',isset($pro->pro_details->connect) ? $pro->pro_details->connect : null) !!}" class="form-control">
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Đồng hồ dành cho :
+										<select name="w_sex" id="w_sex" required class="form-control">
+											<option <?php if ($pro->pro_details->w_sex == 'Nam') { echo "selected='selected'";} ?> value="Nam" >Nam</option>
+											<option <?php if ($pro->pro_details->w_sex == 'Nữ') { echo "selected='selected'";} ?> value="Nữ" >Nữ</option>
+										</select>
 					      			</div>
-					      			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-					      				PIN : <input type="text" name="txtPin" id="inputtxtPin" value="{!! old('txtPin',isset($pro->pro_details->pin) ? $pro->pro_details->pin : null) !!}" class="form-control" >
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Kích cỡ : <input type="text" name="w_size"  value="{!! old('w_size',isset($pro->pro_details->w_size) ? $pro->pro_details->w_size : null) !!}" class="form-control" >
 					      			</div>
-					      			<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-					      				Hệ điều hành : <input type="text" name="txtOs" id="inputtxtOs" value="{!! old('txtOs',isset($pro->pro_details->os) ? $pro->pro_details->os : null) !!}" class="form-control" >
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Chất liệu vỏ: <input type="text" name="w_out"  value="{!! old('w_out',isset($pro->pro_details->w_out) ? $pro->pro_details->w_out : null) !!}" class="form-control" >
 					      			</div>
-					      		</div>				      			
-				      		</div>
+					      		</div>
+					      		<div class="row">
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Chất liệu dây : <input type="text" name="w_in"  value="{!! old('w_in',isset($pro->pro_details->w_in) ? $pro->pro_details->w_in : null) !!}" class="form-control" >
+					      			</div>
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Chất liệu kính : <input type="text" name="w_on"  value="{!! old('w_on',isset($pro->pro_details->w_on) ? $pro->pro_details->w_on : null) !!}" class="form-control">
+					      			</div>
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Độ chịu nước : <input type="text" name="w_water"  value="{!! old('w_water',isset($pro->pro_details->w_water) ? $pro->pro_details->w_water : null) !!}" class="form-control" >
+					      			</div>
+					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Chức năng khác : <input type="text" name="w_other"  value="{!! old('w_other',isset($pro->pro_details->w_other) ? $pro->pro_details->w_other : null) !!}" class="form-control" >
+					      			</div>
+					      		</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Bảo hiểm : <input type="text" name="w_time"  value="{!! old('w_time',isset($pro->pro_details->w_time) ? $pro->pro_details->w_time : null) !!}" class="form-control" >
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Bảo hành quốc tế : <input type="text" name="w_time_base"  value="{!! old('w_time_base',isset($pro->pro_details->w_time_base) ? $pro->pro_details->w_time_base : null) !!}" class="form-control">
+									</div>
+								</div>
+							</div>
 				      	@else
 				      	<div class="form-group">
 				      			<label for="input-id"> Chi tiết cấu hình sản phẩm</label>
@@ -181,7 +194,7 @@
 					      			@foreach($pro->detail_img as $row)
 					      				<?php $stt++; ?>
 					      				<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">						 
-						      				Ảnh cũ: {!!$stt!!}<img src="{!!url('uploads/products/details/'.$row->images_url)!!}" alt="{!!$row->images_url!!}" width="80" height="60">
+						      				Ảnh cũ: {!!$stt!!}<img src="{!!url('uploads/products/details/'.$row->images_url)!!}" alt="{!!$row->images_url!!}" width="80">
 						      			</div>
 					      			@endforeach
 					      		</div>

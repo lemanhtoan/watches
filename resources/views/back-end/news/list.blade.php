@@ -41,7 +41,7 @@
 										<th>Tiêu đề bản tin</th>										
 										<th>Tóm tắt</th>										
 										<th>Trạng thái</th>										
-										<th>Action</th>
+										<th>Hành động</th>
 									</tr>
 								</thead>
 								<tbody>

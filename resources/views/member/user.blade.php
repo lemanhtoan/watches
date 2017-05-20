@@ -23,7 +23,7 @@
 								<td>{!!$stt!!}</td>
 								<td>{!!$row->id!!}</td>
 								<td>{!!$row->created_at!!}</td>
-								<td>{!! number_format($row->total) !!} Vnđ</td>
+								<td>{!! number_format($row->total) !!} đ</td>
 							</tr>
 						@endforeach							
 					</tbody>

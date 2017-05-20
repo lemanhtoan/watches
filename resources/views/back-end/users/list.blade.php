@@ -41,7 +41,7 @@
 										<th>Email</th>										
 										<th>Ngày đăng ký</th>
 										<th>Trạng thái</th>
-										<th>Action</th>
+										<th>Hành động</th>
 									</tr>
 								</thead>
 								<tbody>

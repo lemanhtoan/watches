@@ -19,14 +19,14 @@
                   <div class="row">
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
                       <div class="img-box">
-                        <img class="img-responsive img-mobile" src="{!!url('public/uploads/products/'.$data->images)!!}" alt="img responsive">
+                        <img class="img-responsive img-mobile" src="{!!url('/uploads/products/'.$data->images)!!}" alt="img responsive">
                       </div>
                       <div class="img-slide">
                         <div class="panel panel-default text-center">        
                           <div id="links">
                             @foreach($data->detail_img as $row)
                               <a href="{!!url('uploads/products/details/'.$row->images_url)!!}" title="{!!$data->name!!}" data-gallery>
-                                  <img src="{!!url('public/uploads/products/details/'.$row->images_url)!!}" alt="{!!$data->name!!}" width="30" height="40">
+                                  <img src="{!!url('/uploads/products/details/'.$row->images_url)!!}" alt="{!!$data->name!!}" width="30" height="40">
                               </a>
                             @endforeach                              
                           </div>
@@ -112,49 +112,65 @@
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th colspan="2">CẤU HÌNH CHI TIẾT SẢN PHẨM</th>
+                          <th colspan="2">Thông số kỹ thuật</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td>Màn hình</td>
-                          <td>{!!$data->pro_details->screen!!}</td>
+                          <td>Phân nhóm</td>
+                          <td>{!!$data->pro_details->w_group!!}</td>
                         </tr>
                         <tr>
-                          <td>Hệ điều hành</td>
-                          <td>{!!$data->pro_details->os!!}</td>
+                          <td>Nhãn hiệu</td>
+                          <td>{!!$data->pro_details->w_branch!!}</td>
                         </tr>
                         <tr>
-                          <td>Cammera trước</td>
-                          <td>{!!$data->pro_details->cam1!!}</td>
+                          <td>Xuất xứ</td>
+                          <td>{!!$data->pro_details->w_country!!}</td>
                         </tr>
                         <tr>
-                          <td>Cammera sau</td>
-                          <td>{!!$data->pro_details->cam2!!}</td>
+                          <td>Dòng sản phẩm</td>
+                          <td>{!!$data->pro_details->w_role!!}</td>
                         </tr>
                         <tr>
-                          <td>CPU</td>
-                          <td>{!!$data->pro_details->cpu!!}</td>
+                          <td>Kiểu máy</td>
+                          <td>{!!$data->pro_details->w_type!!}</td>
                         </tr>
                         <tr>
-                          <td>RAM</td>
-                          <td>{!!$data->pro_details->ram!!}</td>
+                          <td>Đồng hồ dành cho</td>
+                          <td>{!!$data->pro_details->w_sex!!}</td>
                         </tr>
                         <tr>
-                          <td>Bộ nhớ trong</td>
-                          <td>{!!$data->pro_details->storage!!}</td>
+                          <td>Kích cỡ</td>
+                          <td>{!!$data->pro_details->w_size!!}</td>
                         </tr>
                         <tr>
-                          <td>Hỗ trợ thẻ nhớ</td>
-                          <td>{!!$data->pro_details->exten_memmory!!}</td>
+                          <td>Chất liệu vỏ</td>
+                          <td>{!!$data->pro_details->w_out!!}</td>
                         </tr>
                         <tr>
-                          <td>Thẻ SIM</td>
-                          <td>{!!$data->pro_details->sim!!}</td>
+                          <td>Chất liệu dây</td>
+                          <td>{!!$data->pro_details->w_in!!}</td>
                         </tr>
                         <tr>
-                          <td>Dung lượng PIN</td>
-                          <td>{!!$data->pro_details->pin!!}</td>
+                          <td>Chất liệu kính</td>
+                          <td>{!!$data->pro_details->w_on!!}</td>
+                        </tr>
+                        <tr>
+                            <td>Độ chịu nước</td>
+                            <td>{!!$data->pro_details->w_water!!}</td>
+                        </tr>
+                        <tr>
+                            <td>Chức năng khác</td>
+                            <td>{!!$data->pro_details->w_other!!}</td>
+                        </tr>
+                        <tr>
+                            <td>Bảo hiểm</td>
+                            <td>{!!$data->pro_details->w_time!!}</td>
+                        </tr>
+                        <tr>
+                            <td>Bảo hành quốc tế</td>
+                            <td>{!!$data->pro_details->w_time_base!!}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -168,8 +184,8 @@
                       </div>
                       <div id="links">
                         @foreach($data->detail_img as $row)
-                          <a href="{!!url('uploads/products/details/'.$row->images_url)!!}" title="{!!$data->name!!}" data-gallery>
-                              <img src="{!!url('public/uploads/products/details/'.$row->images_url)!!}" alt="{!!$data->name!!}"  width="25%" height="120">
+                          <a href="{!!url('/uploads/products/details/'.$row->images_url)!!}" title="{!!$data->name!!}" data-gallery>
+                              <img src="{!!url('/uploads/products/details/'.$row->images_url)!!}" alt="{!!$data->name!!}"  width="25%" height="120">
                           </a>
                         @endforeach                          
                       </div>
@@ -253,56 +269,26 @@
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
                 ->where('category.parent_id','=','1')
-                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
+                ->select('products.*','pro_details.*')
                 ->orderBy('products.created_at', 'desc')
                 ->paginate(2); 
 
         ?>
-        @foreach($mobile as $row)
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
-            <div class="thumbnail mobile">              
-              <div class="bt">
-                <div class="image-m pull-left">
-                  <img class="img-responsive" src="{!!url('public/uploads/products/'.$row->images)!!}" alt="{!!$row->name!!}">
-                </div>
-                <div class="intro pull-right">
-                  <h1><small class="title-mobile">{!!$row->name!!}</small></h1>
-                  <li>{!!$row->intro!!}</li>
-                  <span class="label label-info">Khuyễn mãi</span>   
-                  @if ($row->promo1!='')
-                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo1!!}</li>
-                  @elseif($row->promo2!='')
-                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo2!!}</li>
-                  @elseif ($row->promo3!='')
-                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>
-                  @endif 
-                    <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li> 
-                </div><!-- /div introl -->
-              </div> <!-- /div bt -->
-              <div class="ct">
-                <a href="{!!url('mobile/'.$row->id.'-'.$row->slug)!!}" title="Chi tiết">
-                  <span class="label label-info">Ưu đãi khi mua</span>   
-                  @if ($row->promo1!='')
-                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo1!!}</li>
-                  @elseif($row->promo2!='')
-                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo2!!}</li>
-                  @elseif ($row->promo3!='')
-                    <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>
-                  @endif 
-                    <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li> 
-                  <span class="label label-warning">Cấu Hình Nổi bật</span> 
-                  <li><strong>CPU</strong> : <i>  {!!$row->cpu!!}</i></li>
-                  <li><strong>Màn Hình</strong> : <i>{!!$row->screen!!} </i></li> 
-                  <li><strong>Camera</strong> : Trước  <i>{!!$row->cam1!!}</i> Sau <i>{!!$row->cam2!!}</i></li> 
-                  <li><strong>HĐH</strong> :<i> {!!$row->os!!} </i> <strong> Bộ nhớ trong</strong> :<i> {!!$row->storage!!} </i></li> 
-                  <li><strong>Pin</strong> :<i> {!!$row->pin!!}</i></li>
-                </a>
-              </div>
-                <span class="btn label-warning"><strong>{!!number_format($row->price)!!}</strong>Vnd </span>
-                <a href="{!!url('gio-hang/addcart/'.$row->id)!!}" class="btn btn-success pull-right add">Thêm vào giỏ </a>
-            </div> <!-- / div thumbnail -->
-          </div>  <!-- /div col-4 -->
-        @endforeach        
+            @foreach($mobile as $row)
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 item-pro">
+                    <div class="pro-image">
+                        <a href="{!!url('laptop/'.$row->id.'-'.$row->slug)!!}">
+                            <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
+                        </a>
+                    </div>
+                    <div class="pro-title">
+                        <h1><a href="{!!url('mobile/'.$row->id.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
+                    </div> <!-- /div bt -->
+                    <div class="pro-price">
+                        {!!$row->price!!} đ
+                    </div>
+                </div>  <!-- /div col-4 -->
+            @endforeach
 
         </div>
       </div> <!-- /panel info 2  quản cáo 1          -->
@@ -313,24 +299,12 @@
         <h3 class="panel-title text-center">Sự kiện HOT</h3>
       </div>
       <div class="panel-body no-padding">
-       <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/qc1.png')!!}" alt="" width="100%" height="100%"> </a> <br>
-        <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/qc2.png')!!}" alt="" width="100%" height="100%"> </a> <br>
-        <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/qc3.png')!!}" alt="" width="100%" height="100%"> </a>
-        <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/qc4.png')!!}" alt="" width="100%" height="100%"> </a>
-        <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/qc5.png')!!}" alt="" width="100%" height="100%"> </a>
+       <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/bn1.png')!!}" alt="" width="100%" height="100%"> </a> <br>
+        <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/bn2.jpg')!!}" alt="" width="100%" height="100%"> </a> <br>
+        <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/bn3.jpg')!!}" alt="" width="100%" height="100%"> </a>
       </div>
     </div> <!-- /panel info 2  quản cáo 1          -->        
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h3 class="panel-title">Thống kê</h3>
-      </div>
-      <div class="panel-body">
-        <p>Số bài viết: 124556</p>
-        <p>Số Thành Viên : 12435</p>
-        <p>Số Thành Viên Online: 2435</p>
-        <p>Số Người Đang Xem : 435</p>
-      </div>
-    </div>
+
      <!-- /panel info 2  quản cáo 1          -->  
      <!-- fan pages myweb -->
     <div class="panel panel-info">

@@ -49,4 +49,8 @@
     <!-- Default Theme -->
     <link rel="stylesheet" href="{!!url('public/css/owl-carousel/owl.theme.css')!!}">
 
+    <link rel="stylesheet" href="{!!url('public/mega/css/reset.css')!!}">
+    <link rel="stylesheet" href="{!!url('public/mega/css/style.css')!!}">
+
+    <script src="{!!url('public/mega/js/modernizr.js')!!}"></script>
   </head>

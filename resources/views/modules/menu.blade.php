@@ -103,7 +103,7 @@
 
     <!-- mega menu -->
 
-    <nav class="navbar navbar-default" id="megaMenu">
+    <nav style="display: none" class="navbar navbar-default" id="megaMenu">
 
         <div class="container">
             <div class="navbar-header">
@@ -293,6 +293,259 @@
 
     </nav>
 
+    <div class="container">
+        <nav id="mainMenu">
+        <ul>
+            <li class="mn-lv1">
+                <div class="cd-dropdown-wrapper">
+                    <a class="cd-dropdown-trigger a-lv1" href="">Danh mục sản phẩm</a>
+                    <nav class="cd-dropdown">
+                        <h2>Title</h2>
+                        <a href="" class="cd-close">Close</a>
+                        <ul class="cd-dropdown-content">
+                            <li class="has-children">
+                                <a href="">Clothing</a>
+
+                                <ul class="cd-secondary-dropdown is-hidden">
+                                    <li class="go-back"><a href="">Menu</a></li>
+                                    <li class="see-all"><a href="">All Clothing</a></li>
+                                    <li class="has-children">
+                                        <a href="">Accessories</a>
+
+                                        <ul class="is-hidden">
+                                            <li class="go-back"><a href="">Clothing</a></li>
+                                            <li class="see-all"><a href="">All Accessories</a></li>
+                                            <li><a href="">Glasses</a></li>
+                                            <li><a href="">Gloves</a></li>
+                                            <li><a href="">Jewellery</a></li>
+                                            <li><a href="">Scarves</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="has-children">
+                                        <a href="">Bottoms</a>
+
+                                        <ul class="is-hidden">
+                                            <li class="go-back"><a href="">Clothing</a></li>
+                                            <li class="see-all"><a href="">All Bottoms</a></li>
+                                            <li><a href="">Casual Trousers</a></li>
+                                            <li><a href="">Leggings</a></li>
+                                            <li><a href="">Shorts</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="has-children">
+                                        <a href="">Jackets</a>
+
+                                        <ul class="is-hidden">
+                                            <li class="go-back"><a href="">Clothing</a></li>
+                                            <li class="see-all"><a href="">All Jackets</a></li>
+                                            <li><a href="">Blazers</a></li>
+                                            <li><a href="">Bomber jackets</a></li>
+                                            <li><a href="">Denim Jackets</a></li>
+                                            <li><a href="">Duffle Coats</a></li>
+                                            <li><a href="">Leather Jackets</a></li>
+                                            <li><a href="">Parkas</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="has-children">
+                                        <a href="">Tops</a>
+
+                                        <ul class="is-hidden">
+                                            <li class="go-back"><a href="">Clothing</a></li>
+                                            <li class="see-all"><a href="">All Tops</a></li>
+                                            <li><a href="">Cardigans</a></li>
+                                            <li><a href="">Coats</a></li>
+                                            <li><a href="">Polo Shirts</a></li>
+                                            <li><a href="">Shirts</a></li>
+                                            <li class="has-children">
+                                                <a href="">T-Shirts</a>
+
+                                                <ul class="is-hidden">
+                                                    <li class="go-back"><a href="">Tops</a></li>
+                                                    <li class="see-all"><a href="">All T-shirts</a></li>
+                                                    <li><a href="">Plain</a></li>
+                                                    <li><a href="">Print</a></li>
+                                                    <li><a href="">Striped</a></li>
+                                                    <li><a href="">Long sleeved</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="">Vests</a></li>
+                                        </ul>
+                                    </li>
+                                </ul> <!-- .cd-secondary-dropdown -->
+                            </li> <!-- .has-children -->
+
+                            <li class="has-children">
+                                <a href="">Gallery</a>
+
+                                <ul class="cd-dropdown-gallery is-hidden">
+                                    <li class="go-back"><a href="">Menu</a></li>
+                                    <li class="see-all"><a href="">Browse Gallery</a></li>
+                                    <li>
+                                        <a class="cd-dropdown-item" href="">
+                                            <img src="img/img.png" alt="Product Image">
+                                            <h3>Product #1</h3>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item" href="">
+                                            <img src="img/img.png" alt="Product Image">
+                                            <h3>Product #2</h3>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item" href="">
+                                            <img src="img/img.png" alt="Product Image">
+                                            <h3>Product #3</h3>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item" href="">
+                                            <img src="img/img.png" alt="Product Image">
+                                            <h3>Product #4</h3>
+                                        </a>
+                                    </li>
+                                </ul> <!-- .cd-dropdown-gallery -->
+                            </li> <!-- .has-children -->
+
+                            <li class="has-children">
+                                <a href="">Services</a>
+                                <ul class="cd-dropdown-icons is-hidden">
+                                    <li class="go-back"><a href="">Menu</a></li>
+                                    <li class="see-all"><a href="">Browse Services</a></li>
+                                    <li>
+                                        <a class="cd-dropdown-item item-1" href="">
+                                            <h3>Service #1</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item item-2" href="">
+                                            <h3>Service #2</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item item-3" href="">
+                                            <h3>Service #3</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item item-4" href="">
+                                            <h3>Service #4</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item item-5" href="">
+                                            <h3>Service #5</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item item-6" href="">
+                                            <h3>Service #6</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item item-7" href="">
+                                            <h3>Service #7</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item item-8" href="">
+                                            <h3>Service #8</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item item-9" href="">
+                                            <h3>Service #9</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item item-10" href="">
+                                            <h3>Service #10</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item item-11" href="">
+                                            <h3>Service #11</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="cd-dropdown-item item-12" href="">
+                                            <h3>Service #12</h3>
+                                            <p>This is the item description</p>
+                                        </a>
+                                    </li>
+
+                                </ul> <!-- .cd-dropdown-icons -->
+                            </li> <!-- .has-children -->
+
+                            <li class="cd-divider">Divider</li>
+
+                            <li><a href="">Page 1</a></li>
+                            <li><a href="">Page 2</a></li>
+                            <li><a href="">Page 3</a></li>
+                        </ul> <!-- .cd-dropdown-content -->
+                    </nav> <!-- .cd-dropdown -->
+                </div> <!-- .cd-dropdown-wrapper -->
+            </li>
+
+            <li class="{!! set_active('mobile') !!} mn-lv1 mt-20">
+                <a class="a-lv1" href="{!!url('mobile')!!}">Đồng hồ nam </a>
+            </li>
+
+            <li class="{!! set_active('laptop') !!} mn-lv1 mt-20">
+                <a class="a-lv1" href="{!!url('laptop')!!}"> Đồng hồ Thụy Sĩ </a>
+            </li>
+            <li class="{!! set_active('pc') !!} mn-lv1 mt-20">
+                <a class="a-lv1" href="{!!url('pc')!!}"> Video Xchannel </a>
+            </li>
+            <li class="{!! set_active('tin-tuc') !!} dropdown mn-lv1 mt-20">
+                <a class="a-lv1" href="{!!url('tin-tuc')!!}" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                   aria-expanded="false">Kiến thức đồng hồ <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+            <li class="{!! set_active('tin-tuc') !!} mn-lv1 mt-20">
+                <a class="a-lv1" href="{!!url('tin-tuc')!!}"> Về Xwatch </a>
+            </li>
+            <li class="{!! set_active('tin-tuc') !!} mn-lv1 mt-20">
+                <a class="a-lv1" href="{!!url('tin-tuc')!!}"> Liên hệ </a>
+            </li>
+
+        </ul>
+    </nav>
+    </div>
     <!-- end mega menu -->
 
 </div>

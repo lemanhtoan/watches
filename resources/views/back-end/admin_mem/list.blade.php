@@ -39,7 +39,7 @@
 										<th>Email</th>
 										<th>Quyền</th>
 										<th>Ngày đăng ký</th>										
-										<th>Action</th>
+										<th>Hành động</th>
 									</tr>
 								</thead>
 								<tbody>

@@ -11,7 +11,7 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header"><small>Thêm mới danh mục</small></h1>
+				<h1 class="page-header"><small>Sửa danh mục</small></h1>
 			</div>
 		</div><!--/.row-->
 		
@@ -47,7 +47,7 @@
 				      			<label for="input-id">Tên danh mục</label>
 				      			<input type="text" name="txtCateName" id="inputTxtCateName" class="form-control" value="{!! old('txtCateName', isset($data['name']) ? $data['name'] : null)!!}" required="required">
 				      		</div>
-				      		<input type="submit" name="btnCateAdd" class="btn btn-primary" value="Thêm danh mục" class="button" />
+				      		<input type="submit" name="btnCateAdd" class="btn btn-primary" value="Sửa danh mục" class="button" />
 				      	</form>					      	
 					</div>
 				</div>

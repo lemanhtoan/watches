@@ -24,7 +24,7 @@ class AddCategoryRequest extends Request
     public function rules()
     {
         return [
-            'txtCateName' => 'required|unique:category,name'
+            'txtCateName' => 'required' //|unique:category,name
         ];
     }
     public function messages()

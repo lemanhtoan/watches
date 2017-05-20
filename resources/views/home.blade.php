@@ -9,14 +9,14 @@
           <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
                 <div class="pro-image">
                   <a href="{!!url('mobile/'.$row->id.'-'.$row->slug)!!}">
-                  <img class="img-responsive" src="{!!url('public/uploads/products/'.$row->images)!!}" alt="img responsive">
+                  <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
                   </a>
                 </div>
                 <div class="pro-title">
                   <h1><a href="{!!url('mobile/'.$row->id.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
                 </div> <!-- /div bt -->
                 <div class="pro-price">
-                  {!!$row->price!!} vnđ
+                  {!!$row->price!!} đ
                 </div>
           </div>  <!-- /div col-4 -->
           @endforeach
@@ -35,14 +35,14 @@
           <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
             <div class="pro-image">
               <a href="{!!url('laptop/'.$row->id.'-'.$row->slug)!!}">
-                <img class="img-responsive" src="{!!url('public/uploads/products/'.$row->images)!!}" alt="img responsive">
+                <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
               </a>
             </div>
             <div class="pro-title">
               <h1><a href="{!!url('mobile/'.$row->id.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
             </div> <!-- /div bt -->
             <div class="pro-price">
-              {!!$row->price!!} vnđ
+              {!!$row->price!!} đ
             </div>
           </div>  <!-- /div col-4 -->
         @endforeach
@@ -53,7 +53,7 @@
 
         <div class="box-advs">
           <a href="http://api.hostinger.vn/redir/1309904" target="_blank">
-            <img src="public/images/slides/thumbs/bn1.png" alt="Hosting Miễn Phí" border="0" width="100%" height="250" />
+            <img src="{!!url('public/images/slides/thumbs/bn1.png')!!}" alt="Hosting Miễn Phí" border="0" width="100%" height="250" />
           </a>
         </div>
 

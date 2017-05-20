@@ -42,7 +42,7 @@
 										<th>Ngày đặt</th>
 										<th>Thành tiền</th>
 										<th>Trạng thái</th>
-										<th>Action</th>
+										<th>Hành động</th>
 									</tr>
 								</thead>
 								<tbody>

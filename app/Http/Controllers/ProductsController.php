@@ -19,12 +19,12 @@ class ProductsController extends Controller
 	public function getlist($id)
 	{
         if ($id!='all') {
-            $pro = Products::where('cat_id',$id)->paginate(10);
-            $cat= Category::all();
+            $pro = Products::where('cat_id',$id)->paginate(20);
+            $cat= Category::all()->except([13 ,14]);
             return view('back-end.products.list',['data'=>$pro,'cat'=>$cat,'loai'=>$id]);                    
         } else {
-            $pro = Products::paginate(10);
-            $cat= Category::all();
+            $pro = Products::paginate(20);
+            $cat= Category::all()->except([13 ,14]);//Category::all();
             return view('back-end.products.list',['data'=>$pro,'cat'=>$cat,'loai'=>0]);
         }		
 	}
@@ -197,30 +197,23 @@ class ProductsController extends Controller
             $pro->images = $filename;       
             $rq->file('txtimg')->move('uploads/products/',$filename);
         }       
-        $pro->save(); 
-        
-        $pro->pro_details->cpu = $rq->txtCpu;
-        $pro->pro_details->ram = $rq->txtRam;
-        $pro->pro_details->screen = $rq->txtScreen;
-        $pro->pro_details->vga = $rq->txtVga;
-        $pro->pro_details->storage = $rq->txtStorage;
-        $pro->pro_details->exten_memmory =$rq->txtExtend;
-        $pro->pro_details->connect = $rq->txtConnect;
-        $pro->pro_details->cam1 = $rq->txtCam1;
-        $pro->pro_details->cam2 = $rq->txtCam2;
+        $pro->save();
 
-        if ($rq->txtSIM =='') {
-            $pro->pro_details->sim= 'Không có';
-        } else {
-            $pro->pro_details->sim = $rq->txtSIM;
-        }
-       
-        if ($rq->txtPin =='') {
-            $pro->pro_details->pin= 'Không có';
-        } else {
-            $pro->pro_details->pin = $rq->txtPin;
-        }
-        $pro->pro_details->os = $rq->txtOs;
+        $pro->pro_details->w_group = $rq->w_group ? $rq->w_group : '';
+        $pro->pro_details->w_branch = $rq->w_branch ? $rq->w_branch : '';
+        $pro->pro_details->w_country = $rq->w_country ? $rq->w_country : '';
+        $pro->pro_details->w_role = $rq->w_role ? $rq->w_role : '';
+        $pro->pro_details->w_type = $rq->w_type ? $rq->w_type : '';
+        $pro->pro_details->w_sex = $rq->w_sex ? $rq->w_sex : '';
+        $pro->pro_details->w_size = $rq->w_size ? $rq->w_size : '';
+        $pro->pro_details->w_out = $rq->w_out ? $rq->w_out : '';
+        $pro->pro_details->w_in = $rq->w_in ? $rq->w_in : '';
+        $pro->pro_details->w_on = $rq->w_on ? $rq->w_on : '';
+        $pro->pro_details->w_water = $rq->w_water ? $rq->w_water : '';
+        $pro->pro_details->w_other = $rq->w_other ? $rq->w_other : '';
+        $pro->pro_details->w_time = $rq->w_time ? $rq->w_time : '';
+        $pro->pro_details->w_time_base = $rq->w_time_base ? $rq->w_time_base : '';
+
         $pro->pro_details->updated_at = new datetime;        
 
         if ($rq->hasFile('txtdetail_img')) {

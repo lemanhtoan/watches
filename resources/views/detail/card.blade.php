@@ -34,7 +34,7 @@
                       <th>Hình ảnh</th>
                       <th>Tên sản phẩm</th>
                       <th>SL</th>
-                      <th>Action</th>
+                      <th>Hành động</th>
                       <th>Giá</th>
                       <th>Thành tiền</th>
                     </tr>

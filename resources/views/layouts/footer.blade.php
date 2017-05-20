@@ -31,5 +31,8 @@
     <script src="{!!url('public/js/owl-carousel/owl.carousel.js')!!}"></script>
     <script type='text/javascript' src="{!!url('public/js/site.js')!!}"></script>
 
+    <script type='text/javascript' src="{!!url('public/mega/js/jquery.menu-aim.js')!!}"></script>
+    <script type='text/javascript' src="{!!url('public/mega/js/main.js')!!}"></script>
+
   </body>
 </html>

@@ -38,7 +38,7 @@
 									<tr>										
 										<th>ID</th>										
 										<th>Tên danh mục</th>										
-										<th>Action</th>
+										<th>Hành động</th>
 									</tr>
 								</thead>
 								<tbody>

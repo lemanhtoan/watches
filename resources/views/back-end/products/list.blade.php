@@ -14,10 +14,10 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-md-10"><div class="form-group">
-								<label for="inputLoai" class="col-sm-3 control-label"><strong> Chọn sản phẩm </strong></label>
+								<label for="inputLoai" class="col-sm-3 control-label"><strong> Quản lý sản phẩm </strong></label>
 								<div class="col-md-6">
 									<select name="sltCate" id="inputLoai" class="form-control">
-						      			<option value="0">- CHỌN MỘT THƯƠNG HIỆU --</option>
+						      			<option value="0">- CHỌN MỘT DANH MỤC --</option>
 						      			<?php MenuMulti($cat,0,$str='---| ',$loai); ?>   		
 						      		</select>
 									<script>
@@ -28,9 +28,9 @@
 									    };
 									</script>
 								</div>
-								<div class="col-md-3">
+								<!--<div class="col-md-3">
 									<input type="search" name="txttk" id="inputTxttk" class="form-control" value="" placeholder="Tìm sản phẩm..." required="required" title="">
-								</div>
+								</div>-->
 							</div>
 								
 								
@@ -66,22 +66,22 @@
 										<th>ID</th>										
 										<th>Hình ảnh</th>
 										<th>Tên sản phẩm</th>
-										<th>Tóm tắt chức năng</th>
+										<th>Mô tả</th>
 										<th>Thương hiệu</th>
 										<th>Giá bán</th>
 										<th>Trạng thái</th>
-										<th>Action</th>
+										<th>Hành động</th>
 									</tr>
 								</thead>
 								<tbody>
 									@foreach($data as $row)
 										<tr>
 											<td>{!!$row->id!!}</td>
-											<td> <img src="{!!url('uploads/products/'.$row->images)!!}" alt="iphone" width="50" height="40"></td>
+											<td> <img src="{!!url('uploads/products/'.$row->images)!!}" alt="iphone" width="50"></td>
 											<td>{!!$row->name!!}</td>
 											<td>{!!$row->intro!!}</td>
 											<td>{!!$row->category->name!!}</td>
-											<td>{!!$row->price!!} đ</td>
+											<td>{!!number_format($row->price)!!} đ</td>
 											<td>
 												@if($row->status ==1)
 													<span style="color:blue;">Còn hàng</span>

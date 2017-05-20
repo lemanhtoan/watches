@@ -47,7 +47,7 @@
 											<td>{!!$oder->user->address!!}</td>
 											<td>{!!$oder->user->phone!!}</td>
 											<td>{!!$oder->created_at!!}</td>
-											<td>{!! number_format($oder->total) !!} Vnđ</td>
+											<td>{!! number_format($oder->total) !!} đ</td>
 										</tr>
 									</tbody>
 								</table>
@@ -63,11 +63,11 @@
 											<th>ID</th>										
 											<th>Hình ảnh</th>
 											<th>Tên sản phẩm</th>
-											<th>Tóm tắt chức năng</th>
+											<th>Mô tả</th>
 											<th> Số lượng </th>
 											<th>Giá bán</th>
 											<th>Trạng thái</th>
-											<th>Action</th>
+											<th>Hành động</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -78,7 +78,7 @@
 												<td>{!!$row->name!!}</td>
 												<td>{!!$row->intro!!}</td>
 												<td>{!!$row->qty!!} </td>
-												<td>{!! number_format($row->price) !!} Vnđ</td>
+												<td>{!! number_format($row->price) !!} đ</td>
 												<td>
 													@if($row->status ==1)
 														<span style="color:blue;">Còn hàng</span>
