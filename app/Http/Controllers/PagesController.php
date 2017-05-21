@@ -18,27 +18,32 @@ class PagesController extends Controller
 {
     public function index()
     {
-        // mobile
-        $mobile = DB::table('products')
-                ->join('category', 'products.cat_id', '=', 'category.id')
-                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','1')
-                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
-                ->paginate(12);
-        $lap = DB::table('products')
-                ->join('category', 'products.cat_id', '=', 'category.id')
-                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','2')
-                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
-                ->paginate(12);
-        $pc = DB::table('products')
-                ->join('category', 'products.cat_id', '=', 'category.id')
-                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','19')
-                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
+        // new - noi bat
+        $new = DB::table('products')
+                ->where('products.status','=','1')
+                ->select('products.*')
+                ->orderBy('id', 'desc')
                 ->paginate(12);
 
-    	return view('home',['mobile'=>$mobile,'laptop'=>$lap,'pc'=>$pc]);
+        $group_orient = DB::table('products')
+                ->join('category', 'products.cat_id', '=', 'category.id')
+                ->where('category.slug','=','orient')
+                ->where('products.status','=','1')
+                ->select('products.*')
+                ->orderBy('id', 'desc')
+                ->paginate(12);
+
+        $group_olym_pianus = DB::table('products')
+                ->join('category', 'products.cat_id', '=', 'category.id')
+                ->where('category.slug','=','olym-pianus')
+                ->where('products.status','=','1')
+                ->select('products.*')
+                ->orderBy('id', 'desc')
+                ->paginate(12); 
+
+
+
+    	return view('home',['new'=>$new, 'group_orient'=>$group_orient, 'group_olym_pianus' => $group_olym_pianus]);
     }
     public function addcart($id)
     {
@@ -61,31 +66,39 @@ class PagesController extends Controller
          return redirect()->route('getcart');
       }
     }
+
     public function getdeletecart($id)
     {
      Cart::remove($id);
      return redirect()->route('getcart');
     }
+
     public function xoa()
     {
         Cart::destroy();   
         return redirect()->route('index');   
     }
+
     public function getcart()
     {   
-    	return view ('detail.card')
-        ->with('slug','Chi tiết đơn hàng');
+        $relation = DB::table('products')
+            ->where('products.status','=','1')
+            ->select('products.*')
+            ->orderBy('id', 'desc')
+            ->paginate(8);
+        return view('detail.card',['slug'=>'Chi tiết đơn hàng', 'relation' => $relation]);
     }
+    
     public function getoder()
     {
-        if (Auth::guest()) {
-            return redirect('login');
-        } else {
-
-            return view ('detail.oder')
-            ->with('slug','Xác nhận');
-        }        
+        $relation = DB::table('products')
+            ->where('products.status','=','1')
+            ->select('products.*')
+            ->orderBy('id', 'desc')
+            ->paginate(8);
+       return view ('detail.oder', ['slug' =>'Xác nhận', 'relation' => $relation]);
     }
+
     public function postoder(Request $rq)
     {
         $oder = new Oders();
@@ -117,82 +130,99 @@ class PagesController extends Controller
         ->with(['flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được gửi đi!']);
         
     }
+
     public function getcate($cat)
     {
-    	if ($cat == 'mobile') {
-            // mobile
-            $mobile = DB::table('products')
-                ->join('category', 'products.cat_id', '=', 'category.id')
-                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','1')
-                ->select('products.*','pro_details.*')
-                ->paginate(12);
-    		return view('category.mobile',['data'=>$mobile]);
-    	} 
-        elseif ($cat == 'laptop') {
-            // mobile
-            $lap = DB::table('products')
-                ->join('category', 'products.cat_id', '=', 'category.id')
-                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','2')
-                ->select('products.*','pro_details.*')
-                ->paginate(12);
-            return view('category.laptop',['data'=>$lap]);
-        }
-        elseif ($cat == 'pc') {
-            // mobile
-        $pc = DB::table('products')
-                ->join('category', 'products.cat_id', '=', 'category.id')
-                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','19')
-                ->select('products.*','pro_details.*')
-                ->paginate(8);
-            return view('category.pc',['data'=>$pc]);
-        }
-        elseif ($cat == 'tin-tuc') {
+        $cate = Category::where('slug', '=', $cat)->get(['name']);
+        $cateName = $cate[0]->name;
+    	if ($cat == 'tin-tuc') {
             $new =  DB::table('news')
                     ->orderBy('created_at', 'desc')
                     ->paginate(3);
             $top1 = $new->shift();
-             $all =  DB::table('news')
+            $all =  DB::table('news')
                     ->orderBy('created_at', 'desc')
                     ->paginate(5);
             return view('category.news',['data'=>$new,'hot1'=>$top1,'all'=>$all]);
-        } 
-        // else{
-        //     return redirect()->route('index');
-        // }
+        } else {
+
+            $data = DB::table('products')
+                ->join('category', 'products.cat_id', '=', 'category.id')
+                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
+                //->where('category.parent_id','=','1')
+                ->where('products.status','=','1')
+                ->select('products.*','pro_details.*')
+                ->paginate(16);
+            return view('category.list',['data'=>$data, 'cateName' => $cateName]);
+
+        }
+         
     }
-    public function detail($cat,$id,$slug)
+
+    public function detail($id,$slug)
     {
+        $cat = '';
+
+        $category = DB::table('products')
+            ->where('products.id','=', $id)
+            ->get(['cat_id']);
+
+        $relation = DB::table('products')
+            ->where('products.status','=','1')
+            ->where('products.cat_id', '=', $category[0]->cat_id)
+            ->select('products.*')
+            ->orderBy('id', 'desc')
+            ->paginate(8);
+
         if ($cat =='tin-tuc') {
             $new = News::where('id',$id)->first();
             return view('detail.news',['data'=>$new,'slug'=>$slug]);
-        } elseif ($cat =='mobile') {
-            $mobile = Products::where('id',$id)->first();
-            if (empty($mobile)) {
-                return view ('errors.503');
-                } else {
-                   return view ('detail.mobile',['data'=>$mobile,'slug'=>$slug]);
-               }
-        }
-        elseif ($cat =='laptop') {
-            $lap = Products::where('id',$id)->first();
-            if (empty($lap)) {
-            return redirect()->route('index');
-            } else {
-           return view ('detail.laptop',['data'=>$lap,'slug'=>$slug]);
-            }
-        }
-        elseif ($cat =='pc') {            
-            $pc = Products::where('id',$id)->first();
-            if (empty($pc)) {
-                return redirect()->route('index');
-            } else {
-                return view ('detail.pc',['data'=>$pc,'slug'=>$slug]);
-            }
         } else {
-            return redirect()->route('index');
+            $detail = Products::where('id',$id)->first();
+            if (empty($detail)) {
+            return view ('errors.503');
+            } else {
+               return view ('detail.detail',['data'=>$detail,'slug'=>$slug, 'relation' => $relation]);
+           }
         }
+        
+    }
+
+    public function getNews()
+    { 
+        $new =  DB::table('news')
+                ->orderBy('created_at', 'desc')
+                ->paginate(3);
+        $top1 = $new->shift();
+        $all =  DB::table('news')
+                ->orderBy('created_at', 'desc')
+                ->paginate(5);
+        return view('category.news',['data'=>$new,'hot1'=>$top1,'all'=>$all]);
+         
+    }
+
+    public function detailNews($id,$slug)
+    {
+        $news = News::where('id',$id)->first();
+        $relation = DB::table('news')
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(5); 
+        $newProduct = DB::table('products')
+                ->where('products.status','=','1')
+                ->select('products.*')
+                ->orderBy('id', 'desc')
+                ->paginate(8);
+        return view('detail.news',['data'=>$news,'slug'=>$slug, 'relation' => $relation, 'newProduct' => $newProduct]);
+    }
+
+    public function lienhe() {
+         return view('modules.contact', ['slug'=> 'Liên hệ']);
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->input('txtkeyword');
+        $products = DB::table('products')->where('name', 'LIKE', '%' . $keyword . '%')->paginate(10);
+         return view('category.list',['data'=>$products, 'cateName' => 'Kết quả tìm kiếm']);
     }
 }

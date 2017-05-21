@@ -23,9 +23,21 @@ Route::get('gio-hang/xoa', ['as'  => 'getempty', 'uses' =>'PagesController@xoa']
 // tien hanh dat hang
 Route::get('dat-hang', ['as'  => 'getoder', 'uses' =>'PagesController@getoder']);
 Route::post('dat-hang', ['as'  => 'postoder', 'uses' =>'PagesController@postoder']);
+
+
+Route::get('/tin-tuc', ['as'  => 'getNews', 'uses' =>'PagesController@getNews']);
+Route::get('/tin-tuc/{id}-{slug}', ['as'  => 'getdetailnews', 'uses' =>'PagesController@detailNews']);
+
+
+Route::get('/lien-he', 'PagesController@lienhe');
+
+
+Route::resource('/tim-kiem', 'PagesController@search');
+
 // category
 Route::get('/{cat}', ['as'  => 'getcate', 'uses' =>'PagesController@getcate']);
-Route::get('/{cat}/{id}-{slug}', ['as'  => 'getdetail', 'uses' =>'PagesController@detail']);
+Route::get('/san-pham/{id}-{slug}', ['as'  => 'getdetail', 'uses' =>'PagesController@detail']);
+
 
 Route::resource('payment', 'PayMentController');
 
@@ -49,14 +61,14 @@ Route::group(['middleware' => 'admin'], function () {
     	});
          // -------------------- quan ly san pham--------------------
         Route::group(['prefix' => '/sanpham'], function() {
-           Route::get('/{loai}/add',['as'        =>'getaddpro','uses' => 'ProductsController@getadd']);
-           Route::post('/{loai}/add',['as'       =>'postaddpro','uses' => 'ProductsController@postadd']);
+           Route::get('/add',['as'        =>'getaddpro','uses' => 'ProductsController@getadd']);
+           Route::post('/add',['as'       =>'postaddpro','uses' => 'ProductsController@postadd']);
 
            Route::get('/{loai}',['as'       =>'getpro','uses' => 'ProductsController@getlist']);
            Route::get('/del/{id}',['as'   =>'getdellpro','uses' => 'ProductsController@getdel'])->where('id','[0-9]+');
            
-           Route::get('/{loai}/edit/{id}',['as'  =>'geteditpro','uses' => 'ProductsController@getedit'])->where('id','[0-9]+');
-           Route::post('/{loai}/edit/{id}',['as' =>'posteditpro','uses' => 'ProductsController@postedit'])->where('id','[0-9]+');
+           Route::get('/edit/{id}',['as'  =>'geteditpro','uses' => 'ProductsController@getedit'])->where('id','[0-9]+');
+           Route::post('/edit/{id}',['as' =>'posteditpro','uses' => 'ProductsController@postedit'])->where('id','[0-9]+');
       });
        // -------------------- quan ly tin tuc-----------------------------
         Route::group(['prefix' => '/news'], function() {

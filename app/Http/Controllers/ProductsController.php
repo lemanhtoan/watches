@@ -28,22 +28,16 @@ class ProductsController extends Controller
             return view('back-end.products.list',['data'=>$pro,'cat'=>$cat,'loai'=>0]);
         }		
 	}
-    public function getadd($id)
+
+    public function getadd()
     {
-        $loai = Category::where('id',$id)->first();
-        $p_id = $loai->parent_id;
-        $p_name = Category::where('id',$p_id)->first();
-		$cat= Category::where('parent_id',$p_id)->get();
+		$cat= Category::all()->except([13 ,14]);
 		$pro = Products::all();	
-        if ($p_id >=19) {
-                return view('back-end.products.pc-add',['data'=>$pro,'cat'=>$cat,'loai'=>$p_name->name]);
-            }
-        else {
-            return view('back-end.products.add',['data'=>$pro,'cat'=>$cat,'loai'=>$p_name->name]);
-        }	
-		
+        
+        return view('back-end.products.add',['data'=>$pro,'cat'=>$cat]);
 		
     }
+
     public function postadd(AddProductsRequest $rq)
     {
     	$pro = new Products();
@@ -62,7 +56,8 @@ class ProductsController extends Controller
     	$pro->cat_id = $rq->sltCate;
     	$pro->user_id = Auth::guard('admin')->user()->id;
     	$pro->created_at = new datetime;
-    	$pro->status = '1';
+
+    	$pro->status = $rq->w_status;
     	$f = $rq->file('txtimg')->getClientOriginalName();
     	$filename = time().'_'.$f;
     	$pro->images = $filename;    	
@@ -72,39 +67,23 @@ class ProductsController extends Controller
 
     	$detail = new Pro_details();
 
-    	$detail->cpu = $rq->txtCpu;
-    	$detail->ram = $rq->txtRam;
-    	$detail->screen = $rq->txtScreen;
-    	$detail->vga = $rq->txtVga;
-    	$detail->storage = $rq->txtStorage;
-    	$detail->exten_memmory =$rq->txtExtend;
-    	$detail->cam1 = $rq->txtCam1;
-    	$detail->cam2 = $rq->txtCam2;
-    	$detail->sim = $rq->txtSIM;
-    	$detail->connect = $rq->txtConnect;
-    	$detail->pin = $rq->txtPin;
-    	$detail->os = $rq->txtOs;
-        $detail->note = $rq->txtNote;
-    	$detail->pro_id = $pro_id;
+        $detail->w_group = $rq->w_group ? $rq->w_group : '';
+        $detail->w_branch = $rq->w_branch ? $rq->w_branch : '';
+        $detail->w_country = $rq->w_country ? $rq->w_country : '';
+        $detail->w_role = $rq->w_role ? $rq->w_role : '';
+        $detail->w_type = $rq->w_type ? $rq->w_type : '';
+        $detail->w_sex = $rq->w_sex ? $rq->w_sex : '';
+        $detail->w_size = $rq->w_size ? $rq->w_size : '';
+        $detail->w_out = $rq->w_out ? $rq->w_out : '';
+        $detail->w_in = $rq->w_in ? $rq->w_in : '';
+        $detail->w_on = $rq->w_on ? $rq->w_on : '';
+        $detail->w_water = $rq->w_water ? $rq->w_water : '';
+        $detail->w_other = $rq->w_other ? $rq->w_other : '';
+        $detail->w_time = $rq->w_time ? $rq->w_time : '';
+        $detail->w_time_base = $rq->w_time_base ? $rq->w_time_base : '';
 
-        if ($rq->txtCam1=='') {
-            $detail->cam1='không có';
-        }
-        if ($rq->txtCam2=='') {
-            $detail->cam2='không có';
-        }
-        if ($rq->exten_memmory =='') {
-            $detail->exten_memmory= $rq->txtCase;
-        }
-        if ($rq->pin =='') {
-            $detail->pin= 'Không có';
-        }
-         if ($rq->sim =='') {
-            $detail->sim= 'Không có';
-        }
-         if ($rq->note =='') {
-            $detail->note= 'Không có';
-        }
+    	
+    	$detail->pro_id = $pro_id;
 
     	$detail->created_at = new datetime;
     	$detail->save();    	
@@ -127,6 +106,7 @@ class ProductsController extends Controller
       ->with(['flash_level'=>'result_msg','flash_massage'=>' Đã thêm thành công !']);    	
 
     }
+
     public function getdel($id)
     {
         $detail = Detail_img::where('pro_id',$id)->get();
@@ -145,28 +125,15 @@ class ProductsController extends Controller
         return redirect('admin/sanpham/all')
          ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã xóa !']);
     }
-    public function getedit($loai,$id)
-    {
-        $dt = Products::where('id',$id)->first();
-        $c_id= $dt->cat_id;
-        $loai= Category::where('id',$c_id)->first();
-        $p_id = $loai->parent_id;
 
-    	if ($p_id == 1) {
-            $cat= Category::where('parent_id', '1')->get();
-            $pro = Products::where('id',$id)->first();
-            return view('back-end.products.edit-mobile',['pro'=>$pro,'cat'=>$cat,'loai'=>'Điện thoại']);    
-        } elseif ($p_id ==2) {
-            $cat= Category::where('parent_id', 2)->get();
-            $pro = Products::where('id',$id)->first();
-            return view('back-end.products.edit-mobile',['pro'=>$pro,'cat'=>$cat,'loai'=>'Laptop']);       
-        } elseif ($p_id ==19) {
-            $cat= Category::where('parent_id', 19)->get();
-            $pro = Products::where('id',$id)->first();
-            return view('back-end.products.edit-mobile',['pro'=>$pro,'cat'=>$cat,'loai'=>$p_id]);     
-        }
+    public function getedit($id)
+    {
+        $cat= Category::all()->except([13 ,14]);
+        $pro = Products::where('id',$id)->first();
+        return view('back-end.products.edit',['pro'=>$pro,'cat'=>$cat]);    
+      
     }
-    public function postedit($loai,$id,EditProductsRequest $rq)
+    public function postedit($id,EditProductsRequest $rq)
     {
     	$pro = Products::find($id);
 
@@ -184,7 +151,9 @@ class ProductsController extends Controller
         $pro->cat_id = $rq->sltCate;
         $pro->user_id = Auth::guard('admin')->user()->id;
         $pro->updated_at = new datetime;
-        $pro->status = '1';
+        
+        $pro->status = $rq->w_status;
+
         $file_path = public_path('uploads/products/').$pro->images;        
         if ($rq->hasFile('txtimg')) {
             if (file_exists($file_path))

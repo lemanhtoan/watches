@@ -15,18 +15,32 @@
 						<div class="row">
 							<div class="col-md-10"><div class="form-group">
 								<label for="inputLoai" class="col-sm-3 control-label"><strong> Quản lý sản phẩm </strong></label>
-								<div class="col-md-6">
+
+								<div class="col-md-9">
+									<div class="inline-line">
+										<label>Lọc sản Phẩm </label>
+										<?php 
+										$urlGet = $_SERVER['REQUEST_URI'];
+										if(preg_match("/\/(\d+)$/",$urlGet,$matches))
+										{
+										  $end=$matches[1];
+										} else {
+											$end = 'all';
+										}
+									?>
 									<select name="sltCate" id="inputLoai" class="form-control">
-						      			<option value="0">- CHỌN MỘT DANH MỤC --</option>
-						      			<?php MenuMulti($cat,0,$str='---| ',$loai); ?>   		
+						      			<option value="all">- CHỌN MỘT DANH MỤC --</option>
+						      			<?php MenuMulti($cat,0,$str='---| ', $end); ?>   		
 						      		</select>
 									<script>
 									    document.getElementById("inputLoai").onchange = function() {
-									        if (this.selectedIndex!==0) {
+									        //if (this.selectedIndex!==0) {
 									            window.location.href = this.value;
-									        }        
+									        //}        
 									    };
 									</script>
+									</div>
+									
 								</div>
 								<!--<div class="col-md-3">
 									<input type="search" name="txttk" id="inputTxttk" class="form-control" value="" placeholder="Tìm sản phẩm..." required="required" title="">
@@ -36,9 +50,7 @@
 								
 							</div>
 							<div class="col-md-2">
-								@if ($loai !='all')
-									<a href="{!!url('admin/sanpham/'.$loai.'/add')!!}" title=""><button type="button" class="btn btn-primary pull-right">Thêm Mới Sản Phẩm</button></a>
-								@endif
+								<a href="{!!url('admin/sanpham/add')!!}" title=""><button type="button" class="btn btn-primary pull-right">Thêm Mới Sản Phẩm</button></a>
 							</div>
 						</div> 
 						
@@ -66,7 +78,7 @@
 										<th>ID</th>										
 										<th>Hình ảnh</th>
 										<th>Tên sản phẩm</th>
-										<th>Mô tả</th>
+										<th>Chế độ - kèm theo</th>
 										<th>Thương hiệu</th>
 										<th>Giá bán</th>
 										<th>Trạng thái</th>
@@ -79,7 +91,21 @@
 											<td>{!!$row->id!!}</td>
 											<td> <img src="{!!url('uploads/products/'.$row->images)!!}" alt="iphone" width="50"></td>
 											<td>{!!$row->name!!}</td>
-											<td>{!!$row->intro!!}</td>
+											<td class="list-backend">
+												<p>
+													@if ($row->promo1!='')
+										              <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo1!!}</li>
+										            @endif </p> <p>  @if($row->promo2!='')
+										              <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo2!!}</li>
+										            @endif </p> <p> @if ($row->promo3!='')
+										              <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>
+										            @endif 
+														<p> @if ($row->packet!='')
+										              <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>
+										            @endif 
+												</p>										
+
+											</td>
 											<td>{!!$row->category->name!!}</td>
 											<td>{!!number_format($row->price)!!} đ</td>
 											<td>
@@ -90,7 +116,7 @@
 												@endif
 											</td>
 											<td>
-											    <a href="{!!url('admin/sanpham/mobile/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>
+											    <a href="{!!url('admin/sanpham/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>
 											    <a href="{!!url('admin/sanpham/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>
 											</td>
 										</tr>

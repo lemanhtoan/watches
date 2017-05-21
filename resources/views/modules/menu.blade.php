@@ -68,9 +68,10 @@
                             class="lol-main"></a>
             </div><!-- logo-->
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                <form id="mainSearch" class="navbar-form" role="search">
+
+                <form action="{!! url('tim-kiem') !!}" method="get" id="mainSearch" class="navbar-form" role="search">
                     <div class="input-group add-on frm-input">
-                        <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">
+                        <input class="form-control" placeholder="Search" name="txtkeyword" id="txtkeyword" type="text">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
                             </button>
@@ -244,8 +245,8 @@
 
                     </li>
 
-                    <li class="{!! set_active('mobile') !!} mn-lv1">
-                        <a href="{!!url('mobile')!!}">Đồng hồ nam </a>
+                    <li class="{!! set_active('dong-ho-nam') !!} mn-lv1">
+                        <a href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a>
                     </li>
 
                     <li class="{!! set_active('laptop') !!} mn-lv1">
@@ -515,8 +516,8 @@
                 </div> <!-- .cd-dropdown-wrapper -->
             </li>
 
-            <li class="{!! set_active('mobile') !!} mn-lv1 mt-20">
-                <a class="a-lv1" href="{!!url('mobile')!!}">Đồng hồ nam </a>
+            <li class="{!! set_active('dong-ho-nam') !!} mn-lv1 mt-20">
+                <a class="a-lv1" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a>
             </li>
 
             <li class="{!! set_active('laptop') !!} mn-lv1 mt-20">
@@ -539,8 +540,8 @@
             <li class="{!! set_active('tin-tuc') !!} mn-lv1 mt-20">
                 <a class="a-lv1" href="{!!url('tin-tuc')!!}"> Về Xwatch </a>
             </li>
-            <li class="{!! set_active('tin-tuc') !!} mn-lv1 mt-20">
-                <a class="a-lv1" href="{!!url('tin-tuc')!!}"> Liên hệ </a>
+            <li class="{!! set_active('lien-he') !!} mn-lv1 mt-20">
+                <a class="a-lv1" href="{!!url('lien-he')!!}"> Liên hệ </a>
             </li>
 
         </ul>
