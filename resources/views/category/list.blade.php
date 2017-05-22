@@ -3,11 +3,19 @@
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 list-product-category" id="category-list">
       <h3 class="panel-title  tbreadcrumb">
       <span class="glyphicon glyphicon-home"><a href="{!!url('/')!!}" title=""> Trang chủ</a></span> 
+      
+      <?php if (isset($parentName) && $parentName !="") { ?>
+
+      <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span><a href="{!!url($parentSlug)!!}" title=""> {!!$parentName!!}</a>
+
+      <?php } ?>
+
       <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span>
+      
       <a href="#" title="">{!! $cateName !!}</a>
     </h3> 
       <div class="row">
-        <div class="text-center-home">{!! $cateName !!}
+        <div class="text-center-home"><?php if (isset($parentName) && $parentName !="") { ?>  {!!$parentName!!} - <?php } ?>{!! $cateName !!}
           <hr>
         </div>
             <?php  if (count($data)) : ?>

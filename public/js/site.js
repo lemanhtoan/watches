@@ -93,5 +93,3 @@ jQuery('.mediaSelected').click(function(){
   jQuery('#detailImageModal').modal('show');
   return false;
 });
-
-var easyzoom = jQuery('.easyzoom').easyZoom();

@@ -32,10 +32,54 @@
     <script src="{!!url('public/js/validate/jquery.validate.js')!!}"></script>
 
     <script src="{!!url('public/js/owl-carousel/owl.carousel.js')!!}"></script>
-    <script type='text/javascript' src="{!!url('public/js/site.js')!!}"></script>
 
     <script type='text/javascript' src="{!!url('public/mega/js/jquery.menu-aim.js')!!}"></script>
     <script type='text/javascript' src="{!!url('public/mega/js/main.js')!!}"></script>
 
+    <script type='text/javascript' src="{!!url('public/js/site.js')!!}"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+
+            jQuery("#txtkeyword").on("keyup", function() {
+              var outPut ='';  
+              if (jQuery(this).val().length >=3 ) {
+                var dataString = 'txtkeyword='+ jQuery(this).val();
+                var urlBase = "{!! url('/') !!}";
+                jQuery.ajax({
+                    type: "GET",
+                    url: "{!! url('search-ajax') !!}",
+                    data: dataString,
+                    cache: false,
+                    beforeSend: function(html) 
+                    {
+                        console.log('loading...');
+                    },
+                    success: function(html)
+                    {
+                     if(html.data.length) {
+                        outPut += "<ul  class='suggest-items'>";
+                        jQuery.each(html.data, function(key, item) {
+                            console.log(item);
+                            outPut += "<li>";
+                            outPut += '<a href="'+'san-pham/'+item.id +'-'+ item.slug +'">' + '<img width="50" src="'+ urlBase + '/uploads/products/' + item.images +'" alt="'+ item.name +'" />' + '<label>' + item.name + '</label>' + '</a>';
+                            outPut += "</li>";
+                        });
+                        outPut += "</ul>";
+                     }   else {
+                        outPut = 'Không có kết quả.';
+                     } 
+                     jQuery('#resultSuggest').html(outPut);
+                     jQuery('#resultSuggest').show();
+                    }
+                });
+
+              }
+            });
+
+            
+
+        });
+    </script>
     </body>
 </html>

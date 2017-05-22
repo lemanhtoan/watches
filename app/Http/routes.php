@@ -33,10 +33,13 @@ Route::get('/lien-he', 'PagesController@lienhe');
 Route::post('/gui-lien-he', 'PagesController@createContact');
 
 Route::resource('/tim-kiem', 'PagesController@search');
+Route::resource('/search-ajax', 'PagesController@searchAjax');
 
 // category
 Route::get('/{cat}', ['as'  => 'getcate', 'uses' =>'PagesController@getcate']);
 Route::get('/san-pham/{id}-{slug}', ['as'  => 'getdetail', 'uses' =>'PagesController@detail']);
+
+Route::get('/{cat}/{catlv2}', ['as'  => 'getcatelv2', 'uses' =>'PagesController@getcatelv2']);
 
 
 Route::resource('payment', 'PayMentController');

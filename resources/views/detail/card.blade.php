@@ -39,10 +39,10 @@
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach(Cart::content() as $row)
+                  @foreach(Cart::content() as $row) 
                     <tr>
-                      <td><b>{!!$row->name!!}</b></td>
-                      <td><img src="{!!url('public/uploads/products/'.$row->options->img)!!}" alt="dell" width="80"></td>
+                      <td><b><a href="{!!url('san-pham/'.$row->id.'-'.strtolower($row->name))!!}"> {!!$row->name!!}</a></b></td>
+                      <td><img src="{!!url('/uploads/products/'.$row->options->img)!!}" alt="dell" width="80"></td>
                       
                       <td>                        
                           @if (($row->qty) >1)

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container owl-partner">
      <div class="row"><!-- Partner -->
          <ul id="owl-partner" class="owl-carousel owl-theme">
              <li class="item"><a href=""><img src="{!!url('public/images/partner/logo-casio-min.jpg')!!}" alt=""></a></li>

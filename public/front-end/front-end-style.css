@@ -1196,3 +1196,12 @@ ul.form-customer li input {
     font-size: 16px;
     margin: 15px 0;
 }
+
+/*CONTACT*/
+#mainContact label {
+  margin-bottom: 10px;
+}
+
+.owl-partner {
+  margin-top: 15px;
+}

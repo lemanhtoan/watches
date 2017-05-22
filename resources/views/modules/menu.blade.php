@@ -77,6 +77,7 @@
                             </button>
                         </div>
                     </div>
+                    <div id="resultSuggest" style="display: none;"></div>
 
                     <div class="suggest-search">
                         <span class="red">Gợi ý từ khóa:</span>
@@ -520,18 +521,22 @@
                 <a class="a-lv1" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a>
             </li>
 
-            <li class="{!! set_active('laptop') !!} mn-lv1 mt-20">
-                <a class="a-lv1" href="{!!url('laptop')!!}"> Đồng hồ Thụy Sĩ </a>
+            <li class="dropdown {!! set_active('dong-ho-nu') !!} {!! set_active('dong-ho-nu/casio') !!} {!! set_active('dong-ho-nu/olympia-star') !!} mn-lv1 mt-20">
+                <a class="a-lv1" href="{!!url('dong-ho-nu')!!}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Đồng hồ nữ <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="{!!url('dong-ho-nu/casio')!!}">Casio</a></li>
+                    <li><a href="{!!url('dong-ho-nu/olympia-star')!!}">Olympia star</a></li>
+                </ul>
             </li>
             <li class="{!! set_active('pc') !!} mn-lv1 mt-20">
-                <a class="a-lv1" href="{!!url('pc')!!}"> Video Xchannel </a>
+                <a class="a-lv1" href="{!!url('pc')!!}" > Đồng hồ Thụy Sĩ </a>
             </li>
-            <li class="{!! set_active('tin-tuc') !!} dropdown mn-lv1 mt-20">
-                <a class="a-lv1" href="{!!url('tin-tuc')!!}" class="dropdown-toggle" data-toggle="dropdown" role="button"
+            <li class="dropdown mn-lv1 mt-20">
+                <a class="a-lv1" href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
                    aria-expanded="false">Kiến thức đồng hồ <span class="caret"></span></a>
+
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Video Xchannel</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li class="divider"></li>
                     <li><a href="#">Separated link</a></li>

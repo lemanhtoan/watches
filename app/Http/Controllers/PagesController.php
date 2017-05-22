@@ -88,7 +88,8 @@ class PagesController extends Controller
             ->paginate(8);
         return view('detail.card',['slug'=>'Chi tiết đơn hàng', 'relation' => $relation]);
     }
-    
+
+
     public function getoder()
     {
         $relation = DB::table('products')
@@ -157,6 +158,28 @@ class PagesController extends Controller
 
         }
          
+    }
+
+    public function getcatelv2($lv1, $lv2)
+    {
+        $parent = Category::where('slug', '=', $lv1)->get(['name', 'id']);
+        $parentName = $parent[0]->name;
+
+        $cate = DB::table('category')
+        ->where('slug', '=', $lv2)
+        ->where('parent_id', '=', $parent[0]->id)
+        ->get(['name']);
+        $cateName = $cate[0]->name;
+
+        $data = DB::table('products')
+            ->join('category', 'products.cat_id', '=', 'category.id')
+            ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
+            ->where('category.parent_id','=', $parent[0]->id)
+            ->where('products.status','=','1')
+            ->select('products.*','pro_details.*')
+            ->paginate(16);
+        return view('category.list',['data'=>$data, 'cateName' => $cateName, 'parentName' => $parentName, 'parentSlug' => $lv1]);
+
     }
 
     public function detail($id,$slug)
@@ -228,6 +251,13 @@ class PagesController extends Controller
         $products = DB::table('products')->where('name', 'LIKE', '%' . $keyword . '%')->paginate(10);
          return view('category.list',['data'=>$products, 'cateName' => 'Kết quả tìm kiếm']);
     }
+
+    public function searchAjax(Request $request)
+    {
+        $keyword = $request->input('txtkeyword');
+        $products = DB::table('products')->where('name', 'LIKE', '%' . $keyword . '%')->paginate(10);
+        return \Response::json($products);
+    } 
 
     public function createContact(Request $request) {
         return view('modules.contact', ['slug'=> 'Liên hệ']);
