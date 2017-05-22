@@ -161,31 +161,34 @@ class PagesController extends Controller
 
     public function detail($id,$slug)
     {
-        $cat = '';
 
         $category = DB::table('products')
             ->where('products.id','=', $id)
             ->get(['cat_id']);
 
-        $relation = DB::table('products')
-            ->where('products.status','=','1')
-            ->where('products.cat_id', '=', $category[0]->cat_id)
-            ->select('products.*')
-            ->orderBy('id', 'desc')
-            ->paginate(8);
-
-        if ($cat =='tin-tuc') {
-            $new = News::where('id',$id)->first();
-            return view('detail.news',['data'=>$new,'slug'=>$slug]);
+        if ($category) {
+            $relation = DB::table('products')
+                ->where('products.status','=','1')
+                ->where('products.cat_id', '=', $category[0]->cat_id)
+                ->select('products.*')
+                ->orderBy('id', 'desc')
+                ->paginate(8);
         } else {
-            $detail = Products::where('id',$id)->first();
-            if (empty($detail)) {
-            return view ('errors.503');
-            } else {
-               return view ('detail.detail',['data'=>$detail,'slug'=>$slug, 'relation' => $relation]);
-           }
+            $relation = DB::table('products')
+                ->where('products.status','=','1')
+                ->select('products.*')
+                ->orderBy('id', 'desc')
+                ->paginate(8);
         }
-        
+
+
+        $detail = Products::where('id',$id)->first();
+        if (empty($detail)) {
+        return view ('errors.503');
+        } else {
+           return view ('detail.detail',['data'=>$detail,'slug'=>$slug, 'relation' => $relation]);
+       }
+
     }
 
     public function getNews()
@@ -224,5 +227,9 @@ class PagesController extends Controller
         $keyword = $request->input('txtkeyword');
         $products = DB::table('products')->where('name', 'LIKE', '%' . $keyword . '%')->paginate(10);
          return view('category.list',['data'=>$products, 'cateName' => 'Kết quả tìm kiếm']);
+    }
+
+    public function createContact(Request $request) {
+        return view('modules.contact', ['slug'=> 'Liên hệ']);
     }
 }

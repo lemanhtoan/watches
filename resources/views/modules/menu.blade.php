@@ -48,7 +48,7 @@
                         @endif
 
                         <li>
-                            <a href="{!!url('gio-hang')!!}"> <span class="glyphicon glyphicon-shopping-cart"></span> Giỏ
+                            <a href="{!!url('gio-hang')!!}"> <i class="fa fa-shopping-bag" aria-hidden="true"></i><i class="cart-count"> ({!!Cart::count()!!})</i> Giỏ
                                 Hàng </a>
                         </li>
 

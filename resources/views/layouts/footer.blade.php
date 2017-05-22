@@ -26,6 +26,7 @@
     <script src="{!!url('public/js/bootstrap-image-gallery.min.js')!!}"></script>
     <script src="{!!url('public/js/jquery.blueimp-gallery.min.js')!!}"></script>
 
+
     {{-- validate --}}
     <script src="{!!url('public/js/validate/jquery.validate.min.js')!!}"></script>
     <script src="{!!url('public/js/validate/jquery.validate.js')!!}"></script>
@@ -36,5 +37,5 @@
     <script type='text/javascript' src="{!!url('public/mega/js/jquery.menu-aim.js')!!}"></script>
     <script type='text/javascript' src="{!!url('public/mega/js/main.js')!!}"></script>
 
-  </body>
+    </body>
 </html>

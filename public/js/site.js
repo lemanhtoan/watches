@@ -94,3 +94,4 @@ jQuery('.mediaSelected').click(function(){
   return false;
 });
 
+var easyzoom = jQuery('.easyzoom').easyZoom();

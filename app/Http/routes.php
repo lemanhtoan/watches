@@ -30,7 +30,7 @@ Route::get('/tin-tuc/{id}-{slug}', ['as'  => 'getdetailnews', 'uses' =>'PagesCon
 
 
 Route::get('/lien-he', 'PagesController@lienhe');
-
+Route::post('/gui-lien-he', 'PagesController@createContact');
 
 Route::resource('/tim-kiem', 'PagesController@search');
 
