@@ -561,6 +561,7 @@ img.lol-main {
 #mainSearch {
     width: 100%;
     padding: 60px 20px 50px 50px;
+    position: relative;
 }
 
 .mid-header .frm-input {
@@ -770,7 +771,7 @@ span.phone-numbers-inline a {
 .pro-title h1 a {
     margin-top: 10px;
     height: 60px;
-    line-height: 45px;
+    line-height: 30px;
     overflow: hidden;
     font-size: 18px;
     color: #000;
@@ -1204,4 +1205,46 @@ ul.form-customer li input {
 
 .owl-partner {
   margin-top: 15px;
+}
+
+div#resultSuggest {
+    position: absolute;
+    background: #fff;
+    z-index: 10000;
+    width: 100%;
+    padding: 20px;
+}
+
+ul.suggest-items li {
+    width: 100%;
+    float: left;
+        border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+
+.suggest-items img {
+  float: left;
+}
+
+.suggest-items label {
+  float: left;
+     color: #565656;
+    margin-left: 10px;
+    text-transform: capitalize;
+    line-height: 60px;
+}
+
+.suggest-items li a:hover, .suggest-items label:hover {
+  cursor: pointer;
+}
+
+.suggest-items li a
+{
+      float: left;
+    width: 100%;
+}
+
+.btn, input, textarea, button {
+  border-radius: 0 !important;
 }

@@ -524,8 +524,8 @@
             <li class="dropdown {!! set_active('dong-ho-nu') !!} {!! set_active('dong-ho-nu/casio') !!} {!! set_active('dong-ho-nu/olympia-star') !!} mn-lv1 mt-20">
                 <a class="a-lv1" href="{!!url('dong-ho-nu')!!}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Đồng hồ nữ <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="{!!url('dong-ho-nu/casio')!!}">Casio</a></li>
-                    <li><a href="{!!url('dong-ho-nu/olympia-star')!!}">Olympia star</a></li>
+                    <li><a href="{!!url('san-pham/dong-ho-nu/casio')!!}">Casio</a></li>
+                    <li><a href="{!!url('san-pham/dong-ho-nu/olympia-star')!!}">Olympia star</a></li>
                 </ul>
             </li>
             <li class="{!! set_active('pc') !!} mn-lv1 mt-20">
