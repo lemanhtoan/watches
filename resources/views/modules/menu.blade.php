@@ -104,275 +104,58 @@
     </div>
 
     <!-- mega menu -->
-
-    <nav style="display: none" class="navbar navbar-default" id="megaMenu">
-
-        <div class="container">
-            <div class="navbar-header">
-                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-
-
-            <div class="collapse navbar-collapse js-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li id="toogleDropdown" class="dropdown mega-dropdown mn-lv1">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Danh mục
-                            sản phẩm</a>
-
-                        <ul class="dropdown-menu mega-dropdown-menu row">
-                            <li class="col-sm-15">
-                                <ul>
-                                    <li class="dropdown-header">New in Stores</li>
-                                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                        <div class="carousel-inner">
-                                            <div class="item active">
-                                                <a href="#"><img
-                                                            src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection"
-                                                            class="img-responsive" alt="product 1"></a>
-                                                <h4>
-                                                    <small>Summer dress floral prints</small>
-                                                </h4>
-                                                <button class="btn btn-primary" type="button">49,99 €</button>
-                                                <button href="#" class="btn btn-default" type="button"><span
-                                                            class="glyphicon glyphicon-heart"></span> Add to Wishlist
-                                                </button>
-                                            </div>
-                                            <!-- End Item -->
-                                            <div class="item">
-                                                <a href="#"><img
-                                                            src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection"
-                                                            class="img-responsive" alt="product 2"></a>
-                                                <h4>
-                                                    <small>Gold sandals with shiny touch</small>
-                                                </h4>
-                                                <button class="btn btn-primary" type="button">9,99 €</button>
-                                                <button href="#" class="btn btn-default" type="button"><span
-                                                            class="glyphicon glyphicon-heart"></span> Add to Wishlist
-                                                </button>
-                                            </div>
-                                            <!-- End Item -->
-                                            <div class="item">
-                                                <a href="#"><img
-                                                            src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection"
-                                                            class="img-responsive" alt="product 3"></a>
-                                                <h4>
-                                                    <small>Denin jacket stamped</small>
-                                                </h4>
-                                                <button class="btn btn-primary" type="button">49,99 €</button>
-                                                <button href="#" class="btn btn-default" type="button"><span
-                                                            class="glyphicon glyphicon-heart"></span> Add to Wishlist
-                                                </button>
-                                            </div>
-                                            <!-- End Item -->
-                                        </div>
-                                        <!-- End Carousel Inner -->
-                                    </div>
-                                    <!-- /.carousel -->
-                                    <li class="divider"></li>
-                                    <li><a href="#">View all Collection <span
-                                                    class="glyphicon glyphicon-chevron-right pull-right"></span></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="col-sm-15">
-                                <ul>
-                                    <li class="dropdown-header">Dresses</li>
-                                    <li><a href="#">Unique Features</a></li>
-                                    <li><a href="#">Image Responsive</a></li>
-                                    <li><a href="#">Auto Carousel</a></li>
-                                    <li><a href="#">Newsletter Form</a></li>
-                                    <li><a href="#">Four columns</a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Tops</li>
-                                    <li><a href="#">Good Typography</a></li>
-                                </ul>
-                            </li>
-                            <li class="col-sm-15">
-                                <ul>
-                                    <li class="dropdown-header">Jackets</li>
-                                    <li><a href="#">Easy to customize</a></li>
-                                    <li><a href="#">Glyphicons</a></li>
-                                    <li><a href="#">Pull Right Elements</a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Pants</li>
-                                    <li><a href="#">Coloured Headers</a></li>
-                                    <li><a href="#">Primary Buttons & Default</a></li>
-                                    <li><a href="#">Calls to action</a></li>
-                                </ul>
-                            </li>
-                            <li class="col-sm-15">
-                                <ul>
-                                    <li class="dropdown-header">Accessories</li>
-                                    <li><a href="#">Default Navbar</a></li>
-                                    <li><a href="#">Lovely Fonts</a></li>
-                                    <li><a href="#">Responsive Dropdown </a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Newsletter</li>
-                                    <form class="form" role="form">
-                                        <div class="form-group">
-                                            <label class="sr-only" for="email">Email address</label>
-                                            <input type="email" class="form-control" id="email"
-                                                   placeholder="Enter email">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                                    </form>
-                                </ul>
-                            </li>
-
-                            <li class="col-sm-15">
-                                <ul>
-                                    <li class="dropdown-header">Accessories</li>
-                                    <li><a href="#">Default Navbar</a></li>
-                                    <li><a href="#">Lovely Fonts</a></li>
-                                    <li><a href="#">Responsive Dropdown </a></li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Newsletter</li>
-                                    <form class="form" role="form">
-                                        <div class="form-group">
-                                            <label class="sr-only" for="email">Email address</label>
-                                            <input type="email" class="form-control" id="email"
-                                                   placeholder="Enter email">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                                    </form>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    </li>
-
-                    <li class="{!! set_active('dong-ho-nam') !!} mn-lv1">
-                        <a href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a>
-                    </li>
-
-                    <li class="{!! set_active('laptop') !!} mn-lv1">
-                        <a href="{!!url('laptop')!!}"> Đồng hồ Thụy Sĩ </a>
-                    </li>
-                    <li class="{!! set_active('pc') !!} mn-lv1">
-                        <a href="{!!url('pc')!!}"> Video Xchannel </a>
-                    </li>
-                    <li class="dropdown mn-lv1">
-                        <a href="{!!url('tin-tuc')!!}" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                           aria-expanded="false">Kiến thức đồng hồ <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="{!!url('tin-tuc')!!}"> Về Xwatch </a>
-                    </li>
-                    <li>
-                        <a href="{!!url('tin-tuc')!!}"> Liên hệ </a>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
-                            <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-
-            </div>
-            <!-- /.nav-collapse -->
-
-        </div>
-
-    </nav>
-
+    <nav id="mainMenu">
     <div class="container">
-        <nav id="mainMenu">
         <ul>
             <li class="mn-lv1">
-                <div class="cd-dropdown-wrapper">
+                <div class="cd-dropdown-wrapper" id="dropMenu">
                     <a class="cd-dropdown-trigger a-lv1" href="">Danh mục sản phẩm</a>
                     <nav class="cd-dropdown">
-                        <h2>Title</h2>
+                        <h2>Danh mục đồng hồ</h2>
                         <a href="" class="cd-close">Close</a>
                         <ul class="cd-dropdown-content">
                             <li class="has-children">
-                                <a href="">Clothing</a>
+                                <a href="">Danh mục đồng hồ</a>
 
                                 <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="go-back"><a href="">Menu</a></li>
-                                    <li class="see-all"><a href="">All Clothing</a></li>
                                     <li class="has-children">
-                                        <a href="">Accessories</a>
-
+                                        <a href="{!!url('dong-ho-nam')!!}">Đồng hồ nam</a>
                                         <ul class="is-hidden">
-                                            <li class="go-back"><a href="">Clothing</a></li>
-                                            <li class="see-all"><a href="">All Accessories</a></li>
-                                            <li><a href="">Glasses</a></li>
-                                            <li><a href="">Gloves</a></li>
-                                            <li><a href="">Jewellery</a></li>
-                                            <li><a href="">Scarves</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-nam/casio')!!}">Casio</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-nam/citizen')!!}">Citizen</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-nam/ogival')!!}">Ogival</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-nam/olympianus')!!}">Olym Pianus</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-nam/olympiastar')!!}">Olympia star</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-nam/orient')!!}">Orient</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-nam/seiko')!!}">Seiko</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-children">
-                                        <a href="">Bottoms</a>
-
+                                        <a href="{!!url('dong-ho-nu')!!}">Đồng hồ nữ</a>
                                         <ul class="is-hidden">
-                                            <li class="go-back"><a href="">Clothing</a></li>
-                                            <li class="see-all"><a href="">All Bottoms</a></li>
-                                            <li><a href="">Casual Trousers</a></li>
-                                            <li><a href="">Leggings</a></li>
-                                            <li><a href="">Shorts</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-nu/casio')!!}">Casio</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-nu/citizen')!!}">Citizen</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-nu/olympiastar')!!}">Olympia star</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-nu/ogival')!!}">Ogival</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-children">
-                                        <a href="">Jackets</a>
-
+                                        <a href="">Đồng hồ đặc biệt</a>
                                         <ul class="is-hidden">
-                                            <li class="go-back"><a href="">Clothing</a></li>
-                                            <li class="see-all"><a href="">All Jackets</a></li>
-                                            <li><a href="">Blazers</a></li>
-                                            <li><a href="">Bomber jackets</a></li>
-                                            <li><a href="">Denim Jackets</a></li>
-                                            <li><a href="">Duffle Coats</a></li>
-                                            <li><a href="">Leather Jackets</a></li>
-                                            <li><a href="">Parkas</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-dac-biet/dong-ho-tu-dat')!!}">Đồng hồ tự đặt</a></li>
+                                            <li><a href="{!!url('san-pham/dong-ho-dac-biet/dong-ho-khac')!!}">Đồng hồ khác</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-children">
-                                        <a href="">Tops</a>
-
+                                        <a href="">Các loại đồng hồ khác</a>
                                         <ul class="is-hidden">
-                                            <li class="go-back"><a href="">Clothing</a></li>
-                                            <li class="see-all"><a href="">All Tops</a></li>
                                             <li><a href="">Cardigans</a></li>
                                             <li><a href="">Coats</a></li>
                                             <li><a href="">Polo Shirts</a></li>
                                             <li><a href="">Shirts</a></li>
-                                            <li class="has-children">
-                                                <a href="">T-Shirts</a>
-
-                                                <ul class="is-hidden">
-                                                    <li class="go-back"><a href="">Tops</a></li>
-                                                    <li class="see-all"><a href="">All T-shirts</a></li>
-                                                    <li><a href="">Plain</a></li>
-                                                    <li><a href="">Print</a></li>
-                                                    <li><a href="">Striped</a></li>
-                                                    <li><a href="">Long sleeved</a></li>
-                                                </ul>
-                                            </li>
                                             <li><a href="">Vests</a></li>
                                         </ul>
                                     </li>
@@ -380,38 +163,17 @@
                             </li> <!-- .has-children -->
 
                             <li class="has-children">
-                                <a href="">Gallery</a>
+                                <a href="">Đồng hồ phổ biến</a>
 
                                 <ul class="cd-dropdown-gallery is-hidden">
-                                    <li class="go-back"><a href="">Menu</a></li>
-                                    <li class="see-all"><a href="">Browse Gallery</a></li>
+                                    <?php foreach ($new as $row) : ?>
                                     <li>
-                                        <a class="cd-dropdown-item" href="">
-                                            <img src="img/img.png" alt="Product Image">
-                                            <h3>Product #1</h3>
+                                        <a class="cd-dropdown-item" href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">
+                                            <img  class="img-responsive menu-img" src="{!!url('/uploads/products/'.$row->images)!!}" alt="{!!$row->name!!}">
+                                            <h3>{!!$row->name!!}</h3>
                                         </a>
                                     </li>
-
-                                    <li>
-                                        <a class="cd-dropdown-item" href="">
-                                            <img src="img/img.png" alt="Product Image">
-                                            <h3>Product #2</h3>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a class="cd-dropdown-item" href="">
-                                            <img src="img/img.png" alt="Product Image">
-                                            <h3>Product #3</h3>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a class="cd-dropdown-item" href="">
-                                            <img src="img/img.png" alt="Product Image">
-                                            <h3>Product #4</h3>
-                                        </a>
-                                    </li>
+                                    <?php endforeach; ?>
                                 </ul> <!-- .cd-dropdown-gallery -->
                             </li> <!-- .has-children -->
 
@@ -476,34 +238,6 @@
                                         </a>
                                     </li>
 
-                                    <li>
-                                        <a class="cd-dropdown-item item-9" href="">
-                                            <h3>Service #9</h3>
-                                            <p>This is the item description</p>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a class="cd-dropdown-item item-10" href="">
-                                            <h3>Service #10</h3>
-                                            <p>This is the item description</p>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a class="cd-dropdown-item item-11" href="">
-                                            <h3>Service #11</h3>
-                                            <p>This is the item description</p>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a class="cd-dropdown-item item-12" href="">
-                                            <h3>Service #12</h3>
-                                            <p>This is the item description</p>
-                                        </a>
-                                    </li>
-
                                 </ul> <!-- .cd-dropdown-icons -->
                             </li> <!-- .has-children -->
 
@@ -511,7 +245,6 @@
 
                             <li><a href="">Page 1</a></li>
                             <li><a href="">Page 2</a></li>
-                            <li><a href="">Page 3</a></li>
                         </ul> <!-- .cd-dropdown-content -->
                     </nav> <!-- .cd-dropdown -->
                 </div> <!-- .cd-dropdown-wrapper -->
@@ -550,8 +283,8 @@
             </li>
 
         </ul>
-    </nav>
     </div>
+    </nav>
     <!-- end mega menu -->
 
 </div>

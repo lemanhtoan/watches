@@ -29,7 +29,7 @@
     <link rel='stylesheet' id='camera-css'  href="{!!url('public/css/camera.css')!!}" type='text/css' media='all'>
     <link rel='stylesheet' id='camera-css' href="{!!url('public/css/cam-1.css')!!}" type='text/css' media='all'>
 
-    <link href="{!!asset('css/blueimp-gallery.css')!!}" rel="stylesheet">
+    {{--<link href="{!!asset('css/blueimp-gallery.css')!!}" rel="stylesheet">--}}
     <!-- <link rel='stylesheet' id='camera-css'  href='public/css/camera.css' type='text/css' media='all'>  -->
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->

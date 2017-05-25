@@ -3,7 +3,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
     <h3>GIỚI THIỆU CÔNG TY</h3>
-    <ul>
+    <ul class="list-intro">
       <li><a href="">Triết lý kinh doanh: Chữ tâm hàng đầu</a></li>
       <li><a href="">Câu chuyện về  Watches</a></li>
       <li><a href="">Giải đáp mọi thắc mắc về đồng hồ chính hãng</a></li>
@@ -11,7 +11,7 @@
   </div>
   <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
     <h3>CHÍNH SÁCH</h3>
-    <ul>
+    <ul class="list-intro">
       <li><a href="">Chính sách bảo mật</a></li>
       <li><a href="">Điều khoản và điều kiện</a></li>
       <li><a href="">Hướng dẫn mua hàng</a></li>
@@ -21,7 +21,7 @@
   </div>
   <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
     <h3>BỘ SƯU TẬP</h3>
-    <ul>
+    <ul class="list-intro">
       <li><a href="">Đàn ông muốn sở hữu nhất</a></li>
       <li><a href="">Phụ nữ khao khát nhất</a></li>
       <li><a href="">Đồng hồ bán chạy nhất</a></li>

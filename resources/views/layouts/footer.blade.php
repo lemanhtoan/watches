@@ -23,8 +23,8 @@
     <script type='text/javascript' src='{!!url('public/js/camera.min.js')!!}'></script> 
     <script type='text/javascript' src='{!!url('public/js/myscript.js')!!}'></script> 
     <script type='text/javascript' src='{!!url('public/js/active-menu.js')!!}'></script> 
-    <script src="{!!url('public/js/bootstrap-image-gallery.min.js')!!}"></script>
-    <script src="{!!url('public/js/jquery.blueimp-gallery.min.js')!!}"></script>
+    {{--<script src="{!!url('public/js/bootstrap-image-gallery.min.js')!!}"></script>--}}
+    {{--<script src="{!!url('public/js/jquery.blueimp-gallery.min.js')!!}"></script>--}}
 
 
     {{-- validate --}}

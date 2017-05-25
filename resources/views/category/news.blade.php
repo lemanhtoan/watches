@@ -13,7 +13,7 @@
               <div class="row">
               <!-- hot new content -->              
                 <div class="col-lg-6">
-                  <img src="{!!url('public/uploads/news/'.$hot1->images)!!}" alt="" height="200" width="100%">
+                    <a href="{!!url('tin-tuc/'.$hot1->id.'-'.$hot1->slug)!!}" title=""><img src="{!!url('public/uploads/news/'.$hot1->images)!!}" alt="" height="200" width="100%"></a>
                   <h3 class="title-h3"><a href="{!!url('tin-tuc/'.$hot1->id.'-'.$hot1->slug)!!}" title="">{!!$hot1->title!!} </a></h3>
                   <p class="summary-content">
                     {!!$hot1->intro!!}

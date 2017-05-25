@@ -16,7 +16,7 @@
           <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
                 <div class="pro-image">
                   <a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">
-                  <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
+                  <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="{!!$row->name!!}">
                   </a>
                 </div>
                 <div class="pro-title">
