@@ -78,14 +78,6 @@ imageDetail.owlCarousel({
     itemsMobile : [320,1] 
 });
 
-var maxHeight = Math.max.apply(null, jQuery(".pro-image").map(function ()
-{
-    return jQuery(this).height();
-}).get());
-
-jQuery(".pro-image").css(
-    'min-height', maxHeight + 'px'
-);
 
 jQuery('.mediaSelected').click(function(){
   jQuery('.item-media').removeClass('active');

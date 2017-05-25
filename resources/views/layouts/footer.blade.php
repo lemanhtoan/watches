@@ -43,7 +43,7 @@
 
             jQuery("#txtkeyword").on("keyup", function() {
               var outPut ='';  
-              if (jQuery(this).val().length >=3 ) {
+              if (jQuery(this).val().length >=1 ) {
                 var dataString = 'txtkeyword='+ jQuery(this).val();
                 var urlBase = "{!! url('/') !!}";
                 jQuery.ajax({
@@ -53,7 +53,6 @@
                     cache: false,
                     beforeSend: function(html) 
                     {
-                        console.log('loading...');
                     },
                     success: function(html)
                     {
@@ -62,7 +61,7 @@
                         jQuery.each(html.data, function(key, item) {
                             console.log(item);
                             outPut += "<li>";
-                            outPut += '<a href="'+'san-pham/'+item.id +'-'+ item.slug +'">' + '<img width="50" src="'+ urlBase + '/uploads/products/' + item.images +'" alt="'+ item.name +'" />' + '<label>' + item.name + '</label>' + '</a>';
+                            outPut += '<a href="'+urlBase+'/san-pham/'+item.id +'-'+ item.slug +'">' + '<img width="50" src="'+ urlBase + '/uploads/products/' + item.images +'" alt="'+ item.name +'" />' + '<label>' + item.name + '</label>' + '</a>';
                             outPut += "</li>";
                         });
                         outPut += "</ul>";

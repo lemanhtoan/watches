@@ -39,7 +39,7 @@ Route::resource('/search-ajax', 'PagesController@searchAjax');
 Route::get('/{cat}', ['as'  => 'getcate', 'uses' =>'PagesController@getcate']);
 Route::get('/san-pham/{id}-{slug}', ['as'  => 'getdetail', 'uses' =>'PagesController@detail']);
 
-Route::get('/{cat}/{catlv2}', ['as'  => 'getcatelv2', 'uses' =>'PagesController@getcatelv2']);
+Route::get('san-pham/{cat}/{catlv2}', ['as'  => 'getcatelv2', 'uses' =>'PagesController@getcatelv2']);
 
 
 Route::resource('payment', 'PayMentController');

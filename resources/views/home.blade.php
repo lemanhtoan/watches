@@ -5,7 +5,14 @@
         <hr>
       </div>
         <!-- danh muc noi bat -->
-        @foreach($new as $row)
+        <?php $count =1; 
+        foreach($new as $row) { ?>
+        <?php 
+          if ($count%4 == 1)
+          {  
+               echo "<div class='row'>";
+          }
+        ?>
           <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
                 <div class="pro-image">
                   <a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">
@@ -19,7 +26,15 @@
                   {!!number_format($row->price)!!} đ
                 </div>
           </div>  <!-- /div col-4 -->
-          @endforeach
+          <?php 
+          if ($count%4 == 0)
+            {
+                echo "</div>";
+            }
+            $count++;
+          ?>
+          <?php } ?>
+          <?php if ($count%4 != 1) echo "</div>"; ?>
           <!-- danh muc noi bat -->
 
           <div class="clearfix">
