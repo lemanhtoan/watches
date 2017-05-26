@@ -112,5 +112,11 @@ Route::group(['middleware' => 'admin'], function () {
            Route::post('/edit/{id}',['as' =>'posteditnv','uses' => 'Admin_usersController@postedit'])->where('id','[0-9]+');
       });
       // ---------------van de khac ----------------------
+
+      // -------------------- quan ly lien he-----------------------------
+      Route::group(['prefix' => '/contacts'], function() {
+          Route::get('/',['as'       =>'getContacts','uses' => 'PagesController@getlistContact']);
+          Route::get('/del/{id}',['as'   =>'getdelContact','uses' => 'PagesController@getdelContact'])->where('id','[0-9]+');
+      });
     });     
 });

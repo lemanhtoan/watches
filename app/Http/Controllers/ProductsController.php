@@ -19,11 +19,11 @@ class ProductsController extends Controller
 	public function getlist($id)
 	{
         if ($id!='all') {
-            $pro = Products::where('cat_id',$id)->paginate(20);
+            $pro = Products::where('cat_id',$id)->orderBy('id', 'desc')->paginate(20);
             $cat= Category::all()->except([13 ,14]);
             return view('back-end.products.list',['data'=>$pro,'cat'=>$cat,'loai'=>$id]);                    
         } else {
-            $pro = Products::paginate(20);
+            $pro = Products::orderBy('id', 'desc')->paginate(20);
             $cat= Category::all()->except([13 ,14]);//Category::all();
             return view('back-end.products.list',['data'=>$pro,'cat'=>$cat,'loai'=>0]);
         }		

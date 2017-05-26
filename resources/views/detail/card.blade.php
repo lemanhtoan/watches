@@ -2,9 +2,9 @@
 @section('content')
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h3 class="panel-title  tbreadcrumb">
-      <span class="glyphicon glyphicon-home"><a href="{!!url('/')!!}" title=""> Trang chủ</a></span> 
-      <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span><a href="#" title=""> Đặt hàng</a>
-      <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span> <a href="#" title="">{!!$slug!!}</a>
+      <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
+      <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#" title=""> Đặt hàng</a>
+      <i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#" title="">{!!$slug!!}</a>
     </h3>              
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
@@ -39,9 +39,17 @@
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach(Cart::content() as $row) 
+                  @foreach(Cart::content() as $row)
+                      <?php
+                      $rowArr = (array) $row;
+                      if (array_key_exists("pro_id", $rowArr)) {
+                          $proId = $rowArr['pro_id'];
+                      } else {
+                          $proId = $rowArr['id'];
+                      }
+                      ?>
                     <tr>
-                      <td><b><a href="{!!url('san-pham/'.$row->id.'-'.strtolower($row->name))!!}"> {!!$row->name!!}</a></b></td>
+                      <td><b><a href="{!!url('san-pham/'.$proId.'-'.strtolower($row->name))!!}"> {!!$row->name!!}</a></b></td>
                       <td><img src="{!!url('/uploads/products/'.$row->options->img)!!}" alt="dell" width="80"></td>
                       
                       <td>                        
@@ -115,17 +123,25 @@
                 </div>
                 <!-- danh muc noi bat -->
                 @foreach($relation as $row)
+                      <?php
+                      $rowArr = (array) $row;
+                      if (array_key_exists("pro_id", $rowArr)) {
+                          $proId = $rowArr['pro_id'];
+                      } else {
+                          $proId = $rowArr['id'];
+                      }
+                      ?>
                   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
                         <div class="pro-image">
-                          <a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">
+                          <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
                           <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
                           </a>
                         </div>
                         <div class="pro-title">
-                          <h1><a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
+                          <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
                         </div> <!-- /div bt -->
                         <div class="pro-price">
-                          {!!number_format($row->price)!!} đ
+                            <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
                         </div>
                   </div>  <!-- /div col-4 -->
                   @endforeach

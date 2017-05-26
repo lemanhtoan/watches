@@ -13,6 +13,10 @@ use App\News;
 use App\Oders;
 use App\Oders_detail;
 use DB,Cart,Datetime;
+//call model
+use App\Model\Contacts;
+use Session;
+use Validator;
 
 class PagesController extends Controller
 {
@@ -270,6 +274,25 @@ class PagesController extends Controller
     } 
 
     public function createContact(Request $request) {
-        return view('modules.contact', ['slug'=> 'Liên hệ']);
+        $contact = new Contacts();
+        $contact->contact_name = $request->input('contact_name');
+        $contact->contact_email = $request->input('contact_email');
+        $contact->contact_message = $request->input('contact_message');
+        $contact->contact_status = 1;
+        $contact->save();
+        Session::flash('message', 'Cảm ơn liên hệ của quý khách, chúng tôi sẽ phản hồi trong 24h!');
+        return redirect('lien-he');
+    }
+
+    public function getlistContact() {
+        $data = Contacts::orderBy('id', 'desc')->paginate(10);
+        return View ('back-end.contacts.list',['data'=>$data]);
+    }
+
+    public function getdelContact($id) {
+        $pro = Contacts::find($id);
+        $pro->delete();
+        return redirect('admin/contacts')
+            ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã xóa !']);
     }
 }

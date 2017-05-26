@@ -2,8 +2,8 @@
 @section('content')
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 news-list">
     <h3 class="panel-title tbreadcrumb">
-      <span class="glyphicon glyphicon-home"><a href="{!!url('/')!!}" title=""> Trang chủ</a></span> 
-      <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span><a href="#" title=""> Tin tức </a>
+      <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
+      <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#" title=""> Tin tức </a>
     </h3>              
     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-padding"> 
       <div class="row">

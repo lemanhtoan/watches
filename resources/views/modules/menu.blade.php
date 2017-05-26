@@ -73,7 +73,7 @@
                     <div class="input-group add-on frm-input">
                         <input class="form-control" placeholder="Search" name="txtkeyword" id="txtkeyword" type="text">
                         <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
+                            <button id="submitSearch" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
                             </button>
                         </div>
                     </div>
@@ -109,8 +109,8 @@
         <ul>
             <li class="mn-lv1">
                 <div class="cd-dropdown-wrapper" id="dropMenu">
-                    <a class="cd-dropdown-trigger a-lv1" href="">Danh mục sản phẩm</a>
-                    <nav class="cd-dropdown">
+                    <a id="aRoot" class="cd-dropdown-trigger a-lv1" href="">Danh mục sản phẩm <span class="caret" style="margin-left: 3px;"></span></a>
+                    <nav id="navRoot" class="cd-dropdown">
                         <h2>Danh mục đồng hồ</h2>
                         <a href="" class="cd-close">Close</a>
                         <ul class="cd-dropdown-content">
@@ -167,8 +167,16 @@
 
                                 <ul class="cd-dropdown-gallery is-hidden">
                                     <?php foreach ($new as $row) : ?>
+                                    <?php
+                                        $rowArr = (array) $row;
+                                        if (array_key_exists("pro_id", $rowArr)) {
+                                            $proId = $rowArr['pro_id'];
+                                        } else {
+                                            $proId = $rowArr['id'];
+                                        }
+                                    ?>
                                     <li>
-                                        <a class="cd-dropdown-item" href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">
+                                        <a class="cd-dropdown-item" href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
                                             <img  class="img-responsive menu-img" src="{!!url('/uploads/products/'.$row->images)!!}" alt="{!!$row->name!!}">
                                             <h3>{!!$row->name!!}</h3>
                                         </a>
@@ -241,9 +249,8 @@
                                 </ul> <!-- .cd-dropdown-icons -->
                             </li> <!-- .has-children -->
 
-                            <li class="cd-divider">Divider</li>
-
                             <li><a href="">Page 1</a></li>
+
                             <li><a href="">Page 2</a></li>
                         </ul> <!-- .cd-dropdown-content -->
                     </nav> <!-- .cd-dropdown -->

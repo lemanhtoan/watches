@@ -2,8 +2,8 @@
 @section('content')
     <div class="row">
         <h3 class="panel-title tbreadcrumb">
-            <span class="glyphicon glyphicon-home"><a href="{!!url('/')!!}" title=""> Trang chủ </a></span>
-            <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span> <a href="#"
+            <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
+            <i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#"
                                                                                                 title="">{!!$slug!!}</a>
         </h3>
     </div>
@@ -34,7 +34,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <div class="pull-left">{!!$data->name!!}</div>
+                                <div class="pull-left"><h3 class="prev-name">{!!$data->name!!}</h3></div>
                                 <button type="button" class="close" data-dismiss="modal" title="Close"><span
                                             class="glyphicon glyphicon-remove"></span></button>
                             </div>
@@ -75,7 +75,7 @@
                     <h3 class="pro-detail-title"><a href="{!!url('/mobile/'.$data->id.'-'.$data->slug)!!}"
                                                     title="">{!!$data->name!!}</a></h3>
                     <h3 class="pro-detail-price">
-                        Giá: {!!number_format($data->price)!!} đ
+                        Giá: <?php if ($data->price > 0) {?>{!!number_format($data->price)!!} đ <?php } else {echo ' Liên hệ';}?>
                     </h3>
                 </div>
 
@@ -93,9 +93,11 @@
             <div class="box-button">
                 <div class="box-2-items">
                     @if($data->status ==1)
+                        <?php if ($data->price > 0) {?>
                         <a href="{!!url('gio-hang/addcart/'.$data->id)!!}" title=""
                            class="btn btn-large btn-block btn-danger" style="font-size: 20px;"><i
                                     class="fa fa-cart-plus" aria-hidden="true"></i>Đặt mua ngay</a>
+                        <?php } else {echo '&nbsp;';}?>
                     @else
                         <button rel="nofollow" class="btn btn-default no-product" disabled><i
                                     class="fa fa-cart-plus"></i> Tạm hết hàng
@@ -224,10 +226,12 @@
         <div class="box-button box-w-50">
             <div class="box-2-items">
                 @if($data->status ==1)
+                    <?php if ($data->price > 0) {?>
                     <a href="{!!url('gio-hang/addcart/'.$data->id)!!}" title=""
                        class="btn btn-large btn-block btn-danger" style="font-size: 20px;"><i class="fa fa-cart-plus"
                                                                                               aria-hidden="true"></i>Đặt
                         mua ngay</a>
+                    <?php } else {echo '&nbsp;';}?>
                 @else
                     <button rel="nofollow" class="btn btn-default no-product" disabled><i class="fa fa-cart-plus"></i>
                         Tạm hết hàng
@@ -255,18 +259,26 @@
                 </div>
                 <!-- danh muc noi bat -->
                 @foreach($relation as $row)
+                    <?php
+                    $rowArr = (array) $row;
+                    if (array_key_exists("pro_id", $rowArr)) {
+                        $proId = $rowArr['pro_id'];
+                    } else {
+                        $proId = $rowArr['id'];
+                    }
+                    ?>
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
                         <div class="pro-image">
-                            <a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">
+                            <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
                                 <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}"
                                      alt="img responsive">
                             </a>
                         </div>
                         <div class="pro-title">
-                            <h1><a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
+                            <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
                         </div> <!-- /div bt -->
                         <div class="pro-price">
-                            {!!number_format($row->price)!!} đ
+                            <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
                         </div>
                     </div>  <!-- /div col-4 -->
             @endforeach

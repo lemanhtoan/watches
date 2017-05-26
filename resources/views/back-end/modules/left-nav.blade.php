@@ -19,7 +19,9 @@
 			<li class="{!! set_active('admin/khachhang') !!}"><a href="{!!url('admin/khachhang')!!}"><svg class="glyph stroked app-window"><use xlink:href="#stroked-line-graph"></use></svg>  Khách hàng</a></li>
 
 			<li class="{!! set_active('admin/nhanvien') !!}"><a href="{!!url('admin/nhanvien')!!}"><svg class="glyph stroked female user"><use xlink:href="#stroked-female-user"/></svg> Nhân Viên</a></li>
-			
+
+			<li  class="{!! set_active('admin/contacts') !!}"><a href="{!!url('admin/contacts')!!}"><span class="glyphicon glyphicon-file"></span> Phản hồi khách hàng</a></li>
+
 			<li role="presentation" class="divider"></li>
 
 

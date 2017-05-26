@@ -91,23 +91,31 @@
 											<td>{!!$row->id!!}</td>
 											<td> <img src="{!!url('uploads/products/'.$row->images)!!}" alt="iphone" width="50"></td>
 											<td>{!!$row->name!!}</td>
-											<td class="list-backend">
-												<p>
-													@if ($row->promo1!='')
-										              <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo1!!}</li>
-										            @endif </p> <p>  @if($row->promo2!='')
-										              <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo2!!}</li>
-										            @endif </p> <p> @if ($row->promo3!='')
-										              <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>
-										            @endif 
-														<p> @if ($row->packet!='')
-										              <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>
-										            @endif 
-												</p>										
+											<td>
+												<div class="list-backend">
 
+													@if ($row->promo1!='')
+													<p>
+										              <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo1!!}</li>
+													</p>
+										            @endif
+													@if($row->promo2!='') <p>
+													<li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo2!!}</li>
+
+													</p>
+													@endif  @if ($row->promo3!='')<p>
+														<li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>
+													</p>
+													@endif
+														@if ($row->packet!='')<p>
+														<li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->packet!!}</li>
+														</p>
+														@endif
+
+												</div>
 											</td>
 											<td>{!!$row->category->name!!}</td>
-											<td>{!!number_format($row->price)!!} đ</td>
+											<td><?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?></td>
 											<td>
 												@if($row->status ==1)
 													<span style="color:blue;">Còn hàng</span>

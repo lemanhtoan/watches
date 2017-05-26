@@ -86,4 +86,16 @@ jQuery('.mediaSelected').click(function(){
   return false;
 });
 
-// jQuery('#dropMenu').
+jQuery("#dropMenu").hover(function(){
+    jQuery('#aRoot, #navRoot').addClass('dropdown-is-active');
+    console.log('show');
+},function(){
+    jQuery('#aRoot, #navRoot').removeClass('dropdown-is-active');
+    console.log('hide');
+});
+
+jQuery('#mainMenu li.dropdown').hover(function() {
+    jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+}, function() {
+    jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+});

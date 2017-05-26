@@ -7,7 +7,13 @@
         <!-- danh muc noi bat -->
         <?php $count =1; 
         foreach($new as $row) { ?>
-        <?php 
+        <?php
+        $rowArr = (array) $row;
+        if (array_key_exists("pro_id", $rowArr)) {
+            $proId = $rowArr['pro_id'];
+        } else {
+            $proId = $rowArr['id'];
+        }
           if ($count%4 == 1)
           {  
                echo "<div class='row'>";
@@ -15,15 +21,15 @@
         ?>
           <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
                 <div class="pro-image">
-                  <a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">
+                  <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
                   <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="{!!$row->name!!}">
                   </a>
                 </div>
                 <div class="pro-title">
-                  <h1><a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
+                  <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
                 </div> <!-- /div bt -->
                 <div class="pro-price">
-                  {!!number_format($row->price)!!} đ
+                    <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
                 </div>
           </div>  <!-- /div col-4 -->
           <?php 
@@ -55,17 +61,25 @@
          <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
          <ul id="owl-orient" class="owl-carousel owl-theme owl-listChoise">
            @foreach($group_orient as $row)
+             <?php
+                 $rowArr = (array) $row;
+                 if (array_key_exists("pro_id", $rowArr)) {
+                     $proId = $rowArr['pro_id'];
+                 } else {
+                     $proId = $rowArr['id'];
+                 }
+             ?>
              <li class="item item-pro">
                 <div class="pro-image">
-              <a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">
+              <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
                 <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
               </a>
             </div>
             <div class="pro-title">
-              <h1><a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
+              <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
             </div> 
             <div class="pro-price">
-              {!!number_format($row->price)!!} đ
+                <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
             </div>
 
              </li>
@@ -86,17 +100,25 @@
          <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
          <ul id="owl-olym-painus" class="owl-carousel owl-theme owl-listChoise">
         @foreach($group_olym_pianus as $row)
+            <?php
+                 $rowArr = (array) $row;
+                 if (array_key_exists("pro_id", $rowArr)) {
+                     $proId = $rowArr['pro_id'];
+                 } else {
+                     $proId = $rowArr['id'];
+                 }
+             ?>
              <li class="item item-pro">
                 <div class="pro-image">
-              <a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">
+              <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
                 <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
               </a>
             </div>
             <div class="pro-title">
-              <h1><a href="{!!url('san-pham/'.$row->id.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
+              <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
             </div> 
             <div class="pro-price">
-              {!!number_format($row->price)!!} đ
+                <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
             </div>
 
              </li>

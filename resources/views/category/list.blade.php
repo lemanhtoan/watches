@@ -2,15 +2,15 @@
 @section('content')
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 list-product-category" id="category-list">
       <h3 class="panel-title  tbreadcrumb">
-      <span class="glyphicon glyphicon-home"><a href="{!!url('/')!!}" title=""> Trang chủ</a></span> 
+      <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
       
       <?php if (isset($parentName) && $parentName !="") { ?>
 
-      <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span><a href="{!!url($parentSlug)!!}" title=""> {!!$parentName!!}</a>
+      <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="{!!url($parentSlug)!!}" title=""> {!!$parentName!!}</a>
 
       <?php } ?>
 
-      <span class="glyphicon glyphicon-chevron-right" style="font-size: 11px;"></span>
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
       
       <a href="#" title="">{!! $cateName !!}</a>
     </h3> 
@@ -21,8 +21,13 @@
             <?php  if (count($data)) : ?>
               <?php $count =1; 
                 foreach($data as $row) { ?>
-                <?php 
-                //echo "<pre>"; print_r($row);
+                <?php
+                  $rowArr = (array) $row;
+                  if (array_key_exists("pro_id", $rowArr)) {
+                    $proId = $rowArr['pro_id'];
+                  } else {
+                    $proId = $rowArr['id'];
+                  }
                   if ($count%4 == 1)
                   {  
                        echo "<div class='row'>";
@@ -30,15 +35,15 @@
                 ?>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
                       <div class="pro-image">
-                        <a href="{!!url('san-pham/'.$row->pro_id.'-'.$row->slug)!!}"> <!-- check lại pro_id và id-->
+                        <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}"> <!-- check lại pro_id và id-->
                         <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
                         </a>
                       </div>
                       <div class="pro-title">
-                        <h1><a href="{!!url('san-pham/'.$row->pro_id.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
+                        <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
                       </div> <!-- /div bt -->
                       <div class="pro-price">
-                        {!!number_format($row->price)!!} đ
+                          <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
                       </div>
                 </div>  <!-- /div col-4 -->
               <?php 

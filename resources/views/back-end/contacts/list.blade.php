@@ -5,7 +5,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Danh mục</li>
+				<li class="active">Phản hồi khách hàng</li>
 			</ol>
 		</div><!--/.row-->
 	
@@ -13,41 +13,38 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Dánh sách loại sản phẩm
-						<a href="{!!url('admin/danhmuc/add')!!}" title=""><button type="button" class="btn btn-primary pull-right">Thêm mới danh mục</button></a>
+						Danh sách phản hồi
 					</div>
-					@if (count($errors) > 0)
-					    <div class="alert alert-danger">
-					        <ul>
-					            @foreach ($errors->all() as $error)
-					                <li>{{ $error }}</li>
-					            @endforeach
-					        </ul>
-					    </div>
-					    @elseif (Session()->has('flash_level'))
-					    	<div class="alert alert-success">
-						        <ul>
-						            {!! Session::get('flash_massage') !!}	
-						        </ul>
-						    </div>
-						@endif
 					<div class="panel-body">
 						<div class="table-responsive">
 							<table class="table table-hover">
 								<thead>
 									<tr>										
 										<th>ID</th>										
-										<th>Tên danh mục</th>										
+										<th>Họ và tên</th>
+										<th>Số điện thoại (hoặc email)</th>
+										<th>Nội dung</th>
+										<th>Ngày liên hệ</th>
 										<th>Hành động</th>
 									</tr>
 								</thead>
 								<tbody>
+									<?php foreach($data as $row): ?>
 									<tr>
-										<?php listcate ($data,$id_cha =0,$str=""); ?>  
-									</tr>									
+										<td><?php echo $row->id; ?></td>
+										<td><?php echo $row->contact_name; ?></td>
+										<td><?php echo $row->contact_email; ?></td>
+										<td><?php echo $row->contact_message; ?></td>
+										<td><?php echo $row->created_at; ?></td>
+										<td><a href="{!!url('admin/contacts/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa liên hệ này ?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a></td>
+									</tr>
+									<?php endforeach; ?>
 								</tbody>
 							</table>
 						</div>
+
+						{!!$data->render()!!}
+
 					</div>
 				</div>
 			</div>
