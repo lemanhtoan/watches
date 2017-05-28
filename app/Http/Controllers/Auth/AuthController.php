@@ -37,6 +37,14 @@ class AuthController extends Controller
      */
     public function __construct()
     {
+        // new - noi bat
+        $new = \DB::table('products')
+                ->where('products.status','=','1')
+                ->select('products.*')
+                ->orderBy('id', 'desc')
+                ->paginate(12);
+            \View::share ( 'new', $new );
+
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 

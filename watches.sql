@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 24, 2017 at 10:51 PM
+-- Generation Time: May 28, 2017 at 10:26 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -101,7 +101,32 @@ INSERT INTO `category` (`id`, `name`, `slug`, `parent_id`, `created_at`, `update
 (22, 'Tin Công Nghệ', 'tin-cong-nghe', '13', '2016-11-28 18:40:09', '2016-11-28 18:40:09'),
 (23, 'Tin khuyễn mại', 'tin-khuyen-mai', '13', '2016-11-28 18:40:31', '2016-11-28 18:40:31'),
 (24, 'Orient', 'orient', '1', '2017-05-19 19:25:25', '2017-05-19 19:25:25'),
-(25, 'Seiko', 'seiko', '1', '2017-05-19 19:25:37', '2017-05-19 19:25:37');
+(25, 'Seiko', 'seiko', '1', '2017-05-19 19:25:37', '2017-05-19 19:25:37'),
+(26, 'Đồng hồ Thụy Sĩ', 'dong-ho-thuy-si', '0', '2017-05-28 00:25:26', '2017-05-28 00:25:26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contacts`
+--
+
+CREATE TABLE `contacts` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `contact_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `contact_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `contact_message` text COLLATE utf8_unicode_ci NOT NULL,
+  `contact_status` tinyint(4) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`id`, `contact_name`, `contact_email`, `contact_message`, `contact_status`, `created_at`, `updated_at`) VALUES
+(2, 'le toan', '09212122121', 'noi dung contact', 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 'sfdsf', 'fsf', 'dsfdsfsfs', 1, '2017-05-26 03:17:30', '2017-05-26 03:17:30');
 
 -- --------------------------------------------------------
 
@@ -162,7 +187,9 @@ INSERT INTO `detail_img` (`id`, `images_url`, `pro_id`, `created_at`, `updated_a
 (80, '1495355717_EFR-543BK-1A2VUDF_3.jpg', 72, '2017-05-21 01:35:17', '2017-05-21 01:35:17'),
 (81, '1495355717_EFR-543BK-1A2VUDF_4.jpg', 72, '2017-05-21 01:35:17', '2017-05-21 01:35:17'),
 (82, '1495356672_avatarag8351-86e-1.png', 28, '2017-05-21 01:51:12', '2017-05-21 01:51:12'),
-(83, '1495356672_Avatar_NY4051-51A-1.png', 28, '2017-05-21 01:51:12', '2017-05-21 01:51:12');
+(83, '1495356672_Avatar_NY4051-51A-1.png', 28, '2017-05-21 01:51:12', '2017-05-21 01:51:12'),
+(84, '1495956440_avatarefv-510l-2avudf.png', 73, '2017-05-28 00:27:20', '2017-05-28 00:27:20'),
+(85, '1495956440_avatarny0040-09e-1-1.png', 73, '2017-05-28 00:27:20', '2017-05-28 00:27:20');
 
 -- --------------------------------------------------------
 
@@ -270,7 +297,10 @@ INSERT INTO `oders` (`id`, `c_id`, `qty`, `sub_total`, `total`, `status`, `type`
 (10, 1, 2, 34380000, 34380000, 1, 'cod', 'ghi chu', '2016-12-17 04:53:28', '2016-12-25 21:51:35'),
 (11, 1, 1, 15890000, 15890000, 1, 'cod', '                    \r\n                  ', '2016-12-17 04:54:11', '2016-12-25 21:51:42'),
 (12, 1, 2, 24480000, 24480000, 1, 'paypal', 'PAY-5DH63736F1042400PLBKUBIY', '2016-12-17 06:42:29', '2016-12-17 06:42:29'),
-(15, 3, 4, 73960000, 73960000, 1, 'cod', '                    \r\n                  ok toi mua no', '2017-05-16 21:42:19', '2017-05-16 21:42:51');
+(15, 3, 4, 73960000, 73960000, 1, 'cod', '                    \r\n                  ok toi mua no', '2017-05-16 21:42:19', '2017-05-16 21:42:51'),
+(17, 1, 3, 15744800, 15744800, 0, 'cod', 'Tôi mua sản phẩm này                    \r\n                  ', '2017-05-28 01:15:08', '2017-05-28 01:15:08'),
+(18, 4, 1, 19850000, 19850000, 0, 'cod', 'Di dau cung duoc', '2017-05-28 01:34:09', '2017-05-28 01:34:09'),
+(19, 5, 1, 1000000, 1000000, 0, 'tructiep', 'Toi mua', '2017-05-28 01:54:10', '2017-05-28 01:54:10');
 
 -- --------------------------------------------------------
 
@@ -305,7 +335,11 @@ INSERT INTO `oders_detail` (`id`, `pro_id`, `qty`, `o_id`, `created_at`, `update
 (17, 23, 1, 11, '2016-12-17 04:54:11', '2016-12-17 04:54:11'),
 (18, 35, 1, 12, '2016-12-17 06:42:29', '2016-12-17 06:42:29'),
 (19, 24, 1, 12, '2016-12-17 06:42:29', '2016-12-17 06:42:29'),
-(22, 34, 4, 15, '2017-05-16 21:42:19', '2017-05-16 21:42:19');
+(22, 34, 4, 15, '2017-05-16 21:42:19', '2017-05-16 21:42:19'),
+(23, 71, 2, 17, '2017-05-28 01:15:08', '2017-05-28 01:15:08'),
+(24, 72, 1, 17, '2017-05-28 01:15:08', '2017-05-28 01:15:08'),
+(25, 57, 1, 18, '2017-05-28 01:34:09', '2017-05-28 01:34:09'),
+(26, 73, 1, 19, '2017-05-28 01:54:10', '2017-05-28 01:54:10');
 
 -- --------------------------------------------------------
 
@@ -385,7 +419,8 @@ INSERT INTO `products` (`id`, `name`, `slug`, `intro`, `promo1`, `promo2`, `prom
 (60, 'LENOVO 12434 I5', 'lenovo-12434-i5', 'I5 6300HQ,RAM 8G,15inxh FHD', 'Đặt Online hoặc Gọi 18006601 ưu tiên khuyến mãi (SL có hạn):', 'Hoặc Tặng Vali Lock & Lock ', '', 'Pin, Dây nguồn, Sách hướng dẫn, Thùng máy, Adapter sạc ', '1495351631_avatarfac0000bw0.png', '<p><strong>ASUS GL552VX-DM070D</strong>&nbsp;l&agrave; d&ograve;ng Laptop Gaming trung cấp được n&acirc;ng cấp từ ASUS GL552JX-DM144D với sự n&acirc;ng cấp cấu h&igrave;nh mạnh mẽ l&ecirc;n CPU Skylake thế hệ thứ 6, card đồ họa sử dụng 4GB VRAM GDDR5, m&agrave;n h&igrave;nh đẹp v&agrave; s&aacute;ng hơn c&ugrave;ng cổng USB 3.1 Type C ti&ecirc;n tiến trong khi gi&aacute; b&aacute;n đề xuất kh&ocirc;ng thay đổi. Ngo&agrave;i ra sản phẩm kh&ocirc;ng c&oacute; sự thay đổi nhiều thiết kế so với d&ograve;ng đời trước. Hangchinhhieu.vn xin gửi c&aacute;c bạn c&aacute;c h&igrave;nh ảnh đập hộp sản phẩm GL552VX đầu ti&ecirc;n c&oacute; mặt tại Việt Nam</p>\r\n', '<p>Th&ocirc;ng tin sản phẩm:<br />\r\n<strong>ASUS GL552VX-DM070D - i7-6700HQ 2.6GHz, 8GB, 1TB, VGA GTX 950M 4GB GDDR5, 15.6&quot; FHD</strong><br />\r\n<em>&bull; CPU: Intel Core i7 6700HQ 2.6GHz up to 3.5GHz 6Mb<br />\r\n&bull; RAM: 8GB DDR4 2133MHz<br />\r\n&bull; Đĩa cứng: HDD 1TB 7200rpm&nbsp;<br />\r\n&bull; Card đồ họa: NVIDIA GeForce GTX 950M 4GB GDDR5 + Intel HD Graphics 530&nbsp;<br />\r\n&bull; M&agrave;n h&igrave;nh: 15.6 inch Full HD (1920 x 1080 pixels) LED + Anti-Glare WV<br />\r\n&bull; T&iacute;ch hợp đĩa quang: Super-Multi DVD<br />\r\n&bull; Cổng giao tiếp: USB 2.0 USB 3.0 HDMI LAN&nbsp;<br />\r\n&bull; PIN: 4 Cells<br />\r\n&bull; Trọng lượng: 2.59 kg<br />\r\n&bull; Hệ điều h&agrave;nh: Free Dos</em><br />\r\n<br />\r\nTh&ugrave;ng m&aacute;y chắc sản xuất trước khi c&oacute; m&aacute;y n&ecirc;n kh&ocirc;ng c&oacute; ảnh sản phẩm ở ngo&agrave;i th&ugrave;ng<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/wDr6xJo.jpg" /><br />\r\n<br />\r\nTh&ocirc;ng tin sản phẩm c&oacute; thể được quy đổi th&agrave;nh code game World Of Warship kh&aacute; gi&aacute; trị. Nếu bạn n&agrave;o kh&ocirc;ng đổi dc code game th&igrave; cứ li&ecirc;n hệ m&igrave;nh hỗ trợ nh&eacute;<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/R653ba2.jpg" /><br />\r\n<br />\r\nTrọn bộ phụ kiện k&egrave;m theo sản phẩm:<br />\r\n- Pin<br />\r\n- D&acirc;y nguồn v&agrave; sạc adapter<br />\r\n- Đĩa driver windows 10<br />\r\n- Chuột ASUS Gaming SiCa<br />\r\n- D&acirc;y r&uacute;t sạc &amp; Khăn vệ sinh m&agrave;n h&igrave;nh<br />\r\n- Sổ bảo h&agrave;nh v&agrave; giấy tờ kh&aacute;c<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/qpBdqsp.jpg" /><br />\r\n&nbsp;</p>\r\n\r\n<p>Sản phẩm được tặng k&egrave;m theo chuột ASUS ROG SICA (gi&aacute; ~60$). Thiết kế chuột tương đối nhỏ nhắn, vừa tay, ph&ugrave; hợp cho cả người thuận tay phải lẫn tay tr&aacute;i n&ecirc;n kh&ocirc;ng c&oacute; c&aacute;c n&uacute;t chuột phụ b&ecirc;n h&ocirc;ng. Thiết kế n&agrave;y ph&ugrave; hợp cho đối tượng game thủ RPG, FPS hơn l&agrave; MOBA/ARTS v&igrave; &iacute;t n&uacute;t cho việc sử dụng nhanh skills/items</p>\r\n\r\n<p><img alt="" src="http://i.imgur.com/OLpgTZO.jpg" /></p>\r\n\r\n<p><br />\r\n<br />\r\nVỏ ngo&agrave;i của m&aacute;y c&oacute; thiết kế kh&ocirc;ng thay đổi so với GL552JX. Vỏ bằng nhựa cứng c&aacute;p chứ kh&ocirc;ng phải l&agrave; vỏ nh&ocirc;m của GL552VW gi&aacute; tiền cao hơn<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/vVjxXPS.jpg" /><br />\r\n<br />\r\nLogo ASUS ph&aacute;t s&aacute;ng khi bật nguồn<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/Bnn5Sk7.jpg" /><br />\r\n<br />\r\nM&aacute;y đ&atilde; được lược bỏ cổng VGA (D-sub) thay v&agrave;o đ&oacute; l&agrave; cổng USB 3.1 Type C đời mới<br />\r\nNgo&agrave;i ra c&aacute;c cổng kh&aacute;c như jack nguồn, khe tản nhiệt, HDMI, LAN, 2 cổng USB 3.0 vẫn được giữ lại đ&uacute;ng vị tr&iacute; như GL552JX<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/V5qcO0m.jpg" /><br />\r\nKh&ocirc;ng c&oacute; sự thay đổi, vẫn l&agrave; 2 jack audio/micro được t&aacute;ch ri&ecirc;ng biệt, 1 cổng USB 2.0, ổ DVD-RW v&agrave; kh&oacute;a kensington<br />\r\n<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/V1H6QND.jpg" /><br />\r\nPh&iacute;a trước l&agrave; khe cắm thẻ nhớ SD card<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/uerGtNe.jpg" /><br />\r\n<br />\r\nThiết kế b&agrave;n ph&iacute;m kh&ocirc;ng c&oacute; g&igrave; thay đổi. M&aacute;y c&oacute; đ&egrave;n nền m&agrave;u đỏ, c&aacute;c ph&iacute;m ASDW được l&agrave;m nổi bật<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/sL81FWt.jpg" /><br />\r\n<br />\r\n<br />\r\nLogo Core i7 Skylake (l&ocirc; h&agrave;ng đầu c&oacute; nhiều thiếu s&oacute;t do thiếu sự đồng bộ giữa c&aacute;c nh&agrave; sản xuất hoặc c&aacute;c kh&acirc;u sx của ASUS n&ecirc;n logo NVIDIA đ&atilde; bị thiếu, m&aacute;y vẫn c&oacute; card đồ họa rời GTX 950M 4GB GDDR5)<br />\r\nM&aacute;y l&agrave; sản phẩm ch&iacute;nh h&atilde;ng c&oacute; hỗ trợ bảo h&agrave;nh từ xa của ASUS<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/ix8rdSI.jpg" /><br />\r\n<br />\r\nLogo ASUS ROG, m&aacute;y m&agrave;n h&igrave;nh 15.6&quot; inch n&ecirc;n c&oacute; k&egrave;m b&agrave;n ph&iacute;m số<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/qYQ2qan.jpg" /><br />\r\n<br />\r\n<br />\r\nM&aacute;y c&oacute; 2 loa k&eacute;p, hangchinhhieu.vn sẽ cập nhật chất lượng loa của m&aacute;y xem c&oacute; nhiều cải thiện so với sản phẩm tiền nhiệm hay kh&ocirc;ng<br />\r\n<img alt="[​IMG]" src="http://i.imgur.com/xoHzNtM.jpg" /><br />\r\n<br />\r\n<br />\r\nThiết kế mặt đ&aacute;y kh&ocirc;ng c&oacute; sự thay đổi, m&aacute;y c&oacute; thể dễ d&agrave;ng n&acirc;ng cấp RAM, SSD bằng th&aacute;o cover ra.<br />\r\nASUS đ&atilde; th&ecirc;m 1 lưu &yacute;: khe M.2 tr&ecirc;n m&aacute;y chỉ lắp được loại SSD SATA M.2 2280 chứ kh&ocirc;ng lắp được loại SSD chuẩn pcie x4 hoặc ssd c&oacute; k&iacute;ch thước kh&aacute;c như 2242 chẳng hạn. C&oacute; thể do 1 số người d&ugrave;ng gl552jx ng&agrave;y trước đ&atilde; ph&agrave;n n&agrave;n họ đ&atilde; mua sai loại SSD khi gắn v&agrave;o m&aacute;y n&ecirc;n ASUS phải note lại thế n&agrave;y</p>\r\n', 'rog, gamming', 19850000, 1, 18, 1, '2016-11-26 02:20:26', '2016-11-26 02:20:26'),
 (69, 'OPTIPLEX 3046SFF 70086073', 'optiplex-3046sff-70086073', 'Intel Core i3 6100,8G DDR3, intel HD ', 'Đặt Online hoặc Gọi 18006601 ưu tiên khuyến mãi (SL có hạn):', 'Hoặc Tặng Vali Lock & Lock ', 'Hoặc Tặng Combo Quà (Bao da S-View + Tai nghe Level Active)', 'Dây nguồn, Ốc', '1495351631_avatarfac0000bw0.png', '<h2>M&Aacute;Y T&Iacute;NH B&Agrave;N DELL OPTIPLEX 3046SFF 70086073 - THIẾT KẾ ẤN TƯỢNG</h2>\r\n\r\n<p>Bạn đang t&igrave;m một chiếc m&aacute;y t&iacute;nh để b&agrave;n chất lượng? H&atilde;y tham khảo chiếc m&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073 n&agrave;y nh&eacute;. Bề ngo&agrave;i của&nbsp;<a href="http://www.nguyenkim.com/may-tinh-de-ban-dell/">m&aacute;y t&iacute;nh b&agrave;n Dell</a>&nbsp;n&agrave;y kh&aacute; ấn tượng, đầy chuy&ecirc;n nghiệp. Kh&ocirc;ng những thế, đ&acirc;y c&ograve;n l&agrave; một chiếc m&aacute;y chạy đồ họa cực mượt. Đ&acirc;y hứa hẹn sẽ l&agrave; một thiết kế mạnh, t&ocirc; điểm cho g&oacute;c l&agrave;m việc của bạn.&nbsp;M&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073 sẽ kh&ocirc;ng l&agrave;m bạn thất vọng khi sử dụng đ&acirc;u</p>\r\n', '<h2>CHI TIẾT T&Iacute;NH NĂNG</h2>\r\n\r\n<h3>Thiết kế cứng c&aacute;p</h3>\r\n\r\n<p>M&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073&nbsp;mang trong m&igrave;nh t&ocirc;ng m&agrave;u đen bắt mắt, rất th&iacute;ch hợp với nhiều kh&ocirc;ng gian l&agrave;m việc. B&ecirc;n cạnh đ&oacute;, thiết kế cứng c&aacute;p c&ugrave;ng với bộ tản nhiệt được lắp đặt rất hợp l&yacute; sẽ tăng độ bền cho m&aacute;y t&iacute;nh.</p>\r\n\r\n<p><img alt="Máy tính bàn Dell Optiplex 3046SFF 70086073 thiết kế cứng cáp, độ bền cao" src="http://static.nguyenkimmall.com/images/companies/_1/Content/tin-hoc/may-tinh-de-ban/dell/may-tinh-de-ban-dell-optiplex-3046sff-70086073-core-i3-2.jpg" /></p>\r\n\r\n<p>M&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073&nbsp;c&oacute;&nbsp;thiết kế cứng c&aacute;p</p>\r\n\r\n<h3>Hiệu năng hoạt động</h3>\r\n\r\n<p>Chip Intel Core-i3 6100 tốc độ cao 3.7GHz được trang bị tr&ecirc;n m&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073 c&oacute; hiệu suất hoạt động rất hiệu quả, m&aacute;y t&iacute;nh c&oacute; thể xử l&yacute; hiệu năng đa nhiệm nhanh ch&oacute;ng m&agrave; kh&ocirc;ng bị xảy ra hiện tượng giật.</p>\r\n\r\n<p><img alt="Máy tính bàn Dell Optiplex 3046SFF 70086073 trang bị chip Intel Core-i3 6100" src="http://static.nguyenkimmall.com/images/companies/_1/Content/tin-hoc/may-tinh-de-ban/dell/may-tinh-de-ban-dell-optiplex-3046sff-70086073-core-i3--3.jpg" /></p>\r\n\r\n<p>Xử l&yacute; t&aacute;c vụ nhanh với&nbsp;Intel Core-i3 6100 tr&ecirc;n m&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073</p>\r\n\r\n<h3>Ổ đĩa cứng&nbsp;500 GB</h3>\r\n\r\n<p><a href="http://www.nguyenkim.com/may-tinh-de-ban/">M&aacute;y t&iacute;nh b&agrave;n&nbsp;</a>n&agrave;y trang bị ổ đĩa cứng với dung lượng l&ecirc;n đến 500GB, đem đến khả năng lưu trữ dữ liệu lớn, gi&uacute;p bạn c&oacute; thể c&agrave;i đặt ứng dụng, phần mềm m&agrave; kh&ocirc;ng phải lo về t&igrave;nh trạng hết bộ nhớ trống.</p>\r\n\r\n<p><img alt="Máy tính bàn Dell Optiplex 3046SFF 70086073 trang bị ổ HDD 500 GB" src="http://static.nguyenkimmall.com/images/companies/_1/Content/tin-hoc/may-tinh-de-ban/asus/may-tinh-de-ban-asus-k31ad-vn028d-core-i3-4.jpg" /></p>\r\n\r\n<p>M&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073&nbsp;lưu trữ dữ liệu lớn</p>\r\n\r\n<h3>Ổ đĩa quang DVD</h3>\r\n\r\n<p>Bạn cũng c&oacute; thể khai th&aacute;c được sự tiện lợi của đĩa DVD với ổ đĩa quang c&oacute; khả năng đọc v&agrave; ghi t&iacute;ch hợp tr&ecirc;n m&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073, hỗ trợ bạn rất nhiều trong qu&aacute; tr&igrave;nh sử dụng.</p>\r\n\r\n<p><img alt="Máy tính bàn Dell Optiplex 3046SFF 70086073 tích hợp ổ đĩa quang tiện lợi" src="http://static.nguyenkimmall.com/images/companies/_1/Content/tin-hoc/may-tinh-de-ban/dell/may-tinh-de-ban-dell-optiplex-3046sff-70086073-core-i3-5.jpg" /></p>\r\n\r\n<p>Ổ đĩa quang DVD t&iacute;ch hợp tr&ecirc;n m&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073</p>\r\n\r\n<h3>L&yacute; do mua h&agrave;ng</h3>\r\n\r\n<ul>\r\n	<li>\r\n	<p>C&oacute; thể dễ d&agrave;ng n&acirc;ng cấp phần cứng để ph&ugrave; hợp với nhu cầu sử dụng của m&igrave;nh.</p>\r\n	</li>\r\n	<li>\r\n	<p>Chip Intel Core-i3 6100 tốc&nbsp;độ cao c&ugrave;ng RAM 4 GB, gi&uacute;p xử l&yacute; c&aacute;c t&aacute;c vụ nhanh ch&oacute;ng.&nbsp;</p>\r\n	</li>\r\n	<li>\r\n	<p>T&iacute;ch hợp ổ đĩa quang DVD cho ph&eacute;p ghi v&agrave; đọc.</p>\r\n	</li>\r\n</ul>\r\n\r\n<h3>Ưu đ&atilde;i mua h&agrave;ng</h3>\r\n\r\n<ul>\r\n	<li>\r\n	<p>Để đặt mua&nbsp;m&aacute;y t&iacute;nh b&agrave;n của Dell, bạn c&oacute; thể gọi ngay đến tổng đ&agrave;i&nbsp;<em>1900 1267</em>&nbsp;bấm ph&iacute;m số 1.</p>\r\n	</li>\r\n	<li>\r\n	<p>Bạn cũng c&oacute; thể y&ecirc;u cầu nh&acirc;n vi&ecirc;n Nguyễn Kim gọi lại để tiết kiệm chi ph&iacute; điện thoại.</p>\r\n	</li>\r\n	<li>\r\n	<p>Dịch vụ giao h&agrave;ng tận nơi nhanh ch&oacute;ng, tiện lợi.</p>\r\n	</li>\r\n</ul>\r\n\r\n<h3>TH&Ocirc;NG SỐ KỸ THUẬT</h3>\r\n\r\n<h2>Th&ocirc;ng tin chung</h2>\r\n\r\n<p>Model:</p>\r\n\r\n<p>OPTIPLEX 3046SFF 70086073</p>\r\n\r\n<p>M&agrave;u sắc:</p>\r\n\r\n<p>Đen</p>\r\n\r\n<p>Nh&agrave; sản xuất:</p>\r\n\r\n<p>Dell</p>\r\n\r\n<p>Xuất xứ:</p>\r\n\r\n<p>Trung Quốc</p>\r\n\r\n<p>Thời gian bảo h&agrave;nh:</p>\r\n\r\n<p>12 th&aacute;ng</p>\r\n\r\n<p>Địa điểm bảo h&agrave;nh:</p>\r\n\r\n<p>Nguyễn Kim</p>\r\n\r\n<h2>Bộ vi xử l&yacute; m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>CPU:</p>\r\n\r\n<p>Intel Core-i3</p>\r\n\r\n<p>Loại CPU:</p>\r\n\r\n<p>6100</p>\r\n\r\n<p>Tốc độ CPU:</p>\r\n\r\n<p>3.70 GHz</p>\r\n\r\n<p>Bộ nhớ đệm:</p>\r\n\r\n<p>3 MB Cache</p>\r\n\r\n<p>Tốc độ CPU tối đa:</p>\r\n\r\n<p>Kh&ocirc;ng</p>\r\n\r\n<h2>Bộ nhớ m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>Loại RAM:</p>\r\n\r\n<p>SDRAM DDR3</p>\r\n\r\n<p>Dung lượng RAM:</p>\r\n\r\n<p>4 GB</p>\r\n\r\n<p>Tốc độ Bus:</p>\r\n\r\n<p>1600 MHz</p>\r\n\r\n<h2>Đĩa cứng m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>Loại ổ đĩa cứng:</p>\r\n\r\n<p>SATA</p>\r\n\r\n<p>Dung lượng đĩa cứng:</p>\r\n\r\n<p>500 GB</p>\r\n\r\n<h2>Đĩa quang m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>T&iacute;ch hợp ổ đĩa quang:</p>\r\n\r\n<p>C&oacute;</p>\r\n\r\n<p>Loại đĩa quang:</p>\r\n\r\n<p>SuperMulti DVD</p>\r\n\r\n<h2>Đồ họa m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>Bộ xử l&yacute; đồ họa:</p>\r\n\r\n<p>Integrated Intel HD Graphics</p>\r\n\r\n<p>Chipset card đồ họa:</p>\r\n\r\n<p>Intel HD</p>\r\n\r\n<p>Dung lượng card đồ họa:</p>\r\n\r\n<p>Share</p>\r\n\r\n<h2>&Acirc;m thanh m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>C&ocirc;ng nghệ &acirc;m thanh:</p>\r\n\r\n<p>High Definition</p>\r\n\r\n<p>Chuẩn &acirc;m thanh:</p>\r\n\r\n<p>High Definition Audio</p>\r\n\r\n<h2>Kết nối m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>Cổng kết nối m&agrave;n h&igrave;nh:</p>\r\n\r\n<p>VGA</p>\r\n\r\n<p>Chuẩn WiFi:</p>\r\n\r\n<p>Kh&ocirc;ng</p>\r\n\r\n<p>Chuẩn LAN:</p>\r\n\r\n<p>10 / 100 Mbps</p>\r\n\r\n<p>Bluetooth:</p>\r\n\r\n<p>Kh&ocirc;ng</p>\r\n\r\n<p>Cổng USB:</p>\r\n\r\n<p>C&oacute;</p>\r\n\r\n<p>Cổng HDMI:</p>\r\n\r\n<p>Đang cập nhật</p>\r\n\r\n<p>Khe đọc thẻ nhớ:</p>\r\n\r\n<p>Đang cập nhật</p>\r\n\r\n<p>Kết nối kh&aacute;c:</p>\r\n\r\n<p>Kh&ocirc;ng</p>\r\n\r\n<h2>Hệ điều h&agrave;nh m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>HĐH k&egrave;m theo m&aacute;y:</p>\r\n\r\n<p>Ubuntu</p>\r\n\r\n<h2>K&iacute;ch thước &amp; Khối lượng th&ugrave;ng</h2>\r\n\r\n<p>K&iacute;ch thước th&ugrave;ng:</p>\r\n\r\n<p>290x92x292 mm</p>\r\n\r\n<p>Khối lượng th&ugrave;ng (kg):</p>\r\n\r\n<p>6.1 kg</p>\r\n', 'OPTIPLEX 3046SFF 70086073', 21890000, 1, 20, 1, '2016-11-28 18:10:44', '2016-11-28 18:21:42'),
 (71, 'SGEH51P1', 'sgeh51p1', NULL, 'Hộp, Sạc, Tai nghe, Sách hướng dẫn, Cáp OTG, Cáp, Cây lấy sim ', '', '', ' Trả góp 0%', '1495351631_avatarfac0000bw0.png', NULL, '<p style="text-align:center"><a href="https://www.xwatch.vn/blog/bao-hiem-dong-ho-tieu-chuan-thuy-si-p2724.html" rel="noopener noreferrer" target="_blank"><img alt="chính sách bảo hành Xwatch" class="alignnone size-full wp-image-36297" src="//www.cdn.xwatch.vn/wp-content/uploads/2016/12/xw-banner-csbh.png" style="max-width:1177px; width:1200px" /></a> <img alt="chứng nhận đại lý Seiko" class="alignnone size-full wp-image-36358" src="//www.cdn.xwatch.vn/wp-content/uploads/2016/12/xw-banner-giay-chung-nhan-seiko-chinh-hang.jpg" style="max-width:1177px; width:1200px" /><img alt="" class="alignnone size-full wp-image-33822" src="//www.cdn.xwatch.vn/wp-content/uploads/2017/04/xw-doi-ngu-ki-thuat.png" style="max-width:1177px; width:1200px" /> <a href="https://www.xwatch.vn/lien-he" rel="noopener noreferrer" target="_blank"><img alt="hệ thống cửa hàng xwatch" class="alignnone size-full wp-image-34096" src="//www.cdn.xwatch.vn/wp-content/uploads/2017/04/xw-banner-he-thong-cua-hang.png" style="max-width:1177px; width:1200px" /></a><img alt="" class="alignnone size-full wp-image-32678" src="//www.cdn.xwatch.vn/wp-content/uploads/2016/12/phụ-kiện-của-Seiko.jpg" style="max-width:1177px; width:1099px" /></p>\r\n', '', 5123900, 1, 24, 1, '2017-05-21 00:27:11', '2017-05-21 00:29:46'),
-(72, 'EFR-543BK-1A2VUDF', 'efr-543bk-1a2vudf', NULL, 'Hộp, Sạc', 'Cáp OTG, Cáp', '', 'Đồng hồ Casio', '1495355717_EFR-543BK-1A2VUDF_1.jpg', NULL, '<div class="img-max-width"><a href="https://www.xwatch.vn/blog/bao-hiem-dong-ho-tieu-chuan-thuy-si-p2724.html" rel="noopener noreferrer" target="_blank"><img alt="chính sách bảo hành Xwatch" class="alignnone size-full wp-image-36297" src="//www.cdn.xwatch.vn/wp-content/uploads/2016/12/xw-banner-csbh.png" style="max-width:1177px; width:1200px" /></a> <img alt="" class="alignnone size-full wp-image-33822" src="//www.cdn.xwatch.vn/wp-content/uploads/2017/04/xw-doi-ngu-ki-thuat.png" style="max-width:1177px; width:1200px" /> <a href="https://www.xwatch.vn/lien-he" rel="noopener noreferrer" target="_blank"><img alt="hệ thống cửa hàng xwatch" class="alignnone size-full wp-image-34096" src="//www.cdn.xwatch.vn/wp-content/uploads/2017/04/xw-banner-he-thong-cua-hang.png" style="max-width:1177px; width:1200px" /></a><img alt="" class="alignnone size-full wp-image-32682" src="//www.cdn.xwatch.vn/wp-content/uploads/2016/12/phụ-kiện-Casio.jpg" style="max-width:1177px; width:1099px" /></div>\r\n', '', 5497000, 0, 1, 1, '2017-05-21 01:35:17', '2017-05-21 01:35:17');
+(72, 'EFR-543BK-1A2VUDF', 'efr-543bk-1a2vudf', NULL, 'Hộp, Sạc', 'Cáp OTG, Cáp', '', 'Đồng hồ Casio', '1495355717_EFR-543BK-1A2VUDF_1.jpg', NULL, '<div class="img-max-width"><a href="https://www.xwatch.vn/blog/bao-hiem-dong-ho-tieu-chuan-thuy-si-p2724.html" rel="noopener noreferrer" target="_blank"><img alt="chính sách bảo hành Xwatch" class="alignnone size-full wp-image-36297" src="//www.cdn.xwatch.vn/wp-content/uploads/2016/12/xw-banner-csbh.png" style="max-width:1177px; width:1200px" /></a> <img alt="" class="alignnone size-full wp-image-33822" src="//www.cdn.xwatch.vn/wp-content/uploads/2017/04/xw-doi-ngu-ki-thuat.png" style="max-width:1177px; width:1200px" /> <a href="https://www.xwatch.vn/lien-he" rel="noopener noreferrer" target="_blank"><img alt="hệ thống cửa hàng xwatch" class="alignnone size-full wp-image-34096" src="//www.cdn.xwatch.vn/wp-content/uploads/2017/04/xw-banner-he-thong-cua-hang.png" style="max-width:1177px; width:1200px" /></a><img alt="" class="alignnone size-full wp-image-32682" src="//www.cdn.xwatch.vn/wp-content/uploads/2016/12/phụ-kiện-Casio.jpg" style="max-width:1177px; width:1099px" /></div>\r\n', '', 5497000, 1, 1, 1, '2017-05-21 01:35:17', '2017-05-28 00:40:40'),
+(73, 'Đồng hồ TS1', 'dong-ho-ts1', NULL, 'Không có', '', '', 'Không có', '1495956440_EFR-543BK-1A2VUDF_4.jpg', NULL, '<p>Đồng hồ Thụy Sĩ TS1</p>\r\n', '', 1000000, 1, 26, 1, '2017-05-28 00:27:20', '2017-05-28 00:27:20');
 
 -- --------------------------------------------------------
 
@@ -445,7 +480,8 @@ INSERT INTO `pro_details` (`id`, `w_group`, `w_branch`, `w_country`, `w_role`, `
 (47, 'Intel cỏe I5 6300HQ', '8G DDR4 2100', 'Gigabyte H81-DS2', 'GTX 950M 4G GDDR4', '1T HDD, 128G SSD', '', 'Intel FAN Chuẩn', 'CTS 350W', '', 'Wi-Fi 802.11 a/b/g/n/ac, dual-band, DLNA, Wi-Fi Direct, Wi-Fi hotspot', NULL, NULL, '4Cel', 'Windows 10 bản dùng thử', 'Dây nguồn, Ốc ..', 60, '2016-11-26 02:20:26', '2016-11-26 02:20:26'),
 (52, 'Đồng hồ nam', 'Orient', 'Nhật Bản', '11A', 'Quartz', 'Quartz', '40 mm', 'Thép không gỉ 316L', 'Thép không gỉ 316L', 'Kính Shaphire', '4', '2', '100 m', 'Others', 'Không có', 69, '2016-11-28 18:10:45', '2016-11-28 18:21:42'),
 (53, 'Đồng hồ nam', 'Orient', 'Nhật Bản', '11A', 'Quartz', 'Nam', '40 mm', 'Thép không gỉ 316L', 'Thép không gỉ 316L', 'Kính Shaphire', '4', '2', '100 m', 'Others', '', 71, '2017-05-21 00:27:11', '2017-05-21 00:29:46'),
-(54, 'Đồng hồ nam', 'Casio', 'Nhật Bản', '2A', 'Quartz', 'Nam', '46.6 mm', 'Thép không gỉ 316L/Mạ PVD', 'Thép không gỉ 316L/Mạ PVD', 'Kính Khoáng', '2', '', '100 m', '', '', 72, '2017-05-21 01:35:17', '2017-05-21 01:35:17');
+(54, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 72, '2017-05-21 01:35:17', '2017-05-28 00:40:40'),
+(55, 'Đồng hồ Thụy Sĩ', 'Orient', 'Thụy Sĩ', '', '', 'Nam', '', '', '', '', '3', '2', '100 m', '', '', 73, '2017-05-28 00:27:20', '2017-05-28 00:27:20');
 
 -- --------------------------------------------------------
 
@@ -472,7 +508,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `phone`, `address`, `status`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Test', 'test@gmail.com', '$2y$10$TEY9mtHYRJ4G9oW.6n9D9.5.eHfae7I1po7iNVE8cNMsEORxtzv0m', '0868896944', 'Ho chi minh', 1, 'jFFpU4F9xl8TLtjS6DPBiI8qWugcLLXQWMtRSWx9UtBoB3TrjGpx66X8xMMh', '2016-11-23 20:44:11', '2016-12-17 02:55:05'),
-(3, 'ToanLM', 'toan@gmail.com', '$2y$10$HOZtAN04wNNIDSUbViW/DOgIFjuS.syxauLnTeGvAVIRUA4ycassG', '0912923823', 'ha noi viet nam', 1, NULL, '2017-05-16 21:39:57', '2017-05-16 21:39:57');
+(3, 'ToanLM', 'toan@gmail.com', '$2y$10$HOZtAN04wNNIDSUbViW/DOgIFjuS.syxauLnTeGvAVIRUA4ycassG', '0912923823', 'ha noi viet nam', 1, NULL, '2017-05-16 21:39:57', '2017-05-16 21:39:57'),
+(4, 'Toi la ai', 'Toi la ai@email.info', '$2y$10$u.9J6qckuUgmK.5esizzi.XX9fx5i18XfME/e2fclAGkTnWZIlk8S', '0912121212', 'Ha Tinh', 0, NULL, '2017-05-28 01:34:09', NULL),
+(5, 'new customer', 'new customer@email.guest', '$2y$10$oN9ucO6uBDln25ZqSn3oGOwyE57wZcsTyudCOpqwhqGMASdaAs6Ma', '091211223', 'Ha Noi - VN', 0, NULL, '2017-05-28 01:54:10', NULL);
 
 --
 -- Indexes for dumped tables
@@ -496,6 +534,12 @@ ALTER TABLE `banners`
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contacts`
+--
+ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -575,12 +619,17 @@ ALTER TABLE `banners`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT for table `contacts`
+--
+ALTER TABLE `contacts`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `detail_img`
 --
 ALTER TABLE `detail_img`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 --
 -- AUTO_INCREMENT for table `news`
 --
@@ -590,27 +639,27 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `oders`
 --
 ALTER TABLE `oders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `oders_detail`
 --
 ALTER TABLE `oders_detail`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 --
 -- AUTO_INCREMENT for table `pro_details`
 --
 ALTER TABLE `pro_details`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- Constraints for dumped tables
 --

@@ -4,17 +4,17 @@
       <div class="camera_violet_skin" id="camera_wrap_1">
         <div data-thumb="{!!url('public/images/slides/thumbs/bn1.png')!!}" data-src="{!!url('public/images/slides/thumbs/bn1.png')!!}">
             <div class="camera_caption fadeFromBottom">
-                Sắm Apple giá tốt, Du lịch châu âu. <em>Event mua hàng Apple Tại Thế Giới Di Động</em>
+                Hệ thống phân phối đồng hồ chính hãng hàng đầu Việt Nam
             </div>
         </div>
         <div data-thumb="{!!url('public/images/slides/thumbs/bn2.jpg')!!}" data-src="{!!url('public/images/slides/thumbs/bn2.jpg')!!}">
             <div class="camera_caption fadeFromBottom">
-                Sony trả góp 0%, có cỏ hội trúng Tivi 4K <em> Dành cho sản phẩm sony Tại Thế Giới Di Động </em>
+                Sau vài năm, liên tiếp 10 cửa hàng được mở cả Bắc và Nam
             </div>
         </div>
         <div data-thumb="{!!url('public/images/slides/thumbs/bn3.jpg')!!}" data-src="{!!url('public/images/slides/thumbs/bn3.jpg')!!}">
             <div class="camera_caption fadeFromBottom">
-                Galaxy J7 Prime - mua online thêm quà, <em> Dành cho Galaxy J7 Prime Tại Thế Giới Di Động </em>
+                Kênh review đồng hồ đầu tiên tại Việt Nam. Với 24.639 subcribers
             </div>
         </div>
         

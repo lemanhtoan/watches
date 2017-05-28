@@ -41,6 +41,7 @@
 										<th>Email</th>										
 										<th>Ngày đặt</th>
 										<th>Thành tiền</th>
+										<th>Hình thức thanh toán</th>
 										<th>Trạng thái</th>
 										<th>Hành động</th>
 									</tr>
@@ -54,7 +55,14 @@
 											<td>{!!$row->user->phone!!}</td>
 											<td>{!!$row->user->email!!}</td>											
 											<td>{!!$row->created_at!!}</td>
-											<td>{!!$row->total!!} Vnd</td>
+											<td>{!!$row->total!!} đ</td>
+											<td><?php if ($row->type == 'tructiep') {
+													echo 'Thanh toán trực tiếp tại cửa hàng';
+												}elseif($row->type == 'cod'){
+													echo 'Thanh toán khi nhận hàng (COD)';
+													}else {
+														echo 'Thanh toán trực tuyến qua ngân hàng';
+														} ?></td>
 											<td>
 												@if($row->status ==0)
 													<span style="color:#d35400;">Chưa xác nhận</span>

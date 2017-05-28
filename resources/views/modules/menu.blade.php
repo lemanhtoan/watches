@@ -71,7 +71,7 @@
 
                 <form action="{!! url('tim-kiem') !!}" method="get" id="mainSearch" class="navbar-form" role="search">
                     <div class="input-group add-on frm-input">
-                        <input class="form-control" placeholder="Search" name="txtkeyword" id="txtkeyword" type="text">
+                        <input class="form-control" placeholder="Nhập từ khóa tìm kiếm" name="txtkeyword" id="txtkeyword" type="text">
                         <div class="input-group-btn">
                             <button id="submitSearch" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
                             </button>
@@ -93,7 +93,7 @@
             </div><!-- search-->
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
                 <div class="box-support">
-                    <div class="support-address"><a href="" class="whitecolor"><span class="d-block upper redcolor"><i
+                    <div class="support-address"><a href="{!!url('lien-he')!!}" class="whitecolor"><span class="d-block upper redcolor"><i
                                         class="fa fa-map-marker"></i> Địa chỉ</span> cửa hàng</a></div>
                     <div class="support-hotline"><span class="d-block upper redcolor"><i class="fa fa-phone"></i> Hotline</span>
                         <span class="phone-numbers-inline"><a href="tel:19000325" rel="nofollow"
@@ -262,18 +262,17 @@
             </li>
 
             <li class="dropdown {!! set_active('dong-ho-nu') !!} {!! set_active('dong-ho-nu/casio') !!} {!! set_active('dong-ho-nu/olympia-star') !!} mn-lv1 mt-20">
-                <a class="a-lv1" href="{!!url('dong-ho-nu')!!}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Đồng hồ nữ <span class="caret"></span></a>
+                <a class="a-lv1" href="{!!url('dong-ho-nu')!!}" > Đồng hồ nữ <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="{!!url('san-pham/dong-ho-nu/casio')!!}">Casio</a></li>
                     <li><a href="{!!url('san-pham/dong-ho-nu/olympia-star')!!}">Olympia star</a></li>
                 </ul>
             </li>
-            <li class="{!! set_active('pc') !!} mn-lv1 mt-20">
-                <a class="a-lv1" href="{!!url('pc')!!}" > Đồng hồ Thụy Sĩ </a>
+            <li class="{!! set_active('dong-ho-thuy-si') !!} mn-lv1 mt-20">
+                <a class="a-lv1" href="{!!url('dong-ho-thuy-si')!!}" > Đồng hồ Thụy Sĩ </a>
             </li>
             <li class="dropdown mn-lv1 mt-20">
-                <a class="a-lv1" href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                   aria-expanded="false">Kiến thức đồng hồ <span class="caret"></span></a>
+                <a class="a-lv1" href="">Kiến thức đồng hồ <span class="caret"></span></a>
 
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Video Xchannel</a></li>
@@ -310,11 +309,12 @@
 <!-- /left slider bar nav -->
 
 {{-- loginform --}}
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-     style="display: none;">
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="loginmodal-container">
-            <h1>Đăng nhập</h1><br>
+            <div class="text-center-home">Đăng nhập
+                  <hr>
+            </div>
             <form class="form-horizontal" role="form" method="POST" id="login-form" action="{{ url('/login') }}">
                 {{ csrf_field() }}
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -335,16 +335,8 @@
                 </span>
                     @endif
                 </div>
-                <div class="form-group">
-                    <div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="remember"> Ghi nhớ
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <input type="submit" name="login" class="btn btn-primary" value="Đăng nhập">
+
+                <input type="submit" name="login" class="btn btn-primary btn-login" value="Đăng nhập">
             </form>
             <div class="login-help">
                 <a class="btn btn-link" href="{!!url('/register')!!}"> <strong style="color:red;"> Đăng ký </strong>

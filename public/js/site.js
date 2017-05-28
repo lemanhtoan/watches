@@ -88,10 +88,8 @@ jQuery('.mediaSelected').click(function(){
 
 jQuery("#dropMenu").hover(function(){
     jQuery('#aRoot, #navRoot').addClass('dropdown-is-active');
-    console.log('show');
 },function(){
     jQuery('#aRoot, #navRoot').removeClass('dropdown-is-active');
-    console.log('hide');
 });
 
 jQuery('#mainMenu li.dropdown').hover(function() {

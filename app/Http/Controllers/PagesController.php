@@ -121,13 +121,30 @@ class PagesController extends Controller
         foreach (Cart::content() as $row) {
             $total = $total + ( $row->qty * $row->price);
         }
-        $oder->c_id = Auth::user()->id;
+        
+        if ( !Auth::guest() ) {
+            $idCustomer = Auth::user()->id;
+        } else {
+            $idCustomer = DB::table('users')->insertGetId(
+                [
+                    'name' => trim($rq->cus_name), 
+                    'email' => trim($rq->cus_name).'@email.guest',
+                    'password' => bcrypt('123456a@'),
+                    'phone' => trim($rq->cus_phone),
+                    'address' => trim($rq->cus_address),
+                    'status' => 0,
+                    'created_at' => new datetime,
+                ]
+            );
+        }
+
+        $oder->c_id = $idCustomer;
         $oder->qty = Cart::count();
         $oder->sub_total = floatval($total);
         $oder->total =  floatval($total);
-        $oder->note = $rq->txtnote;
+        $oder->note = trim($rq->txtnote);
         $oder->status = 0;
-        $oder->type = 'cod';
+        $oder->type = trim($rq->cus_method);
         $oder->created_at = new datetime;
         $oder->save();
         $o_id =$oder->id;
@@ -148,8 +165,9 @@ class PagesController extends Controller
 
     public function getcate($cat)
     {
-        $cate = Category::where('slug', '=', $cat)->get(['name']);
-        $cateName = $cate[0]->name;
+        $cate = Category::where('slug', '=', $cat)->get(['name', 'id']); 
+        $cateName = $cate[0]->name; 
+        $cateId= $cate[0]->id;
     	if ($cat == 'tin-tuc') {
             $new =  DB::table('news')
                     ->orderBy('created_at', 'desc')
@@ -164,7 +182,7 @@ class PagesController extends Controller
             $data = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                //->where('category.parent_id','=','1')
+                ->where('products.cat_id','=',$cateId)
                 ->where('products.status','=','1')
                 ->select('products.*','pro_details.*')
                 ->paginate(16);
@@ -182,13 +200,15 @@ class PagesController extends Controller
         $cate = DB::table('category')
         ->where('slug', '=', $lv2)
         ->where('parent_id', '=', $parent[0]->id)
-        ->get(['name']);
+        ->get(['name', 'id']);
         $cateName = $cate[0]->name;
+        $cateId = $cate[0]->id;
 
         $data = DB::table('products')
             ->join('category', 'products.cat_id', '=', 'category.id')
             ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
             ->where('category.parent_id','=', $parent[0]->id)
+            ->where('products.cat_id','=',$cateId)
             ->where('products.status','=','1')
             ->select('products.*','pro_details.*')
             ->paginate(16);

@@ -25,19 +25,24 @@
 			<div class="col-xs-12 col-md-6 col-lg-3">
 				<div class="panel panel-blue panel-widget ">
 					<div class="row no-padding">
+					<a href="{!!url('admin/donhang')!!}">
 						<div class="col-sm-3 col-lg-5 widget-left">
 							<svg class="glyph stroked app-window-with-content"><use xlink:href="#stroked-app-window-with-content"/></svg>
 						</div>
 						<div class="col-sm-9 col-lg-7 widget-right">
+						
 							<div class="large">{!!$oder!!}</div>
 							<div class="text-muted"> Tổng đơn hàng</div>
+							
 						</div>
+						</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-6 col-lg-3">
 				<div class="panel panel-red panel-widget ">
 					<div class="row no-padding">
+					<a href="{!!url('admin/donhang')!!}">
 						<div class="col-sm-3 col-lg-5 widget-left">
 							<svg class="glyph stroked app-window-with-content"><use xlink:href="#stroked-app-window-with-content"/></svg>
 						</div>
@@ -45,12 +50,15 @@
 							<div class="large">{!!$oder_new!!}</div>
 							<div class="text-muted"> Đơn hàng mới</div>
 						</div>
+						</use>
 					</div>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-6 col-lg-3">
 				<div class="panel panel-orange panel-widget">
+
 					<div class="row no-padding">
+					<a href="{!!url('admin/sanpham/all')!!}">
 						<div class="col-sm-3 col-lg-5 widget-left">
 							<svg class="glyph stroked bag"><use xlink:href="#stroked-bag"/></svg>
 						</div>
@@ -58,12 +66,14 @@
 							<div class="large">{!!$pro!!}</div>
 							<div class="text-muted">Sản phẩm</div>
 						</div>
+						</a>
 					</div>
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-6 col-lg-3">
 				<div class="panel panel-teal panel-widget">
 					<div class="row no-padding">
+					<a href="{!!url('admin/khachhang')!!}">
 						<div class="col-sm-3 col-lg-5 widget-left">
 							<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
 						</div>
@@ -71,6 +81,7 @@
 							<div class="large">{!!$mem!!}</div>
 							<div class="text-muted">Khách hàng</div>
 						</div>
+						</a>
 					</div>
 				</div>
 			</div>		

@@ -13,7 +13,7 @@ class OdersController extends Controller
 {
     public function getlist()
     {
-    	$data = Oders::paginate(10);
+    	$data = Oders::orderBy('id', 'desc')->paginate(10);
     	return view('back-end.oders.list',['data'=>$data]);
     }
 

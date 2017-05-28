@@ -69,15 +69,21 @@
                 <hr>
               </div>
               <!-- danh muc noi bat -->
-              @foreach($newProduct as $row)
-                <?php
-                $rowArr = (array) $row;
-                if (array_key_exists("pro_id", $rowArr)) {
-                    $proId = $rowArr['pro_id'];
-                } else {
-                    $proId = $rowArr['id'];
-                }
-                ?>
+
+                <?php $count = 1;?>
+                @foreach($newProduct as $row)
+                      <?php
+                      $rowArr = (array) $row;
+                      if (array_key_exists("pro_id", $rowArr)) {
+                          $proId = $rowArr['pro_id'];
+                      } else {
+                          $proId = $rowArr['id'];
+                      }
+                      if ($count%4 == 1)
+                    {  
+                         echo "<div class='row'>";
+                    }
+                      ?>
                 <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
                       <div class="pro-image">
                         <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
@@ -91,7 +97,16 @@
                           <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
                       </div>
                 </div>  <!-- /div col-4 -->
-                @endforeach
+                <?php 
+          if ($count%4 == 0)
+            {
+                echo "</div>";
+            }
+            $count++;
+          ?>
+          @endforeach
+          
+          <?php if ($count%4 != 1) echo "</div>"; ?>
               <!-- danh muc noi bat -->
 
               <div class="clearfix">

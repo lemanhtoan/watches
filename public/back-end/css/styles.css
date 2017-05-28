@@ -951,6 +951,8 @@ li.end-item {
     font-size: 14px;
 }
 
-
+.panel-widget a {
+	cursor: pointer;
+}
 
 

@@ -42,16 +42,17 @@
                 </table>                
               </div>
               {{-- form thong tin khach hang dat hang           --}}
-              @if ($_GET['paymethod'] =='cod' )
+              @if ($_GET['paymethod'] =='cod' || $_GET['paymethod'] =='tructiep' )
               <form action="" method="POST" role="form">
                 <legend class="text-left head-h3">Xác nhận thông tin khách hàng</legend>
                 {{ csrf_field() }}
+                <input type="hidden" name="cus_method" value="<?php echo $_GET['paymethod'];?>" >
                 <div class="form-group">
                   <div class="chinhsach">
                      <?php if(Auth::guest()) { ?>
                         <ul class="form-customer">
                           <li><label for="">Tên khách hàng: </label><input type="text" name="cus_name"></li>
-                          <li><label for="">Điện thoại: </label><input type="text" name="cus_phone"></li>
+                          <li><label for="">Điện thoại (Bắt buộc): </label><input type="text" name="cus_phone" required></li>
                           <li><label for="">Địa chỉ: </label><input type="text" name="cus_address"></li>
                         </ul>
                      <?php } else { ?>
@@ -63,11 +64,11 @@
                  </div> 
                 </div>               
                 <div class="form-group">
-                  <label for="" style="margin: 15px 0">Các ghi chú khác</label>
+                  <label for="" style="margin: 15px 0">Ghi chú khác</label>
                   <textarea name="txtnote" id="inputtxtNote" class="form-control" rows="4" required="required">                    
                   </textarea>
                 </div>              
-                <button type="submit" class="btn btn-primary pull-right btn-post-order"> Đặt hàng (COD)</button> 
+                <button type="submit" class="btn btn-primary pull-right btn-post-order"> Gửi đơn hàng</button> 
               </form>
               @else 
               <form action="{!!url('/payment')!!}" method="POST" accept-charset="utf-8">
@@ -77,7 +78,7 @@
                      <?php if(Auth::guest()) { ?>
                        <ul class="form-customer">
                          <li><label for="">Tên khách hàng: </label><input type="text" name="cus_name"></li>
-                         <li><label for="">Điện thoại: </label><input type="text" name="cus_phone"></li>
+                         <li><label for="">Điện thoại (Bắt buộc): </label><input type="text" name="cus_phone" required></li>
                          <li><label for="">Địa chỉ: </label><input type="text" name="cus_address"></li>
                        </ul>
                      <?php } else { ?>
@@ -89,7 +90,7 @@
                     
                 </div>
                   <br>                
-                <button type="submit" class="btn btn-danger pull-left btn-post-order"> Thanh toán qua Paypal </button> &nbsp;
+                <button type="submit" class="btn btn-danger pull-left btn-post-order"> Thanh toán qua ngân hàng </button> &nbsp;
               </form>
               @endif
             </div>
@@ -106,15 +107,20 @@
             <hr>
           </div>
           <!-- danh muc noi bat -->
-          @foreach($relation as $row)
-              <?php
-              $rowArr = (array) $row;
-              if (array_key_exists("pro_id", $rowArr)) {
-                  $proId = $rowArr['pro_id'];
-              } else {
-                  $proId = $rowArr['id'];
-              }
-              ?>
+          <?php $count = 1;?>
+                @foreach($relation as $row)
+                      <?php
+                      $rowArr = (array) $row;
+                      if (array_key_exists("pro_id", $rowArr)) {
+                          $proId = $rowArr['pro_id'];
+                      } else {
+                          $proId = $rowArr['id'];
+                      }
+                      if ($count%4 == 1)
+                    {  
+                         echo "<div class='row'>";
+                    }
+                      ?>
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
                   <div class="pro-image">
                     <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
@@ -128,7 +134,16 @@
                       <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
                   </div>
             </div>  <!-- /div col-4 -->
-            @endforeach
+             <?php 
+          if ($count%4 == 0)
+            {
+                echo "</div>";
+            }
+            $count++;
+          ?>
+          @endforeach
+          
+          <?php if ($count%4 != 1) echo "</div>"; ?>
           <!-- danh muc noi bat -->
 
           <div class="clearfix">

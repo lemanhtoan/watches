@@ -34,10 +34,11 @@
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th> Họ-tên khách hàng</th>
+											<th> Họ tên khách hàng</th>
 											<th>Địa chỉ</th>
 											<th>Điện thoại</th>
 											<th>Ngày đặt</th>
+											<th>Hình thức thanh toán</th>
 											<th>Tổng tiền</th>
 										</tr>
 									</thead>
@@ -48,6 +49,13 @@
 											<td>{!!$oder->user->address!!}</td>
 											<td>{!!$oder->user->phone!!}</td>
 											<td>{!!$oder->created_at!!}</td>
+											<td><?php if ($oder->type == 'tructiep') {
+													echo 'Thanh toán trực tiếp tại cửa hàng';
+												}elseif($oder->type == 'cod'){
+													echo 'Thanh toán khi nhận hàng (COD)';
+													}else {
+														echo 'Thanh toán trực tuyến qua ngân hàng';
+														} ?></td>
 											<td>{!! number_format($oder->total) !!} đ</td>
 										</tr>
 									</tbody>
@@ -64,20 +72,17 @@
 											<th>ID</th>										
 											<th>Hình ảnh</th>
 											<th>Tên sản phẩm</th>
-											<th>Mô tả</th>
 											<th> Số lượng </th>
 											<th>Giá bán</th>
 											<th>Trạng thái</th>
-											<th>Hành động</th>
 										</tr>
 									</thead>
 									<tbody>
 										@foreach($data as $row)
 											<tr>
 												<td>{!!$row->id!!}</td>
-												<td> <img src="{!!url('uploads/products/'.$row->images)!!}" alt="iphone" width="50" height="40"></td>
+												<td> <img src="{!!url('uploads/products/'.$row->images)!!}" alt="iphone" width="50"></td>
 												<td>{!!$row->name!!}</td>
-												<td>{!!$row->intro!!}</td>
 												<td>{!!$row->qty!!} </td>
 												<td>{!! number_format($row->price) !!} đ</td>
 												<td>
@@ -87,9 +92,7 @@
 														<span style="color:#27ae60;"> Tạm hết</span>
 													@endif
 												</td>
-												<td>
-												    <a href="{!!url('')!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>
-												</td>
+												
 											</tr>
 										@endforeach								
 									</tbody>

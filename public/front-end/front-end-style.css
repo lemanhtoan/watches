@@ -417,17 +417,11 @@ footer{
   width: 100% !important;
   background-color: #F7F7F7;
   margin: 0 auto;
-  border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  font-family: roboto;
 }
 
-.loginmodal-container h1 {
-  text-align: center;
-  font-size: 1.8em;
-  font-family: roboto;
-}
+
 
 .loginmodal-container input[type=submit] {
   width: 100%;
@@ -437,16 +431,12 @@ footer{
 }
 
 .loginmodal-container input[type=text], input[type=password] {
-  height: 44px;
   font-size: 16px;
   width: 100%;
   margin-bottom: 10px;
   -webkit-appearance: none;
   background: #fff;
   border: 1px solid #d9d9d9;
-  border-top: 1px solid #c0c0c0;
-  /* border-radius: 2px; */
-  padding: 0 8px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
@@ -647,7 +637,7 @@ span.phone-numbers-inline a {
 }
 
 .mt-20 {
-    margin-top: 20px;
+    margin-top: 21px;
 }
 #mainMenu .mn-lv1 {
     float: left;
@@ -922,8 +912,13 @@ ul.footer-social {
 
 /*PRODUCT DETAIL*/
 .tbreadcrumb {
-    padding: 15px 45px;
-  font-size: 16px;
+    padding: 15px 45px 15px 10px;
+  font-size: 16px ;
+  color: #000;
+}
+.tbreadcrumb a {
+   font-size: 16px !important;
+  color: #000 !important;
 }
 
 .tbreadcrumb a:hover {
@@ -1093,7 +1088,12 @@ button.no-product {
 
 /*CATEGORY*/
 #mainMenu li.active a {
-    color: #000 !important;
+    color: #fff !important;
+    background: #5bc0de;
+}
+
+#mainMenu li.active .dropdown-menu a {
+color: #000 !important;
     background: #fff;
 }
 
@@ -1183,7 +1183,7 @@ ul.form-customer {
 }
 
 ul.form-customer li label {
-    width: 140px;
+    width: 200px;
     margin-bottom: 30px;
 }
 
@@ -1276,7 +1276,7 @@ ul.suggest-items li {
 #mainMenu .dropdown-menu {
     border-top: 0;
     padding: 15px 20px 15px 0;
-    margin: 18px 0 0;
+    margin: 20px 0 0;
 }
 
 #owl-partner {
@@ -1297,4 +1297,46 @@ ul.suggest-items li {
     font-size: 20px;
     text-transform: uppercase;
     padding: 20px 50px;
+}
+
+.list-product .row {
+  margin-bottom: 10px;
+}
+
+.free-ship {
+    line-height: 25px;
+    margin-top: 100px;
+}
+
+.free-ship .box-2-items {
+    background: #dadada;
+    padding: 20px;
+}
+
+.camera_caption {
+  text-align: center;
+  font-style: italic;
+}
+
+.loginmodal-container .text-center-home {
+  margin: 20px 0;
+}   
+
+.loginmodal-container input {
+  padding: 25px 10px;
+}
+
+.loginmodal-container .btn-login {
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  background: #000;
+}
+
+.panel.panel-default button {
+    padding: 15px 10px;
+}
+
+.panel.panel-default input {
+    padding: 25px 10px;
 }

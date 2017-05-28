@@ -228,9 +228,8 @@
                 @if($data->status ==1)
                     <?php if ($data->price > 0) {?>
                     <a href="{!!url('gio-hang/addcart/'.$data->id)!!}" title=""
-                       class="btn btn-large btn-block btn-danger" style="font-size: 20px;"><i class="fa fa-cart-plus"
-                                                                                              aria-hidden="true"></i>Đặt
-                        mua ngay</a>
+                       class="btn btn-large btn-block btn-danger" style="font-size: 20px;">
+                       <i class="fa fa-cart-plus" aria-hidden="true"></i>Đặt mua ngay</a>
                     <?php } else {echo '&nbsp;';}?>
                 @else
                     <button rel="nofollow" class="btn btn-default no-product" disabled><i class="fa fa-cart-plus"></i>
@@ -258,15 +257,20 @@
                     <hr>
                 </div>
                 <!-- danh muc noi bat -->
+                <?php $count = 1;?>
                 @foreach($relation as $row)
-                    <?php
-                    $rowArr = (array) $row;
-                    if (array_key_exists("pro_id", $rowArr)) {
-                        $proId = $rowArr['pro_id'];
-                    } else {
-                        $proId = $rowArr['id'];
+                      <?php
+                      $rowArr = (array) $row;
+                      if (array_key_exists("pro_id", $rowArr)) {
+                          $proId = $rowArr['pro_id'];
+                      } else {
+                          $proId = $rowArr['id'];
+                      }
+                      if ($count%4 == 1)
+                    {  
+                         echo "<div class='row'>";
                     }
-                    ?>
+                      ?>
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
                         <div class="pro-image">
                             <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
@@ -281,7 +285,16 @@
                             <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
                         </div>
                     </div>  <!-- /div col-4 -->
-            @endforeach
+             <?php 
+          if ($count%4 == 0)
+            {
+                echo "</div>";
+            }
+            $count++;
+          ?>
+          @endforeach
+          
+          <?php if ($count%4 != 1) echo "</div>"; ?>
             <!-- danh muc noi bat -->
 
                 <div class="clearfix">

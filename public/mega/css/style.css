@@ -77,7 +77,7 @@ header {
   position: relative;
   padding: 0 36px 0 20px;
   /*line-height: 40px;*/
-  background-color: #000;
+  background-color: #f00;
   color: #ffffff;
   border-radius: 0;
 }
@@ -117,7 +117,7 @@ header {
 /*}*/
 @media only screen and (min-width: 1024px) {
   .cd-dropdown-trigger {
-    font-size: 1.5rem;
+    font-size: 17px;
   }
   .cd-dropdown-trigger.dropdown-is-active {
     background-color: #fff;
@@ -276,7 +276,7 @@ header {
 @media only screen and (min-width: 1024px) {
   .cd-dropdown {
     position: absolute;
-    top: calc(100% - 2px);
+    top: calc(100% - 0px);
     /* reset style*/
     height: auto;
     width: auto;
@@ -736,14 +736,14 @@ header {
   }
   .cd-dropdown-content > .has-children > a.is-active {
     /* hover effect for .cd-dropdown-content items with subnavigation */
-    box-shadow: inset 2px 0 0 #3f8654;
-    color: #3f8654;
+    box-shadow: inset 2px 0 0 red;
+    color: red;
   }
   .cd-dropdown-content > .has-children > a.is-active::before, .cd-dropdown-content > .has-children > a.is-active::after {
     background: #fff;
   }
   .open-to-left .cd-dropdown-content > .has-children > a.is-active {
-    box-shadow: inset -2px 0 0 #3f8654;
+    box-shadow: inset -2px 0 0 red;
   }
 }
 

@@ -81,17 +81,19 @@
               <div class="col-xs-12 col-sm-12 col-md-12 no-paddng">
               @if(Cart::count() !=0)
 
-                  <form action="{!!url('/dat-hang')!!}" method="get"  class='payment-form' accept-charset="utf-8">                    
-                    <div class="input-group">
+                  <form action="{!!url('/dat-hang')!!}" method="get"  class='payment-form' accept-charset="utf-8">  
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                      <div class="input-group">
                         <label class="paymethod" for="paymethod">Hình thức thanh toán</label>
 
                         <div class="payment-method">
-                          <input id="cart_tt_tructiep" type="radio" name="paymethod" value="tructiep" checked="">
+                          <input id="cart_tt_tructiep" type="radio" name="paymethod" value="tructiep">
                           <label for="cart_tt_tructiep">Thanh toán trực tiếp tại cửa hàng</label>
                         </div>
 
                         <div class="payment-method">
-                          <input id="cart_tt_cod" type="radio" name="paymethod" value="cod">
+                          <input id="cart_tt_cod" type="radio" name="paymethod" value="cod"  checked="">
                           <label for="cart_tt_cod">Thanh toán khi nhận hàng (COD)</label>
                         </div>
 
@@ -100,8 +102,23 @@
                           <label for="cart_tt_bank">Thanh toán trực tuyến qua ngân hàng</label>
                         </div>
                     </div>
-           
-                      <button type="submit" class="btn btn-danger pull-left">Tiến hành thanh toán</button>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 free-ship">
+                      <div class="box-2-items">
+                      <i class="fa fa-truck" aria-hidden="true"></i>
+                        <span style="text-transform: capitalize;">Miễn phí giao hàng<br> </span>
+                        <span>TOÀN QUỐC </span>
+                      </div>
+                      <div class="box-2-items end">
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                        <span style="text-transform: capitalize;"> Đồng kiểm khi<br> </span>
+                        <span>NHẬN HÀNG</span>
+                      </div>
+                    </div>
+                  </div>                  
+                    
+                        <button type="submit" class="btn btn-danger pull-left">Tiến hành thanh toán</button>
                       <a href="{!!url('/')!!}" type="button" class="btn btn-large btn-primary pull-right">Tiếp tục mua hàng</a>
                   </form>
 
@@ -122,6 +139,7 @@
                   <hr>
                 </div>
                 <!-- danh muc noi bat -->
+                <?php $count = 1;?>
                 @foreach($relation as $row)
                       <?php
                       $rowArr = (array) $row;
@@ -130,6 +148,10 @@
                       } else {
                           $proId = $rowArr['id'];
                       }
+                      if ($count%4 == 1)
+                    {  
+                         echo "<div class='row'>";
+                    }
                       ?>
                   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
                         <div class="pro-image">
@@ -144,7 +166,19 @@
                             <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
                         </div>
                   </div>  <!-- /div col-4 -->
-                  @endforeach
+
+                   <?php 
+          if ($count%4 == 0)
+            {
+                echo "</div>";
+            }
+            $count++;
+          ?>
+          @endforeach
+
+          <?php if ($count%4 != 1) echo "</div>"; ?>
+
+                  
                 <!-- danh muc noi bat -->
 
                 <div class="clearfix">
