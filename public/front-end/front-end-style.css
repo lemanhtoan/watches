@@ -353,6 +353,7 @@ footer{
 /* ============== style san pham mobile================= */
 .khuyenmai,.chinhsach li{
  list-style: none;
+ line-height: 26px;
 }
 .khuyenmai span{
   color: blue;
@@ -1484,4 +1485,14 @@ ul.suggest-items li {
 }
 .full-content img, .full-content video, full-content iframe {
     max-width: 100% !important;
+}
+.right-align .dropdown-menu li {
+  margin-left: 0;
+}
+.right-align a.dropdown-toggle {
+  text-transform: capitalize;
+}
+.customer-page h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
 }
