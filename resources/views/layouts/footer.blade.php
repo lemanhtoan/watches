@@ -59,7 +59,6 @@
                      if(html.data.length) {
                         outPut += "<ul  class='suggest-items'>";
                         jQuery.each(html.data, function(key, item) {
-                            console.log(item);
                             outPut += "<li>";
                             outPut += '<a href="'+urlBase+'/san-pham/'+item.id +'-'+ item.slug +'">' + '<img width="50" src="'+ urlBase + '/uploads/products/' + item.images +'" alt="'+ item.name +'" />' + '<label>' + item.name + '</label>' + '</a>';
                             outPut += "</li>";

@@ -1472,6 +1472,15 @@ ul.suggest-items li {
     div#resultSuggest {
         width: calc(100% - 40px);
     }
+    #mainContact .frm-input, #mainContact .btn-primary {
+      width: 100%;
+    }
+    #mainContact .form-group {
+      margin-top: 10px;
+    }
+    .box-fulldesc {
+      padding: 15px;
+    }
 }
 .full-content img, .full-content video, full-content iframe {
     max-width: 100% !important;
