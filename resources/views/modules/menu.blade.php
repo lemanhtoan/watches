@@ -1,59 +1,8 @@
 <div class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <p class="welcome-store">Chào mừng đến với hệ thống đồng hồ chính hãng Xwatch!</p>
-            </div>
-            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                <div class="right-align">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <ul class=" pull-right">
-
-                        <div class="navbar-header">
-                        <span class="visible-xs pull-left"
-                              style="font-size:30px;cursor:pointer; padding-left: 10px; color: #ecf0f1;"
-                              onclick="openNav()">&#9776; </span>
-                            <span class="visible-xs pull-right"
-                                  style="font-size:20px;cursor:pointer; padding-right: 10px; padding-top: 8px; color: #FFFFFF;">
-                            <!-- Authentication Links -->
-                                @if (Auth::guest())
-                                    <a class="top-a" href="{{ url('/') }}"> Home </a>  &nbsp;
-                                    <a href="#" data-toggle="modal" data-target="#login-modal" style="color:#e67e22;"> Đăng nhập </a>
-                                    {{-- <a class="top-a" href="{{ url('/login') }}">Login</a> --}}
-                                @else
-                                    <a class="top-a" href="{{ url('/user') }}"
-                                       style="color:#c0392b;"><strong>{!!Auth::user()->name!!}</strong></a>
-                                    <a class="top-a" href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i><small>Thoát</small></a>
-                                @endif
-                        </span>
-                        </div>
-
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="#" data-toggle="modal" data-target="#login-modal"><span
-                                            class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('/user') }}">Thông tin cá nhân</a></li>
-                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-
-                        <li>
-                            <a href="{!!url('gio-hang')!!}"> <i class="fa fa-shopping-bag" aria-hidden="true"></i><i class="cart-count"> ({!!Cart::count()!!})</i> Giỏ
-                                Hàng </a>
-                        </li>
-
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
@@ -62,7 +11,7 @@
 <div class="mid-header">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3">
+            <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 logo-box">
                 <a href="{!!url('/')!!}"><img
                             src="https://www.cdn.xwatch.vn/wp-content/uploads/2017/03/logo-website-xwatch-6.png" alt=""
                             class="lol-main"></a>
@@ -252,26 +201,34 @@
                             <li><a href="">Page 1</a></li>
 
                             <li><a href="">Page 2</a></li>
+
+                            <!-- list item main with mobile -->
+                            <li class="visible-xs"><a class="" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a></li>
+                            <li class="visible-xs"><a class="" href="{!!url('dong-ho-nu')!!}" > Đồng hồ nữ </a></li>
+                            <li class="visible-xs"><a class="" href="{!!url('dong-ho-thuy-si')!!}" > Đồng hồ Thụy Sĩ </a></li>
+                            <li class="visible-xs"><a class="" href="">Kiến thức đồng hồ </a></li>
+                            <li class="visible-xs"><a class="" href="{!!url('tin-tuc')!!}"> Về Xwatch </a></li>
+                            <li class="visible-xs"><a class="" href="{!!url('lien-he')!!}"> Liên hệ </a></li>
                         </ul> <!-- .cd-dropdown-content -->
                     </nav> <!-- .cd-dropdown -->
                 </div> <!-- .cd-dropdown-wrapper -->
             </li>
 
-            <li class="{!! set_active('dong-ho-nam') !!} mn-lv1 mt-20">
+            <li class="{!! set_active('dong-ho-nam') !!} mn-lv1 mt-20 hidden-xs">
                 <a class="a-lv1" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a>
             </li>
 
-            <li class="dropdown {!! set_active('dong-ho-nu') !!} {!! set_active('dong-ho-nu/casio') !!} {!! set_active('dong-ho-nu/olympia-star') !!} mn-lv1 mt-20">
+            <li class="dropdown {!! set_active('dong-ho-nu') !!} {!! set_active('dong-ho-nu/casio') !!} {!! set_active('dong-ho-nu/olympia-star') !!} mn-lv1 mt-20 hidden-xs">
                 <a class="a-lv1" href="{!!url('dong-ho-nu')!!}" > Đồng hồ nữ <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="{!!url('san-pham/dong-ho-nu/casio')!!}">Casio</a></li>
                     <li><a href="{!!url('san-pham/dong-ho-nu/olympia-star')!!}">Olympia star</a></li>
                 </ul>
             </li>
-            <li class="{!! set_active('dong-ho-thuy-si') !!} mn-lv1 mt-20">
+            <li class="{!! set_active('dong-ho-thuy-si') !!} mn-lv1 mt-20 hidden-xs">
                 <a class="a-lv1" href="{!!url('dong-ho-thuy-si')!!}" > Đồng hồ Thụy Sĩ </a>
             </li>
-            <li class="dropdown mn-lv1 mt-20">
+            <li class="dropdown mn-lv1 mt-20 hidden-xs">
                 <a class="a-lv1" href="">Kiến thức đồng hồ <span class="caret"></span></a>
 
                 <ul class="dropdown-menu" role="menu">
@@ -281,10 +238,10 @@
                     <li><a href="#">Separated link</a></li>
                 </ul>
             </li>
-            <li class="{!! set_active('tin-tuc') !!} mn-lv1 mt-20">
+            <li class="{!! set_active('tin-tuc') !!} mn-lv1 mt-20 hidden-xs">
                 <a class="a-lv1" href="{!!url('tin-tuc')!!}"> Về Xwatch </a>
             </li>
-            <li class="{!! set_active('lien-he') !!} mn-lv1 mt-20">
+            <li class="{!! set_active('lien-he') !!} mn-lv1 mt-20 hidden-xs">
                 <a class="a-lv1" href="{!!url('lien-he')!!}"> Liên hệ </a>
             </li>
 
@@ -296,17 +253,6 @@
 </div>
 <!-- main menu  navbar -->
 
-
-<!-- left slider bar nav -->
-<div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times; Đóng</a>
-    <a href="{!!url('mobile')!!}">Điện Thoại</a>
-    <a href="{!!url('laptop')!!}">Laptop</a>
-    <a href="{!!url('pc')!!}">Máy Tính</a>
-    <a href="{!!url('tin-tuc')!!}">Tin Tức</a>
-    <a href="{!!url('gio-hang')!!}"> <span class="glyphicon glyphicon-shopping-cart"></span> Giỏ Hàng </a>
-</div>
-<!-- /left slider bar nav -->
 
 {{-- loginform --}}
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">

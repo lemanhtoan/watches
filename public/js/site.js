@@ -3,11 +3,11 @@ jQuery(document).on('click', '.mega-dropdown', function(e) {
 })
 
 jQuery(window).scroll(function(){
-  if (jQuery(this).scrollTop() > 135) {
-      jQuery('#mainMenu').addClass('navfixed');
-  } else {
-      jQuery('#mainMenu').removeClass('navfixed');
-  }
+    if (jQuery(this).scrollTop() > 135) {
+        jQuery('#mainMenu').addClass('navfixed');
+    } else {
+        jQuery('#mainMenu').removeClass('navfixed');
+    }
 });
 
 var owlPartner = jQuery("#owl-partner");

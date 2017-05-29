@@ -1,5 +1,6 @@
 @extends('layouts.special')
 @section('content')
+    <div class="product-page">
     <div class="row">
         <h3 class="panel-title tbreadcrumb">
             <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
@@ -7,6 +8,7 @@
                                                                                                 title="">{!!$slug!!}</a>
         </h3>
     </div>
+
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 box-img-galary">
             <!-- image and gallery -->
@@ -210,14 +212,11 @@
 
     <div class="row">
         <div class="box-fulldesc">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                <div class="text-center-home">Giới thiệu sản phẩm
-                    <hr>
-                </div>
-                <div class="full-content">
-                    {!!$data->review!!}
-                </div>
-
+            <div class="text-center-home">Giới thiệu sản phẩm
+                <hr>
+            </div>
+            <div class="full-content">
+                {!!$data->review!!}
             </div>
         </div>
     </div>
@@ -305,4 +304,5 @@
     </div>
     <?php endif; ?>
     <!-- ===================================================================================/news ============================== -->
+    </div>
 @endsection

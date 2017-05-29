@@ -282,7 +282,7 @@ class PagesController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->input('txtkeyword');
-        $products = DB::table('products')->where('name', 'LIKE', '%' . $keyword . '%')->paginate(10);
+        $products = DB::table('products')->where('name', 'LIKE', '%' . $keyword . '%')->paginate(12);
          return view('category.list',['data'=>$products, 'cateName' => 'Kết quả tìm kiếm']);
     }
 
