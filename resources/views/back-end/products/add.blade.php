@@ -44,7 +44,7 @@
 				      		</div>
 				      		<div class="form-group">
 				      			<label for="input-id">Tên sản phẩm</label>
-				      			<input type="text" name="txtname" id="inputTxtname" class="form-control" value="{{ old('txtname') }}"  >
+				      			<input type="text" name="txtname" id="inputTxtname" class="form-control" value="{{ old('txtname') }}"  required="required">
 				      		</div>
 				      		<div class="form-group">
 				      		<div class="row">
