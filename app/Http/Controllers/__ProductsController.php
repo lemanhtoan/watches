@@ -38,6 +38,83 @@ class ProductsController extends Controller
 		
     }
 
+    public function watermarkImage($imgType, $SourceFile, $DestinationFile=NULL, $opacity) {
+        $main_img = $SourceFile;
+        $padding = 3;
+        $WaterMarkJpg = url('/public').'/source/jpg-watermark.jpg';
+        $WaterMarkPng = url('/public').'/source/png-watermark.png';
+        $WaterMarkGif = url('/public').'/source/gif-watermark.gif';
+        switch($imgType){
+            case 'image/jpeg':
+            case 'image/jpg':
+                $watermark_img = $WaterMarkJpg;
+                $watermark = imagecreatefromjpeg($watermark_img); // create watermark
+                $image = imagecreatefromjpeg($main_img); // create main graphic
+                break;
+            case 'image/png':
+                $watermark_img = $WaterMarkPng;
+                $watermark = imagecreatefrompng($watermark_img); // create watermark
+                $image = imagecreatefrompng($main_img); // create main graphic
+                break;
+            case 'image/gif':
+                $watermark_img = $WaterMarkGif;
+                $watermark = imagecreatefromgif($watermark_img); // create watermark
+                $image = imagecreatefromgif($main_img); // create main graphic
+                break;
+        }
+
+        if(!$image || !$watermark) die("Error: main image or watermark could not be loaded!");
+
+        $watermark_size = getimagesize($watermark_img);
+        $watermark_width = $watermark_size[0];
+        $watermark_height = $watermark_size[1];
+
+        $image_size = getimagesize($main_img);
+        $dest_x = $image_size[0] - $watermark_width - $padding;
+        $dest_y = $image_size[1] - $watermark_height - $padding;
+
+        // keep transparency
+        
+
+        // copy watermark on main image
+        imagecopymerge($image, $watermark, $dest_x, $dest_y, 0, 0, $watermark_width, $watermark_height, 100);
+
+        if ($DestinationFile<>'') {
+            header('Content-Type: image/png');
+            @imagejpeg($image, $DestinationFile, 100);
+        }
+        else {
+            header('Content-Type: image/png');
+            @imagepng($image);
+        }
+        imagedestroy($image);
+        imagedestroy($watermark);
+    }
+
+    public function uploadFile($fileUploadData) {
+        $imgType = $fileUploadData->getMimeType();
+        switch($imgType){
+            case 'image/jpeg':
+            case 'image/png':
+            case 'image/jpg':
+            case 'image/gif':
+                $fileOriginal = $fileUploadData->getClientOriginalName();
+                $newName = time().'_'.$fileOriginal;
+                $tempDir = 'uploads/temp/'. $newName;
+                $targetDir = 'uploads/products/'.$newName;
+                $up =  copy($fileUploadData->getPathname(), $tempDir);
+                if($up == true){
+                    $this->watermarkImage ($imgType, $tempDir, $targetDir, 50);
+                }else{
+                    echo 'Có lỗi tải file xảy ra.';
+                }
+                break;
+            default:
+                echo 'Vui lòng chọn đúng định dạng file tải lên.';
+        }
+        return $newName;
+    }
+
     public function postadd(AddProductsRequest $rq)
     {
     	$pro = new Products();
@@ -58,11 +135,12 @@ class ProductsController extends Controller
     	$pro->created_at = new datetime;
 
     	$pro->status = $rq->w_status;
-    	$f = $rq->file('txtimg')->getClientOriginalName();
-    	$filename = time().'_'.$f;
-    	$pro->images = $filename;    	
-    	$rq->file('txtimg')->move('uploads/products/',$filename);
-    	$pro->save();    	
+
+        if ($rq->hasFile('txtimg')) {
+            $fileUploadData = $rq->file('txtimg');
+            $pro->images = $this->uploadFile($fileUploadData);
+        }
+    	$pro->save();
     	$pro_id =$pro->id;
 
     	$detail = new Pro_details();
