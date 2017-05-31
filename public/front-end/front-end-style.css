@@ -1496,3 +1496,31 @@ ul.suggest-items li {
     font-size: 20px;
     margin-bottom: 15px;
 }
+
+p.category-well {
+    font-weight: bold;
+    font-size: 17px;
+    text-align: center;
+}
+
+.box-filter {
+    float: left;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.box-filter label {
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.btnGroup .btn {
+  padding: 7px 15px;
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+
+.btnGroup {
+  line-height: 70px;
+  text-align: right;
+}
