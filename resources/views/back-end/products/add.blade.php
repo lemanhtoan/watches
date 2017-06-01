@@ -99,7 +99,14 @@
 										Phân nhóm : <input type="text" name="w_group" value="{!! old('w_group',isset($pro->pro_details->w_group) ? $pro->pro_details->w_group : null) !!}" class="form-control" >
 					      			</div>
 					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-										Nhãn hiệu : <input type="text" name="w_branch" value="{!! old('w_branch',isset($pro->pro_details->w_branch) ? $pro->pro_details->w_branch : null) !!}" class="form-control" >
+										Thương hiệu :
+										<select name="w_branch" id="w_branch" required class="form-control">
+											<option value="">Chọn thương hiệu</option>
+											<?php $w_branch = $dataConstant['w_branch']; ?>
+											<?php foreach ($w_branch as $key => $value): ?>
+											<option value="<?php echo $key?>"><?php echo $value?></option>
+											<?php endforeach; ?>
+										</select>
 					      			</div>
 					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 										Xuất xứ : <input type="text" name="w_country" value="{!! old('w_country',isset($pro->pro_details->w_country) ? $pro->pro_details->w_country : null) !!}" class="form-control" >
@@ -110,7 +117,14 @@
 					      		</div>
 					      		<div class="row">
 					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-										Kiểu máy : <input type="text" name="w_type"  value="{!! old('w_type',isset($pro->pro_details->w_type) ? $pro->pro_details->w_type : null) !!}" class="form-control" >
+										Kiểu máy :
+										<select name="w_type" id="w_type" required class="form-control">
+											<option value="">Chọn kiểu máy</option>
+                                            <?php $w_type = $dataConstant['w_type']; ?>
+                                            <?php foreach ($w_type as $key => $value): ?>
+											<option value="<?php echo $key?>"><?php echo $value?></option>
+                                            <?php endforeach; ?>
+										</select>
 					      			</div>
 					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 										Đồng hồ dành cho :
@@ -128,7 +142,14 @@
 					      		</div>
 					      		<div class="row">
 					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-										Chất liệu dây : <input type="text" name="w_in"  value="{!! old('w_in',isset($pro->pro_details->w_in) ? $pro->pro_details->w_in : null) !!}" class="form-control" >
+										Chất liệu dây :
+										<select name="w_in" id="w_in" required class="form-control">
+											<option value="">Chọn chất liệu dây</option>
+                                            <?php $w_in = $dataConstant['w_in']; ?>
+                                            <?php foreach ($w_in as $key => $value): ?>
+											<option value="<?php echo $key?>"><?php echo $value?></option>
+                                            <?php endforeach; ?>
+										</select>
 					      			</div>
 					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 										Chất liệu kính : <input type="text" name="w_on"  value="{!! old('w_on',isset($pro->pro_details->w_on) ? $pro->pro_details->w_on : null) !!}" class="form-control">
@@ -150,7 +171,7 @@
 					      		</div>				      			
 				      		</div>
 				      		<div class="form-group">
-				      			<label for="input-id">Đánh giá chi tiết sản phẩm</label>
+				      			<label for="input-id">Hình ảnh chi tiết sản phẩm</label>
 				      			<div class="row">
 					      			@for( $i=1; $i<=12; $i++)
 					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">

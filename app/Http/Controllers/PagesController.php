@@ -163,9 +163,20 @@ class PagesController extends Controller
         
     }
 
+    public function dataConstant() {
+        $dataConstant = array(
+            'w_branch' => \Config::get('constants.w_branch'),
+            'w_type' => \Config::get('constants.w_type'),
+            'w_in' => \Config::get('constants.w_in'),
+            'op_price' => \Config::get('constants.khoanggia'),
+            'op_sapxep' => \Config::get('constants.sapxep'),
+        );
+        return $dataConstant;
+    }
+
     public function getcate($cat)
     {
-        $cate = Category::where('slug', '=', $cat)->get(['name', 'id']); 
+        $cate = Category::where('slug', '=', $cat)->get(['name', 'id']);
         $cateName = $cate[0]->name; 
         $cateId= $cate[0]->id;
     	if ($cat == 'tin-tuc') {
@@ -186,7 +197,7 @@ class PagesController extends Controller
                 ->where('products.status','=','1')
                 ->select('products.*','pro_details.*')
                 ->paginate(16);
-            return view('category.list',['data'=>$data, 'cateName' => $cateName]);
+            return view('category.list',['data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant()]);
 
         }
          
@@ -212,7 +223,7 @@ class PagesController extends Controller
             ->where('products.status','=','1')
             ->select('products.*','pro_details.*')
             ->paginate(16);
-        return view('category.list',['data'=>$data, 'cateName' => $cateName, 'parentName' => $parentName, 'parentSlug' => $lv1]);
+        return view('category.list',['data'=>$data, 'cateName' => $cateName, 'parentName' => $parentName, 'parentSlug' => $lv1,  'dataConstant' => $this->dataConstant()]);
 
     }
 
@@ -314,5 +325,79 @@ class PagesController extends Controller
         $pro->delete();
         return redirect('admin/contacts')
             ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã xóa !']);
+    }
+
+    public function filterCate(Request $request) {
+        $thuonghieu = $request->input('thuonghieu'); //w_branch or cate_id
+        $bomay = $request->input('bomay'); // w_type
+        $loaiday = $request->input('loaiday'); // w_in
+        $khoanggia = $request->input('khoanggia'); // price
+        $sapxep = $request->input('sapxep'); // name , price
+
+        $sqlData = "
+            SELECT products.*, pro_details.* 
+            FROM products INNER JOIN category ON products.cat_id = category.id
+            INNER JOIN pro_details ON pro_details.pro_id = products.id
+            WHERE products.status = '1'
+        ";
+
+        $dataFilter = array();
+
+        if ($thuonghieu != "") {
+            $dataFilter['thuonghieu']=$thuonghieu;
+            $sqlData .= " AND pro_details.w_branch = '$thuonghieu'";
+        }
+
+        if ($bomay != "") {
+            $dataFilter['bomay']=$bomay;
+            $sqlData .= " AND pro_details.w_type = '$bomay'";
+        }
+
+        if ($loaiday != "") {
+            $dataFilter['loaiday']=$loaiday;
+            $sqlData .= " AND pro_details.w_in = '$loaiday'";
+        }
+
+        if ($khoanggia != "") {
+            $dataFilter['khoanggia']=$khoanggia;
+            if ($khoanggia != '0') { // all
+                switch ($khoanggia) {
+                    case '2':
+                        $sqlData .= " AND products.price BETWEEN '0' AND '2000000'";
+                        break;
+                    case '5':
+                        $sqlData .= " AND products.price BETWEEN '2000000' AND '5000000'";
+                        break;
+                    case '6':
+                        $sqlData .= " AND products.price >= '5000000'";
+                        break;
+                }
+
+            }
+        }
+
+        if ($sapxep != "") {
+            $dataFilter['sapxep']=$sapxep;
+            switch ($sapxep) {
+                case 'priceAsc':
+                    $sqlData .= " ORDER BY products.price ASC ";
+                    break;
+                case 'priceDesc':
+                    $sqlData .= " ORDER BY products.price DESC ";
+                    break;
+                case 'nameAz':
+                    $sqlData .= " ORDER BY products.name ASC ";
+                    break;
+                case 'nameZa':
+                    $sqlData .= " ORDER BY products.name DESC ";
+                    break;
+            }
+        }
+
+        $filterNotPaging = DB::select(DB::raw($sqlData));
+
+        return view('category.list',['data'=>$filterNotPaging, 'cateName' => 'Lọc dữ liệu sản phẩm', 'dataFilter' => $dataFilter,  'dataConstant' => $this->dataConstant()]);
+
+
     }
 }

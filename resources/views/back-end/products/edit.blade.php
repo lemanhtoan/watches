@@ -93,6 +93,85 @@
 					      			</div>
 					      		</div>				      			
 				      		</div>
+
+							<div class="form-group">
+								<label for="input-id"> Chi tiết cấu hình sản phẩm</label>
+								<div class="row">
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Phân nhóm : <input type="text" name="w_group" value="{!! old('w_group',isset($pro->pro_details->w_group) ? $pro->pro_details->w_group : null) !!}" class="form-control" >
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Thương hiệu :
+										<select name="w_branch" id="w_branch" required class="form-control">
+											<option value="">Chọn thương hiệu</option>
+                                            <?php $w_branch = $dataConstant['w_branch']; ?>
+                                            <?php foreach ($w_branch as $key => $value):  ?>
+											<option value="<?php echo $key?>" <?php if ($pro->pro_details->w_branch == $key) {echo 'selected';}?>><?php echo $value?></option>
+                                            <?php endforeach; ?>
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Xuất xứ : <input type="text" name="w_country" value="{!! old('w_country',isset($pro->pro_details->w_country) ? $pro->pro_details->w_country : null) !!}" class="form-control" >
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Dòng sản phẩm: <input type="text" name="w_role"  value="{!! old('w_role',isset($pro->pro_details->w_role) ? $pro->pro_details->w_role : null) !!}" class="form-control">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Kiểu máy :
+										<select name="w_type" id="w_type" required class="form-control">
+											<option value="">Chọn kiểu máy</option>
+                                            <?php $w_type = $dataConstant['w_type']; ?>
+                                            <?php foreach ($w_type as $key => $value): ?>
+											<option value="<?php echo $key?>" <?php if ($pro->pro_details->w_type == $key) {echo 'selected';}?>><?php echo $value?></option>
+                                            <?php endforeach; ?>
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Đồng hồ dành cho :
+										<select name="w_sex" id="w_sex" required class="form-control">
+											<option value="Nam" >Nam</option>
+											<option value="Nữ" >Nữ</option>
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Kích cỡ : <input type="text" name="w_size"  value="{!! old('w_size',isset($pro->pro_details->w_size) ? $pro->pro_details->w_size : null) !!}" class="form-control" >
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Chất liệu vỏ: <input type="text" name="w_out"  value="{!! old('w_out',isset($pro->pro_details->w_out) ? $pro->pro_details->w_out : null) !!}" class="form-control" >
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Chất liệu dây :
+										<select name="w_in" id="w_in" required class="form-control">
+											<option value="">Chọn chất liệu dây</option>
+                                            <?php $w_in = $dataConstant['w_in']; ?>
+                                            <?php foreach ($w_in as $key => $value): ?>
+											<option value="<?php echo $key?>"  <?php if ($pro->pro_details->w_in == $key) {echo 'selected';}?>><?php echo $value?></option>
+                                            <?php endforeach; ?>
+										</select>
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Chất liệu kính : <input type="text" name="w_on"  value="{!! old('w_on',isset($pro->pro_details->w_on) ? $pro->pro_details->w_on : null) !!}" class="form-control">
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Độ chịu nước : <input type="text" name="w_water"  value="{!! old('w_water',isset($pro->pro_details->w_water) ? $pro->pro_details->w_water : null) !!}" class="form-control" >
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Chức năng khác : <input type="text" name="w_other"  value="{!! old('w_other',isset($pro->pro_details->w_other) ? $pro->pro_details->w_other : null) !!}" class="form-control" >
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Bảo hiểm : <input type="text" name="w_time"  value="{!! old('w_time',isset($pro->pro_details->w_time) ? $pro->pro_details->w_time : null) !!}" class="form-control" >
+									</div>
+									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+										Bảo hành quốc tế : <input type="text" name="w_time_base"  value="{!! old('w_time_base',isset($pro->pro_details->w_time_base) ? $pro->pro_details->w_time_base : null) !!}" class="form-control">
+									</div>
+								</div>
+							</div>
 				      	
 				      		<div class="form-group">
 				      			<label for="input-id">Hình ảnh chi tiết sản phẩm</label>

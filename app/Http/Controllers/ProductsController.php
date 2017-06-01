@@ -32,9 +32,15 @@ class ProductsController extends Controller
     public function getadd()
     {
 		$cat= Category::all()->except([13 ,14]);
-		$pro = Products::all();	
+		$pro = Products::all();
+
+		$dataConstant = array(
+            'w_branch' => \Config::get('constants.w_branch'),
+            'w_type' => \Config::get('constants.w_type'),
+            'w_in' => \Config::get('constants.w_in'),
+        );
         
-        return view('back-end.products.add',['data'=>$pro,'cat'=>$cat]);
+        return view('back-end.products.add',['data'=>$pro,'cat'=>$cat, 'dataConstant' => $dataConstant]);
 		
     }
 
@@ -136,10 +142,16 @@ class ProductsController extends Controller
 
     	$pro->status = $rq->w_status;
 
-        if ($rq->hasFile('txtimg')) {
-            $fileUploadData = $rq->file('txtimg');
-            $pro->images = $this->uploadFile($fileUploadData);
-        }
+//        if ($rq->hasFile('txtimg')) {
+//            $fileUploadData = $rq->file('txtimg');
+//            $pro->images = $this->uploadFile($fileUploadData);
+//        }
+
+        $f = $rq->file('txtimg')->getClientOriginalName();
+        $filename = time().'_'.$f;
+        $pro->images = $filename;
+        $rq->file('txtimg')->move('uploads/products/',$filename);
+
     	$pro->save();
     	$pro_id =$pro->id;
 
@@ -208,7 +220,14 @@ class ProductsController extends Controller
     {
         $cat= Category::all()->except([13 ,14]);
         $pro = Products::where('id',$id)->first();
-        return view('back-end.products.edit',['pro'=>$pro,'cat'=>$cat]);    
+
+        $dataConstant = array(
+            'w_branch' => \Config::get('constants.w_branch'),
+            'w_type' => \Config::get('constants.w_type'),
+            'w_in' => \Config::get('constants.w_in'),
+        );
+
+        return view('back-end.products.edit',['pro'=>$pro,'cat'=>$cat, 'dataConstant' => $dataConstant]);
       
     }
     public function postedit($id,EditProductsRequest $rq)

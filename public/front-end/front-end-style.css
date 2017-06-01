@@ -1507,6 +1507,8 @@ p.category-well {
     float: left;
     width: 100%;
     margin: 30px 0;
+    padding: 20px;
+    background: #f1f1f1;
 }
 
 .box-filter label {
@@ -1523,4 +1525,8 @@ p.category-well {
 .btnGroup {
   line-height: 70px;
   text-align: right;
+}
+
+#cateFilter .form-group {
+    margin-right: 0;
 }

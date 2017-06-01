@@ -21,67 +21,79 @@
         <p class="category-well">
           <?php echo count($data);?>+ mẫu <?php if (isset($parentName) && $parentName !="") { ?>  {!!$parentName!!} - <?php } ?>{!! $cateName !!} đeo tay hàng hiệu chính hãng cao cấp đẹp tại các cửa hàng Hà Nội và TPHCM uy tín của Watches
         </p>
+
+        <!-- box filter -->
         <div class="box-filter">
-          <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
-            <div class="form-group">
-              <label for="sel1">Thương hiệu</label>
-              <select class="form-control" id="thuonghieu" name="thuonghieu">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+          <form class="form-horizontal" role="form" method="POST" id="cateFilter" action="{{ url('/loc-du-lieu') }}">
+            {{ csrf_field() }}
+            <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+              <div class="form-group">
+                <label for="sel1">Thương hiệu</label>
+                <select class="form-control" id="thuonghieu" name="thuonghieu">
+                  <option value="">Chọn thương hiệu</option>
+                    <?php $w_branch = $dataConstant['w_branch']; ?>
+                    <?php foreach ($w_branch as $key => $value): ?>
+                    <option value="<?php echo $key?>" <?php if(isset($dataFilter['thuonghieu'])) {if($dataFilter['thuonghieu'] == $key) {echo 'selected';} }?> ><?php echo $value?></option>
+                    <?php endforeach; ?>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
-            <div class="form-group">
-              <label for="sel1">Bộ máy</label>
-              <select class="form-control" id="bomay" name="bomay">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+            <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+              <div class="form-group">
+                <label for="sel1">Bộ máy</label>
+                <select class="form-control" id="bomay" name="bomay">
+                  <option value="">Chọn bộ máy</option>
+                    <?php $w_type = $dataConstant['w_type']; ?>
+                    <?php foreach ($w_type as $key => $value): ?>
+                    <option value="<?php echo $key?>" <?php if(isset($dataFilter['bomay'])) {if($dataFilter['bomay'] == $key) {echo 'selected';} }?> ><?php echo $value?></option>
+                    <?php endforeach; ?>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
-            <div class="form-group">
-              <label for="sel1">Loại dây</label>
-              <select class="form-control" id="loaiday" name="loaiday">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+            <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+              <div class="form-group">
+                <label for="sel1">Loại dây</label>
+                <select class="form-control" id="loaiday" name="loaiday">
+                  <option value="">Chọn loại dây</option>
+                    <?php $w_in = $dataConstant['w_in']; ?>
+                    <?php foreach ($w_in as $key => $value): ?>
+                    <option value="<?php echo $key?>" <?php if(isset($dataFilter['loaiday'])) {if($dataFilter['loaiday'] == $key) {echo 'selected';} }?> ><?php echo $value?></option>
+                    <?php endforeach; ?>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
-            <div class="form-group">
-              <label for="sel1">Khoảng giá</label>
-              <select class="form-control" id="khoanggia" name="khoanggia">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+            <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+              <div class="form-group">
+                <label for="sel1">Khoảng giá</label>
+                <select class="form-control" id="khoanggia" name="khoanggia">
+                  <option value="">Chọn khoảng giá</option>
+                    <?php $op_price = $dataConstant['op_price']; ?>
+                    <?php foreach ($op_price as $key => $value): ?>
+                  <option value="<?php echo $key?>" <?php if(isset($dataFilter['khoanggia'])) {if($dataFilter['khoanggia'] == $key) {echo 'selected';} }?> ><?php echo $value?></option>
+                    <?php endforeach; ?>
+
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
-            <div class="form-group">
-              <label for="sel1">Sắp xếp theo</label>
-              <select class="form-control" id="sapxep" name="sapxep">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-              </select>
+            <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+              <div class="form-group">
+                <label for="sel1">Sắp xếp theo</label>
+                <select class="form-control" id="sapxep" name="sapxep">
+                  <option value="">Sắp xếp</option>
+                    <?php $op_sapxep = $dataConstant['op_sapxep']; ?>
+                    <?php foreach ($op_sapxep as $key => $value): ?>
+                  <option value="<?php echo $key?>" <?php if(isset($dataFilter['sapxep'])) {if($dataFilter['sapxep'] == $key) {echo 'selected';} }?> ><?php echo $value?></option>
+                    <?php endforeach; ?>
+
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 btnGroup">
-            <button type="button" class="btn btn-primary">Lọc</button>
-            <button type="button" class="btn btn-default">Xóa</button>
-          </div>
-        </div>
+            <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 btnGroup">
+              <input type="submit" class="btn btn-primary" value="Lọc"/>
+              <input type="reset" class="btn btn-default" value="Xóa"/>
+            </div>
+          </form>
+        </div> <!-- end box filter -->
             <?php  if (count($data)) : ?>
               <?php $count =1; 
                 foreach($data as $row) { ?>
@@ -126,10 +138,12 @@
           
         </div>
         <!-- ===================================================================================/products ============================== -->
-        <div class="center-page">
-          {!!$data->render()!!}
-        </div>
-        
+        <?php  if (strpos($_SERVER['REQUEST_URI'], 'loc-du-lieu') !== false) {} else { ?>
+          <div class="center-page">
+            {!!$data->render()!!}
+          </div>
+        <?php }?>
+
       </div>
     </div>
 @endsection

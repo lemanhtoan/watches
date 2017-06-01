@@ -41,8 +41,9 @@ Route::get('/san-pham/{id}-{slug}', ['as'  => 'getdetail', 'uses' =>'PagesContro
 
 Route::get('san-pham/{cat}/{catlv2}', ['as'  => 'getcatelv2', 'uses' =>'PagesController@getcatelv2']);
 
-
 Route::resource('payment', 'PayMentController');
+
+Route::post('/loc-du-lieu', 'PagesController@filterCate');
 
 // --------------------------------cac cong viec trong admin (back-end)--------------------------------------- 
 Route::group(['middleware' => 'admin'], function () {
