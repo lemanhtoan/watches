@@ -780,6 +780,7 @@ span.phone-numbers-inline a {
     font-size: 16px;
     font-weight: bold;
     text-align: center;
+    margin-top: 10px;
 }
 
 .box-advs {
@@ -1161,9 +1162,12 @@ color: #000 !important;
 }
 
 .news-list, .news-detail  {
-  line-height: 22px;
+  line-height: 26px;
 }
-
+.news-detail h4 {
+  text-transform: capitalize;
+  margin: 10px 0;
+}
 .news-list .title-news {
   padding: 15px;
 }
@@ -1346,7 +1350,7 @@ ul.suggest-items li {
 }
 
 /*RESPONSIVE*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
     #mainSearch .suggest-search {
         display: none;
     }
@@ -1386,7 +1390,109 @@ ul.suggest-items li {
         float: right;
         text-align: center;
     }
-    #mainMenu #dropMenu, #mainMenu .mn-lv1 {
+    
+    footer {
+        line-height: 20px !important;
+    }
+    
+
+}
+.full-content img, .full-content video, full-content iframe {
+    max-width: 100% !important;
+}
+.right-align .dropdown-menu li {
+  margin-left: 0;
+}
+.right-align a.dropdown-toggle {
+  text-transform: capitalize;
+}
+.customer-page h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+p.category-well {
+    font-weight: bold;
+    font-size: 17px;
+    text-align: center;
+}
+
+.box-filter {
+    float: left;
+    width: 100%;
+    margin: 30px 0;
+    padding: 20px;
+    background: #f1f1f1;
+}
+
+.box-filter label {
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.btnGroup .btn {
+  padding: 7px 15px;
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+
+.btnGroup {
+  line-height: 70px;
+  text-align: right;
+}
+
+#cateFilter .form-group {
+    margin-right: 0;
+}
+.pro-title {
+    margin-top: 15px;
+}
+
+.caret {
+  margin-right: 5px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .logo-box img {
+    width: 50%;
+  }
+  .welcome-store {
+      font-size: 13px;
+  }
+  .logo-box {
+      text-align: center;
+  }
+  img.lol-main {
+    padding: 20px 0;
+  }
+  #mainSearch {
+    padding: 20px;
+  }
+  #mainSearch .input-group-btn {
+    width: 1%;
+  }
+  .box-support {
+    padding-top: 0;
+  }
+  .support-address {
+    margin-bottom: 15px;
+  }
+  .support-hotline {
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .customer-page .text-center {
+    text-align: left;
+  }
+
+    .cd-dropdown-content .cd-dropdown-gallery img {
+        width: auto !important;
+        height: 50px !important;
+    }
+
+  #mainMenu #dropMenu, #mainMenu .mn-lv1 {
         width: 100%;
     }
     #aRoot .caret {
@@ -1403,15 +1509,13 @@ ul.suggest-items li {
         font-size: 18px;
         font-weight: bold;
     }
-    .text-center-home, .pro-detail-title {
-        font-size: 20px;
+    .navfixed {
+        background: #f00;
     }
-    #box-branch {
-        text-align: center;
-    }
-    footer {
-        line-height: 20px !important;
-    }
+    .text-center-home {
+      font-size: 24px;
+      margin: 30px 0;
+    }  
     #category-list .row, .list-product .row {
         margin: 0;
     }
@@ -1485,56 +1589,15 @@ ul.suggest-items li {
     .right-align .pull-right {
         width: 100%;
     }
-
-    .cd-dropdown-content .cd-dropdown-gallery img {
-        width: auto !important;
-        height: 50px !important;
-    }
-}
-.full-content img, .full-content video, full-content iframe {
-    max-width: 100% !important;
-}
-.right-align .dropdown-menu li {
-  margin-left: 0;
-}
-.right-align a.dropdown-toggle {
-  text-transform: capitalize;
-}
-.customer-page h1 {
-    font-size: 20px;
-    margin-bottom: 15px;
 }
 
-p.category-well {
-    font-weight: bold;
-    font-size: 17px;
-    text-align: center;
+.form-horizontal .control-label {
+  margin-bottom: 5px;
 }
 
-.box-filter {
+.item-news {
+      border-bottom: 1px #dadada dotted;
     float: left;
     width: 100%;
-    margin: 30px 0;
-    padding: 20px;
-    background: #f1f1f1;
-}
-
-.box-filter label {
-    margin-bottom: 5px;
-    font-style: italic;
-}
-
-.btnGroup .btn {
-  padding: 7px 15px;
-  text-transform: uppercase;
-  margin-left: 10px;
-}
-
-.btnGroup {
-  line-height: 70px;
-  text-align: right;
-}
-
-#cateFilter .form-group {
-    margin-right: 0;
+    margin: 10px 0;
 }

@@ -138,7 +138,7 @@
 
         <div class="box-advs">
           <a href="#" target="_blank">
-            <img src="{!!url('public/images/slides/thumbs/bn1.png')!!}" alt="" border="0" width="100%" height="250" />
+            <img src="{!!url('public/images/slides/thumbs/bn1.png')!!}" alt="" border="0" width="100%" />
           </a>
         </div>
 </div>

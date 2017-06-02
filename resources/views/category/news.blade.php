@@ -13,7 +13,7 @@
               <div class="row">
               <!-- hot new content -->              
                 <div class="col-lg-6">
-                    <a href="{!!url('tin-tuc/'.$hot1->id.'-'.$hot1->slug)!!}" title=""><img src="{!!url('public/uploads/news/'.$hot1->images)!!}" alt="" height="200" width="100%"></a>
+                    <a href="{!!url('tin-tuc/'.$hot1->id.'-'.$hot1->slug)!!}" title=""><img src="{!!url('uploads/news/'.$hot1->images)!!}" alt="" height="200"></a>
                   <h3 class="title-h3"><a href="{!!url('tin-tuc/'.$hot1->id.'-'.$hot1->slug)!!}" title="">{!!$hot1->title!!} </a></h3>
                   <p class="summary-content">
                     {!!$hot1->intro!!}
@@ -25,7 +25,7 @@
                       <div class="col-lg-12 ">
                         <h4 class="title-news"><a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="{!!$row->title!!}">{!!$row->title!!}</a></h4>
                         <div class="col-lg-3">
-                          <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title=""><img src="{!!url('public/uploads/news/'.$row->images)!!}" alt="" style="padding-right:10px; padding-left: 0; width: 90px; max-width: inherit !important; "></a>
+                          <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title=""><img src="{!!url('uploads/news/'.$row->images)!!}" alt="" style="padding-right:10px; padding-left: 0; width: 90px; max-width: inherit !important; "></a>
                         </div>
 
                         <div class="col-lg-9">
@@ -43,7 +43,7 @@
                   <div class="col-lg-12 no-padding">
                     <hr>
                     <div class="col-lg-3">
-                      <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="{!!$row->slug!!}"><img src="{!!url('public/uploads/news/'.$row->images)!!}" alt="" width="90%" height="99%"> </a>
+                      <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="{!!$row->slug!!}"><img src="{!!url('uploads/news/'.$row->images)!!}" alt="" width="90%" height="99%"> </a>
                     </div>
                     <div class="col-lg-9">
                       <h4><a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="">{!!$row->title!!}</a></h4>
@@ -74,7 +74,7 @@
             @foreach($all as $row)
             <div class="row">
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                  <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="{!!$row->title!!}"><img src="{!!url('public/uploads/news/'.$row->images)!!}" alt="{!!$row->images!!}" width="99%" height="99%"> </a>
+                  <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="{!!$row->title!!}"><img src="{!!url('uploads/news/'.$row->images)!!}" alt="{!!$row->images!!}" width="99%" height="99%"> </a>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                  <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="">{!!$row->title!!}</a>

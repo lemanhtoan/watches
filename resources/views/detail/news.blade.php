@@ -1,6 +1,6 @@
 @extends('layouts.special')
 @section('content')
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 news-page">
     <h3 class="panel-title tbreadcrumb">
       <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
       <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="{!!url('tin-tuc')!!}" title=""> Tin tức</a>
@@ -17,7 +17,7 @@
                   <div class="text-center-home">{!!$data->title!!}
                    <hr>
                    </div>
-                  <img class="img-new" src="{!!url('public/uploads/news/'.$data->images)!!}" alt="{!!$data->images!!}" >                  
+                  <img class="img-new" src="{!!url('uploads/news/'.$data->images)!!}" alt="{!!$data->images!!}" height="150px" >                  
                   <p class="summary-content">
                   <div class="panel-body">
                     <p class="text-left" style=" padding-bottom: 0px;">
@@ -29,7 +29,6 @@
                         {!!$data->full!!}
                       </div>
                     <p class="text-left"><strong> Nguồn : <a target="#" href="#"> {!!$data->source!!}</a> </strong><br>
-                      <span style="font-size:14px;color:#bdc3c7;">Sử lần cuối: {!!$data->updated_at!!} </span></p>
                       <p class="text-right"> <span class="glyphicon glyphicon-user" style="color:blue;"></span> <strong style="text-transform: capitalize;"> {!!$data->author!!} </strong></p>
                   </div>
                   </p>
@@ -39,17 +38,18 @@
                 <h1 style="padding: 30px; font-size: 18px; font-weight: bold;"> Tin khác</h1>
                 @foreach($relation as $row)
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                      <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="{!!$row->title!!}"><img src="{!!url('public/uploads/news/'.$row->images)!!}" alt="{!!$row->title!!}" width="90%" height="99%"> </a>
+                  <div class="item-news">
+                    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                      <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="{!!$row->title!!}"><img src="{!!url('uploads/news/'.$row->images)!!}" alt="{!!$row->title!!}" height="100px"> </a>
                     </div>
-                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                       <h4><a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}"" title="{!!$row->title!!}">{!!$row->title!!}</a></h4>
                       <p> 
                         {!!$row->intro!!}
                       </p>
-                      <p><strong>Lúc :</strong> {!!$row->created_at!!} Bởi : <strong>{!!$row->author!!} </strong></p>
                     </div>
                   </div> 
+                  </div>
                 @endforeach 
               </div><!-- /row -->
               <div class="center-page">

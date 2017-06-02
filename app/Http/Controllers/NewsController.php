@@ -16,7 +16,7 @@ class NewsController extends Controller
 {
     public function getlist()
     {
-    	$data = News::paginate(10);
+    	$data = News::paginate(20);
     	return view('back-end.news.list',['data'=>$data]);
     }
     public function getadd()
@@ -85,5 +85,13 @@ class NewsController extends Controller
     	$n->save();
     	return redirect('admin/news')
       	->with(['flash_level'=>'result_msg','flash_massage'=>' Đã sửa thành công !']);
+    }
+
+    public function getdel($id)
+    {
+        $news = News::find($id);
+        $news->delete();
+        return redirect('admin/news')
+         ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã xóa !']);
     }
 }

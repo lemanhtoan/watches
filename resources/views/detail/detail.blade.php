@@ -21,9 +21,7 @@
 
                     <li class="mediaSelected" data-toggle="modal" data-target="#detailImageModal"
                         data-slide-to="<?php echo $i; ?>">
-                        <a href="#proDetailGallery" data-slide-to="<?php echo $i; ?>"><img alt="{!!$data->name!!}"
-                                                                                           class="img-thumbnail"
-                                                                                           src="{!!url('/uploads/products/details/'.$row->images_url)!!}"></a>
+                        <a href="#proDetailGallery" data-slide-to="<?php echo $i; ?>"><img alt="{!!$data->name!!}" class="img-thumbnail" src="{!!url('/uploads/products/details/'.$row->images_url)!!}"></a>
                     </li>
 
                     <?php endforeach; ?>

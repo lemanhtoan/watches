@@ -1,10 +1,10 @@
 <div class="top-header">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <p class="welcome-store">Chào mừng đến với hệ thống đồng hồ chính hãng Xwatch!</p>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="col-xs-12 col-sm-6  col-md-6 col-lg-6 col-xl-6">
                 <div class="right-align">
                     <ul class=" pull-right">
                         @if (Auth::guest())
@@ -228,32 +228,32 @@
                             <li><a href="{!!url('tat-ca')!!}">Tất cả sản phẩm</a></li>
 
                             <!-- list item main with mobile -->
-                            <li class="visible-xs"><a class="" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a></li>
-                            <li class="visible-xs"><a class="" href="{!!url('dong-ho-nu')!!}" > Đồng hồ nữ </a></li>
-                            <li class="visible-xs"><a class="" href="{!!url('dong-ho-thuy-si')!!}" > Đồng hồ Thụy Sĩ </a></li>
-                            <li class="visible-xs"><a class="" href="">Kiến thức đồng hồ </a></li>
-                            <li class="visible-xs"><a class="" href="{!!url('tin-tuc')!!}"> Về Xwatch </a></li>
-                            <li class="visible-xs"><a class="" href="{!!url('lien-he')!!}"> Liên hệ </a></li>
+                            <li class="visible-xs visible-sm "><a class="" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a></li>
+                            <li class="visible-xs visible-sm "><a class="" href="{!!url('dong-ho-nu')!!}" > Đồng hồ nữ </a></li>
+                            <li class="visible-xs visible-sm "><a class="" href="{!!url('dong-ho-thuy-si')!!}" > Đồng hồ Thụy Sĩ </a></li>
+                            <li class="visible-xs visible-sm "><a class="" href="">Kiến thức đồng hồ </a></li>
+                            <li class="visible-xs visible-sm "><a class="" href="{!!url('tin-tuc')!!}"> Về Xwatch </a></li>
+                            <li class="visible-xs visible-sm "><a class="" href="{!!url('lien-he')!!}"> Liên hệ </a></li>
                         </ul> <!-- .cd-dropdown-content -->
                     </nav> <!-- .cd-dropdown -->
                 </div> <!-- .cd-dropdown-wrapper -->
             </li>
 
-            <li class="{!! set_active('dong-ho-nam') !!} mn-lv1 mt-20 hidden-xs">
+            <li class="{!! set_active('dong-ho-nam') !!} mn-lv1 mt-20 hidden-xs hidden-sm ">
                 <a class="a-lv1" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a>
             </li>
 
-            <li class="dropdown {!! set_active('dong-ho-nu') !!} {!! set_active('dong-ho-nu/casio') !!} {!! set_active('dong-ho-nu/olympia-star') !!} mn-lv1 mt-20 hidden-xs">
+            <li class="dropdown {!! set_active('dong-ho-nu') !!} {!! set_active('dong-ho-nu/casio') !!} {!! set_active('dong-ho-nu/olympia-star') !!} mn-lv1 mt-20 hidden-xs hidden-sm">
                 <a class="a-lv1" href="{!!url('dong-ho-nu')!!}" > Đồng hồ nữ <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="{!!url('san-pham/dong-ho-nu/casio')!!}">Casio</a></li>
                     <li><a href="{!!url('san-pham/dong-ho-nu/olympia-star')!!}">Olympia star</a></li>
                 </ul>
             </li>
-            <li class="{!! set_active('dong-ho-thuy-si') !!} mn-lv1 mt-20 hidden-xs">
+            <li class="{!! set_active('dong-ho-thuy-si') !!} mn-lv1 mt-20 hidden-xs hidden-sm">
                 <a class="a-lv1" href="{!!url('dong-ho-thuy-si')!!}" > Đồng hồ Thụy Sĩ </a>
             </li>
-            <li class="dropdown mn-lv1 mt-20 hidden-xs">
+            <li class="dropdown mn-lv1 mt-20 hidden-xs hidden-sm">
                 <a class="a-lv1" href="">Kiến thức đồng hồ <span class="caret"></span></a>
 
                 <ul class="dropdown-menu" role="menu">
@@ -263,10 +263,10 @@
                     <li><a href="#">Separated link</a></li>
                 </ul>
             </li>
-            <li class="{!! set_active('tin-tuc') !!} mn-lv1 mt-20 hidden-xs">
+            <li class="{!! set_active('tin-tuc') !!} mn-lv1 mt-20 hidden-xs hidden-sm">
                 <a class="a-lv1" href="{!!url('tin-tuc')!!}"> Về Xwatch </a>
             </li>
-            <li class="{!! set_active('lien-he') !!} mn-lv1 mt-20 hidden-xs">
+            <li class="{!! set_active('lien-he') !!} mn-lv1 mt-20 hidden-xs hidden-sm">
                 <a class="a-lv1" href="{!!url('lien-he')!!}"> Liên hệ </a>
             </li>
 

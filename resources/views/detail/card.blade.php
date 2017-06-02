@@ -67,7 +67,7 @@
                     </tr>
                   @endforeach                    
                     <tr>
-                      <td colspan="6" style="font-weight: bold;background: #ECECEC; padding: 20px 100px 20px; text-align: right;"><b>Tổng cộng : {!!Cart::subtotal()!!} đ</b></td>                      
+                      <td colspan="6" style="font-weight: bold;background: #ECECEC; padding: 20px 100px 20px; text-align: right;"><b>Tổng cộng : <?php $total = Cart::subtotal(); $show = explode(".0", $total);?> <?php echo $show[0];?> đ</b></td>                      
                     </tr>                    
                   </tbody>
                 </table>                

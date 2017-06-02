@@ -3,7 +3,7 @@
 @section('content')
 	<div class="container customer-page">
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 				<table class="table table-bordered table-hover text-center">
 					<thead>
 						<tr><h1 >Lịch sử mua hàng </h1></tr>
@@ -37,7 +37,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 				<div class="table-responsive">
 					<table class="table table-bordered table-hover text-center">
 						<thead>
