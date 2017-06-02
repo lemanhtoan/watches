@@ -27,6 +27,13 @@
                     </li>
 
                     <?php endforeach; ?>
+
+                    <?php $video = $data->r_intro;
+                        if($video != "") : $idYoutube = explode("?v=",$video);
+                    ?>
+                        <li id="<?php echo $idYoutube[1];?>" class="youtubeVideoLoader"> </li>
+                    <?php endif;?>
+
                 </ul>
 
                 <!-- box popup image detail -->
@@ -66,6 +73,24 @@
                             <!--end modal-content--></div>
                         <!--end modal-dialoge--></div>
                     <!--end myModal--></div>
+
+
+                <!-- Modal Video -->
+                <div class="modal fade" id="youtubeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div id="videoModalContainer">
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="CloseModalButton" type="button" class="btn btn-default" data-dismiss="modal">Đóng video</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Template -->
 
                 <!-- end popup image detail -->
             </div>

@@ -170,6 +170,10 @@
 									</div>
 					      		</div>				      			
 				      		</div>
+							<div class="form-group">
+								<label for="input-id">Video youtube sản phẩm</label>
+								<input type="text" name="txtintro" id="inputTxtintro" class="form-control">
+							</div>
 				      		<div class="form-group">
 				      			<label for="input-id">Hình ảnh chi tiết sản phẩm</label>
 				      			<div class="row">

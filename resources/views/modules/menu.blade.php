@@ -62,8 +62,8 @@
                             <li><a href="">Đồng hồ nam</a></li>
                             <li><a href="">Đồng hồ nữ</a></li>
                             <li><a href="">Casio</a></li>
-                            <li><a href="">orient</a></li>
-                            <li><a href="">ogival</a></li>
+                            <li><a href="">Orient</a></li>
+                            <li><a href="">Ogival</a></li>
                         </ul>
                     </div>
                 </form>
@@ -88,7 +88,6 @@
                 <div class="cd-dropdown-wrapper" id="dropMenu">
                     <a id="aRoot" class="cd-dropdown-trigger a-lv1" href="">Danh mục sản phẩm <span class="caret" style="margin-left: 3px;"></span></a>
                     <nav id="navRoot" class="cd-dropdown">
-                        <h2>Danh mục đồng hồ</h2>
                         <a href="" class="cd-close">Close</a>
                         <ul class="cd-dropdown-content">
                             <li class="has-children">
@@ -163,10 +162,8 @@
                             </li> <!-- .has-children -->
 
                             <li class="has-children">
-                                <a href="">Services</a>
+                                <a href="">Sản phẩm khuyến mãi</a>
                                 <ul class="cd-dropdown-icons is-hidden">
-                                    <li class="go-back"><a href="">Menu</a></li>
-                                    <li class="see-all"><a href="">Browse Services</a></li>
                                     <li>
                                         <a class="cd-dropdown-item item-1" href="">
                                             <h3>Service #1</h3>
@@ -226,9 +223,9 @@
                                 </ul> <!-- .cd-dropdown-icons -->
                             </li> <!-- .has-children -->
 
-                            <li><a href="">Page 1</a></li>
+                            <li class="divider"></li>
 
-                            <li><a href="">Page 2</a></li>
+                            <li><a href="{!!url('tat-ca')!!}">Tất cả sản phẩm</a></li>
 
                             <!-- list item main with mobile -->
                             <li class="visible-xs"><a class="" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a></li>

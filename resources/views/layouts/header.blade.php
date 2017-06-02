@@ -54,4 +54,6 @@
 
     <script src="{!!url('public/mega/js/modernizr.js')!!}"></script>
 
+    <link rel="stylesheet" href="{!!url('public/css/YouTubeDefaultImageLoader.css')!!}">
+
   </head>

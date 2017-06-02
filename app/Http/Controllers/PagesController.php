@@ -164,12 +164,14 @@ class PagesController extends Controller
     }
 
     public function dataConstant() {
+        $dataCount = count(DB::table('products')->where('products.status','=','1')->get());
         $dataConstant = array(
             'w_branch' => \Config::get('constants.w_branch'),
             'w_type' => \Config::get('constants.w_type'),
             'w_in' => \Config::get('constants.w_in'),
             'op_price' => \Config::get('constants.khoanggia'),
             'op_sapxep' => \Config::get('constants.sapxep'),
+            'dataCount' => $dataCount
         );
         return $dataConstant;
     }
@@ -197,10 +199,22 @@ class PagesController extends Controller
                 ->where('products.status','=','1')
                 ->select('products.*','pro_details.*')
                 ->paginate(16);
-            return view('category.list',['data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant()]);
+            return view('category.list',['data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
 
         }
          
+    }
+
+    public function getcateAll()
+    {
+        $data = DB::table('products')
+            ->join('category', 'products.cat_id', '=', 'category.id')
+            ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
+            ->where('products.status','=','1')
+            ->select('products.*','pro_details.*')
+            ->paginate(16);
+        return view('category.list',['data'=>$data, 'cateName' => 'Tất cả sản phẩm', 'dataConstant' => $this->dataConstant(), 'catSlug' => '']);
+
     }
 
     public function getcatelv2($lv1, $lv2)
@@ -223,7 +237,7 @@ class PagesController extends Controller
             ->where('products.status','=','1')
             ->select('products.*','pro_details.*')
             ->paginate(16);
-        return view('category.list',['data'=>$data, 'cateName' => $cateName, 'parentName' => $parentName, 'parentSlug' => $lv1,  'dataConstant' => $this->dataConstant()]);
+        return view('category.list',['data'=>$data, 'cateName' => $cateName, 'parentName' => $parentName, 'parentSlug' => $lv1,  'dataConstant' => $this->dataConstant(),  'catSlug' => $lv2]);
 
     }
 
@@ -334,13 +348,21 @@ class PagesController extends Controller
         $khoanggia = $request->input('khoanggia'); // price
         $sapxep = $request->input('sapxep'); // name , price
 
+        $slugCate = $request->input('catSlug');
+        if ($slugCate !="") {
+            $queryCurrentCategory = " AND category.slug='$slugCate' ";
+        } else {
+            $queryCurrentCategory = " ";
+        }
+
         $sqlData = "
             SELECT products.*, pro_details.* 
             FROM products INNER JOIN category ON products.cat_id = category.id
             INNER JOIN pro_details ON pro_details.pro_id = products.id
             WHERE products.status = '1'
+            $queryCurrentCategory
         ";
-
+        // echo $sqlData; die;
         $dataFilter = array();
 
         if ($thuonghieu != "") {
@@ -396,7 +418,7 @@ class PagesController extends Controller
 
         $filterNotPaging = DB::select(DB::raw($sqlData));
 
-        return view('category.list',['data'=>$filterNotPaging, 'cateName' => 'Lọc dữ liệu sản phẩm', 'dataFilter' => $dataFilter,  'dataConstant' => $this->dataConstant()]);
+        return view('category.list',['data'=>$filterNotPaging, 'cateName' => 'Lọc dữ liệu sản phẩm', 'dataFilter' => $dataFilter,  'dataConstant' => $this->dataConstant(), 'catSlug' =>  $slugCate]);
 
 
     }

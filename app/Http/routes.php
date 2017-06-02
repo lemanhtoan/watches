@@ -36,6 +36,7 @@ Route::resource('/tim-kiem', 'PagesController@search');
 Route::resource('/search-ajax', 'PagesController@searchAjax');
 
 // category
+Route::get('/tat-ca', ['as'  => 'getcateAll', 'uses' =>'PagesController@getcateAll']);
 Route::get('/{cat}', ['as'  => 'getcate', 'uses' =>'PagesController@getcate']);
 Route::get('/san-pham/{id}-{slug}', ['as'  => 'getdetail', 'uses' =>'PagesController@detail']);
 

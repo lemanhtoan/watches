@@ -38,6 +38,8 @@
 
     <script type='text/javascript' src="{!!url('public/js/site.js')!!}"></script>
 
+    <script type='text/javascript' src="{!!url('public/js/YouTubeDefaultImageLoader.js')!!}"></script>
+
     <script type="text/javascript">
         jQuery(document).ready(function(){
 

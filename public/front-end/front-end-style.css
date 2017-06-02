@@ -1482,6 +1482,14 @@ ul.suggest-items li {
     .box-fulldesc {
       padding: 15px;
     }
+    .right-align .pull-right {
+        width: 100%;
+    }
+
+    .cd-dropdown-content .cd-dropdown-gallery img {
+        width: auto !important;
+        height: 50px !important;
+    }
 }
 .full-content img, .full-content video, full-content iframe {
     max-width: 100% !important;

@@ -956,3 +956,8 @@ li.end-item {
 }
 
 
+@media only screen and (max-width: 1023px) {
+	.end-item {
+		display: none;
+	}
+}

@@ -19,13 +19,14 @@
           <hr>
         </div>
         <p class="category-well">
-          <?php echo count($data);?>+ mẫu <?php if (isset($parentName) && $parentName !="") { ?>  {!!$parentName!!} - <?php } ?>{!! $cateName !!} đeo tay hàng hiệu chính hãng cao cấp đẹp tại các cửa hàng Hà Nội và TPHCM uy tín của Watches
+          <?php echo $dataConstant['dataCount'];?>+ mẫu đồng hồ đeo tay hàng hiệu chính hãng cao cấp đẹp tại các cửa hàng Hà Nội và TPHCM uy tín của Watches
         </p>
 
         <!-- box filter -->
         <div class="box-filter">
           <form class="form-horizontal" role="form" method="POST" id="cateFilter" action="{{ url('/loc-du-lieu') }}">
             {{ csrf_field() }}
+              <input type="hidden" name="catSlug" value="<?php echo $catSlug;?>">
             <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
               <div class="form-group">
                 <label for="sel1">Thương hiệu</label>
@@ -89,8 +90,7 @@
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 btnGroup">
-              <input type="submit" class="btn btn-primary" value="Lọc"/>
-              <input type="reset" class="btn btn-default" value="Xóa"/>
+              <input type="submit" class="btn btn-primary" value="Lọc Dữ Liệu"/>
             </div>
           </form>
         </div> <!-- end box filter -->

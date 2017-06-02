@@ -14,7 +14,7 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-md-10"><div class="form-group">
-								<label for="inputLoai" class="col-sm-3 control-label"><strong> Quản lý sản phẩm </strong></label>
+								<label for="inputLoai" class="col-sm-3 control-label" style="font-weight: normal">Quản lý sản phẩm </label>
 
 								<div class="col-md-9">
 									<div class="inline-line">

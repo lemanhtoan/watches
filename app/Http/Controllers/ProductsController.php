@@ -132,7 +132,7 @@ class ProductsController extends Controller
     	$pro->promo2 = $rq->txtpromo2;
     	$pro->promo3 = $rq->txtpromo3;
     	$pro->packet = $rq->txtpacket;
-    	$pro->r_intro = $rq->txtre_Intro;
+    	$pro->r_intro = $rq->txtintro;
     	$pro->review = $rq->txtReview;
     	$pro->tag = $rq->txttag;
     	$pro->price = $rq->txtprice;
@@ -241,7 +241,7 @@ class ProductsController extends Controller
         $pro->promo2 = $rq->txtpromo2;
         $pro->promo3 = $rq->txtpromo3;
         $pro->packet = $rq->txtpacket;
-        $pro->r_intro = $rq->txtre_Intro;
+        $pro->r_intro = $rq->txtintro;
         $pro->review = $rq->txtReview;
         $pro->tag = $rq->txttag;
         $pro->price = $rq->txtprice;

@@ -172,6 +172,11 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="form-group">
+								<label for="input-id">Video youtube sản phẩm</label>
+								<input type="text" name="txtintro" id="inputTxtintro" value="{!! old('txtintro',isset($pro["r_intro"]) ? $pro["r_intro"] : null) !!}" class="form-control">
+							</div>
 				      	
 				      		<div class="form-group">
 				      			<label for="input-id">Hình ảnh chi tiết sản phẩm</label>
