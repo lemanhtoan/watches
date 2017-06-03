@@ -1483,6 +1483,8 @@ p.category-well {
 }
 
 @media only screen and (max-width: 1023px) {
+	.items-adv .nopd-left {padding-left: 15px;}
+	.items-adv .nopd-right {padding-right: 15px; margin-top: 5px;}
   .customer-page .text-center {
     text-align: left;
   }
