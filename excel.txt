@@ -1,0 +1,23 @@
+thuonghieu: id
+ten
+gia
+khuyenmai
+kemtheo1,kemtheo2,kemtheo3
+hinhanh: name_image.ext, upload to uploads/products
+phannhom
+thuonghieu: id
+xuatxu
+dongsanpham
+kieumay: id
+gianhcho
+kichco
+chatlieuvo
+chatlieuday: id
+chatlieukinh
+dochiunuoc
+chucnangkhac
+baohiem
+baohanhqt
+videoyoutube
+hinhanh_1,..12: uploads/products/detail, detail_img table
+noidung
