@@ -162,8 +162,8 @@
                         <div class="pro-title">
                           <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
                         </div> <!-- /div bt -->
-                        <div class="pro-price">
-                            <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
+                        <div class="graycolor">- - - -</div><div class="pro-price">
+                            <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?>
                         </div>
                   </div>  <!-- /div col-4 -->
 

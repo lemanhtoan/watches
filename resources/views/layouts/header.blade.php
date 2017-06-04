@@ -11,6 +11,7 @@
 
     <title>XWATCH - Đồng hồ chính hãng. Số 1 về dịch vụ bảo hành, hậu mãi</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=vietnamese" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="{!!url('public/bootstrap/css/bootstrap.min.css')!!}" rel="stylesheet">
     <!-- Fonts -->
@@ -35,7 +36,6 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     {{-- <script type='text/javascript' src="{!!url('public/bootstrap/js/ie-emulation-modes-warning.js')!!}"></script> --}}
-    <script type='text/javascript' src="{!!url('public/js/ads.js')!!}"></script> 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

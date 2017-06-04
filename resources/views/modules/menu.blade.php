@@ -10,6 +10,7 @@
                         @if (Auth::guest())
                             <li><a href="#" data-toggle="modal" data-target="#login-modal"><span
                                             class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#login-modal"> Đăng ký</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -26,8 +27,7 @@
                         @endif
 
                         <li>
-                            <a href="{!!url('gio-hang')!!}"> <i class="fa fa-shopping-bag" aria-hidden="true"></i><i class="cart-count"> ({!!Cart::count()!!})</i> Giỏ
-                                Hàng </a>
+                            <a href="{!!url('gio-hang')!!}" title="Giỏ hàng" alt="Giỏ hàng" > <i class="fa fa-shopping-cart"></i> </a>
                         </li>
                     </ul>
                 </div>
@@ -41,12 +41,12 @@
         <div class="row">
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 logo-box">
                 <a href="{!!url('/')!!}"><img
-                            src="https://www.cdn.xwatch.vn/wp-content/uploads/2017/03/logo-website-xwatch-6.png" alt=""
+                            src="{!!url('/public/images/logo.png')!!}" alt=""
                             class="lol-main"></a>
             </div><!-- logo-->
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
 
-                <form action="{!! url('tim-kiem') !!}" method="get" id="mainSearch" class="navbar-form" role="search">
+                <form action="{!! url('tim-kiem') !!}" method="get" id="mainSearch">
                     <div class="input-group add-on frm-input">
                         <input class="form-control" placeholder="Nhập từ khóa tìm kiếm" name="txtkeyword" id="txtkeyword" type="text">
                         <div class="input-group-btn">
@@ -84,18 +84,19 @@
     <nav id="mainMenu">
     <div class="container">
         <ul>
-            <li class="mn-lv1">
+            <li class="mn-lv1 aRoot">
                 <div class="cd-dropdown-wrapper" id="dropMenu">
-                    <a id="aRoot" class="cd-dropdown-trigger a-lv1" href="">Danh mục sản phẩm <span class="caret" style="margin-left: 3px;"></span></a>
+                    <a id="aRoot" class="cd-dropdown-trigger a-lv1" href=""><i class="fa fa-bars"></i>Danh mục sản phẩm</a>
                     <nav id="navRoot" class="cd-dropdown">
                         <a href="" class="cd-close">Close</a>
                         <ul class="cd-dropdown-content">
-                            <li class="has-children">
+                            <li class="dr-l1 has-children">
+                                <i class="fa fa-circle"></i>
                                 <a href="">Danh mục đồng hồ</a>
 
                                 <ul class="cd-secondary-dropdown is-hidden">
                                     <li class="has-children">
-                                        <a href="{!!url('dong-ho-nam')!!}">Đồng hồ nam</a>
+                                        <a class="a-title" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam</a>
                                         <ul class="is-hidden">
                                             <li><a href="{!!url('san-pham/dong-ho-nam/casio')!!}">Casio</a></li>
                                             <li><a href="{!!url('san-pham/dong-ho-nam/citizen')!!}">Citizen</a></li>
@@ -108,7 +109,7 @@
                                     </li>
 
                                     <li class="has-children">
-                                        <a href="{!!url('dong-ho-nu')!!}">Đồng hồ nữ</a>
+                                        <a  class="a-title" href="{!!url('dong-ho-nu')!!}">Đồng hồ nữ</a>
                                         <ul class="is-hidden">
                                             <li><a href="{!!url('san-pham/dong-ho-nu/casio')!!}">Casio</a></li>
                                             <li><a href="{!!url('san-pham/dong-ho-nu/citizen')!!}">Citizen</a></li>
@@ -118,7 +119,7 @@
                                     </li>
 
                                     <li class="has-children">
-                                        <a href="">Đồng hồ đặc biệt</a>
+                                        <a  class="a-title" href="">Đồng hồ đặc biệt</a>
                                         <ul class="is-hidden">
                                             <li><a href="{!!url('san-pham/dong-ho-dac-biet/dong-ho-tu-dat')!!}">Đồng hồ tự đặt</a></li>
                                             <li><a href="{!!url('san-pham/dong-ho-dac-biet/dong-ho-khac')!!}">Đồng hồ khác</a></li>
@@ -126,7 +127,7 @@
                                     </li>
 
                                     <li class="has-children">
-                                        <a href="">Các loại đồng hồ khác</a>
+                                        <a  class="a-title" href="">Các loại đồng hồ khác</a>
                                         <ul class="is-hidden">
                                             <li><a href="">Cardigans</a></li>
                                             <li><a href="">Coats</a></li>
@@ -138,7 +139,8 @@
                                 </ul> <!-- .cd-secondary-dropdown -->
                             </li> <!-- .has-children -->
 
-                            <li class="has-children">
+                            <li class="dr-l1 has-children">
+                                <i class="fa fa-circle"></i>
                                 <a href="">Đồng hồ phổ biến</a>
 
                                 <ul class="cd-dropdown-gallery is-hidden">
@@ -161,7 +163,8 @@
                                 </ul> <!-- .cd-dropdown-gallery -->
                             </li> <!-- .has-children -->
 
-                            <li class="has-children">
+                            <li class="dr-l1 has-children">
+                                <i class="fa fa-circle"></i>
                                 <a href="">Sản phẩm khuyến mãi</a>
                                 <ul class="cd-dropdown-icons is-hidden">
                                     <li>
@@ -223,9 +226,8 @@
                                 </ul> <!-- .cd-dropdown-icons -->
                             </li> <!-- .has-children -->
 
-                            <li class="divider"></li>
 
-                            <li><a href="{!!url('tat-ca')!!}">Tất cả sản phẩm</a></li>
+                            <li class="dr-l1"><i class="fa fa-circle"></i><a href="{!!url('tat-ca')!!}">Tất cả sản phẩm</a></li>
 
                             <!-- list item main with mobile -->
                             <li class="visible-xs visible-sm "><a class="" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a></li>
@@ -244,7 +246,7 @@
             </li>
 
             <li class="dropdown {!! set_active('dong-ho-nu') !!} {!! set_active('dong-ho-nu/casio') !!} {!! set_active('dong-ho-nu/olympia-star') !!} mn-lv1 mt-20 hidden-xs hidden-sm">
-                <a class="a-lv1" href="{!!url('dong-ho-nu')!!}" > Đồng hồ nữ <span class="caret"></span></a>
+                <a class="a-lv1" href="{!!url('dong-ho-nu')!!}" > Đồng hồ nữ</a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="{!!url('san-pham/dong-ho-nu/casio')!!}">Casio</a></li>
                     <li><a href="{!!url('san-pham/dong-ho-nu/olympia-star')!!}">Olympia star</a></li>
@@ -254,12 +256,11 @@
                 <a class="a-lv1" href="{!!url('dong-ho-thuy-si')!!}" > Đồng hồ Thụy Sĩ </a>
             </li>
             <li class="dropdown mn-lv1 mt-20 hidden-xs hidden-sm">
-                <a class="a-lv1" href="">Kiến thức đồng hồ <span class="caret"></span></a>
+                <a class="a-lv1" href="">Kiến thức đồng hồ</a>
 
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Video Xchannel</a></li>
                     <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
                     <li><a href="#">Separated link</a></li>
                 </ul>
             </li>

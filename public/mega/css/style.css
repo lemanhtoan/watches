@@ -77,7 +77,7 @@ header {
   position: relative;
   padding: 0 36px 0 20px;
   /*line-height: 40px;*/
-  background-color: #f00;
+  background-color: #da1818;
   color: #ffffff;
   border-radius: 0;
 }
@@ -120,8 +120,8 @@ header {
     font-size: 17px;
   }
   .cd-dropdown-trigger.dropdown-is-active {
-    background-color: #fff;
-    color: #000 !important;
+    /*background-color: #fff;
+    color: #000 !important;*/
   }
   .no-touch .cd-dropdown-trigger.dropdown-is-active:hover {
     background-color: #fff;
@@ -174,7 +174,7 @@ header {
 .cd-dropdown-content a,
 .cd-dropdown-content ul a,
 .cd-dropdown-content .cd-divider {
-  padding: 0 20px;
+  padding: 0 20px 0 10px;
 }
 
 .cd-dropdown {
@@ -489,7 +489,7 @@ header {
     /* reset mobile style */
     position: static;
     height: auto;
-    width: 280px;
+    width: 287px;
   }
   .cd-dropdown-content > li:last-of-type a {
     border-bottom: none;
@@ -585,7 +585,7 @@ header {
   }
   .cd-dropdown-content .cd-secondary-dropdown {
     overflow: hidden;
-    width: 550px;
+    width: 843px;
     padding-bottom: 65px;
   }
   .cd-dropdown-content .cd-secondary-dropdown::before {
@@ -624,7 +624,7 @@ header {
     border-color: #ebebeb;
     border-style: solid;
     padding: 0 30px;
-    height: 250px;
+    height: 215px;
   }
   .cd-dropdown-content .cd-secondary-dropdown > li:nth-of-type(2n) {
     border-right-width: 0;
@@ -673,7 +673,7 @@ header {
     width: 100%;
   }
   .cd-dropdown-content .cd-dropdown-gallery {
-    width: 600px;
+    width: 843px;
     padding-bottom: 100px;
   }
   .cd-dropdown-content .cd-dropdown-gallery > li {
@@ -702,7 +702,7 @@ header {
     margin: 0 0 0.6em;
   }
   .cd-dropdown-content .cd-dropdown-icons {
-    width: 600px;
+    width: 843px;
   }
   .cd-dropdown-content .cd-dropdown-icons .cd-dropdown-item {
     height: 80px;
@@ -736,14 +736,12 @@ header {
   }
   .cd-dropdown-content > .has-children > a.is-active {
     /* hover effect for .cd-dropdown-content items with subnavigation */
-    box-shadow: inset 2px 0 0 red;
     color: red;
   }
   .cd-dropdown-content > .has-children > a.is-active::before, .cd-dropdown-content > .has-children > a.is-active::after {
     background: #fff;
   }
   .open-to-left .cd-dropdown-content > .has-children > a.is-active {
-    box-shadow: inset -2px 0 0 red;
   }
 }
 

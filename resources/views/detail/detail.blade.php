@@ -100,7 +100,7 @@
                     <h3 class="pro-detail-title"><a href="{!!url('/mobile/'.$data->id.'-'.$data->slug)!!}"
                                                     title="">{!!$data->name!!}</a></h3>
                     <h3 class="pro-detail-price">
-                        Giá: <?php if ($data->price > 0) {?>{!!number_format($data->price)!!} đ <?php } else {echo ' Liên hệ';}?>
+                        Giá: <?php if ($data->price > 0) {?>{!!number_format($data->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?>
                     </h3>
                 </div>
 
@@ -303,8 +303,8 @@
                         <div class="pro-title">
                             <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
                         </div> <!-- /div bt -->
-                        <div class="pro-price">
-                            <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?>
+                        <div class="graycolor">- - - -</div><div class="pro-price">
+                            <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?>
                         </div>
                     </div>  <!-- /div col-4 -->
              <?php 

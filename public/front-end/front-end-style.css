@@ -15,6 +15,7 @@
 #main-mav-top ul li ul li:hover a {
   color: red;
   background-color: #FFFFFF;
+
 }
 /* nav fixed top  */
 #main-mav-top-fixed ul li{
@@ -519,6 +520,7 @@ footer{
     line-height: 30px;
     padding: 8px 0;
     color: #c2c2c2;
+    font-size: 10pt;
 }
 
 
@@ -562,6 +564,7 @@ img.lol-main {
 .suggest-search {
     display: inline-block;
     margin: 10px 0;
+    font-size: 14px;
 }
 
 .suggest-search .red {
@@ -571,7 +574,7 @@ img.lol-main {
 
 .suggest-search ul {
     float: left;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .suggest-search ul li {
@@ -593,6 +596,7 @@ img.lol-main {
 .box-support {
     padding-top: 70px;
     line-height: 20px;
+        font-size: 14px;
 }
 
 .support-address {
@@ -629,16 +633,27 @@ span.phone-numbers-inline a {
 
 /*MEGA MENU*/
 
+#mainMenu .mn-lv1 {margin: 5px 10px 0;}
+
 #mainMenu .mn-lv1 a.a-lv1 {
   color: #fff;
-    padding: 20px;
+  padding:  8px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  text-transform: uppercase;
+  font-size: 13px;
+  border: 1px solid rgba(0, 0, 0, 0);
 }
 #mainMenu .mn-lv1 a.a-lv1:hover {
     text-decoration: none;
+    color: #d71921;
+    border-color: #d71921;
+    border: 1px solid;
+    border-radius: 10px;
 }
 
 .mt-20 {
-    margin-top: 21px;
+    margin-top: 25px !important;
 }
 #mainMenu .mn-lv1 {
     float: left;
@@ -649,7 +664,10 @@ span.phone-numbers-inline a {
 }
 
 #mainMenu .dropdown-menu a {
-    color: #111433;
+    color: #fff;
+    border: 1px solid #000;
+    margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
 .navfixed {
@@ -659,7 +677,8 @@ span.phone-numbers-inline a {
   z-index: 1000;
   width: 100%;
   border-radius: 0 !important;
-    background: #000;
+    background: rgba(0, 0, 0, 0.7);
+    padding-bottom: 10px;
 }
 
 /*NEW BOOTSTRAP ROLE 5 COLUMNS*/
@@ -734,6 +753,7 @@ span.phone-numbers-inline a {
     margin: 50px 0;
     text-transform: uppercase;
     text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;  
 }
 
 .text-center-home hr {
@@ -769,6 +789,8 @@ span.phone-numbers-inline a {
     color: #000;
     text-transform: uppercase;
     text-decoration: none;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;  
 }
 
 .pro-title h1 {
@@ -777,10 +799,11 @@ span.phone-numbers-inline a {
 
 .pro-price {
     color: red;
-    font-size: 16px;
+    font-size: 23px;
     font-weight: bold;
     text-align: center;
     margin-top: 10px;
+    font-family: 'Roboto Condensed', sans-serif;  
 }
 
 .box-advs {
@@ -1090,8 +1113,7 @@ button.no-product {
 
 /*CATEGORY*/
 #mainMenu li.active a {
-    color: #fff !important;
-    background: #5bc0de;
+    color: #d71921 !important;
 }
 
 #mainMenu li.active .dropdown-menu a {
@@ -1251,9 +1273,9 @@ ul.suggest-items li {
     width: 100%;
 }
 
-.dropdown-menu, .btn, input, textarea, button, .pagination, .pagination>li:first-child>a, .pagination>li:first-child>span, .pagination>li:last-child>a, .pagination>li:last-child>span  {
+/*.dropdown-menu, .btn, input, textarea, button, .pagination, .pagination>li:first-child>a, .pagination>li:first-child>span, .pagination>li:last-child>a, .pagination>li:last-child>span  {
   border-radius: 0 !important;
-}
+}*/
 
 .panel-success, .panel, .panel-heading {
     border-color: #dadada !important;
@@ -1280,8 +1302,10 @@ ul.suggest-items li {
 
 #mainMenu .dropdown-menu {
     border-top: 0;
-    padding: 15px 20px 15px 0;
-    margin: 20px 0 0;
+    padding: 15px 10px;
+    margin: 18px 0 0;
+    background: #000 !important;
+    border-radius: 0;
 }
 
 #owl-partner {
@@ -1483,8 +1507,8 @@ p.category-well {
 }
 
 @media only screen and (max-width: 1023px) {
-	.items-adv .nopd-left {padding-left: 15px;}
-	.items-adv .nopd-right {padding-right: 15px; margin-top: 5px;}
+  .items-adv .nopd-left {padding-left: 15px;}
+  .items-adv .nopd-right {padding-right: 15px; margin-top: 5px;}
   .customer-page .text-center {
     text-align: left;
   }
@@ -1602,4 +1626,93 @@ p.category-well {
     float: left;
     width: 100%;
     margin: 10px 0;
+}
+#mainSearch #txtkeyword {
+      height: 40px;
+    padding: 15px 12px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: none;
+}
+#mainSearch #submitSearch {
+      padding: 10px 12px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+       border: none;
+}
+
+a#aRoot {
+    font-size: 18px !important;
+    padding: 18px 35px !important;
+}
+i.fa.fa-bars {
+    margin-right: 5px;
+}
+
+.no-touch .cd-dropdown-trigger:hover {
+    background-color: #da1818 !important;
+    color: #fff !important;
+    border: none !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+}
+a#aRoot {
+    border: none !important;
+}
+
+#mainMenu .dropdown-menu a:hover {
+    text-decoration: none;
+    color: #d71921;
+    border-color: #d71921;
+    border: 1px solid;
+    border-radius: 10px;
+    background: #000;
+}
+
+.navfixed #aRoot {
+  border-radius: 20px;
+  padding: 10px 30px !important;
+  margin-top: 10px;
+}
+
+#mainMenu.navfixed .mn-lv1 {
+  margin-top: 0;
+}
+
+.navfixed #aRoot.dropdown-is-active {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; 
+}
+
+#mainMenu.navfixed .mt-20 {
+  margin-top: 20px !important;
+}
+
+#mainMenu i.fa.fa-circle {
+    color: #000;
+    font-size: 10px;
+    float: left;
+    padding: 20px 3px 20px 8px;
+}
+
+#dropMenu a:hover {
+  color: #f00 !important;  
+}
+.a-title {
+  text-transform: uppercase;
+  color: #000;
+}
+
+#dropMenu a#aRoot:hover {
+  color: #fff !important;
+}
+span.lienhe {
+    font-weight: normal;
+    font-size: 18px;
+}
+.graycolor {
+    text-align: center;
+    color: #999;
 }

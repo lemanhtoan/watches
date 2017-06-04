@@ -115,7 +115,7 @@
 												</div>
 											</td>
 											<td>{!!$row->category->name!!}</td>
-											<td><?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo ' Liên hệ';}?></td>
+											<td><?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?></td>
 											<td>
 												@if($row->status ==1)
 													<span style="color:blue;">Còn hàng</span>
