@@ -24,6 +24,7 @@ class PagesController extends Controller
         // new - noi bat
         $new = DB::table('products')
             ->where('products.status','=','1')
+            ->where('products.isHome','=','1')
             ->select('products.*')
             ->orderBy('id', 'desc')
             ->paginate(12);
@@ -32,32 +33,25 @@ class PagesController extends Controller
 
     public function index()
     {
-        // new - noi bat
-        $new = DB::table('products')
-                ->where('products.status','=','1')
-                ->select('products.*')
-                ->orderBy('id', 'desc')
-                ->paginate(12);
-
         $group_orient = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->where('category.slug','=','orient')
                 ->where('products.status','=','1')
+                ->where('products.isGroup','=','1')
                 ->select('products.*')
                 ->orderBy('id', 'desc')
                 ->paginate(12);
-
+        $banner_orient = DB::table('category')->where('category.slug','=','orient')->whereNotNull('banner')->select('banner')->get();
         $group_olym_pianus = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->where('category.slug','=','olym-pianus')
                 ->where('products.status','=','1')
+                ->where('products.isGroup','=','1')
                 ->select('products.*')
                 ->orderBy('id', 'desc')
-                ->paginate(12); 
-
-
-
-    	return view('home',['new'=>$new, 'group_orient'=>$group_orient, 'group_olym_pianus' => $group_olym_pianus]);
+                ->paginate(12);
+        $banner_olym_pianus = DB::table('category')->where('category.slug','=','olym-pianus')->whereNotNull('banner')->select('banner')->get();
+    	return view('home',['group_orient'=>$group_orient, 'group_olym_pianus' => $group_olym_pianus, 'banner_orient' => $banner_orient, 'banner_olym_pianus' => $banner_olym_pianus ]);
     }
     public function addcart($id)
     {

@@ -13,15 +13,32 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 box-img-galary">
             <!-- image and gallery -->
             <div class="img-media-box">
-                <img class="img-responsive " src="{!!url('/uploads/products/'.$data->images)!!}" alt="img responsive">
-            </div>
-            <div class="img-slider">
-                <ul id="owl-detailpro" class="owl-carousel owl-theme owl-listChoise">
+                <ul id="owl-detail" class="owl-carousel owl-theme owl-listChoise">
+                    <li>
+                        <img class="main-img" alt="{!!$data->name!!}"  src="{!!url('/uploads/products/'.$data->images)!!}">
+                    </li>
                     <?php $i = 0; foreach($data->detail_img as $row) : $i++; ?>
 
-                    <li class="mediaSelected" data-toggle="modal" data-target="#detailImageModal"
-                        data-slide-to="<?php echo $i; ?>">
-                        <a href="#proDetailGallery" data-slide-to="<?php echo $i; ?>"><img alt="{!!$data->name!!}" class="img-thumbnail" src="{!!url('/uploads/products/details/'.$row->images_url)!!}"></a>
+                    <li>
+                        <img class="main-img item-x-<?php echo $i;?>" alt="{!!$data->name!!}" src="{!!url('/uploads/products/details/'.$row->images_url)!!}">
+                    </li>
+
+                    <?php endforeach; ?>
+
+                    <?php $video = $data->r_intro;
+                    if($video != "") : $idYoutube = explode("?v=",$video);
+                    ?>
+                    <li id="<?php echo $idYoutube[1];?>" class="youtubeVideoLoader"> </li>
+                    <?php endif;?>
+                </ul>
+
+            </div>
+            <div class="img-slider">
+                <ul id="owl-detailpro">
+                    <?php $i = 0; foreach($data->detail_img as $row) : $i++; ?>
+
+                    <li class="mediaSelected">
+                        <a class="detail-img" data-item="<?php echo $i;?>"><img alt="{!!$data->name!!}" class="img-thumbnail" src="{!!url('/uploads/products/details/'.$row->images_url)!!}"></a>
                     </li>
 
                     <?php endforeach; ?>
@@ -33,46 +50,6 @@
                     <?php endif;?>
 
                 </ul>
-
-                <!-- box popup image detail -->
-
-                <!--begin modal window-->
-                <div class="modal fade" id="detailImageModal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <div class="pull-left"><h3 class="prev-name">{!!$data->name!!}</h3></div>
-                                <button type="button" class="close" data-dismiss="modal" title="Close"><span
-                                            class="glyphicon glyphicon-remove"></span></button>
-                            </div>
-                            <div class="modal-body">
-
-                                <!--CAROUSEL CODE GOES HERE-->
-                                <!--begin carousel-->
-                                <div id="proDetailGallery" class="carousel slide" data-interval="false">
-                                    <div class="carousel-inner">
-                                        <?php $i = 0; foreach($data->detail_img as $row) : $i++; ?>
-                                        <div id="mediaItem<?php echo $i;?>"
-                                             class="item-media item <?php //if ($i == '1') {echo 'active';}?>">
-                                            <img style="margin: 0 auto;" alt="item<?php echo $i - 1;?>"
-                                                 src="{!!url('/uploads/products/details/'.$row->images_url)!!}">
-                                        </div>
-                                    <?php endforeach; ?>
-                                    <!--end carousel-inner--></div>
-                                    <!--Begin Previous and Next buttons-->
-                                    <a class="left carousel-control" href="#proDetailGallery" role="button"
-                                       data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a> <a
-                                            class="right carousel-control" href="#proDetailGallery" role="button"
-                                            data-slide="next"> <span
-                                                class="glyphicon glyphicon-chevron-right"></span></a>
-                                    <!--end carousel--></div>
-
-                                <!--end modal-body--></div>
-                            <!--end modal-content--></div>
-                        <!--end modal-dialoge--></div>
-                    <!--end myModal--></div>
-
-
                 <!-- Modal Video -->
                 <div class="modal fade" id="youtubeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
@@ -120,84 +97,77 @@
                     @if($data->status ==1)
                         <?php if ($data->price > 0) {?>
                         <a href="{!!url('gio-hang/addcart/'.$data->id)!!}" title=""
-                           class="btn btn-large btn-block btn-danger" style="font-size: 20px;"><i
-                                    class="fa fa-cart-plus" aria-hidden="true"></i>Đặt mua ngay</a>
+                           class="buynow">Đặt mua ngay</a>
                         <?php } else {echo '&nbsp;';}?>
                     @else
-                        <button rel="nofollow" class="btn btn-default no-product" disabled><i
-                                    class="fa fa-cart-plus"></i> Tạm hết hàng
+                        <button rel="nofollow" class="btn btn-default no-product" disabled>Tạm hết hàng
                         </button>
                     @endif
                 </div>
                 <div class="box-2-items end">
-                    <a href="tel:19000325" rel="nofollow" class="btn btn-large btn-block btn-success"><i
-                                class="fa fa-phone"></i> Hotline: 19000325</a>
+                    <a href="tel:19000325" rel="nofollow" class="hotline">Hotline: 19000325</a>
                 </div>
             </div>
 
             <div class="box-attributes">
                 <div class="table-responsive">
+                    <div class="pro-header-attr">Thông số kỹ thuật</div>
                     <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th colspan="2" class="pro-header-attr">Thông số kỹ thuật</th>
-                        </tr>
-                        </thead>
                         <tbody>
                         <tr>
-                            <td class="td-col-1">Phân nhóm</td>
+                            <td class="td-col-1">Phân nhóm<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_group!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Nhãn hiệu</td>
+                            <td class="td-col-1">Nhãn hiệu<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_branch!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Xuất xứ</td>
+                            <td class="td-col-1">Xuất xứ<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_country!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Dòng sản phẩm</td>
+                            <td class="td-col-1">Dòng sản phẩm<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_role!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Kiểu máy</td>
+                            <td class="td-col-1">Kiểu máy<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_type!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Đồng hồ dành cho</td>
+                            <td class="td-col-1">Đồng hồ dành cho<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_sex!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Kích cỡ</td>
+                            <td class="td-col-1">Kích cỡ<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_size!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Chất liệu vỏ</td>
+                            <td class="td-col-1">Chất liệu vỏ<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_out!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Chất liệu dây</td>
+                            <td class="td-col-1">Chất liệu dây<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_in!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Chất liệu kính</td>
+                            <td class="td-col-1">Chất liệu kính<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_on!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Độ chịu nước</td>
+                            <td class="td-col-1">Độ chịu nước<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_water!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Chức năng khác</td>
+                            <td class="td-col-1">Chức năng khác<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_other!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Bảo hiểm</td>
+                            <td class="td-col-1">Bảo hiểm<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_time!!}</td>
                         </tr>
                         <tr>
-                            <td class="td-col-1">Bảo hành quốc tế</td>
+                            <td class="td-col-1">Bảo hành quốc tế<i class="fa fa-angle-right"></i></td>
                             <td>{!!$data->pro_details->w_time_base!!}</td>
                         </tr>
                         </tbody>
@@ -250,25 +220,25 @@
                 @if($data->status ==1)
                     <?php if ($data->price > 0) {?>
                     <a href="{!!url('gio-hang/addcart/'.$data->id)!!}" title=""
-                       class="btn btn-large btn-block btn-danger" style="font-size: 20px;">
-                       <i class="fa fa-cart-plus" aria-hidden="true"></i>Đặt mua ngay</a>
+                       class="buynow">Đặt mua ngay</a>
                     <?php } else {echo '&nbsp;';}?>
                 @else
-                    <button rel="nofollow" class="btn btn-default no-product" disabled><i class="fa fa-cart-plus"></i>
-                        Tạm hết hàng
+                    <button rel="nofollow" class="btn btn-default no-product" disabled>Tạm hết hàng
                     </button>
                 @endif
             </div>
             <div class="box-2-items end">
-                <a href="tel:19000325" rel="nofollow" class="btn btn-large btn-block btn-success"><i
-                            class="fa fa-phone"></i> Hotline: 19000325</a>
+                <a href="tel:19000325" rel="nofollow" class="hotline">Hotline: 19000325</a>
             </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row box-comment">
         <!-- comment later -->
-
+        <div class="text-center-home left-align">ĐÁNH GIÁ VÀ NHẬN XÉT
+        </div>
+        <?php $curentURL = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];?>
+        <div class="fb-comments" data-href="<?php echo $curentURL; ?>" data-numposts="10"></div>
     </div>
 
     <?php if (count($relation)): ?>

@@ -46,7 +46,25 @@
 				      			<label for="input-id">Tên sản phẩm</label>
 				      			<input type="text" name="txtname" id="inputTxtname" class="form-control" value="{{ old('txtname') }}"  required="required">
 				      		</div>
-				      		<div class="form-group">
+
+							<div class="form-group">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+										<label for="input-id">Hiển thị trang chủ: </label>
+										<label style="margin: 0 15px;"><input type="radio" name="isHome" value="1">  Hiển thị</label>
+										<label><input type="radio" name="isHome" value="0">  Không hiển thị</label>
+									</div>
+
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+										<label for="input-id">Hiển thị nhóm thương hiệu: </label>
+										<label style="margin: 0 15px;"><input type="radio" name="isGroup" value="1">  Hiển thị</label>
+										<label><input type="radio" name="isGroup" value="0">  Không hiển thị</label>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="form-group">
 				      		<div class="row">
 				      			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				      			<label for="input-id">Giá bán</label>

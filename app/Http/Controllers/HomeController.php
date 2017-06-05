@@ -21,6 +21,7 @@ class HomeController extends Controller
         // new - noi bat
         $new = \DB::table('products')
                 ->where('products.status','=','1')
+                ->where('products.isHome', '=', '1')
                 ->select('products.*')
                 ->orderBy('id', 'desc')
                 ->paginate(12);

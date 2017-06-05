@@ -55,7 +55,11 @@
       <div class="row">
         
         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-cate-advs">
-          <a href=""><img src="{!!url('public/images/products/orient/banner-orient-1.png')!!}" /></a>
+            <?php if (count($banner_orient)) {?>
+                <a href=""><img src="uploads/category/<?php echo $banner_orient[0]->banner; ?>" /></a>
+            <?php } else { ?>
+                <a href=""><img src="{!!url('public/images/products/orient/banner-orient-1.png')!!}" /></a>
+            <?php } ?>
         </div>  
 
          <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
@@ -128,7 +132,12 @@
          </div>
 
          <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-cate-advs">
-          <a href=""><img src="{!!url('public/images/products/olympianus/banner-olympianus.png')!!}" /></a>
+             <?php if (count($banner_olym_pianus)) {?>
+             <a href=""><img src="uploads/category/<?php echo $banner_olym_pianus[0]->banner; ?>" /></a>
+             <?php } else { ?>
+                 <a href=""><img src="{!!url('public/images/products/olympianus/banner-olympianus.png')!!}" /></a>
+             <?php } ?>
+
         </div>  
 
       </div>

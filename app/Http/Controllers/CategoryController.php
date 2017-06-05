@@ -22,11 +22,17 @@ class CategoryController extends Controller
    }
    public function postadd(AddCategoryRequest $rq)
    {
-		$cat = new Category();
+	  $cat = new Category();
       $cat->parent_id= $rq->sltCate;
       $cat->name= $rq->txtCateName;
       $cat->slug = str_slug($rq->txtCateName,'-');
          $cat->created_at = new DateTime;
+
+       $f = $rq->file('txtimg')->getClientOriginalName();
+       $filename = time().'_'.$f;
+       $cat->banner = $filename;
+       $rq->file('txtimg')->move('uploads/category/',$filename);
+
       $cat->save();
       return redirect()->route('getcat')
       ->with(['flash_level'=>'result_msg','flash_massage'=>' Đã thêm thành công !']);
@@ -44,6 +50,20 @@ class CategoryController extends Controller
       $cat->slug = str_slug($request->txtCateName,'-');
       $cat->parent_id = $request->sltCate;
       $cat->updated_at = new DateTime;
+
+       $file_path = public_path('uploads/category/').$cat->banner;
+       if ($request->hasFile('txtimg')) {
+           if (file_exists($file_path))
+           {
+               unlink($file_path);
+           }
+
+           $f = $request->file('txtimg')->getClientOriginalName();
+           $filename = time().'_'.$f;
+           $cat->banner = $filename;
+           $request->file('txtimg')->move('uploads/category/',$filename);
+       }
+
       $cat->save();
       return redirect()->route('getcat')
       ->with(['flash_level'=>'result_msg','flash_massage'=>' Đã sửa']);

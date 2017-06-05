@@ -61,23 +61,18 @@ ownOlymPianus.owlCarousel({
     itemsMobile : [320,1] 
 });
 
-var imageDetail = jQuery("#owl-detailpro");
-imageDetail.owlCarousel({
+var imageProduct = jQuery("#owl-detail");
+imageProduct.owlCarousel({
     stopOnHover: true,
     pagination: false,
     navigation: true,
     lazyLoad: true,
     navigationText: [
-      "<i class='fa fa-chevron-left'></i>",
-      "<i class='fa fa-chevron-right'></i>"
-      ],
-    items : 5,
-    itemsDesktop : [1000,5],
-    itemsDesktopSmall : [900,4], 
-    itemsTablet: [600,2], 
-    itemsMobile : [320,1] 
+        "<i class='fa fa-chevron-left'></i>",
+        "<i class='fa fa-chevron-right'></i>"
+    ],
+    items : 1
 });
-
 
 jQuery('.mediaSelected').click(function(){
   jQuery('.item-media').removeClass('active');
@@ -97,3 +92,9 @@ jQuery('#mainMenu li.dropdown').hover(function() {
 }, function() {
     jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
 });
+
+// jQuery('.detail-img').click(function(){
+//     jQuery('.main-img').hide();
+//     jQuery('.main-img.item-x-'+jQuery(this).attr('data-item')).show();
+//    console.log(jQuery(this).attr('data-item'));
+// });

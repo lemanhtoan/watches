@@ -140,6 +140,9 @@ class ProductsController extends Controller
     	$pro->user_id = Auth::guard('admin')->user()->id;
     	$pro->created_at = new datetime;
 
+    	$pro->isHome = $rq->isHome;
+        $pro->isGroup = $rq->isGroup;
+
     	$pro->status = $rq->w_status;
 
 //        if ($rq->hasFile('txtimg')) {
@@ -248,7 +251,10 @@ class ProductsController extends Controller
         $pro->cat_id = $rq->sltCate;
         $pro->user_id = Auth::guard('admin')->user()->id;
         $pro->updated_at = new datetime;
-        
+
+        $pro->isHome = $rq->isHome;
+        $pro->isGroup = $rq->isGroup;
+
         $pro->status = $rq->w_status;
 
         $file_path = public_path('uploads/products/').$pro->images;        

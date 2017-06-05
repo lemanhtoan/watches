@@ -34,7 +34,7 @@
 						        </ul>
 						    </div>
 						@endif
-						<form action="" method="POST" role="form">
+						<form action="" method="POST" role="form" enctype="multipart/form-data">
 				      		{{ csrf_field() }}
 				      		<div class="form-group">
 					      		<label for="input-id">Danh mục cha</label>
@@ -43,11 +43,22 @@
 					      			<?php MenuMulti($cat,0,$str='---| ',$data['parent_id']); ?>  		
 					      		</select>
 				      		</div>
+
 				      		<div class="form-group">
 				      			<label for="input-id">Tên danh mục</label>
 				      			<input type="text" name="txtCateName" id="inputTxtCateName" class="form-control" value="{!! old('txtCateName', isset($data['name']) ? $data['name'] : null)!!}" required="required">
 				      		</div>
-				      		<input type="submit" name="btnCateAdd" class="btn btn-primary" value="Sửa danh mục" class="button" />
+
+							<div class="form-group" style="width: 100%; float: left; margin-bottom: 20px;">
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									Ảnh hiện tại: <br><?php if ( isset($data['banner'])) {?><img src="{!!url('uploads/category/'.$data['banner'])!!}" alt="" width="80"> <?php } ?>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									Hình ảnh mới : <input type="file" name="txtimg" accept="image" value="{!! old('txtimg',isset($data["banner"]) ? $data["banner"] : null) !!}" class="form-control" >
+								</div>
+							</div>
+
+							<input type="submit" name="btnCateAdd" class="btn btn-primary" value="Sửa danh mục" class="button" />
 				      	</form>					      	
 					</div>
 				</div>

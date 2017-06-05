@@ -34,7 +34,7 @@
 						        </ul>
 						    </div>
 						@endif
-						<form action="" method="POST" role="form">
+						<form action="" method="POST" role="form"  enctype="multipart/form-data">
 				      		{{ csrf_field() }}
 				      		<div class="form-group">
 					      		<label for="input-id">Danh mục cha</label>
@@ -43,10 +43,17 @@
 					      			<?php MenuMulti($data,0,$str='---| ',old('sltCate')); ?>   		
 					      		</select>
 				      		</div>
+
 				      		<div class="form-group">
 				      			<label for="input-id">Tên danh mục</label>
 				      			<input type="text" name="txtCateName" id="inputTxtCateName" class="form-control" value="" required="required">
 				      		</div>
+
+							<div class="form-group">
+								<label for="input-id">Hình ảnh</label>
+								<input type="file" name="txtimg" accept="image/*" class="form-control">
+							</div>
+
 				      		<input type="submit" name="btnCateAdd" class="btn btn-primary" value="Thêm danh mục" class="button" />
 				      	</form>			      	
 					</div>
