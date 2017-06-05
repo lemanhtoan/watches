@@ -16,7 +16,8 @@ class UsersController extends Controller
    }
    public function getedit($id)
    {
-   		$data = User::where('id',$id)->first();
-   		return view('back-end.users.edit',['data'=>$data]);
+       User::where('id',$id)->update(['status' => 1]);
+       $data = User::paginate(10);
+       return view('back-end.users.list',['data'=>$data]);
    }
 }

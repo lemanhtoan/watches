@@ -120,7 +120,7 @@
 												@if($row->status ==1)
 													<span style="color:blue;">Còn hàng</span>
 												@else
-													Tạm hết hàng
+													<span style="color: red">Tạm hết hàng</span>
 												@endif
 											</td>
 											<td>

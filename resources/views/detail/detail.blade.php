@@ -13,62 +13,44 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 box-img-galary">
             <!-- image and gallery -->
             <div class="img-media-box">
-                <ul id="owl-detail" class="owl-carousel owl-theme owl-listChoise">
-                    <li>
-                        <img class="main-img" alt="{!!$data->name!!}"  src="{!!url('/uploads/products/'.$data->images)!!}">
-                    </li>
-                    <?php $i = 0; foreach($data->detail_img as $row) : $i++; ?>
+                <div class="mediaDetail">
+                    <ul id="lightSlider">
+                        <li data-thumb="{!!url('/uploads/products/'.$data->images)!!}">
+                            <img class="main-img" alt="{!!$data->name!!}"  src="{!!url('/uploads/products/'.$data->images)!!}">
+                        </li>
+                        <?php $i = 0; foreach($data->detail_img as $row) : $i++; ?>
 
-                    <li>
-                        <img class="main-img item-x-<?php echo $i;?>" alt="{!!$data->name!!}" src="{!!url('/uploads/products/details/'.$row->images_url)!!}">
-                    </li>
+                        <li data-thumb="{!!url('/uploads/products/details/'.$row->images_url)!!}">
+                            <img class="main-img item-x-<?php echo $i;?>" alt="{!!$data->name!!}" src="{!!url('/uploads/products/details/'.$row->images_url)!!}">
+                        </li>
 
-                    <?php endforeach; ?>
-
-                    <?php $video = $data->r_intro;
-                    if($video != "") : $idYoutube = explode("?v=",$video);
-                    ?>
-                    <li id="<?php echo $idYoutube[1];?>" class="youtubeVideoLoader"> </li>
-                    <?php endif;?>
-                </ul>
-
-            </div>
-            <div class="img-slider">
-                <ul id="owl-detailpro">
-                    <?php $i = 0; foreach($data->detail_img as $row) : $i++; ?>
-
-                    <li class="mediaSelected">
-                        <a class="detail-img" data-item="<?php echo $i;?>"><img alt="{!!$data->name!!}" class="img-thumbnail" src="{!!url('/uploads/products/details/'.$row->images_url)!!}"></a>
-                    </li>
-
-                    <?php endforeach; ?>
-
-                    <?php $video = $data->r_intro;
+                        <?php endforeach; ?>
+                    </ul>
+                    <ul class="video-list">
+                        <?php $video = $data->r_intro;
                         if($video != "") : $idYoutube = explode("?v=",$video);
-                    ?>
+                        ?>
                         <li id="<?php echo $idYoutube[1];?>" class="youtubeVideoLoader"> </li>
-                    <?php endif;?>
+                        <?php endif;?>
+                    </ul>
+                </div>
+            </div>
+            <!-- Modal Video -->
+            <div class="modal fade" id="youtubeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div id="videoModalContainer">
 
-                </ul>
-                <!-- Modal Video -->
-                <div class="modal fade" id="youtubeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div id="videoModalContainer">
-
-                                </div>
                             </div>
-                            <div class="modal-footer">
-                                <button id="CloseModalButton" type="button" class="btn btn-default" data-dismiss="modal">Đóng video</button>
-                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="CloseModalButton" type="button" class="btn btn-default" data-dismiss="modal">Đóng video</button>
                         </div>
                     </div>
                 </div>
-                <!-- Modal Template -->
-
-                <!-- end popup image detail -->
             </div>
+            <!-- Modal Template -->
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <!-- name - button - attributes -->

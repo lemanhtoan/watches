@@ -15,6 +15,8 @@
 
 			<li  class="{!! set_active('admin/contacts') !!}"><a href="{!!url('admin/contacts')!!}"><span class="glyphicon glyphicon-file"></span> Phản hồi khách hàng</a></li>
 
+			<li  class="{!! set_active('admin/advs') !!}"><a href="{!!url('admin/advs')!!}"><span class="glyphicon glyphicon-file"></span> Quản lý quảng cáo</a></li>
+
 			<li role="presentation" class="divider"></li>
 
 

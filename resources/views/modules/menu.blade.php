@@ -293,6 +293,7 @@
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
         <div class="loginmodal-container">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
             <div class="text-center-home">Đăng nhập
                   <hr>
             </div>
@@ -316,8 +317,8 @@
                 </span>
                     @endif
                 </div>
+                <div class="form-group"><input type="submit" name="login" class="btn btn-primary btn-login" value="Đăng nhập"></div>
 
-                <input type="submit" name="login" class="btn btn-primary btn-login" value="Đăng nhập">
             </form>
             <div class="login-help">
                 <a class="btn btn-link" href="{!!url('/register')!!}"> <strong style="color:red;"> Đăng ký </strong>

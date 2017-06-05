@@ -102,7 +102,6 @@ Route::group(['middleware' => 'admin'], function () {
            Route::get('/del/{id}',['as'   =>'getdelmem','uses' => 'UsersController@getdel'])->where('id','[0-9]+');
            
            Route::get('/edit/{id}',['as'  =>'geteditmem','uses' => 'UsersController@getedit'])->where('id','[0-9]+');
-           Route::post('/edit/{id}',['as' =>'posteditmem','uses' => 'UsersController@postedit'])->where('id','[0-9]+');
       });
        // -------------------- quan ly thong nhan vien--------------------
         Route::group(['prefix' => '/nhanvien'], function() {;
@@ -119,6 +118,18 @@ Route::group(['middleware' => 'admin'], function () {
       Route::group(['prefix' => '/contacts'], function() {
           Route::get('/',['as'       =>'getContacts','uses' => 'PagesController@getlistContact']);
           Route::get('/del/{id}',['as'   =>'getdelContact','uses' => 'PagesController@getdelContact'])->where('id','[0-9]+');
+      });
+
+      // -------------------- quan ly Banner----------------------
+      Route::group(['prefix' => 'advs'], function() {
+          Route::get('add',['as'        =>'getadvs','uses' => 'AdvsController@getadd']);
+          Route::post('add',['as'       =>'postaddadvs','uses' => 'AdvsController@postadd']);
+
+          Route::get('/',['as'       =>'getadvs','uses' => 'AdvsController@getlist']);
+          Route::get('del/{id}',['as'   =>'getdelladvs','uses' => 'AdvsController@getdel'])->where('id','[0-9]+');
+
+          Route::get('edit/{id}',['as'  =>'geteditadvs','uses' => 'AdvsController@getedit'])->where('id','[0-9]+');
+          Route::post('edit/{id}',['as' =>'posteditadvs','uses' => 'AdvsController@postedit'])->where('id','[0-9]+');
       });
     });     
 });

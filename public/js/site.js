@@ -98,3 +98,11 @@ jQuery('#mainMenu li.dropdown').hover(function() {
 //     jQuery('.main-img.item-x-'+jQuery(this).attr('data-item')).show();
 //    console.log(jQuery(this).attr('data-item'));
 // });
+
+jQuery('#lightSlider').lightSlider({
+    gallery: true,
+    item: 1,
+    loop:true,
+    slideMargin: 0,
+    thumbItem: 5
+});

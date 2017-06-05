@@ -302,7 +302,7 @@ class PagesController extends Controller
     {
         $keyword = $request->input('txtkeyword');
         $products = DB::table('products')->where('name', 'LIKE', '%' . $keyword . '%')->paginate(12);
-         return view('category.list',['data'=>$products, 'cateName' => 'Kết quả tìm kiếm']);
+         return view('category.list',['data'=>$products, 'cateName' => 'Kết quả tìm kiếm', 'dataConstant' => $this->dataConstant(), 'catSlug' =>  'Tìm kiếm']);
     }
 
     public function searchAjax(Request $request)
