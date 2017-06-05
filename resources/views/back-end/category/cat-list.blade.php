@@ -36,7 +36,6 @@
 							<table class="table table-hover">
 								<thead>
 									<tr>										
-										<th>ID</th>										
 										<th>Tên danh mục</th>										
 										<th>Hành động</th>
 									</tr>

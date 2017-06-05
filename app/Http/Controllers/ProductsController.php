@@ -20,18 +20,18 @@ class ProductsController extends Controller
 	{
         if ($id!='all') {
             $pro = Products::where('cat_id',$id)->orderBy('id', 'desc')->paginate(20);
-            $cat= Category::all()->except([13 ,14]);
+            $cat= Category::all()->except([1]);
             return view('back-end.products.list',['data'=>$pro,'cat'=>$cat,'loai'=>$id]);                    
         } else {
             $pro = Products::orderBy('id', 'desc')->paginate(20);
-            $cat= Category::all()->except([13 ,14]);//Category::all();
+            $cat= Category::all()->except([1]);//Category::all();
             return view('back-end.products.list',['data'=>$pro,'cat'=>$cat,'loai'=>0]);
         }		
 	}
 
     public function getadd()
     {
-		$cat= Category::all()->except([13 ,14]);
+		$cat= Category::all()->except([1]);
 		$pro = Products::all();
 
 		$dataConstant = array(
@@ -161,7 +161,7 @@ class ProductsController extends Controller
     	$detail = new Pro_details();
 
         $detail->w_group = $rq->w_group ? $rq->w_group : '';
-        $detail->w_branch = $rq->w_branch ? $rq->w_branch : '';
+        $detail->w_branch = $rq->sltCate ? $rq->sltCate : '';
         $detail->w_country = $rq->w_country ? $rq->w_country : '';
         $detail->w_role = $rq->w_role ? $rq->w_role : '';
         $detail->w_type = $rq->w_type ? $rq->w_type : '';
@@ -221,7 +221,7 @@ class ProductsController extends Controller
 
     public function getedit($id)
     {
-        $cat= Category::all()->except([13 ,14]);
+        $cat= Category::all()->except([1]);
         $pro = Products::where('id',$id)->first();
 
         $dataConstant = array(
@@ -272,7 +272,7 @@ class ProductsController extends Controller
         $pro->save();
 
         $pro->pro_details->w_group = $rq->w_group ? $rq->w_group : '';
-        $pro->pro_details->w_branch = $rq->w_branch ? $rq->w_branch : '';
+        $pro->pro_details->w_branch = $rq->sltCate ? $rq->sltCate : '';
         $pro->pro_details->w_country = $rq->w_country ? $rq->w_country : '';
         $pro->pro_details->w_role = $rq->w_role ? $rq->w_role : '';
         $pro->pro_details->w_type = $rq->w_type ? $rq->w_type : '';

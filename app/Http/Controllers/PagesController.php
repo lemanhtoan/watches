@@ -21,7 +21,6 @@ use Validator;
 class PagesController extends Controller
 {
     public function __construct() {
-        // new - noi bat
         $new = DB::table('products')
             ->where('products.status','=','1')
             ->where('products.isHome','=','1')
@@ -172,29 +171,49 @@ class PagesController extends Controller
 
     public function getcate($cat)
     {
-        $cate = Category::where('slug', '=', $cat)->get(['name', 'id']);
-        $cateName = $cate[0]->name; 
-        $cateId= $cate[0]->id;
-    	if ($cat == 'tin-tuc') {
-            $new =  DB::table('news')
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(3);
-            $top1 = $new->shift();
-            $all =  DB::table('news')
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(5);
-            return view('category.news',['data'=>$new,'hot1'=>$top1,'all'=>$all]);
-        } else {
+        switch ($cat) {
+            case 'tin-tuc':
+                 $new =  DB::table('news')
+                        ->orderBy('created_at', 'desc')
+                        ->paginate(3);
+                 $top1 = $new->shift();
+                 $all =  DB::table('news')
+                        ->orderBy('created_at', 'desc')
+                        ->paginate(5);
+                 return view('category.news',['data'=>$new,'hot1'=>$top1,'all'=>$all]);
 
-            $data = DB::table('products')
-                ->join('category', 'products.cat_id', '=', 'category.id')
-                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('products.cat_id','=',$cateId)
-                ->where('products.status','=','1')
-                ->select('products.*','pro_details.*')
-                ->paginate(16);
-            return view('category.list',['data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
+            case 'dong-ho-nam':
+                 $data = DB::table('products')
+                    ->join('category', 'products.cat_id', '=', 'category.id')
+                    ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
+                    ->where('pro_details.w_sex','=','0') // nam
+                    ->where('products.status','=','1')
+                    ->select('products.*','pro_details.*')
+                    ->paginate(16);
+                return view('category.list',['data'=>$data, 'cateName' => 'Đồng hồ nam','dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
+            
+            case 'dong-ho-nu':
+                 $data = DB::table('products')
+                    ->join('category', 'products.cat_id', '=', 'category.id')
+                    ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
+                    ->where('pro_details.w_sex','=','1') // nu
+                    ->where('products.status','=','1')
+                    ->select('products.*','pro_details.*')
+                    ->paginate(16);
+                return view('category.list',['data'=>$data, 'cateName' => 'Đồng hồ nữ','dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
+            default:
 
+                $cate = Category::where('slug', '=', $cat)->get(['name', 'id']);
+                $cateName = $cate[0]->name; 
+                $cateId= $cate[0]->id;
+                $data = DB::table('products')
+                    ->join('category', 'products.cat_id', '=', 'category.id')
+                    ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
+                    ->where('products.cat_id','=',$cateId)
+                    ->where('products.status','=','1')
+                    ->select('products.*','pro_details.*')
+                    ->paginate(16);
+                    return view('category.list',['data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
         }
          
     }

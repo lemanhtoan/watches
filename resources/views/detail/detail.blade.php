@@ -102,7 +102,10 @@
                         </tr>
                         <tr>
                             <td class="td-col-1">Nhãn hiệu<i class="fa fa-angle-right"></i></td>
-                            <td>{!!$data->pro_details->w_branch!!}</td>
+                            <td><?php $branch = $data->pro_details->w_branch;
+                            $dataBranch = DB::table('category')->where('id', $branch)->get(['name']);
+                            echo $dataBranch[0]->name;
+                            ?></td>
                         </tr>
                         <tr>
                             <td class="td-col-1">Xuất xứ<i class="fa fa-angle-right"></i></td>

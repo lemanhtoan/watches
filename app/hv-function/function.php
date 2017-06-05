@@ -23,10 +23,8 @@
 			if ($val['parent_id'] == $parent_id) {
 				echo '<tr>';
 				if ($str =="") {
-						echo '<td ><strong>'.$id.'</strong></td>';
 						echo '<td ><strong style="color:blue;">'.$str.'- '.$ten.'</strong></td>';
 					} else {
-						echo '<td ><strong>'.$id.'</strong></td>';
 						echo '<td style="color:green;">'.$str.'--|'.$ten.'</td>';
 					}	
 			echo '<td class="list_td aligncenter">
