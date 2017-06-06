@@ -925,8 +925,6 @@ h1.page-header {
 
 /*CUSTOM CSS*/
 li.end-item {
-	position: fixed;
-	bottom: 50px;
 	left: 15px;
 	color: #30a5ff;
 	font-weight: bold;

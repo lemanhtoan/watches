@@ -1,8 +1,9 @@
+    <?php  $copyright = DB::table('settings')->where('name', 'copyright')->select('content')->get()[0]; ?>
     <div class="container-fluid">
       <div class="container">
         <hr>
         <footer>
-          © <?php echo date('Y'); ?> Công Ty Cổ Phần Watches / Địa chỉ: TP. HN / GPĐKKD số: Website đang thử nghiệm. <br>
+          © <?php echo date('Y'); ?> <?php echo $copyright->content; ?><br>
       </footer>
       </div>
     </div>

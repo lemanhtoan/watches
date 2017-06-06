@@ -40,10 +40,10 @@
 							<form action="postsettLogo" method="POST" role="form" enctype="multipart/form-data">
 								{{ csrf_field() }}
 								<div class="form-group"> <?php $dataLogoGet = $dataLogo[0]['content']; ?>
-									Ảnh hiện tại: <br><?php if ( isset($dataLogoGet)) {?><img src="{!!url('uploads/commons/'.$dataLogoGet)!!}" alt="" width="80"> <?php } ?>
+									Ảnh hiện tại: <br><?php if ( isset($dataLogoGet)) {?><img src="{!!url('uploads/commons/'.$dataLogoGet)!!}" alt="" width="120"> <?php } ?>
 								</div>
 								<div class="form-group">
-									Logo : <input type="file" name="logo" accept="image/png" class="form-control">
+									Logo: <input type="file" name="logo" accept="image/png" class="form-control">
 								</div>
 								<input type="submit" name="btnLogo" class="btn btn-primary" value="Lưu logo" class="button" />
 							</form>
@@ -53,7 +53,8 @@
 							<form action="settDiachichung" method="POST" role="form">
 								{{ csrf_field() }}
 								<div class="form-group">
-									Địa chỉ : <input type="text" name="diachi" class="form-control">
+								<?php $dataAddress = $dataAddress[0]['content']; ?>
+									Địa chỉ : <textarea name="diachi" id="diachi" class="form-control" rows="4"><?php if ( isset($dataAddress)) {echo $dataAddress;} ?></textarea>
 								</div>
 								<input type="submit" name="btnDiachi" class="btn btn-primary" value="Lưu Địa chỉ" class="button" />
 							</form>
@@ -63,7 +64,8 @@
 							<form action="settWelcome" method="POST" role="form">
 								{{ csrf_field() }}
 								<div class="form-group">
-									Lời chào mừng : <input type="text" name="welcome" class="form-control">
+								<?php $dataWelcome = $dataWelcome[0]['content']; ?>
+									Lời chào mừng : <input type="text" name="welcome" class="form-control" value="<?php if ( isset($dataWelcome)) { echo $dataWelcome;} ?>">
 								</div>
 								<input type="submit" name="btnWelcome" class="btn btn-primary" value="Lưu Lời chào" class="button" />
 							</form>
@@ -73,7 +75,8 @@
 							<form action="settCopyright" method="POST" role="form">
 								{{ csrf_field() }}
 								<div class="form-group">
-									Thông tin bản quyền : <input type="text" name="copyright" class="form-control">
+								<?php $dataCopyright = $dataCopyright[0]['content']; ?>
+									Thông tin bản quyền : <input type="text" name="copyright" class="form-control" value="<?php if ( isset($dataCopyright)) { echo $dataCopyright;} ?>">
 								</div>
 								<input type="submit" name="btnCopyright" class="btn btn-primary" value="Lưu Copyright" class="button" />
 							</form>
@@ -82,8 +85,13 @@
 						<div class="row">
 							<form action="settLogoPay" method="POST" role="form" enctype="multipart/form-data">
 								{{ csrf_field() }}
+
+								<div class="form-group"> <?php $dataLogoPayGet = $dataLogoPay[0]['content']; ?>
+									Ảnh hiện tại: <br><?php if ( isset($dataLogoPayGet)) {?><img src="{!!url('uploads/commons/'.$dataLogoPayGet)!!}" alt="" width="120"> <?php } ?>
+								</div>
+
 								<div class="form-group">
-									Logo thanh toán : <input type="file" name="paymentlogo" accept="image/png" class="form-control">
+									Logo thanh toán : <input type="file" name="logopay" accept="image/png" class="form-control">
 								</div>
 								<input type="submit" name="btnLogopay" class="btn btn-primary" value="Lưu logo thanh toán" class="button" />
 							</form>
@@ -94,9 +102,12 @@
 								{{ csrf_field() }}
 								<div class="form-group">
 									Thông tin footer:
-									<textarea name="footerlink" id="footerlink" class="form-control" rows="4" value="{{ old('footerlink') }}" ></textarea>
+									<textarea name="footerLink" id="footerLink" class="form-control" rows="4" value="{{ old('footerLink') }}" >
+										<?php $dataFooter = $dataFooter[0]['content']; ?>
+										<?php if ( isset($dataFooter)) {echo $dataFooter;} ?>
+									</textarea>
 									<script type="text/javascript">
-                                        var editor = CKEDITOR.replace('footerlink',{
+                                        var editor = CKEDITOR.replace('footerLink',{
                                             language:'vi',
                                             filebrowserImageBrowseUrl : '../../plugin/ckfinder/ckfinder.html?Type=Images',
                                             filebrowserFlashBrowseUrl : '../../plugin/ckfinder/ckfinder.html?Type=Flash',
@@ -114,7 +125,11 @@
 								{{ csrf_field() }}
 								<div class="form-group">
 									Thông tin social:
-									<textarea name="social" id="social" class="form-control" rows="4" value="{{ old('social') }}" ></textarea>
+									<textarea name="social" id="social" class="form-control" rows="4" value="{{ old('social') }}" >
+										<?php $dataSocial = $dataSocial[0]['content']; ?>
+										<?php if ( isset($dataSocial)) {echo $dataSocial;} ?>
+
+									</textarea>
 									<script type="text/javascript">
                                         var editor = CKEDITOR.replace('social',{
                                             language:'vi',

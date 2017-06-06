@@ -1708,7 +1708,7 @@ a#aRoot {
 
 .navfixed #aRoot {
   border-radius: 20px;
-  padding: 10px 30px !important;
+  padding: 10px 35px !important;
   margin-top: 10px;
 }
 
@@ -1824,4 +1824,18 @@ ul.video-list {
     text-align: center;
     margin-top: 70px;
     margin-left: 50px;
+}
+
+ul.footer-social a {
+    float: left;
+    text-indent: -9999px;
+    width: 40px;
+    height: 40px;
+}
+
+ul.footer-social i{
+  width: 40px;
+  height: 40px;
+  z-index: 100000;
+  text-indent: 9999px;
 }

@@ -209,5 +209,12 @@ Route::group(['middleware' => 'admin'], function () {
           Route::get('/',['as'       =>'getsettings','uses' => 'SettingsController@getlist']);
       });
       Route::post('/postsettLogo',['as'       =>'postsettLogo','uses' => 'SettingsController@postsettLogo']);
+      Route::post('/settDiachichung',['as'       =>'settDiachichung','uses' => 'SettingsController@settDiachichung']);
+      Route::post('/settWelcome',['as'       =>'settWelcome','uses' => 'SettingsController@settWelcome']);
+      Route::post('/settCopyright',['as'       =>'settCopyright','uses' => 'SettingsController@settCopyright']);
+      Route::post('/settLogoPay',['as'       =>'settLogoPay','uses' => 'SettingsController@settLogoPay']);
+      Route::post('/settSocial',['as'       =>'settSocial','uses' => 'SettingsController@settSocial']);
+
+      Route::post('/settFooterlink',['as'       =>'settFooterlink','uses' => 'SettingsController@settFooterlink']);
     });     
 });

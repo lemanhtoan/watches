@@ -49,7 +49,7 @@
 
 							<div class="form-group" style="width: 100%; float: left; margin-bottom: 20px;">
 								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-									Ảnh hiện tại: <br><?php if ( isset($data['image'])) {?><img src="{!!url('uploads/advs/'.$data['image'])!!}" alt="" width="80"> <?php } ?>
+									Ảnh hiện tại: <br><?php if ( isset($data['image'])) {?><img src="{!!url('uploads/partners/'.$data['image'])!!}" alt="" width="150"> <?php } ?>
 								</div>
 								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 									Hình ảnh mới : <input type="file" name="image" accept="image" value="{!! old('image',isset($data["image"]) ? $data["image"] : null) !!}" class="form-control" >

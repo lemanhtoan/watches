@@ -1,3 +1,7 @@
+<?php 
+ $logo = DB::table('settings')->where('name', 'logo')->select('content')->get()[0];
+ $welcome = DB::table('settings')->where('name', 'welcome')->select('content')->get()[0];
+?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -5,13 +9,14 @@
         js = d.createElement(s); js.id = id;
         js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=1788954788044511";
         fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+    }(document, 'script', 'facebook-jssdk'));
+</script>
 
 <div class="top-header">
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                <p class="welcome-store">Chào mừng đến với hệ thống đồng hồ chính hãng Xwatch!</p>
+                <p class="welcome-store"><?php echo $welcome->content; ?></p>
             </div>
             <div class="col-xs-12 col-sm-6  col-md-6 col-lg-6 col-xl-6">
                 <div class="right-align">
@@ -49,9 +54,9 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-3 col-lg-3 col-xl-3 logo-box">
-                <a href="{!!url('/')!!}"><img
-                            src="{!!url('/public/images/logo.png')!!}" alt=""
-                            class="lol-main"></a>
+                <a href="{!!url('/')!!}">
+                   <img src="{!!url('/uploads/commons/'.$logo->content)!!}" class="lol-main">
+                </a>
             </div><!-- logo-->
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
 

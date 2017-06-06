@@ -48,7 +48,7 @@
 									<tr>
 										<td>{!!$row->id!!}</td>
 										<td>{!!$row->name!!}</td>
-										<td> <img src="{!!url('uploads/advs/'.$row->images)!!}" alt="" width="200"> </td>
+										<td> <img src="{!!url('uploads/sliders/'.$row->image)!!}" alt="" width="150"> </td>
 										<td>{!!$row->link!!}</td>
 										<td style="width: 120px;">
 											<a href="{!!url('admin/sliders/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>

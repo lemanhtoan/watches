@@ -1,3 +1,7 @@
+<?php 
+ $branch = DB::table('branchs')->select('branchs.*')->orderBy('id', 'asc')->paginate(50);
+ $dataAddress = DB::table('settings')->where('name', 'diachi')->get(['content']);
+?>
 <div class="fluid_container" id="box-branch"> 
     <div class="container">
 
@@ -6,60 +10,35 @@
       </div>
 
       <div class="row al-center big-font">
-        <p>Hotline tư vấn bán hàng: 19000325</p>
-
-        <p>Hotline kỹ thuật: HN: 0963.359.529 HCM: 0888.678.666 </p>
-
-        <p>Email: cskh.watches@gmail.com </p>
+        <p>
+          <?php $dataAddress = $dataAddress[0]->content; ?>
+          <?php echo nl2br($dataAddress);?>
+        </p>
       </div>
 
-      <div class="row">
+      <?php if (count($branch)) : $count =1; foreach($branch as $row) { ?>
+      <?php 
+        if ($count%4 == 1)
+          {  
+               echo "<div class='row'>";
+          }
+      ?>
         
         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-           <span><i class="fa fa-map-marker"></i>44B, Phất Lộc, Hoàn Kiếm, HN </span>
-           <span><i class="fa fa-phone"></i><a href="tel:0905336879" rel="nofollow">0905.336.879</a></span>
+           <span><i class="fa fa-map-marker"></i>{!!$row->address!!}</span>
+           <span><i class="fa fa-phone"></i><a href="tel:{!!$row->phone!!}" rel="nofollow">{!!$row->phone!!}</a></span>
         </div>
-
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-           <span><i class="fa fa-map-marker"></i>44B, Phất Lộc, Hoàn Kiếm, HN </span>
-           <span><i class="fa fa-phone"></i><a href="tel:0905336879" rel="nofollow">0905.336.879</a></span>
-        </div>
-
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-           <span><i class="fa fa-map-marker"></i>44B, Phất Lộc, Hoàn Kiếm, HN </span>
-           <span><i class="fa fa-phone"></i><a href="tel:0905336879" rel="nofollow">0905.336.879</a></span>
-        </div>
-
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-           <span><i class="fa fa-map-marker"></i>44B, Phất Lộc, Hoàn Kiếm, HN </span>
-           <span><i class="fa fa-phone"></i><a href="tel:0905336879" rel="nofollow">0905.336.879</a></span>
-        </div>
-
-      </div>
-
-      <div class="row">
-        
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-           <span><i class="fa fa-map-marker"></i>44B, Phất Lộc, Hoàn Kiếm, HN </span>
-           <span><i class="fa fa-phone"></i><a href="tel:0905336879" rel="nofollow">0905.336.879</a></span>
-        </div>
-
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-           <span><i class="fa fa-map-marker"></i>44B, Phất Lộc, Hoàn Kiếm, HN </span>
-           <span><i class="fa fa-phone"></i><a href="tel:0905336879" rel="nofollow">0905.336.879</a></span>
-        </div>
-
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-           <span><i class="fa fa-map-marker"></i>44B, Phất Lộc, Hoàn Kiếm, HN </span>
-           <span><i class="fa fa-phone"></i><a href="tel:0905336879" rel="nofollow">0905.336.879</a></span>
-        </div>
-
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-           <span><i class="fa fa-map-marker"></i>44B, Phất Lộc, Hoàn Kiếm, HN </span>
-           <span><i class="fa fa-phone"></i><a href="tel:0905336879" rel="nofollow">0905.336.879</a></span>
-        </div>
-        
-      </div>
+        <?php 
+          if ($count%4 == 0)
+            {
+                echo "</div>";
+            }
+            $count++;
+          ?>
+          <?php } ?>
+          <?php if ($count%4 != 1) echo "</div>"; ?>
+              
+      <?php endif;?>  
     </div>
   </div>
 

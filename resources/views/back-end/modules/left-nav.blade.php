@@ -21,7 +21,7 @@
 
 			<li  class="{!! set_active('admin/may') !!}"><a href="{!!url('admin/may')!!}"><span class="glyphicon glyphicon-file"></span> Quản lý Loại máy</a></li>
 
-			<li  class="{!! set_active('admin/group_watch') !!}"><a href="{!!url('admin/group_watch')!!}"><span class="glyphicon glyphicon-file"></span> Quản lý Nhóm đồng hồ</a></li>
+			<li  class="{!! set_active('admin/group_watch') !!}"><a href="{!!url('admin/group_watch')!!}"><span class="glyphicon glyphicon-file"></span> Nhóm đồng hồ</a></li>
 
 			<li  class="{!! set_active('admin/branchs') !!}"><a href="{!!url('admin/branchs')!!}"><span class="glyphicon glyphicon-file"></span> Danh sách Cửa hàng</a></li>
 
@@ -29,15 +29,7 @@
 
 			<li  class="{!! set_active('admin/sliders') !!}"><a href="{!!url('admin/sliders')!!}"><span class="glyphicon glyphicon-file"></span>Slide show trang chủ</a></li>
 
-			<li  class="{!! set_active('admin/settings') !!}"><a href="{!!url('admin/settings')!!}"><span class="glyphicon glyphicon-file"></span> Cài đặt khác</a></li>
-
-			<li role="presentation" class="divider"></li>
-
-			<li class=""><a href="{!!url('/')!!}" target="_blank"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"/></svg>  Về Trang Chủ</a></li>
-
-			<li class="end-item">
-					<small>© <?php echo date('Y'); ?> Công Ty Cổ Phần Watches</small>
-			</li>
+			<li  class="{!! set_active('admin/settings') !!}"><a href="{!!url('admin/settings')!!}"><span class="glyphicon glyphicon-file"></span> Cài đặt khác</a></li>			
 
 		</ul>
 

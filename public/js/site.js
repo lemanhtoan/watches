@@ -93,11 +93,6 @@ jQuery('#mainMenu li.dropdown').hover(function() {
     jQuery(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
 });
 
-// jQuery('.detail-img').click(function(){
-//     jQuery('.main-img').hide();
-//     jQuery('.main-img.item-x-'+jQuery(this).attr('data-item')).show();
-//    console.log(jQuery(this).attr('data-item'));
-// });
 
 jQuery('#lightSlider').lightSlider({
     gallery: true,
@@ -106,3 +101,17 @@ jQuery('#lightSlider').lightSlider({
     slideMargin: 0,
     thumbItem: 5
 });
+
+var owlSlider = jQuery("#owl-slider");
+
+owlSlider.owlCarousel({
+    items : 1,
+    stopOnHover: true,
+    pagination: false,
+    navigation: false,
+    lazyLoad: true,
+    slideSpeed: 500,
+    autoPlay: true,
+    autoPlaySpeed: 3000,    
+});
+

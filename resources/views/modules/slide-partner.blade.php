@@ -1,13 +1,12 @@
+<?php 
+ $data = DB::table('partners')->select('partners.*')->orderBy('id', 'asc')->paginate(50);
+?>
 <div class="container owl-partner">
      <div class="row"><!-- Partner -->
          <ul id="owl-partner" class="owl-carousel owl-theme">
-             <li class="item"><a href=""><img src="{!!url('public/images/partner/logo-casio-min.jpg')!!}" alt=""></a></li>
-             <li class="item"><a href=""><img src="{!!url('public/images/partner/logo-citizen-min.jpg')!!}" alt=""></a></li>
-             <li class="item"><a href=""><img src="{!!url('public/images/partner/logo-ogival.png')!!}" alt=""></a></li>
-             <li class="item"><a href=""><img src="{!!url('public/images/partner/logo-olym-pianus-min.jpg')!!}" alt=""></a></li>
-             <li class="item"><a href=""><img src="{!!url('public/images/partner/logo-olympia-star-min.jpg')!!}" alt=""></a></li>
-             <li class="item"><a href=""><img src="{!!url('public/images/partner/logo-orient-min.jpg')!!}" alt=""></a></li>
-             <li class="item"><a href=""><img src="{!!url('public/images/partner/logo-seiko-min.png')!!}" alt=""></a></li>
+            <?php if (count($data)) : foreach($data as $row):?>
+             <li class="item"><a href="<?php echo $row->link?>" target="_blank"><img src="{!!url('/uploads/partners/'.$row->image)!!}" alt="{!! $row->name !!}"></a></li>
+             <?php endforeach; endif;?>
          </ul>
      </div> <!-- end Partner -->
 </div>

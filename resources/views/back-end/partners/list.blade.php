@@ -14,7 +14,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						Dánh sách Đối tác
-						<a href="{!!url('admin/sliders/add')!!}" title=""><button type="button" class="btn btn-primary pull-right">Thêm mới</button></a>
+						<a href="{!!url('admin/partners/add')!!}" title=""><button type="button" class="btn btn-primary pull-right">Thêm mới</button></a>
 					</div>
 					@if (count($errors) > 0)
 					    <div class="alert alert-danger">
@@ -48,11 +48,11 @@
 									<tr>
 										<td>{!!$row->id!!}</td>
 										<td>{!!$row->name!!}</td>
-										<td> <img src="{!!url('uploads/advs/'.$row->images)!!}" alt="" width="200"> </td>
+										<td> <img src="{!!url('uploads/partners/'.$row->image)!!}" alt="" width="150"> </td>
 										<td>{!!$row->link!!}</td>
 										<td style="width: 120px;">
-											<a href="{!!url('admin/sliders/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>
-											<a href="{!!url('admin/sliders/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Bạn chắc muốn xóa?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>
+											<a href="{!!url('admin/partners/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>
+											<a href="{!!url('admin/partners/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Bạn chắc muốn xóa?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>
 										</td>
 									</tr>
 								@endforeach

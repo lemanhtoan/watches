@@ -11,6 +11,7 @@
 				<a class="navbar-brand" href="{!!url('/admin/home')!!}"><span>Trang Quản Trị</span> SHOP </a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
+						<a  style="margin-right: 40px;" href="{!!url('/')!!}" target="_blank">Về Trang Chủ</a>
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
 							@if (isset(Auth::guard('admin')->user()->name) )
                                 {!!Auth::guard('admin')->user()->name!!}
