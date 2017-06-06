@@ -13,6 +13,8 @@ use App\News;
 use App\Oders;
 use App\Oders_detail;
 use DB,Cart,Datetime;
+use App\Day;
+use App\May;
 //call model
 use App\Model\Contacts;
 use Session;
@@ -158,14 +160,18 @@ class PagesController extends Controller
 
     public function dataConstant() {
         $dataCount = count(DB::table('products')->where('products.status','=','1')->get());
+        $branch =  Category::where('id', '>', '1')->orderBy('name','asc')->lists( 'name', 'id')->toArray();
+        $may = May::where('status' ,'=' ,'1')->orderBy('name','asc')->lists( 'name', 'id')->toArray();
+        $day = Day::where('status' ,'=' ,'1')->orderBy('name','asc')->lists( 'name', 'id')->toArray();
         $dataConstant = array(
-            'w_branch' => \Config::get('constants.w_branch'),
-            'w_type' => \Config::get('constants.w_type'),
-            'w_in' => \Config::get('constants.w_in'),
+            'w_branch' => $branch,
+            'w_type' => $may,//\Config::get('constants.w_type'),
+            'w_in' =>  $day, //\Config::get('constants.w_in'),
             'op_price' => \Config::get('constants.khoanggia'),
             'op_sapxep' => \Config::get('constants.sapxep'),
             'dataCount' => $dataCount
         );
+        //echo "<pre>"; var_dump($dataConstant); die;
         return $dataConstant;
     }
 
@@ -190,7 +196,7 @@ class PagesController extends Controller
                     ->where('products.status','=','1')
                     ->select('products.*','pro_details.*')
                     ->paginate(16);
-                return view('category.list',['data'=>$data, 'cateName' => 'Đồng hồ nam','dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
+                return view('category.list',['data'=>$data, 'cateName' => 'Đồng hồ nam','dataConstant' => $this->dataConstant(), 'catSlug' => '1']);
             
             case 'dong-ho-nu':
                  $data = DB::table('products')
@@ -200,7 +206,7 @@ class PagesController extends Controller
                     ->where('products.status','=','1')
                     ->select('products.*','pro_details.*')
                     ->paginate(16);
-                return view('category.list',['data'=>$data, 'cateName' => 'Đồng hồ nữ','dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
+                return view('category.list',['data'=>$data, 'cateName' => 'Đồng hồ nữ','dataConstant' => $this->dataConstant(), 'catSlug' => '0']);
             default:
 
                 $cate = Category::where('slug', '=', $cat)->get(['name', 'id']);
@@ -363,7 +369,11 @@ class PagesController extends Controller
 
         $slugCate = $request->input('catSlug');
         if ($slugCate !="") {
-            $queryCurrentCategory = " AND category.slug='$slugCate' ";
+            if ($slugCate =='0' || $slugCate =='1') {
+                $queryCurrentCategory = " AND pro_details.w_sex='$slugCate' ";
+            } else {
+                $queryCurrentCategory = " AND category.slug='$slugCate' ";
+            }
         } else {
             $queryCurrentCategory = " ";
         }
@@ -375,12 +385,11 @@ class PagesController extends Controller
             WHERE products.status = '1'
             $queryCurrentCategory
         ";
-        // echo $sqlData; die;
         $dataFilter = array();
 
         if ($thuonghieu != "") {
             $dataFilter['thuonghieu']=$thuonghieu;
-            $sqlData .= " AND pro_details.w_branch = '$thuonghieu'";
+            $sqlData .= " AND category.id = '$thuonghieu'";
         }
 
         if ($bomay != "") {

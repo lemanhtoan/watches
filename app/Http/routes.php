@@ -131,5 +131,83 @@ Route::group(['middleware' => 'admin'], function () {
           Route::get('edit/{id}',['as'  =>'geteditadvs','uses' => 'AdvsController@getedit'])->where('id','[0-9]+');
           Route::post('edit/{id}',['as' =>'posteditadvs','uses' => 'AdvsController@postedit'])->where('id','[0-9]+');
       });
+
+      // -------------------- quan ly Day----------------------
+      Route::group(['prefix' => 'day'], function() {
+          Route::get('add',['as'        =>'getday','uses' => 'DayController@getadd']);
+          Route::post('add',['as'       =>'postaddday','uses' => 'DayController@postadd']);
+
+          Route::get('/',['as'       =>'getday','uses' => 'DayController@getlist']);
+          Route::get('del/{id}',['as'   =>'getdellday','uses' => 'DayController@getdel'])->where('id','[0-9]+');
+
+          Route::get('edit/{id}',['as'  =>'geteditday','uses' => 'DayController@getedit'])->where('id','[0-9]+');
+          Route::post('edit/{id}',['as' =>'posteditday','uses' => 'DayController@postedit'])->where('id','[0-9]+');
+      });
+
+      // -------------------- quan ly May----------------------
+      Route::group(['prefix' => 'may'], function() {
+          Route::get('add',['as'        =>'getmay','uses' => 'MayController@getadd']);
+          Route::post('add',['as'       =>'postaddmay','uses' => 'MayController@postadd']);
+
+          Route::get('/',['as'       =>'getmay','uses' => 'MayController@getlist']);
+          Route::get('del/{id}',['as'   =>'getdellmay','uses' => 'MayController@getdel'])->where('id','[0-9]+');
+
+          Route::get('edit/{id}',['as'  =>'geteditmay','uses' => 'MayController@getedit'])->where('id','[0-9]+');
+          Route::post('edit/{id}',['as' =>'posteditmay','uses' => 'MayController@postedit'])->where('id','[0-9]+');
+      });
+
+      // -------------------- quan ly group_watch ----------------------
+      Route::group(['prefix' => 'group_watch'], function() {
+          Route::get('add',['as'        =>'getgroup_watch','uses' => 'GroupWatchController@getadd']);
+          Route::post('add',['as'       =>'postaddgroup_watch','uses' => 'GroupWatchController@postadd']);
+
+          Route::get('/',['as'       =>'getgroup_watch','uses' => 'GroupWatchController@getlist']);
+          Route::get('del/{id}',['as'   =>'getdellgroup_watch','uses' => 'GroupWatchController@getdel'])->where('id','[0-9]+');
+
+          Route::get('edit/{id}',['as'  =>'geteditgroup_watch','uses' => 'GroupWatchController@getedit'])->where('id','[0-9]+');
+          Route::post('edit/{id}',['as' =>'posteditgroup_watch','uses' => 'GroupWatchController@postedit'])->where('id','[0-9]+');
+     });
+
+      // -------------------- quan ly branchs ----------------------
+      Route::group(['prefix' => 'branchs'], function() {
+          Route::get('add',['as'        =>'getbranchs','uses' => 'BranchsController@getadd']);
+          Route::post('add',['as'       =>'postaddbranchs','uses' => 'BranchsController@postadd']);
+
+          Route::get('/',['as'       =>'getbranchs','uses' => 'BranchsController@getlist']);
+          Route::get('del/{id}',['as'   =>'getdellbranchs','uses' => 'BranchsController@getdel'])->where('id','[0-9]+');
+
+          Route::get('edit/{id}',['as'  =>'geteditbranchs','uses' => 'BranchsController@getedit'])->where('id','[0-9]+');
+          Route::post('edit/{id}',['as' =>'posteditbranchs','uses' => 'BranchsController@postedit'])->where('id','[0-9]+');
+      });
+
+      // -------------------- quan ly sliders ----------------------
+      Route::group(['prefix' => 'sliders'], function() {
+          Route::get('add',['as'        =>'getsliders','uses' => 'SlidersController@getadd']);
+          Route::post('add',['as'       =>'postaddsliders','uses' => 'SlidersController@postadd']);
+
+          Route::get('/',['as'       =>'getsliders','uses' => 'SlidersController@getlist']);
+          Route::get('del/{id}',['as'   =>'getdellsliders','uses' => 'SlidersController@getdel'])->where('id','[0-9]+');
+
+          Route::get('edit/{id}',['as'  =>'geteditsliders','uses' => 'SlidersController@getedit'])->where('id','[0-9]+');
+          Route::post('edit/{id}',['as' =>'posteditsliders','uses' => 'SlidersController@postedit'])->where('id','[0-9]+');
+      });
+
+      // -------------------- quan ly partners ----------------------
+      Route::group(['prefix' => 'partners'], function() {
+          Route::get('add',['as'        =>'getpartners','uses' => 'PartnersController@getadd']);
+          Route::post('add',['as'       =>'postaddpartners','uses' => 'PartnersController@postadd']);
+
+          Route::get('/',['as'       =>'getpartners','uses' => 'PartnersController@getlist']);
+          Route::get('del/{id}',['as'   =>'getdellpartners','uses' => 'PartnersController@getdel'])->where('id','[0-9]+');
+
+          Route::get('edit/{id}',['as'  =>'geteditpartners','uses' => 'PartnersController@getedit'])->where('id','[0-9]+');
+          Route::post('edit/{id}',['as' =>'posteditpartners','uses' => 'PartnersController@postedit'])->where('id','[0-9]+');
+      });
+
+      // -------------------- quan ly partners ----------------------
+      Route::group(['prefix' => 'settings'], function() {
+          Route::get('/',['as'       =>'getsettings','uses' => 'SettingsController@getlist']);
+      });
+      Route::post('/postsettLogo',['as'       =>'postsettLogo','uses' => 'SettingsController@postsettLogo']);
     });     
 });

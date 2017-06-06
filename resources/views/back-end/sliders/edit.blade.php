@@ -5,13 +5,13 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Banner</li>
+				<li class="active">Slide show trang chủ</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header"><small>Thêm mới</small></h1>
+				<h1 class="page-header"><small>Sửa slide</small></h1>
 			</div>
 		</div><!--/.row-->
 		
@@ -34,29 +34,30 @@
 						        </ul>
 						    </div>
 						@endif
-						<form action="" method="POST" role="form"  enctype="multipart/form-data">
+						<form action="" method="POST" role="form" enctype="multipart/form-data">
 				      		{{ csrf_field() }}
 
-				      		<div class="form-group">
-				      			<label for="input-id">Đường dẫn</label>
-				      			<input type="text" name="url" class="form-control" value="">
-				      		</div>
-
 							<div class="form-group">
-								<label for="input-id">Hình ảnh</label>
-								<input type="file" name="image" accept="image/*" class="form-control">
+								<label for="input-id">Tên slide</label>
+								<input type="text" name="name" class="form-control" value="{!! old('name', isset($data['name']) ? $data['name'] : null)!!}">
 							</div>
 
 							<div class="form-group">
-								<label for="input-id">Trạng thái</label>
-								<select name="status" class="form-control">
-									<option value="1" selected>Hiển thị</option>
-									<option value="0">Khoá</option>
-								</select>
+								<label for="input-id">Đường dẫn</label>
+								<input type="text" name="link" class="form-control" value="{!! old('link', isset($data['link']) ? $data['link'] : null)!!}">
 							</div>
 
-				      		<input type="submit" name="btnCateAdd" class="btn btn-primary" value="Thêm" class="button" />
-				      	</form>			      	
+							<div class="form-group" style="width: 100%; float: left; margin-bottom: 20px;">
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									Ảnh hiện tại: <br><?php if ( isset($data['image'])) {?><img src="{!!url('uploads/advs/'.$data['image'])!!}" alt="" width="80"> <?php } ?>
+								</div>
+								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+									Hình ảnh mới : <input type="file" name="image" accept="image" value="{!! old('image',isset($data["image"]) ? $data["image"] : null) !!}" class="form-control" >
+								</div>
+							</div>
+
+							<input type="submit" name="btnCateAdd" class="btn btn-primary" value="Cập nhật" class="button" />
+				      	</form>					      	
 					</div>
 				</div>
 			</div>

@@ -5,7 +5,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Banner</li>
+				<li class="active">Cửa hàng</li>
 			</ol>
 		</div><!--/.row-->
 	
@@ -13,8 +13,8 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Dánh sách banner
-						<a href="{!!url('admin/advs/add')!!}" title=""><button type="button" class="btn btn-primary pull-right">Thêm mới</button></a>
+						Dánh sách cửa hàng
+						<a href="{!!url('admin/branchs/add')!!}" title=""><button type="button" class="btn btn-primary pull-right">Thêm mới</button></a>
 					</div>
 					@if (count($errors) > 0)
 					    <div class="alert alert-danger">
@@ -37,8 +37,8 @@
 								<thead>
 									<tr>										
 										<th>ID</th>										
-										<th>Đường dẫn</th>
-										<th>Hình ảnh</th>
+										<th>Địa chỉ</th>
+										<th>Số điện thoại</th>
 										<th>Trạng thái</th>
 										<th>Hành động</th>
 									</tr>
@@ -47,8 +47,8 @@
 								@foreach($data as $row)
 									<tr>
 										<td>{!!$row->id!!}</td>
-										<td>{!!$row->url!!}</td>
-										<td> <img src="{!!url('uploads/advs/'.$row->images)!!}" alt="" width="200"> </td>
+										<td>{!!$row->address!!}</td>
+										<td>{!!$row->phone!!}</td>
 										<td style="width: 90px;">
 											@if($row->status==1)
 												Hiển thị
@@ -57,8 +57,8 @@
 											@endif
 										</td>
 										<td style="width: 120px;">
-											<a href="{!!url('admin/advs/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>
-											<a href="{!!url('admin/advs/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Bạn chắc muốn xóa?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>
+											<a href="{!!url('admin/branchs/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>
+											<a href="{!!url('admin/branchs/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Bạn chắc muốn xóa?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>
 										</td>
 									</tr>
 								@endforeach

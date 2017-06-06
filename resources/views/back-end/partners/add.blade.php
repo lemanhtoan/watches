@@ -5,7 +5,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Banner</li>
+				<li class="active">Đối tác</li>
 			</ol>
 		</div><!--/.row-->
 		
@@ -38,21 +38,18 @@
 				      		{{ csrf_field() }}
 
 				      		<div class="form-group">
-				      			<label for="input-id">Đường dẫn</label>
-				      			<input type="text" name="url" class="form-control" value="">
+				      			<label for="input-id">Tên đối tác</label>
+				      			<input type="text" name="name" class="form-control" value="">
 				      		</div>
+
+							<div class="form-group">
+								<label for="input-id">Đường dẫn</label>
+								<input type="text" name="link" class="form-control" value="">
+							</div>
 
 							<div class="form-group">
 								<label for="input-id">Hình ảnh</label>
 								<input type="file" name="image" accept="image/*" class="form-control">
-							</div>
-
-							<div class="form-group">
-								<label for="input-id">Trạng thái</label>
-								<select name="status" class="form-control">
-									<option value="1" selected>Hiển thị</option>
-									<option value="0">Khoá</option>
-								</select>
 							</div>
 
 				      		<input type="submit" name="btnCateAdd" class="btn btn-primary" value="Thêm" class="button" />

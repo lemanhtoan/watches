@@ -5,7 +5,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Banner</li>
+				<li class="active">Cửa hàng</li>
 			</ol>
 		</div><!--/.row-->
 		
@@ -34,17 +34,17 @@
 						        </ul>
 						    </div>
 						@endif
-						<form action="" method="POST" role="form"  enctype="multipart/form-data">
+						<form action="" method="POST" role="form">
 				      		{{ csrf_field() }}
 
 				      		<div class="form-group">
-				      			<label for="input-id">Đường dẫn</label>
-				      			<input type="text" name="url" class="form-control" value="">
+				      			<label for="input-id">Địa chỉ</label>
+				      			<input type="text" name="address" class="form-control" value="">
 				      		</div>
 
 							<div class="form-group">
-								<label for="input-id">Hình ảnh</label>
-								<input type="file" name="image" accept="image/*" class="form-control">
+								<label for="input-id">Số điện thoại</label>
+								<input type="text" name="phone" class="form-control" value="">
 							</div>
 
 							<div class="form-group">

@@ -5,13 +5,13 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Banner</li>
+				<li class="active">Nhóm đồng hồ</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header"><small>Sửa Banner</small></h1>
+				<h1 class="page-header"><small>Sửa nhóm</small></h1>
 			</div>
 		</div><!--/.row-->
 		
@@ -38,8 +38,13 @@
 				      		{{ csrf_field() }}
 
 							<div class="form-group">
+								<label for="input-id">Tên nhóm</label>
+								<input type="text" name="name" class="form-control" value="{!! old('name', isset($data['name']) ? $data['name'] : null)!!}">
+							</div>
+
+							<div class="form-group">
 								<label for="input-id">Đường dẫn</label>
-								<input type="text" name="url" class="form-control" value="{!! old('url', isset($data['url']) ? $data['url'] : null)!!}">
+								<input type="text" name="link" class="form-control" value="{!! old('link', isset($data['link']) ? $data['link'] : null)!!}">
 							</div>
 
 							<div class="form-group" style="width: 100%; float: left; margin-bottom: 20px;">

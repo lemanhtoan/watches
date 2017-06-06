@@ -15,10 +15,23 @@
 
 			<li  class="{!! set_active('admin/contacts') !!}"><a href="{!!url('admin/contacts')!!}"><span class="glyphicon glyphicon-file"></span> Phản hồi khách hàng</a></li>
 
-			<li  class="{!! set_active('admin/advs') !!}"><a href="{!!url('admin/advs')!!}"><span class="glyphicon glyphicon-file"></span> Quản lý quảng cáo</a></li>
+			<li  class="{!! set_active('admin/advs') !!}"><a href="{!!url('admin/advs')!!}"><span class="glyphicon glyphicon-list-alt"></span> Quản lý quảng cáo</a></li>
+
+			<li  class="{!! set_active('admin/day') !!}"><a href="{!!url('admin/day')!!}"><span class="	glyphicon glyphicon-cog"></span> Quản lý Loại dây</a></li>
+
+			<li  class="{!! set_active('admin/may') !!}"><a href="{!!url('admin/may')!!}"><span class="glyphicon glyphicon-file"></span> Quản lý Loại máy</a></li>
+
+			<li  class="{!! set_active('admin/group_watch') !!}"><a href="{!!url('admin/group_watch')!!}"><span class="glyphicon glyphicon-file"></span> Quản lý Nhóm đồng hồ</a></li>
+
+			<li  class="{!! set_active('admin/branchs') !!}"><a href="{!!url('admin/branchs')!!}"><span class="glyphicon glyphicon-file"></span> Danh sách Cửa hàng</a></li>
+
+			<li  class="{!! set_active('admin/partners') !!}"><a href="{!!url('admin/partners')!!}"><span class="glyphicon glyphicon-file"></span> Danh sách Đối tác</a></li>
+
+			<li  class="{!! set_active('admin/sliders') !!}"><a href="{!!url('admin/sliders')!!}"><span class="glyphicon glyphicon-file"></span>Slide show trang chủ</a></li>
+
+			<li  class="{!! set_active('admin/settings') !!}"><a href="{!!url('admin/settings')!!}"><span class="glyphicon glyphicon-file"></span> Cài đặt khác</a></li>
 
 			<li role="presentation" class="divider"></li>
-
 
 			<li class=""><a href="{!!url('/')!!}" target="_blank"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"/></svg>  Về Trang Chủ</a></li>
 

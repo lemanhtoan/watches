@@ -21,68 +21,48 @@ class AdvsController extends Controller
    }
    public function postadd(Request $rq)
    {
-	  $cat = new Advs();
-      $cat->parent_id= $rq->sltCate;
-      $cat->name= $rq->txtCateName;
-      $cat->slug = str_slug($rq->txtCateName,'-');
-         $cat->created_at = new DateTime;
-
-       $f = $rq->file('txtimg')->getClientOriginalName();
+	   $item = new Advs();
+       $item->url= $rq->url;
+       $item->status= $rq->status;
+       $f = $rq->file('image')->getClientOriginalName();
        $filename = time().'_'.$f;
-       $cat->banner = $filename;
-       $rq->file('txtimg')->move('uploads/advs/',$filename);
-
-      $cat->save();
-      return redirect()->route('getadvs')
-      ->with(['flash_level'=>'result_msg','flash_massage'=>' Đã thêm thành công !']);
+       $item->image = $filename;
+       $rq->file('image')->move('uploads/advs/',$filename);
+       $item->save();
+       return redirect()->route('getadvs')->with(['flash_level'=>'result_msg','flash_massage'=>' Đã thêm thành công !']);
          
    }
    public function getedit($id)   {
-      $cat = Category::all();
-      $data = Category::findOrFail($id)->toArray();
+      $cat = Advs::all();
+      $data = Advs::findOrFail($id)->toArray();
       return View ('back-end.advs.edit',['cat'=>$cat,'data'=>$data]);
    }
    public function postedit($id, Request $request)
    {
-      $cat = category::find($id);
-      $cat->name = $request->txtCateName;
-      $cat->slug = str_slug($request->txtCateName,'-');
-      $cat->parent_id = $request->sltCate;
-      $cat->updated_at = new DateTime;
+      $cat = Advs::find($id);
+      $cat->url = $request->url;
+      $cat->status = $request->status;
 
        $file_path = public_path('uploads/advs/').$cat->banner;
-       if ($request->hasFile('txtimg')) {
+       if ($request->hasFile('image')) {
            if (file_exists($file_path))
            {
                unlink($file_path);
            }
 
-           $f = $request->file('txtimg')->getClientOriginalName();
+           $f = $request->file('image')->getClientOriginalName();
            $filename = time().'_'.$f;
-           $cat->banner = $filename;
-           $request->file('txtimg')->move('uploads/category/',$filename);
+           $cat->image = $filename;
+           $request->file('image')->move('uploads/advs/',$filename);
        }
 
       $cat->save();
-      return redirect()->route('getadvs')
-      ->with(['flash_level'=>'result_msg','flash_massage'=>' Đã sửa']);
+      return redirect()->route('getadvs')->with(['flash_level'=>'result_msg','flash_massage'=>' Đã sửa']);
 
    }
    public function getdel($id)
    {
-      $parent_id = category::where('parent_id',$id)->count();
-      if ($parent_id==0) {
-         $category = category::find($id);
-         $category->delete();
-         return redirect()->route('getadvs')
-         ->with(['flash_level'=>'result_msg','flash_massage'=>'Đã xóa !']);
-      } else{
-         echo '<script type="text/javascript">
-                  alert("Không thể xóa danh mục này !");                
-                window.location = "';
-                echo route('getcat');
-            echo '";
-         </script>';
-      }
+     Advs::find($id)->delete();
+     return redirect()->route('getadvs')->with(['flash_level'=>'result_msg','flash_massage'=>'Đã xóa !']);
    }
 }

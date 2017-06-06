@@ -5,13 +5,13 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Banner</li>
+				<li class="active">Loại máy</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header"><small>Thêm mới</small></h1>
+				<h1 class="page-header"><small>Sửa loại máy</small></h1>
 			</div>
 		</div><!--/.row-->
 		
@@ -34,29 +34,25 @@
 						        </ul>
 						    </div>
 						@endif
-						<form action="" method="POST" role="form"  enctype="multipart/form-data">
+						<form action="" method="POST" role="form">
 				      		{{ csrf_field() }}
 
-				      		<div class="form-group">
-				      			<label for="input-id">Đường dẫn</label>
-				      			<input type="text" name="url" class="form-control" value="">
-				      		</div>
-
 							<div class="form-group">
-								<label for="input-id">Hình ảnh</label>
-								<input type="file" name="image" accept="image/*" class="form-control">
+								<label for="input-id">Tên loại máy</label>
+								<input type="text" name="name" class="form-control" value="{!! old('name', isset($data['name']) ? $data['name'] : null)!!}">
 							</div>
+
 
 							<div class="form-group">
 								<label for="input-id">Trạng thái</label>
 								<select name="status" class="form-control">
-									<option value="1" selected>Hiển thị</option>
-									<option value="0">Khoá</option>
+									<option value="1" <?php if ($data['status'] == '1') {echo 'selected';}?>>Hiển thị</option>
+									<option value="0" <?php if ($data['status'] == '0') {echo 'selected';}?>>Khoá</option>
 								</select>
 							</div>
 
-				      		<input type="submit" name="btnCateAdd" class="btn btn-primary" value="Thêm" class="button" />
-				      	</form>			      	
+							<input type="submit" name="btnCateAdd" class="btn btn-primary" value="Cập nhật" class="button" />
+				      	</form>					      	
 					</div>
 				</div>
 			</div>
