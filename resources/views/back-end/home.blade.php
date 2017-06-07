@@ -26,6 +26,8 @@
 		</div><!--/.row-->
 		
 		<div class="row">
+			<h2 style="    font-size: 20px;
+    padding-left: 15px;">Tổng quan thống kê tất cả</h2>
 			<div class="col-xs-12 col-md-6 col-lg-3">
 				<div class="panel panel-blue panel-widget ">
 					<div class="row no-padding">
@@ -92,20 +94,10 @@
 			</div>		
 		</div><!--/.row-->
 		
+
 		<div class="row">
-			<div class="col-lg-12">
-				<div class="panel panel-default">
-					<div class="panel-heading">Tổng quan cửa hàng</div>
-					<div class="panel-body">
-						<div class="canvas-wrapper">
-							<canvas class="main-chart" id="line-chart" height="100" width="600"></canvas>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/.row-->
-		
-		<div class="row">
+			<h2 style="    font-size: 20px;
+    padding-left: 15px;">Tổng quan thống kê trong tuần</h2>
 			<div class="col-xs-6 col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-body easypiechart-panel">

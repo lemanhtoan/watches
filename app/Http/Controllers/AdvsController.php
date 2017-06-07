@@ -24,6 +24,7 @@ class AdvsController extends Controller
 	   $item = new Advs();
        $item->url= $rq->url;
        $item->status= $rq->status;
+       $item->type= $rq->type;
        $f = $rq->file('image')->getClientOriginalName();
        $filename = time().'_'.$f;
        $item->image = $filename;
@@ -41,6 +42,7 @@ class AdvsController extends Controller
    {
       $cat = Advs::find($id);
       $cat->url = $request->url;
+       $cat->type = $request->type;
       $cat->status = $request->status;
 
        $file_path = public_path('uploads/advs/').$cat->banner;

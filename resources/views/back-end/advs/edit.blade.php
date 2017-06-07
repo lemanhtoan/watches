@@ -52,6 +52,15 @@
 							</div>
 
 							<div class="form-group">
+								<label for="input-id">Loại banner</label>
+								<select name="type" class="form-control">
+									<option value="0" <?php if ($data['type'] == '0') {echo 'selected';}?>>Quảng cáo lớn</option>
+									<option value="1" <?php if ($data['type'] == '1') {echo 'selected';}?>>Quảng cáo 2 phần tử</option>
+									<option value="2" <?php if ($data['type'] == '2') {echo 'selected';}?>>Quảng cáo dọc</option>
+								</select>
+							</div>
+
+							<div class="form-group">
 								<label for="input-id">Trạng thái</label>
 								<select name="status" class="form-control">
 									<option value="1" <?php if ($data['status'] == '1') {echo 'selected';}?>>Hiển thị</option>

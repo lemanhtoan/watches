@@ -144,16 +144,22 @@
 
         <div class="clearfix">
         </div>
-
+        <?php
+        $homeAdvs = DB::table('advs')->where('type', '0')->select('url','image')->get()[0];
+        ?>
         <div class="box-advs">
-          <a href="#" target="_blank">
-            <img src="{!!url('public/images/slides/thumbs/bn1.png')!!}" alt="" border="0" width="100%" />
+          <a href="{!! $homeAdvs->url !!}" target="_blank">
+            <img src="{!!url('/uploads/advs/'.$homeAdvs->image)!!}" alt="" border="0" width="100%" />
           </a>
         </div>
 </div>
 @endsection
 
 @section('homeOther')
+<?php
+$bigCollect= DB::table('group_watch')->select('name','link','image')->orderBy('id', 'asc')->get()[0];
+$collection = DB::table('group_watch')->select('group_watch.*')->orderBy('id', 'asc')->paginate(20);
+?>
 <div class="fluid_container" id="box-collection"> 
     <div class="container">
 
@@ -164,35 +170,22 @@
       <div class="row">
         
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <a href="#">
-            <img src="{!!url('public/images/others/dong-ho-nam-trang-chu.jpg')!!}" alt="" border="0" width="100%"/>
+          <a href="{!! $bigCollect->link !!}">
+            <img src="{!!url('/uploads/group_watch/'.$bigCollect->image)!!}" alt="{!! $bigCollect->name !!}" border="0" width="100%"/>
           </a>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-          <div class="row collection-r1">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <a href="#">
-            <img src="{!!url('public/images/others/dong-ho-nam-trang-chu.jpg')!!}" alt="" border="0" width="100%"/>
-          </a>
+            <div class="row">
+            <?php if (count($collection)) : $i=0; foreach($collection as $row): $i++;?>
+
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 item-adv-<?php echo $i;?>">
+                      <a href="{!! $row->link !!}">
+                    <img src="{!!url('/uploads/group_watch/'.$row->image)!!}" alt="{!! $row->name !!}" border="0" width="100%"/>
+                  </a>
+                </div>
+
+          <?php endforeach; endif;?>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <a href="#">
-            <img src="{!!url('public/images/others/banner-dong-ho-nu.jpg')!!}" alt="" border="0" width="100%"/>
-          </a>
-            </div>
-          </div>
-          <div class="row collection-r2">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <a href="#">
-            <img src="{!!url('public/images/others/Dong-ho-doi.jpg')!!}" alt="" border="0" width="100%"/>
-          </a>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <a href="#">
-            <img src="{!!url('public/images/others/BST-dong-ho-co.jpg')!!}" alt="" border="0" width="100%"/>
-          </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>

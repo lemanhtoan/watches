@@ -39,6 +39,7 @@
 										<th>ID</th>										
 										<th>Đường dẫn</th>
 										<th>Hình ảnh</th>
+										<th>Kiểu banner</th>
 										<th>Trạng thái</th>
 										<th>Hành động</th>
 									</tr>
@@ -48,7 +49,13 @@
 									<tr>
 										<td>{!!$row->id!!}</td>
 										<td>{!!$row->url!!}</td>
-										<td> <img src="{!!url('uploads/advs/'.$row->images)!!}" alt="" width="200"> </td>
+
+										<td> <img src="{!!url('uploads/advs/'.$row->image)!!}" alt="" width="200"> </td>
+										<td>
+                                            <?php if($row->type==0) {echo 'Quảng cáo lớn';} ?>
+                                            <?php if($row->type==1) {echo 'Quảng cáo 2 phần tử';} ?>
+                                            <?php if($row->type==2) {echo 'Quảng cáo dọc';} ?>
+										</td>
 										<td style="width: 90px;">
 											@if($row->status==1)
 												Hiển thị

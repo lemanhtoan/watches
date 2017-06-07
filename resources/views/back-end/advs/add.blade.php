@@ -48,6 +48,15 @@
 							</div>
 
 							<div class="form-group">
+								<label for="input-id">Loại banner</label>
+								<select name="type" class="form-control">
+									<option value="0">Quảng cáo lớn</option>
+									<option value="1">Quảng cáo 2 phần tử</option>
+									<option value="2">Quảng cáo dọc</option>
+								</select>
+							</div>
+
+							<div class="form-group">
 								<label for="input-id">Trạng thái</label>
 								<select name="status" class="form-control">
 									<option value="1" selected>Hiển thị</option>

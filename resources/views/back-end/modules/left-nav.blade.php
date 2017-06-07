@@ -21,7 +21,7 @@
 
 			<li  class="{!! set_active('admin/may') !!}"><a href="{!!url('admin/may')!!}"><span class="glyphicon glyphicon-file"></span> Quản lý Loại máy</a></li>
 
-			<li  class="{!! set_active('admin/group_watch') !!}"><a href="{!!url('admin/group_watch')!!}"><span class="glyphicon glyphicon-file"></span> Nhóm đồng hồ</a></li>
+			<li  class="{!! set_active('admin/group_watch') !!}"><a href="{!!url('admin/group_watch')!!}"><span class="glyphicon glyphicon-file"></span> Bộ sưu tập đồng hồ</a></li>
 
 			<li  class="{!! set_active('admin/branchs') !!}"><a href="{!!url('admin/branchs')!!}"><span class="glyphicon glyphicon-file"></span> Danh sách Cửa hàng</a></li>
 

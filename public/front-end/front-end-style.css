@@ -1839,3 +1839,11 @@ ul.footer-social i{
   z-index: 100000;
   text-indent: 9999px;
 }
+
+#owl-slider img {
+    width: 100%;
+}
+
+.item-adv-3, .item-adv-4 {
+    margin-top: 15px;
+}

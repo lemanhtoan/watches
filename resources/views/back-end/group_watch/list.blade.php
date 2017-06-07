@@ -5,7 +5,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Nhóm đồng hồ</li>
+				<li class="active">Bộ sưu tập đồng hồ</li>
 			</ol>
 		</div><!--/.row-->
 	
@@ -50,7 +50,7 @@
 										<td>{!!$row->id!!}</td>
 										<td>{!! $row->name !!}</td>
 										<td>{!!$row->link!!}</td>
-										<td> <img src="{!!url('uploads/group_watch/'.$row->images)!!}" alt="" width="200"> </td>
+										<td> <img src="{!!url('uploads/group_watch/'.$row->image)!!}" alt="" width="200"> </td>
 										<td style="width: 90px;">
 											@if($row->status==1)
 												Hiển thị
