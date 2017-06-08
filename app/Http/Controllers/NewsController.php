@@ -39,12 +39,12 @@ class NewsController extends Controller
     	$n->cat_id = $rq->sltCate;
     	$n->user_id = Auth::guard('admin')->user()->id;
     	$n->created_at = new datetime;
-
+if ($rq->hasFile('txtimg')) {
     	$f = $rq->file('txtimg')->getClientOriginalName();
     	$filename = time().'_'.$f;
     	$n->images = $filename;    	
     	$rq->file('txtimg')->move('uploads/news/',$filename);
-
+}
     	$n->save();
     	return redirect('admin/news')
       	->with(['flash_level'=>'result_msg','flash_massage'=>' Đã thêm thành công !']);    	

@@ -1847,3 +1847,19 @@ ul.footer-social i{
 .item-adv-3, .item-adv-4 {
     margin-top: 15px;
 }
+
+#owl-slider .owl-controls {
+    bottom: 15px;
+    position: absolute;
+    left: calc(50% - 39px);
+}
+
+#owl-slider .owl-page span {
+    background: #333;
+    opacity: 1;
+}
+
+#owl-slider .owl-page.active span {
+  background: #c00;
+  opacity: 1;
+} 

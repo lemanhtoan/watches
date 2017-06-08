@@ -150,11 +150,12 @@ class ProductsController extends Controller
 //            $pro->images = $this->uploadFile($fileUploadData);
 //        }
 
-        $f = $rq->file('txtimg')->getClientOriginalName();
-        $filename = time().'_'.$f;
-        $pro->images = $filename;
-        $rq->file('txtimg')->move('uploads/products/',$filename);
-
+        if ($rq->hasFile('txtimg')) {
+            $f = $rq->file('txtimg')->getClientOriginalName();
+            $filename = time().'_'.$f;
+            $pro->images = $filename;
+            $rq->file('txtimg')->move('uploads/products/',$filename);
+        }     
     	$pro->save();
     	$pro_id =$pro->id;
 

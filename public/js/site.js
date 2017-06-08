@@ -106,12 +106,12 @@ var owlSlider = jQuery("#owl-slider");
 
 owlSlider.owlCarousel({
     items : 1,
+    rtl:true,
     stopOnHover: true,
-    pagination: false,
+    pagination: true,
     navigation: false,
     lazyLoad: true,
     slideSpeed: 500,
     autoPlay: true,
     autoPlaySpeed: 3000,    
 });
-

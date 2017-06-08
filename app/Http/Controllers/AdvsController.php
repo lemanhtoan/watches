@@ -25,10 +25,12 @@ class AdvsController extends Controller
        $item->url= $rq->url;
        $item->status= $rq->status;
        $item->type= $rq->type;
+       if ($rq->hasFile('image')) {
        $f = $rq->file('image')->getClientOriginalName();
        $filename = time().'_'.$f;
        $item->image = $filename;
        $rq->file('image')->move('uploads/advs/',$filename);
+     }
        $item->save();
        return redirect()->route('getadvs')->with(['flash_level'=>'result_msg','flash_massage'=>' Đã thêm thành công !']);
          

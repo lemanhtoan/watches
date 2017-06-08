@@ -27,12 +27,12 @@ class CategoryController extends Controller
       $cat->name= $rq->txtCateName;
       $cat->slug = str_slug($rq->txtCateName,'-');
          $cat->created_at = new DateTime;
-
+    if ($rq->hasFile('txtimg')) {
        $f = $rq->file('txtimg')->getClientOriginalName();
        $filename = time().'_'.$f;
        $cat->banner = $filename;
        $rq->file('txtimg')->move('uploads/category/',$filename);
-
+     }
       $cat->save();
       return redirect()->route('getcat')
       ->with(['flash_level'=>'result_msg','flash_massage'=>' Đã thêm thành công !']);

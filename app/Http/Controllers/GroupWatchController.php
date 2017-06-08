@@ -25,10 +25,12 @@ class GroupWatchController extends Controller
        $item->name= $rq->name;
        $item->link= $rq->link;
        $item->status= $rq->status;
+       if ($rq->hasFile('image')) {
        $f = $rq->file('image')->getClientOriginalName();
        $filename = time().'_'.$f;
        $item->image = $filename;
        $rq->file('image')->move('uploads/group_watch/',$filename);
+     }
        $item->save();
        return redirect()->route('getgroup_watch')->with(['flash_level'=>'result_msg','flash_massage'=>' Đã thêm thành công !']);
          

@@ -24,10 +24,12 @@ class PartnersController extends Controller
         $item = new Partners();
         $item->name= $rq->name;
         $item->link= $rq->link;
+        if ($rq->hasFile('image')) {
         $f = $rq->file('image')->getClientOriginalName();
         $filename = time().'_'.$f;
         $item->image = $filename;
         $rq->file('image')->move('uploads/partners/',$filename);
+    }
         $item->save();
         return redirect()->route('getpartners')->with(['flash_level'=>'result_msg','flash_massage'=>' Đã thêm thành công !']);
 
