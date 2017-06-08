@@ -19,11 +19,16 @@ class NewsController extends Controller
     	$data = News::paginate(20);
     	return view('back-end.news.list',['data'=>$data]);
     }
+     public function dataConstant() {
+        return array(
+            'nhomtin' => \Config::get('constants.nhomtin')
+        );
+    }
     public function getadd()
     {    	
 		$cat= Category::where('parent_id',13)->get();
 
-    	return view('back-end.news.add',['cat'=>$cat]);
+    	return view('back-end.news.add',['cat'=>$cat,'dataConstant'=>$this->dataConstant()]);
     }
     public function postadd(AddNewsRequest $rq)
     {
@@ -39,6 +44,7 @@ class NewsController extends Controller
     	$n->cat_id = $rq->sltCate;
     	$n->user_id = Auth::guard('admin')->user()->id;
     	$n->created_at = new datetime;
+        $n->group = $rq->group;
 if ($rq->hasFile('txtimg')) {
     	$f = $rq->file('txtimg')->getClientOriginalName();
     	$filename = time().'_'.$f;
@@ -52,7 +58,7 @@ if ($rq->hasFile('txtimg')) {
     public function getedit($id)
     {	$cat= Category::where('parent_id',13)->get();
     	$n = News::where('id',$id)->first();
-    	return view('back-end.news.edit',['data'=>$n,'cat'=>$cat]);
+    	return view('back-end.news.edit',['data'=>$n,'cat'=>$cat,'dataConstant'=>$this->dataConstant()]);
     }
     public function postedit(EditNewsRequest $rq,$id)
     {
@@ -66,6 +72,7 @@ if ($rq->hasFile('txtimg')) {
     	$n->intro = $rq->txtIntro;
     	$n->full = $rq->txtFull;
     	$n->cat_id = $rq->sltCate;
+         $n->group = $rq->group;
     	$n->user_id = Auth::guard('admin')->user()->id;
     	$n->created_at = new datetime;
 

@@ -29,18 +29,22 @@ class ProductsController extends Controller
         }		
 	}
 
+    public function dataConstant() {
+        return array(
+            'w_branch' => \Config::get('constants.w_branch'),
+            'w_type' => \Config::get('constants.w_type'),
+            'w_in' => \Config::get('constants.w_in'),
+        );
+    }
+
     public function getadd()
     {
 		$cat= Category::all()->except([1]);
 		$pro = Products::all();
 
-		$dataConstant = array(
-            'w_branch' => \Config::get('constants.w_branch'),
-            'w_type' => \Config::get('constants.w_type'),
-            'w_in' => \Config::get('constants.w_in'),
-        );
+		
         
-        return view('back-end.products.add',['data'=>$pro,'cat'=>$cat, 'dataConstant' => $dataConstant]);
+        return view('back-end.products.add',['data'=>$pro,'cat'=>$cat, 'dataConstant' => $this->dataConstant()]);
 		
     }
 
@@ -225,13 +229,7 @@ class ProductsController extends Controller
         $cat= Category::all()->except([1]);
         $pro = Products::where('id',$id)->first();
 
-        $dataConstant = array(
-            'w_branch' => \Config::get('constants.w_branch'),
-            'w_type' => \Config::get('constants.w_type'),
-            'w_in' => \Config::get('constants.w_in'),
-        );
-
-        return view('back-end.products.edit',['pro'=>$pro,'cat'=>$cat, 'dataConstant' => $dataConstant]);
+        return view('back-end.products.edit',['pro'=>$pro,'cat'=>$cat, 'dataConstant' => $this->dataConstant()]);
       
     }
     public function postedit($id,EditProductsRequest $rq)

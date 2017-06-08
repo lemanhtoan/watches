@@ -12,5 +12,13 @@ return [
         'nameAz' => 'Tên sản phẩm ( từ A đến Z )',
         'nameZa' => 'Tên sản phẩm ( từ Z đến A )',
     ],
+    'nhomtin' => [
+        'tham-dinh-dong-ho' => 'Thẩm định đồng hồ',
+        'kien-thuc-dong-ho' => 'Kiến thức đồng hồ',
+        'kinh-nghiem-mua-hang' => 'Kinh nghiệm mua hàng',
+        'chinh-sach-bao-hanh' => 'Chính sách bảo hành',
+        'gioi-thieu-watches' =>'Giới thiệu Watches',
+        'kien-thuc-chuyen-nganh' =>'Kiến thức chuyên ngành'
+    ],
 ];
 ?>

@@ -35,13 +35,16 @@
 					@endif
 						<form action="" method="POST" role="form" enctype="multipart/form-data">
 				      		{{ csrf_field() }}
+				      		<input type="hidden" name="sltCate" value="1"> <!-- nhom tin tuc -->
+
 				      		<div class="form-group">
 					      		<label for="input-id">Chọn danh mục</label>
-					      		<select name="sltCate" id="inputSltCate" required class="form-control">
+					      		<select name="group" class="form-control">
 					      			<option value="">--Chọn danh mục--</option>
-					      			@foreach($cat as $dt)
-					      				<option value="{!!$dt->id!!}" >{!!'--|--|'.$dt->name!!}</option> 	
-					      			@endforeach	
+					      			<?php $group = $dataConstant['nhomtin'];?>
+					      			<?php foreach ($group as $key => $value) :?>
+					      				<option value="<?php echo $key?>" ><?php echo $value?></option> 	
+					      			<?php endforeach; ?>
 					      		</select>
 				      		</div>
 				      		<div class="form-group">

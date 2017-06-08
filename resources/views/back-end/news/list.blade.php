@@ -37,9 +37,9 @@
 								<thead>
 									<tr>										
 										<th>ID</th>										
-										<th>image</th>										
+										<th>Hình ảnh</th>										
 										<th>Tiêu đề bản tin</th>										
-										<th>Tóm tắt</th>										
+										<th>Danh mục</th>										
 										<th>Trạng thái</th>										
 										<th>Hành động</th>
 									</tr>
@@ -50,7 +50,11 @@
 										<td>{!!$row->id!!}</td>
 										<td> <img src="{!!url('uploads/news/'.$row->images)!!}" alt="" width="40"> </td>
 										<td>{!!$row->title!!}</td>
-										<td><small>{!!$row->intro!!}</small></td>
+										<td>
+											<?php 
+												echo $row->group;
+											?>
+										</td>
 										<td style="width: 90px;">
 											@if($row->status==1)
 											Hiển thị
@@ -60,7 +64,7 @@
 										</td>
 										<td style="width: 120px;">
 										    <a href="{!!url('admin/news/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>
-										    <a href="{!!url('admin/news/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa danh mục này ?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>
+										    <a href="{!!url('admin/news/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa tin này ?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>
 										</td>
 									</tr>	
 								@endforeach								
