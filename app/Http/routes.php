@@ -216,5 +216,6 @@ Route::group(['middleware' => 'admin'], function () {
       Route::post('/settSocial',['as'       =>'settSocial','uses' => 'SettingsController@settSocial']);
 
       Route::post('/settFooterlink',['as'       =>'settFooterlink','uses' => 'SettingsController@settFooterlink']);
+      Route::post('/settMessage',['as'       =>'settMessage','uses' => 'SettingsController@settMessage']);
     });     
 });

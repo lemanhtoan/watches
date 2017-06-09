@@ -842,7 +842,7 @@ span.phone-numbers-inline a {
     left: -5px;
     border-radius: 50% !important;
     background: #000 !important;
-    padding: 8px 10px 7px 14px !important;
+    padding: 8px 15px 7px 10px !important;
 }
 #owl-detail .owl-item li {
     text-align: center;
@@ -1124,8 +1124,10 @@ button.no-product {
 
 .payment-method {
     padding: 10px;
-    background: #dadada;
+    background: #ECECEC;
     margin-bottom: 10px;
+    width: calc(100% - 15px);
+    float: left;
 }
 
 .payment-form button,
@@ -1235,20 +1237,21 @@ ul.form-customer {
 }
 
 ul.form-customer li label {
-    width: 200px;
+    width: 180px;
     margin-bottom: 30px;
 }
 
 ul.form-customer li input {
-    padding: 10px;
-    width: 40%;
+        padding: 5px;
+    width: calc(100% - 250px);
 }
 
 .head-h3 {
-    text-transform: capitalize;
+text-transform: uppercase;
+    color: #666;
+    font-size: 15px;
+    margin: 20px 0;
     font-weight: bold;
-    font-size: 16px;
-    margin: 15px 0;
 }
 
 /*CONTACT*/
@@ -1266,6 +1269,14 @@ div#resultSuggest {
     z-index: 10000;
     width: 100%;
     padding: 20px;
+    border-radius: 20px;
+}
+ul.suggest-items {
+    float: left;
+    max-height: 550px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
 }
 
 ul.suggest-items li {
@@ -1359,12 +1370,14 @@ ul.suggest-items li {
 
 .free-ship {
     line-height: 25px;
-    margin-top: 100px;
+    /* margin-top: 100px; */
+    font-size: 14px;
+    width: calc(100% + 15px);
 }
 
 .free-ship .box-2-items {
-    background: #dadada;
-    padding: 20px;
+    background: #ECECEC;
+    padding: 10px;
 }
 
 .camera_caption {
@@ -1863,3 +1876,70 @@ ul.footer-social i{
   background: #c00;
   opacity: 1;
 } 
+.panel-body- {
+  margin: 20px 0;
+}
+
+.panel-body- table th {
+    color: #666;
+    font-size: 15px;
+}
+
+.cart-img {
+    float: left;
+    width: 30%;
+}
+
+.cart-group {
+    float: right;
+    width: 70%;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.cart-group a {
+    float: left;
+    width: 100%;
+    margin: 20px 0 0;
+    color: #333;
+    font-weight: bold;
+}
+
+a.btn.btn-continue, .btn-out-submit {
+    color: #fff;
+    background: #333;
+    border-radius: 0;
+}
+
+a.btn.btn-continue {
+  margin-top: 15px;
+}
+
+.qty a {
+  color: #333;
+}
+.box-checkout {
+    float: left;
+    width: 100%;
+    margin: 30px 0;
+    border-top: 1px solid #dadada;
+}
+.btn-out-submit:hover {
+  color: #fff;
+}
+.btn-out-submit {
+    margin-left: 180px;
+    margin-top: 0;
+    padding: 10px;
+}
+.row.free-ship i {
+    font-size: 22px;
+}
+
+.message-done {
+  line-height: 26px;
+}
+
+.message-done p {
+  margin: 10px 0;
+}

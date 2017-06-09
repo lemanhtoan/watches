@@ -3,12 +3,10 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h3 class="panel-title  tbreadcrumb">
       <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
-      <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#" title=""> Đặt hàng</a>
-      <i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#" title="">{!!$slug!!}</a>
+      <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#" title="">Giỏ hàng</a>
     </h3>              
-    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-          <div class="panel panel-success">
+          <div class="panel- panel-success">
           @if (count($errors) > 0)
               <div class="alert alert-danger">
                   <ul>
@@ -24,18 +22,16 @@
                   </ul>
               </div>
           @endif
-            <div class="panel-body">
+            <div class="panel-body-">
              <?php if (Cart::count() > 0){ ?>
               <div class="table-responsive">
                 <table class="table table-hover">
                   <thead>
                     <tr>
-                      <th>Tên sản phẩm</th>
-                      <th>Hình ảnh</th>
-                      <th>Số lượng</th>
-                      <th>Hành động</th>
-                      <th>Giá</th>
-                      <th>Thành tiền</th>
+                      <th>Danh sách Sản phẩm</th>
+                      <th>Giá</th>  
+                      <th>Số lượng</th>  
+                      <th>Cộng</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -49,62 +45,100 @@
                       }
                       ?>
                     <tr>
-                      <td><b><a href="{!!url('san-pham/'.$proId.'-'.strtolower($row->name))!!}"> {!!$row->name!!}</a></b></td>
-                      <td><img src="{!!url('/uploads/products/'.$row->options->img)!!}" alt="dell" width="80"></td>
+                      <td>
+                          <div class="cart-img">
+                            <a href="{!!url('san-pham/'.$proId.'-'.strtolower($row->name))!!}"> <img src="{!!url('/uploads/products/'.$row->options->img)!!}" alt="dell" width="80"></a>
+                          </div>
+                          <div class="cart-group">
+                            <a href="{!!url('san-pham/'.$proId.'-'.strtolower($row->name))!!}"> {!!$row->name!!}</a>
+
+                            <a href="{!!url('gio-hang/delete/'.$row->rowId)!!}" onclick="return xacnhan('Xóa sản phẩm này ?')" ><span class="glyphicon glyphicon-remove" style="padding:5px; font-size:12px; color:#fff; background: #f00; border-radius: 50%;"></span></a>
+                          </div>
+                        </td>
+
+                      <td><b style="font-size: 23px;color: #707070; font-weight: bold;">{!! number_format($row->price) !!} đ</b></td>
                       
-                      <td>                        
+                      <td class="qty">                        
                           @if (($row->qty) >1)
                           <a href="{!!url('gio-hang/update/'.$row->rowId.'/'.$row->qty.'-down')!!}"><span class="glyphicon glyphicon-minus"></span></a> 
                           @else
                             <a href="#"><span class="glyphicon glyphicon-minus"></span></a> 
                           @endif
-                          <input type="text" class="qty text-center" value=" {!!$row->qty!!}" style="width:30px; font-weight:bold; font-size:15px; color:blue;" readonly="readonly"> 
+                          <input type="text" class="qty text-center" value=" {!!$row->qty!!}" style="width:30px; font-weight:bold; font-size:14px; color:#333;" readonly="readonly"> 
                         <a href="{!!url('gio-hang/update/'.$row->rowId.'/'.$row->qty.'-up')!!}"><span class="glyphicon glyphicon-plus-sign"></span></a>
                       </td>
-                      <td><a href="{!!url('gio-hang/delete/'.$row->rowId)!!}" onclick="return xacnhan('Xóa sản phẩm này ?')" ><span class="glyphicon glyphicon-remove" style="padding:5px; font-size:18px; color:red;"></span></a></td>
-                      <td>{!! number_format($row->price) !!} đ</td>
-                      <td>{!! number_format($row->qty * $row->price) !!} đ</td>
+
+                      <td><b style="font-size: 23px;color: #707070; font-weight: bold;">{!! number_format($row->qty * $row->price) !!} đ</b></td>
                     </tr>
                   @endforeach                    
                     <tr>
-                      <td colspan="6" style="font-weight: bold;background: #ECECEC; padding: 20px 100px 20px; text-align: right;"><b>Tổng cộng : <?php $total = Cart::subtotal(); $show = explode(".0", $total);?> <?php echo $show[0];?> đ</b></td>                      
+                      <td colspan="6" style="font-weight: bold;background: #ECECEC; padding: 20px 10px 20px; text-align: right; font-size: 18px; text-transform: uppercase;"><b>Tổng SỐ : <?php $total = Cart::subtotal(); $show = explode(".0", $total);?> <?php echo $show[0];?> đ</b></td>                      
                     </tr>                    
                   </tbody>
                 </table>                
               </div>
               <?php } else { ?>
 
-                <h6>Giỏ hàng của bạn đang trống.</h6>
+                <h6 style="color: #f00;text-align: center;font-size: 18px;">Giỏ hàng của bạn đang trống.</h6>
 
               <?php } ?>
 
-              <div class="col-xs-12 col-sm-12 col-md-12 no-paddng">
-              @if(Cart::count() !=0)
+              <p class="continue">
+                 <a href="{!!url('/')!!}" type="button" class="btn btn-continue"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Tiếp tục mua hàng</a>
+              </p>
 
-                  <form action="{!!url('/dat-hang')!!}" method="get"  class='payment-form' accept-charset="utf-8">  
+            <?php if (Cart::count() > 0){ ?>
+              <div class="box-checkout">
+               <form action="{!!url('/dat-hang')!!}" method="POST"  class='payment-form' accept-charset="utf-8">  
+
+              <div class="col-xs-12 col-sm-12 col-md-7 no-padding cusomter-info">
+                <legend class="text-left head-h3">Thông tin khách hàng</legend>
+                {{ csrf_field() }}
+                <div class="form-group">
+                  <div class="chinhsach">
+                     <?php if(Auth::guest()) { ?>
+                        <ul class="form-customer">
+                          <li><label for="">Tên khách hàng </label><input type="text" name="cus_name"></li>
+                          <li><label for="">Điện thoại <b style="color: red">*</b> </label><input type="text" name="cus_phone" required></li>
+                          <li><label for="">Địa chỉ </label><input type="text" name="cus_address"></li>
+                        </ul>
+                     <?php } else { ?>
+                       <li><span class="glyphicon glyphicon-ok-sign"></span> Tên khách hàng  <strong>{{ Auth::user()->name }} </strong></li>
+                       <li><span class="glyphicon glyphicon-ok-sign"></span> Điện thoại <strong> {{ Auth::user()->phone }}</strong></li>
+                       <li><span class="glyphicon glyphicon-ok-sign"></span> Địa chỉ <strong> {{ Auth::user()->address }}</strong></li>
+                      <?php } ?>
+
+                 </div> 
+                </div>
+
+                <button type="submit" class="btn btn-out-submit">Gửi đơn hàng</button>
+
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-5 no-padding checkout-info">
+
                   <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
+                    
                       <div class="input-group">
-                        <label class="paymethod" for="paymethod">Hình thức thanh toán</label>
-
+                        <legend class="text-left head-h3">Hình thức thanh toán</legend>
                         <div class="payment-method">
-                          <input id="cart_tt_tructiep" type="radio" name="paymethod" value="tructiep">
+                          <input id="cart_tt_tructiep" type="radio" name="cus_method" value="tructiep">
                           <label for="cart_tt_tructiep">Thanh toán trực tiếp tại cửa hàng</label>
                         </div>
 
                         <div class="payment-method">
-                          <input id="cart_tt_cod" type="radio" name="paymethod" value="cod"  checked="">
+                          <input id="cart_tt_cod" type="radio" name="cus_method" value="cod"  checked="">
                           <label for="cart_tt_cod">Thanh toán khi nhận hàng (COD)</label>
                         </div>
 
                         <div class="payment-method">
-                          <input id="cart_tt_bank" type="radio" name="paymethod" value="bank">
+                          <input id="cart_tt_bank" type="radio" name="cus_method" value="bank">
                           <label for="cart_tt_bank">Thanh toán trực tuyến qua ngân hàng</label>
                         </div>
-                    </div>
+                      </div>
 
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6 free-ship">
+                    <div class="row free-ship">
                       <div class="box-2-items">
                       <i class="fa fa-truck" aria-hidden="true"></i>
                         <span style="text-transform: capitalize;">Miễn phí giao hàng<br> </span>
@@ -116,19 +150,22 @@
                         <span>NHẬN HÀNG</span>
                       </div>
                     </div>
-                  </div>                  
-                    
-                        <button type="submit" class="btn btn-danger pull-left">Tiến hành thanh toán</button>
-                      <a href="{!!url('/')!!}" type="button" class="btn btn-large btn-primary pull-right">Tiếp tục mua hàng</a>
-                  </form>
+                  </div>   
 
-              @endif
+              </div>
+
+                        
+                  </form>
+                  </div>
+              <?php } ?>
+
               </div>
               <hr>
             </div>
           </div>   
         </div>
-      </div>     
+
+
 
     
       <?php if (count($relation)): ?>

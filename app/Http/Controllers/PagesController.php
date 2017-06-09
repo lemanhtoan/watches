@@ -95,7 +95,7 @@ class PagesController extends Controller
             ->select('products.*')
             ->orderBy('id', 'desc')
             ->paginate(8);
-        return view('detail.card',['slug'=>'Chi tiết đơn hàng', 'relation' => $relation]);
+        return view('detail.card',['slug'=>'Danh sách Sản phẩm', 'relation' => $relation]);
     }
 
 
@@ -120,10 +120,15 @@ class PagesController extends Controller
         if ( !Auth::guest() ) {
             $idCustomer = Auth::user()->id;
         } else {
-            $idCustomer = DB::table('users')->insertGetId(
+            $emailData = trim($rq->cus_name).'@email.guest';
+            $checkExist = DB::table('users')->where('email', $emailData)->get();
+            if ($checkExist) {
+                $idCustomer = $checkExist[0]->id;
+            } else {
+                $idCustomer = DB::table('users')->insertGetId(
                 [
                     'name' => trim($rq->cus_name), 
-                    'email' => trim($rq->cus_name).'@email.guest',
+                    'email' => $emailData,
                     'password' => bcrypt('123456a@'),
                     'phone' => trim($rq->cus_phone),
                     'address' => trim($rq->cus_address),
@@ -131,13 +136,15 @@ class PagesController extends Controller
                     'created_at' => new datetime,
                 ]
             );
+            }
+            
         }
 
         $oder->c_id = $idCustomer;
         $oder->qty = Cart::count();
         $oder->sub_total = floatval($total);
         $oder->total =  floatval($total);
-        $oder->note = trim($rq->txtnote);
+        $oder->note = uniqid();
         $oder->status = 0;
         $oder->type = trim($rq->cus_method);
         $oder->created_at = new datetime;
@@ -153,8 +160,15 @@ class PagesController extends Controller
            $detail->save();
         }
         Cart::destroy();   
-        return redirect()->route('getcart')
-        ->with(['flash_level'=>'result_msg','flash_massage'=>' Đơn hàng của bạn đã được gửi đi!']);
+
+        $getOrderId = DB::table('oders')->where('id', $o_id)->select('note')->get()[0];
+
+        $relation = DB::table('products')
+            ->where('products.status','=','1')
+            ->select('products.*')
+            ->orderBy('id', 'desc')
+            ->paginate(8);
+        return view ('detail.oder', ['slug' =>'Đặt hàng thành công', 'flash_massage'=>' Đơn hàng của bạn đã được gửi đi!','relation' => $relation, 'orderNumber' => $getOrderId]);
         
     }
 

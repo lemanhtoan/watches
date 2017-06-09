@@ -1,158 +1,86 @@
 @extends('layouts.special')
 @section('content')
+<?php $buyok = DB::table('settings')->where('name', 'buyok')->select('content')->get()[0]; ?>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <h3 class="panel-title tbreadcrumb">
+    <h3 class="panel-title  tbreadcrumb">
       <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
-      <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="{!! url('dat-hang')!!}" title=""> Đặt hàng</a>
-      <i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#" title="">{!!$slug!!}</a>
+      <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#" title="">{!! $slug !!}</a>
     </h3>              
-
-      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-          <div class="panel panel-success">
-            <div class="panel-body">   
-            <legend class="text-left head-h3">Xác nhận thông tin đơn hàng</legend>
-              <div class="table-responsive">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Hình ảnh</th>
-                      <th>Tên sản phẩm</th>
-                      <th>Số lượng</th>
-                      <th>Giá</th>
-                      <th>Thành tiền</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  @foreach(Cart::content() as $row)
-                    <tr>
-                      <td><img src="{!!url('uploads/products/'.$row->options->img)!!}" alt="dell" width="80"></td>
-                      <td>{!!$row->name!!}</td>
-                      <td>
-                          <span>{!!$row->qty!!}</span>
-                      </td>
-                      <td><?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?></td>
-                      <td>{!!number_format($row->qty * $row->price)!!} đ</td>
-                    </tr>
-                  @endforeach                    
-                    <tr>
-                      <td colspan="5" style="font-weight: bold;background: #ECECEC; padding: 20px 100px 20px; text-align: right;"><b>Tổng cộng : <?php $total = Cart::subtotal(); $show = explode(".0", $total);?> <?php echo $show[0];?> đ</b></td>                      
-                    </tr>                   
-                  </tbody>
-                </table>                
-              </div>
-              {{-- form thong tin khach hang dat hang           --}}
-              @if ($_GET['paymethod'] =='cod' || $_GET['paymethod'] =='tructiep' )
-              <form action="" method="POST" role="form">
-                <legend class="text-left head-h3">Xác nhận thông tin khách hàng</legend>
-                {{ csrf_field() }}
-                <input type="hidden" name="cus_method" value="<?php echo $_GET['paymethod'];?>" >
-                <div class="form-group">
-                  <div class="chinhsach">
-                     <?php if(Auth::guest()) { ?>
-                        <ul class="form-customer">
-                          <li><label for="">Tên khách hàng: </label><input type="text" name="cus_name"></li>
-                          <li><label for="">Điện thoại (Bắt buộc): </label><input type="text" name="cus_phone" required></li>
-                          <li><label for="">Địa chỉ: </label><input type="text" name="cus_address"></li>
-                        </ul>
-                     <?php } else { ?>
-                       <li><span class="glyphicon glyphicon-ok-sign"></span> Tên khách hàng : <strong>{{ Auth::user()->name }} </strong></li>
-                       <li><span class="glyphicon glyphicon-ok-sign"></span> Điện thoại: <strong> {{ Auth::user()->phone }}</strong></li>
-                       <li><span class="glyphicon glyphicon-ok-sign"></span> Địa chỉ: <strong> {{ Auth::user()->address }}</strong></li>
-                      <?php } ?>
+             <div class="row">
+                  <div class="text-center-home" style="font-size: 20px;">{!! $flash_massage !!} </div>
+                  <div class="box-order">
+                    <p>Số đơn hàng: <b style="font-weight: bold; color: red; font-size: 18px; margin-left: 5px;"><?php echo $orderNumber->note;?></b></p>
 
-                 </div> 
-                </div>               
-                <div class="form-group">
-                  <label for="" style="margin: 15px 0">Ghi chú khác</label>
-                  <textarea name="txtnote" id="inputtxtNote" class="form-control" rows="4" required="required">                    
-                  </textarea>
-                </div>              
-                <button type="submit" class="btn btn-primary pull-right btn-post-order"> Gửi đơn hàng</button> 
-              </form>
-              @else 
-              <form action="{!!url('/payment')!!}" method="POST" accept-charset="utf-8">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="form-group">
-                 <div class="chinhsach">
-                     <?php if(Auth::guest()) { ?>
-                       <ul class="form-customer">
-                         <li><label for="">Tên khách hàng: </label><input type="text" name="cus_name"></li>
-                         <li><label for="">Điện thoại (Bắt buộc): </label><input type="text" name="cus_phone" required></li>
-                         <li><label for="">Địa chỉ: </label><input type="text" name="cus_address"></li>
-                       </ul>
-                     <?php } else { ?>
-                   <li><span class="glyphicon glyphicon-ok-sign"></span> Tên khách hàng : <strong>{{ Auth::user()->name }} </strong></li>
-                   <li><span class="glyphicon glyphicon-ok-sign"></span> Điện thoại: <strong> {{ Auth::user()->phone }}</strong></li>
-                   <li><span class="glyphicon glyphicon-ok-sign"></span> Địa chỉ: <strong> {{ Auth::user()->address }}</strong></li>
-                     <?php } ?>
-                 </div> 
-                    
-                </div>
-                  <br>                
-                <button type="submit" class="btn btn-danger pull-left btn-post-order"> Thanh toán qua ngân hàng </button> &nbsp;
-              </form>
-              @endif
-            </div>
-          </div>   
-        </div>
-    </div> 
+                    <div class="message-done">
+                      <?php echo $buyok->content;?>
+                    </div>
 
+                   
+                  </div>  
 
-    <?php if (count($relation)): ?>
-  <div class="row">
-    <div class="box-relation">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 list-product list-mar-50">
-          <div class="text-center-home">SẢN PHẨM LIÊN QUAN
-            <hr>
-          </div>
-          <!-- danh muc noi bat -->
-          <?php $count = 1;?>
-                @foreach($relation as $row)
-                      <?php
-                      $rowArr = (array) $row;
-                      if (array_key_exists("pro_id", $rowArr)) {
-                          $proId = $rowArr['pro_id'];
-                      } else {
-                          $proId = $rowArr['id'];
-                      }
-                      if ($count%4 == 1)
-                    {  
-                         echo "<div class='row'>";
+                  <p class="continue">
+                   <a href="{!!url('/')!!}" type="button" class="btn "><i class="fa fa-angle-double-left" aria-hidden="true"></i> Trở về Trang chủ</a>
+                </p>
+             </div>
+    
+              <?php if (count($relation)): ?>
+                <div class="row">
+                  <div class="box-relation">
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 list-product list-mar-50">
+                        <div class="text-center-home">SẢN PHẨM LIÊN QUAN
+                          <hr>
+                        </div>
+                        <!-- danh muc noi bat -->
+                        <?php $count = 1;?>
+                        @foreach($relation as $row)
+                              <?php
+                              $rowArr = (array) $row;
+                              if (array_key_exists("pro_id", $rowArr)) {
+                                  $proId = $rowArr['pro_id'];
+                              } else {
+                                  $proId = $rowArr['id'];
+                              }
+                              if ($count%4 == 1)
+                            {  
+                                 echo "<div class='row'>";
+                            }
+                              ?>
+                          <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
+                                <div class="pro-image">
+                                  <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
+                                  <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
+                                  </a>
+                                </div>
+                                <div class="pro-title">
+                                  <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
+                                </div> <!-- /div bt -->
+                                <div class="graycolor">- - - -</div><div class="pro-price">
+                                    <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?>
+                                </div>
+                          </div>  <!-- /div col-4 -->
+
+                           <?php 
+                  if ($count%4 == 0)
+                    {
+                        echo "</div>";
                     }
-                      ?>
-            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-pro">
-                  <div class="pro-image">
-                    <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
-                    <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
-                    </a>
-                  </div>
-                  <div class="pro-title">
-                    <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
-                  </div> <!-- /div bt -->
-                  <div class="graycolor">- - - -</div><div class="pro-price">
-                      <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?>
-                  </div>
-            </div>  <!-- /div col-4 -->
-             <?php 
-          if ($count%4 == 0)
-            {
-                echo "</div>";
-            }
-            $count++;
-          ?>
-          @endforeach
-          
-          <?php if ($count%4 != 1) echo "</div>"; ?>
-          <!-- danh muc noi bat -->
+                    $count++;
+                  ?>
+                  @endforeach
 
-          <div class="clearfix">
-          </div>
+                  <?php if ($count%4 != 1) echo "</div>"; ?>
+
+                          
+                        <!-- danh muc noi bat -->
+
+                        <div class="clearfix">
+                        </div>
+                      </div>
+
+                  </div>
+                </div>
+              <?php endif; ?>
         </div>
-
-    </div>
-  </div>
-<?php endif; ?>
-</div>
 <!-- ===================================================================================/news ============================== -->
 @endsection

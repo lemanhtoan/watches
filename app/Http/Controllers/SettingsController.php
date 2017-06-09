@@ -18,6 +18,7 @@ class SettingsController extends Controller
     $dataLogoPay = Settings::where('name', 'logopay')->get(['content'])->toArray();
     $dataSocial = Settings::where('name', 'social')->get(['content'])->toArray();
     $dataFooter = Settings::where('name', 'footerLink')->get(['content'])->toArray();
+    $dataBuyok = Settings::where('name', 'buyok')->get(['content'])->toArray();
     return ['data'=>$data, 
       'dataLogo'=> $dataLogo,
       'dataAddress' => $dataAddress,
@@ -25,7 +26,8 @@ class SettingsController extends Controller
       'dataCopyright' => $dataCopyright,
       'dataLogoPay' => $dataLogoPay,
       'dataSocial' => $dataSocial,
-      'dataFooter' => $dataFooter
+      'dataFooter' => $dataFooter,
+      'dataBuyok' => $dataBuyok
     ];
   }
    public function getlist()
@@ -195,6 +197,26 @@ class SettingsController extends Controller
            $item = new Settings();
            $item->name = 'footerLink';
            $item->content = $rq->footerLink;
+           $item->save();
+       }
+
+       return redirect()->route('getsettings');
+   }
+
+   public function settMessage(Request $rq) {
+    $check = Settings::where('name', 'buyok')->lists( 'content', 'id')->toArray();
+       if ($check) {
+           $checkId = key($check);
+           $checkContent = array_values($check)[0];
+           $cat = Settings::find($checkId);
+           $cat->name = 'buyok';
+           $cat->content = $rq->buyok;
+           $cat->save();
+
+       } else {
+           $item = new Settings();
+           $item->name = 'buyok';
+           $item->content = $rq->buyok;
            $item->save();
        }
 

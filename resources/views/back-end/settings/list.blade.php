@@ -144,6 +144,30 @@
 							</form>
 						</div>
 
+						<div class="row">
+							<form action="settMessage" method="POST" role="form" enctype="multipart/form-data">
+								{{ csrf_field() }}
+								<div class="form-group">
+									Thông tin Tin nhắn mua hàng thành công:
+									<textarea name="buyok" id="buyok" class="form-control" rows="4" value="{{ old('buyok') }}" >
+										<?php $dataBuyok = $dataBuyok[0]['content']; ?>
+										<?php if ( isset($dataBuyok)) {echo $dataBuyok;} ?>
+
+									</textarea>
+									<script type="text/javascript">
+                                        var editor = CKEDITOR.replace('buyok',{
+                                            language:'vi',
+                                            filebrowserImageBrowseUrl : '../../plugin/ckfinder/ckfinder.html?Type=Images',
+                                            filebrowserFlashBrowseUrl : '../../plugin/ckfinder/ckfinder.html?Type=Flash',
+                                            filebrowserImageUploadUrl : '../../plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+                                            filebrowserFlashUploadUrl : '../../plugin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+                                        });
+									</script>
+								</div>
+								<input type="submit" name="btnBuyok" class="btn btn-primary" value="Lưu Tin nhắn" class="button" />
+							</form>
+						</div>
+
 					</div>
 				</div>
 			</div>

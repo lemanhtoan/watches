@@ -115,3 +115,12 @@ owlSlider.owlCarousel({
     autoPlay: true,
     autoPlaySpeed: 3000,    
 });
+
+jQuery('body').click(function(evt){    
+   if(evt.target.id == "resultSuggest")
+      return;
+   if($(evt.target).closest('#resultSuggest').length)
+      return;             
+   jQuery('#resultSuggest').hide();
+});
+
