@@ -10,6 +10,8 @@ use App\Products;
 use App\Category;
 use App\Pro_details;
 use App\Detail_img;
+use App\May;
+use App\Day;
 use Auth;
 use DateTime,File,Input,DB;
 
@@ -30,10 +32,13 @@ class ProductsController extends Controller
 	}
 
     public function dataConstant() {
+        $branch =  Category::where('id', '>', '1')->orderBy('name','asc')->lists( 'name', 'id')->toArray();
+        $may = May::where('status' ,'=' ,'1')->orderBy('name','asc')->lists( 'name', 'id')->toArray();
+        $day = Day::where('status' ,'=' ,'1')->orderBy('name','asc')->lists( 'name', 'id')->toArray();
         return array(
-            'w_branch' => \Config::get('constants.w_branch'),
-            'w_type' => \Config::get('constants.w_type'),
-            'w_in' => \Config::get('constants.w_in'),
+            'w_branch' => $branch,
+            'w_type' => $may,
+            'w_in' => $day,
         );
     }
 
@@ -41,9 +46,6 @@ class ProductsController extends Controller
     {
 		$cat= Category::all()->except([1]);
 		$pro = Products::all();
-
-		
-        
         return view('back-end.products.add',['data'=>$pro,'cat'=>$cat, 'dataConstant' => $this->dataConstant()]);
 		
     }
@@ -315,5 +317,12 @@ class ProductsController extends Controller
     $pro->pro_details->save();
     return redirect('admin/sanpham/all')
       ->with(['flash_level'=>'result_msg','flash_massage'=>' Đã lưu !']);       
+    }
+
+    public function search(Request $request) {
+        $keyword = $request->input('txtkeyword');
+        $products = Products::where('name', 'LIKE', '%' . $keyword . '%')->paginate(20);
+        $cat= Category::all()->except([1]);
+        return redirect('admin/sanpham/all')->with(['data'=>$products,'cat'=>$cat,'loai'=>0]);
     }
 }

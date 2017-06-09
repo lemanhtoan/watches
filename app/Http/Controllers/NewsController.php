@@ -9,6 +9,8 @@ use App\Http\Requests\EditNewsRequest;
 use App\Http\Requests;
 use App\News;
 use App\Category;
+use App\Groupnews;
+
 use Auth;
 use DateTime,File,Input,DB;
 
@@ -16,12 +18,17 @@ class NewsController extends Controller
 {
     public function getlist()
     {
-    	$data = News::paginate(20);
+    	$data =  DB::table('news')
+            ->leftjoin('groupnews', 'groupnews.id', '=', 'news.group')
+            ->where('news.status','=','1')
+            ->select('news.*', 'groupnews.name as groupName')
+            ->orderBy('id', 'desc')
+            ->paginate(20);
     	return view('back-end.news.list',['data'=>$data]);
     }
      public function dataConstant() {
         return array(
-            'nhomtin' => \Config::get('constants.nhomtin')
+            'nhomtin' => Groupnews::where('status' ,'=' ,'1')->orderBy('name','asc')->lists( 'name', 'id')->toArray()
         );
     }
     public function getadd()

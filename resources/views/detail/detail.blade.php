@@ -1,3 +1,4 @@
+<?php  $hotline = DB::table('settings')->where('name', 'hotline')->select('content')->get()[0];?>
 @extends('layouts.special')
 @section('content')
     <div class="product-page">
@@ -87,7 +88,7 @@
                     @endif
                 </div>
                 <div class="box-2-items end">
-                    <a href="tel:19000325" rel="nofollow" class="hotline">Hotline: 19000325</a>
+                    <a href="tel:<?php echo  $hotline->content;?>" rel="nofollow" class="hotline">Hotline: <?php echo  $hotline->content;?></a>
                 </div>
             </div>
 
@@ -213,7 +214,7 @@
                 @endif
             </div>
             <div class="box-2-items end">
-                <a href="tel:19000325" rel="nofollow" class="hotline">Hotline: 19000325</a>
+                <a href="tel:<?php echo  $hotline->content;?>" rel="nofollow" class="hotline">Hotline: <?php echo  $hotline->content;?></a>
             </div>
         </div>
     </div>

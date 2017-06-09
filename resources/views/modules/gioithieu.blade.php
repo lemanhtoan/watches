@@ -9,7 +9,7 @@
   <?php echo $dataFooter->content;?>
   <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
     <p class="footer-payment">Hỗ trợ thanh toán  <img src="{!!url('/uploads/commons/'.$dataPay->content)!!}"> </p>
-     <?php echo $dataSocial->content;?>
+     <?php //echo $dataSocial->content;?>
   </div>
 </div>
 </div>

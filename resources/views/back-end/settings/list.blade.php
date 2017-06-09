@@ -61,6 +61,17 @@
 						</div>
 
 						<div class="row">
+							<form action="settHotline" method="POST" role="form">
+								{{ csrf_field() }}
+								<div class="form-group">
+                                    <?php $dataHotline = $dataHotline[0]['content']; ?>
+									Số Hotline : <input type="text" name="hotline" class="form-control" value="<?php if ( isset($dataHotline)) { echo $dataHotline;} ?>">
+								</div>
+								<input type="submit" name="btnHotline" class="btn btn-primary" value="Lưu Hotline" class="button" />
+							</form>
+						</div>
+
+						<div class="row">
 							<form action="settWelcome" method="POST" role="form">
 								{{ csrf_field() }}
 								<div class="form-group">

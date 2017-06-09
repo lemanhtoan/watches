@@ -1,6 +1,7 @@
 <?php 
  $logo = DB::table('settings')->where('name', 'logo')->select('content')->get()[0];
  $welcome = DB::table('settings')->where('name', 'welcome')->select('content')->get()[0];
+ $hotline = DB::table('settings')->where('name', 'hotline')->select('content')->get()[0];
 ?>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -22,20 +23,17 @@
                 <div class="right-align">
                     <ul class=" pull-right">
                         @if (Auth::guest())
-                            <li><a href="#" data-toggle="modal" data-target="#login-modal"><span
-                                            class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
                             <li><a href="#" data-toggle="modal" data-target="#login-modal"> Đăng ký</a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-expanded="false">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ url('/user') }}">Thông tin cá nhân</a></li>
-                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Thoát</a>
-                                    </li>
+                                    <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Thoát</a></li>
                                 </ul>
                             </li>
                         @endif
@@ -64,8 +62,7 @@
                     <div class="input-group add-on frm-input">
                         <input class="form-control" placeholder="Nhập từ khóa tìm kiếm" name="txtkeyword" id="txtkeyword" type="text">
                         <div class="input-group-btn">
-                            <button id="submitSearch" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
-                            </button>
+                            <button id="submitSearch" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                         </div>
                     </div>
                     <div id="resultSuggest" style="display: none;"></div>
@@ -87,8 +84,7 @@
                     <div class="support-address"><a href="{!!url('lien-he')!!}" class="whitecolor"><span class="d-block upper redcolor"><i
                                         class="fa fa-map-marker"></i> Địa chỉ</span> cửa hàng</a></div>
                     <div class="support-hotline"><span class="d-block upper redcolor"><i class="fa fa-phone"></i> Hotline</span>
-                        <span class="phone-numbers-inline"><a href="tel:19000325" rel="nofollow"
-                                                              class="gg-phone-conversion">19000325</a></span></div>
+                        <span class="phone-numbers-inline"><a href="tel:<?php echo  $hotline->content;?>" rel="nofollow" class="gg-phone-conversion"><?php echo  $hotline->content;?></a></span></div>
                 </div>
             </div><!-- help - support-->
         </div>
@@ -107,7 +103,6 @@
                             <li class="dr-l1 has-children">
                                 <i class="fa fa-circle"></i>
                                 <a href="">Danh mục đồng hồ</a>
-
                                 <ul class="cd-secondary-dropdown is-hidden">
                                     <li class="has-children">
                                         <a class="a-title" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam</a>
@@ -158,7 +153,7 @@
                                 <a href="">Đồng hồ phổ biến</a>
 
                                 <ul class="cd-dropdown-gallery is-hidden">
-                                    <?php foreach ($new as $row) : ?>
+                                    <?php $count=1; foreach ($new as $row) { ?>
                                     <?php
                                         $rowArr = (array) $row;
                                         if (array_key_exists("pro_id", $rowArr)) {
@@ -166,80 +161,208 @@
                                         } else {
                                             $proId = $rowArr['id'];
                                         }
+                                        if ($count%4 == 1)
+                                      {  
+                                           echo "<div class='row'>";
+                                      }
                                     ?>
-                                    <li>
+                                    <li class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
                                         <a class="cd-dropdown-item" href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
                                             <img  class="img-responsive menu-img" src="{!!url('/uploads/products/'.$row->images)!!}" alt="{!!$row->name!!}">
                                             <h3>{!!$row->name!!}</h3>
                                         </a>
                                     </li>
-                                    <?php endforeach; ?>
+                                    <?php 
+                                      if ($count%4 == 0)
+                                        {
+                                            echo "</div>";
+                                        }
+                                        $count++;
+                                      ?>
+                                      <?php } ?>
+                                      <?php if ($count%4 != 1) echo "</div>"; ?>
                                 </ul> <!-- .cd-dropdown-gallery -->
                             </li> <!-- .has-children -->
 
                             <li class="dr-l1 has-children">
                                 <i class="fa fa-circle"></i>
-                                <a href="">Sản phẩm khuyến mãi</a>
-                                <ul class="cd-dropdown-icons is-hidden">
-                                    <li>
-                                        <a class="cd-dropdown-item item-1" href="">
-                                            <h3>Service #1</h3>
-                                            <p>This is the item description</p>
-                                        </a>
+                                <a href="">Đồng hồ OP</a>
+                                <ul class="cd-secondary-dropdown is-hidden">
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Đồng hồ Olym Pianus</a>
+                                        <ul class="is-hidden">
+                                            <li>>> Theo Khoảng Giá</li>
+                                            <li><a href="">Dưới 2 triệu đồng</a></li>
+                                            <li><a href="">Từ 2 – 4 triệu đồng</a></li>
+                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
+
+                                            <li>>> Theo chất liệu dây</li>
+                                            <li><a href="">Đồng hồ dây kim loại</a></li>
+                                            <li><a href="">Đồng hồ dây da</a></li>
+
+                                            <li>>> Theo máy</li>
+                                            <li><a href="">Đồng hồ cơ</a></li>
+                                            <li><a href="">Đồng hồ Quartz</a></li>
+                                        </ul>
                                     </li>
 
-                                    <li>
-                                        <a class="cd-dropdown-item item-2" href="">
-                                            <h3>Service #2</h3>
-                                            <p>This is the item description</p>
-                                        </a>
-                                    </li>
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Đồng hồ Olympia Star</a>
+                                        <ul class="is-hidden">
+                                            <li>>> Theo Khoảng Giá</li>
+                                            <li><a href="">Từ 2 – 4 triệu đồng</a></li>
+                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
 
-                                    <li>
-                                        <a class="cd-dropdown-item item-3" href="">
-                                            <h3>Service #3</h3>
-                                            <p>This is the item description</p>
-                                        </a>
+                                            <li>>> Theo chất liệu dây</li>
+                                            <li><a href="">Đồng hồ dây kim loại</a></li>
+                                            <li><a href="">Đồng hồ dây da</a></li>
+                                        </ul>
                                     </li>
-
-                                    <li>
-                                        <a class="cd-dropdown-item item-4" href="">
-                                            <h3>Service #4</h3>
-                                            <p>This is the item description</p>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a class="cd-dropdown-item item-5" href="">
-                                            <h3>Service #5</h3>
-                                            <p>This is the item description</p>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a class="cd-dropdown-item item-6" href="">
-                                            <h3>Service #6</h3>
-                                            <p>This is the item description</p>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a class="cd-dropdown-item item-7" href="">
-                                            <h3>Service #7</h3>
-                                            <p>This is the item description</p>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a class="cd-dropdown-item item-8" href="">
-                                            <h3>Service #8</h3>
-                                            <p>This is the item description</p>
-                                        </a>
-                                    </li>
-
                                 </ul> <!-- .cd-dropdown-icons -->
                             </li> <!-- .has-children -->
 
+                            <li class="dr-l1 has-children">
+                                <i class="fa fa-circle"></i>
+                                <a href="">Đồng hồ Orient</a>
+                                <ul class="cd-secondary-dropdown is-hidden is3col">
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo máy</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Đồng hồ cơ</a></li>
+                                            <li><a href="">Đồng hồ Quartz</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo Khoảng Giá</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Từ 2 – 4 triệu đồng</a></li>
+                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
+                                            <li><a href="">Từ 6 – 9 triệu</a></li>
+                                            <li><a href="">Trên 15 triệu đồng</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo chất liệu dây</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Đồng hồ nam dây kim loại</a></li>
+                                            <li><a href="">Đồng hồ nam dây da</a></li>
+                                        </ul>
+                                    </li>
+                                </ul> <!-- .cd-dropdown-icons -->
+                            </li> <!-- .has-children -->
+
+                            <li class="dr-l1 has-children">
+                                <i class="fa fa-circle"></i>
+                                <a href="">Đồng hồ Citizen</a>
+                                <ul class="cd-secondary-dropdown is-hidden is3col">
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo máy</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Đồng hồ Quartz</a></li>
+                                            <li><a href="">Đồng hồ Eco – Drive</a></li>
+                                            <li><a href="">Đồng hồ cơ</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo Khoảng Giá</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Từ 2 – 4 triệu đồng</a></li>
+                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
+                                            <li><a href="">Từ 6 – 9 triệu</a></li>
+                                            <li><a href="">Trên 15 triệu đồng</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo chất liệu dây</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Đồng hồ nam dây kim loại</a></li>
+                                            <li><a href="">Đồng hồ nam dây da</a></li>
+                                        </ul>
+                                    </li>
+                                </ul> <!-- .cd-dropdown-icons -->
+                            </li> <!-- .has-children -->
+
+                            <li class="dr-l1 has-children">
+                                <i class="fa fa-circle"></i>
+                                <a href="">Đồng hồ Ogival</a>
+                                <ul class="cd-secondary-dropdown is-hidden is3col">
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo máy</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Đồng hồ Quartz</a></li>
+                                            <li><a href="">Đồng hồ cơ</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo Khoảng Giá</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
+                                            <li><a href="">Từ 6 – 9 triệu</a></li>
+                                            <li><a href="">Trên 15 triệu đồng</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo chất liệu dây</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Đồng hồ nam dây kim loại</a></li>
+                                            <li><a href="">Đồng hồ nam dây da</a></li>
+                                        </ul>
+                                    </li>
+                                </ul> <!-- .cd-dropdown-icons -->
+                            </li> <!-- .has-children -->
+
+                            <li class="dr-l1 has-children">
+                                <i class="fa fa-circle"></i>
+                                <a href="">Đồng hồ Casio</a>
+                                <ul class="cd-secondary-dropdown is-hidden is3col">
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo Loại</a>
+                                        <ul class="is-hidden">
+                                            <li><a class="a-title" href="">Đồng hồ G-shock</a></li>
+                                            <li><a class="a-title" href="">Đồng hồ Casio Edifice</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo Khoảng Giá</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Dưới 2 triệu đồng</a></li>
+                                            <li><a href="">Từ 2 – 4 triệu đồng</a></li>
+                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo chất liệu dây</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Đồng hồ dây da</a></li>
+                                            <li><a href="">Đồng hồ dây cao su</a></li>
+                                            <li><a href="">Đồng hồ dây kim loại</a></li>
+                                        </ul>
+                                    </li>
+                                </ul> <!-- .cd-dropdown-icons -->
+                            </li> <!-- .has-children -->
+
+                            <li class="dr-l1 has-children">
+                                <i class="fa fa-circle"></i>
+                                <a href="">Đồng hồ Seiko</a>
+                                <ul class="cd-secondary-dropdown is-hidden">
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo máy</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="">Đồng hồ Quartz</a></li>
+                                            <li><a href="">Đồng hồ cơ</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a class="a-title" href="">Đồng hồ Kinetic</a></li>
+                                </ul> <!-- .cd-dropdown-icons -->
+                            </li> <!-- .has-children -->
 
                             <li class="dr-l1"><i class="fa fa-circle"></i><a href="{!!url('tat-ca')!!}">Tất cả sản phẩm</a></li>
 
@@ -274,12 +397,20 @@
 
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Video Xchannel</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">Phân biệt đồng hồ thật, giả</a></li>
+                    <li><a href="#">Dành cho người mới bắt đầu</a></li>
+                    <li><a href="#">Kinh nghiệm mua hàng</a></li>
+                    <li><a href="#">Kiến thức chuyên ngành</a></li>
                 </ul>
             </li>
-            <li class="{!! set_active('tin-tuc') !!} mn-lv1 mt-20 hidden-xs hidden-sm">
+            <li class="dropdown {!! set_active('tin-tuc') !!} mn-lv1 mt-20 hidden-xs hidden-sm">
                 <a class="a-lv1" href="{!!url('tin-tuc')!!}"> Về Xwatch </a>
+
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Giới thiệu về Xwatch</a></li>
+                    <li><a href="#">Triết lý kinh doanh: Chữ tâm hàng đầu</a></li>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                </ul>
             </li>
             <li class="{!! set_active('lien-he') !!} mn-lv1 mt-20 hidden-xs hidden-sm">
                 <a class="a-lv1" href="{!!url('lien-he')!!}"> Liên hệ </a>

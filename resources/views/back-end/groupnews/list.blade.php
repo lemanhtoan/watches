@@ -4,8 +4,8 @@
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
 			<ol class="breadcrumb">
-				<li><a href="{!!(url('/admin/home'))!!}"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Tin tức</li>
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Nhóm tin</li>
 			</ol>
 		</div><!--/.row-->
 	
@@ -13,8 +13,8 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						Danh sách tin bản tin
-						<a href="{!!url('admin/news/add')!!}" title=""><button type="button" class="btn btn-primary pull-right">Thêm tin mới</button></a>
+						Dánh sách nhóm tin
+						<a href="{!!url('admin/groupnews/add')!!}" title=""><button type="button" class="btn btn-primary pull-right">Thêm mới</button></a>
 					</div>
 					@if (count($errors) > 0)
 					    <div class="alert alert-danger">
@@ -37,10 +37,8 @@
 								<thead>
 									<tr>										
 										<th>ID</th>										
-										<th>Hình ảnh</th>										
-										<th>Tiêu đề bản tin</th>										
-										<th>Danh mục</th>										
-										<th>Trạng thái</th>										
+										<th>Tên nhóm</th>
+										<th>Trạng thái</th>
 										<th>Hành động</th>
 									</tr>
 								</thead>
@@ -48,30 +46,23 @@
 								@foreach($data as $row)
 									<tr>
 										<td>{!!$row->id!!}</td>
-										<td> <img src="{!!url('uploads/news/'.$row->images)!!}" alt="" width="40"> </td>
-										<td>{!!$row->title!!}</td>
-										<td>
-											<?php 
-												echo $row->groupName;
-											?>
-										</td>
+										<td>{!!$row->name!!}</td>
 										<td style="width: 90px;">
 											@if($row->status==1)
-											Hiển thị
+												Hiển thị
 											@else
-											Tạm ẩn
+												<span style="color: red">Khóa</span>
 											@endif
 										</td>
 										<td style="width: 120px;">
-										    <a href="{!!url('admin/news/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>
-										    <a href="{!!url('admin/news/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Xóa tin này ?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>
+											<a href="{!!url('admin/groupnews/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>
+											<a href="{!!url('admin/groupnews/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Bạn chắc muốn xóa?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>
 										</td>
-									</tr>	
-								@endforeach								
+									</tr>
+								@endforeach
 								</tbody>
 							</table>
 						</div>
-						{!!$data->render()!!}
 					</div>
 				</div>
 			</div>

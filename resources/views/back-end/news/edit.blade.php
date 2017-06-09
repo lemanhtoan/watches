@@ -40,10 +40,9 @@
 				      		<div class="form-group">
 					      		<label for="input-id">Chọn danh mục</label>
 					      		<select name="group" class="form-control">
-					      			<option value="">--Chọn danh mục--</option>
 					      			<?php $group = $dataConstant['nhomtin'];?>
 					      			<?php foreach ($group as $key => $value) :?>
-					      				<option value="<?php echo $key?>" ><?php echo $value?></option> 	
+										<option value="<?php echo $key?>"  <?php if ($data->group == $key) {echo 'selected';}?>><?php echo $value?></option>
 					      			<?php endforeach; ?>
 					      		</select>
 				      		</div>

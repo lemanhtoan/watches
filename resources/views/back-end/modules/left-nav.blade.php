@@ -5,6 +5,9 @@
 			<li id="danhmuc"  class="{!! set_active('admin/danhmuc') !!}"><a href="{!!url('admin/danhmuc')!!}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Danh mục</a></li>
 
 			<li id="sanpham"  class="{!! set_active('admin/sanpham/all') !!}"><a href="{!!url('admin/sanpham/all')!!}"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Sản phẩm </a></li>
+
+			<li  class="{!! set_active('admin/groupnews') !!}"><a href="{!!url('admin/groupnews')!!}"><span class="glyphicon glyphicon-file"></span>Quản lý nhóm tin</a></li>
+
 			<li  class="{!! set_active('admin/news') !!}"><a href="{!!url('admin/news')!!}"><span class="glyphicon glyphicon-file"></span> Tin tức</a></li>
 
 			{{-- <li><a href="{!!url('admin/nhaphang')!!}"><svg class="glyph stroked download"><use xlink:href="#stroked-download"/></svg> Nhập hàng</a></li> --}}

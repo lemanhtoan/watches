@@ -14,11 +14,11 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-md-10"><div class="form-group">
-								<label for="inputLoai" class="col-sm-3 control-label" style="font-weight: normal">Quản lý sản phẩm </label>
+								<label for="inputLoai" class="col-sm-2 control-label" style="font-weight: normal">Quản lý sản phẩm </label>
 
-								<div class="col-md-9">
+								<div class="col-md-5">
 									<div class="inline-line">
-										<label>Lọc sản Phẩm </label>
+										<label>Lọc sản phẩm </label>
 										<?php 
 										$urlGet = $_SERVER['REQUEST_URI'];
 										if(preg_match("/\/(\d+)$/",$urlGet,$matches))
@@ -34,17 +34,28 @@
 						      		</select>
 									<script>
 									    document.getElementById("inputLoai").onchange = function() {
-									        //if (this.selectedIndex!==0) {
-									            window.location.href = this.value;
-									        //}        
+											window.location.href = this.value;
 									    };
 									</script>
 									</div>
 									
 								</div>
-								<!--<div class="col-md-3">
-									<input type="search" name="txttk" id="inputTxttk" class="form-control" value="" placeholder="Tìm sản phẩm..." required="required" title="">
-								</div>-->
+
+								<div class="col-md-5">
+									<div class="">
+										<form action="{!! url('tim-kiem-admin') !!}" method="post" id="adminSearch">
+											{{ csrf_field() }}
+											<label style="font-weight: normal;     font-style: italic;    font-size: 14px;">Tìm sản phẩm </label>
+											<div class="input-group add-on frm-input" style="float: right; width: 70%; line-height: 30px; margin-top: 3px;">
+												<input class="form-control" placeholder="Tìm sản phẩm..." name="txtkeyword" id="txtkeyword" type="text">
+												<div class="input-group-btn">
+													<button id="submitSearch" class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i>
+													</button>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
 							</div>
 								
 								

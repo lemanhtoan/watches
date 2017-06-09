@@ -145,7 +145,6 @@
 									<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 										Kiểu máy :
 										<select name="w_type" id="w_type" required class="form-control">
-											<option value="">Chọn kiểu máy</option>
                                             <?php $w_type = $dataConstant['w_type']; ?>
                                             <?php foreach ($w_type as $key => $value): ?>
 											<option value="<?php echo $key?>" <?php if ($pro->pro_details->w_type == $key) {echo 'selected';}?>><?php echo $value?></option>

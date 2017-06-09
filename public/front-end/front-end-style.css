@@ -1332,7 +1332,7 @@ ul.suggest-items li {
 
 .menu-img {
     border: 1px solid #dadada;
-    width: 150px !important;
+    width: 120px !important;
     height: auto;
 }
 
@@ -1942,4 +1942,8 @@ a.btn.btn-continue {
 
 .message-done p {
   margin: 10px 0;
+}
+
+.cd-dropdown-content .cd-secondary-dropdown.is3col > li {
+    width: 33%;
 }

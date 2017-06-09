@@ -35,6 +35,8 @@ Route::post('/gui-lien-he', 'PagesController@createContact');
 Route::resource('/tim-kiem', 'PagesController@search');
 Route::resource('/search-ajax', 'PagesController@searchAjax');
 
+Route::resource('/tim-kiem-admin', 'ProductsController@search');
+
 // category
 Route::get('/tat-ca', ['as'  => 'getcateAll', 'uses' =>'PagesController@getcateAll']);
 Route::get('/{cat}', ['as'  => 'getcate', 'uses' =>'PagesController@getcate']);
@@ -204,6 +206,19 @@ Route::group(['middleware' => 'admin'], function () {
           Route::post('edit/{id}',['as' =>'posteditpartners','uses' => 'PartnersController@postedit'])->where('id','[0-9]+');
       });
 
+
+      // -------------------- quan ly group news ----------------------
+      Route::group(['prefix' => 'groupnews'], function() {
+          Route::get('add',['as'        =>'getgroupnews','uses' => 'GroupnewsController@getadd']);
+          Route::post('add',['as'       =>'postaddgroupnews','uses' => 'GroupnewsController@postadd']);
+
+          Route::get('/',['as'       =>'getgroupnews','uses' => 'GroupnewsController@getlist']);
+          Route::get('del/{id}',['as'   =>'getdellgroupnews','uses' => 'GroupnewsController@getdel'])->where('id','[0-9]+');
+
+          Route::get('edit/{id}',['as'  =>'geteditgroupnews','uses' => 'GroupnewsController@getedit'])->where('id','[0-9]+');
+          Route::post('edit/{id}',['as' =>'posteditgroupnews','uses' => 'GroupnewsController@postedit'])->where('id','[0-9]+');
+      });
+
       // -------------------- quan ly partners ----------------------
       Route::group(['prefix' => 'settings'], function() {
           Route::get('/',['as'       =>'getsettings','uses' => 'SettingsController@getlist']);
@@ -217,5 +232,7 @@ Route::group(['middleware' => 'admin'], function () {
 
       Route::post('/settFooterlink',['as'       =>'settFooterlink','uses' => 'SettingsController@settFooterlink']);
       Route::post('/settMessage',['as'       =>'settMessage','uses' => 'SettingsController@settMessage']);
-    });     
+      Route::post('/settHotline',['as'       =>'settHotline','uses' => 'SettingsController@settHotline']);
+    });
+
 });
