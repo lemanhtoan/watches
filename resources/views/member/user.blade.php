@@ -31,7 +31,7 @@
 										
 					<?php }else{?>
 						<tr>
-							<td colspan="4">Bạn chưa có đơn hàng nào.</td>
+							<td colspan="5">Bạn chưa có đơn hàng nào.</td>
 						</tr>
 					<?php }?>	
 					</tbody>

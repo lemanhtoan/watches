@@ -4,18 +4,12 @@
       <h3 class="panel-title  tbreadcrumb">
       <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
       
-      <?php if (isset($parentName) && $parentName !="") { ?>
-
-      <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="{!!url($parentSlug)!!}" title=""> {!!$parentName!!}</a>
-
-      <?php } ?>
-
       <i class="fa fa-chevron-right" aria-hidden="true"></i>
       
       <a href="#" title="">{!! $cateName !!}</a>
     </h3> 
       <div class="row">
-        <div class="text-center-home"><?php if (isset($parentName) && $parentName !="") { ?>  {!!$parentName!!} - <?php } ?>{!! $cateName !!}
+        <div class="text-center-home">{!! $cateName !!}
           <hr>
         </div>
         <p class="category-well">

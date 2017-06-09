@@ -250,27 +250,51 @@ class PagesController extends Controller
 
     }
 
-    public function getcatelv2($lv1, $lv2)
+    public function getcateParam($catSlug, $param, $value)
     {
-        $parent = Category::where('slug', '=', $lv1)->get(['name', 'id']);
-        $parentName = $parent[0]->name;
-
-        $cate = DB::table('category')
-        ->where('slug', '=', $lv2)
-        ->where('parent_id', '=', $parent[0]->id)
-        ->get(['name', 'id']);
+        $cate = Category::where('slug', '=', $catSlug)->get(['name', 'id']);
         $cateName = $cate[0]->name;
         $cateId = $cate[0]->id;
+        
 
-        $data = DB::table('products')
+        $query = DB::table('products')
             ->join('category', 'products.cat_id', '=', 'category.id')
             ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-            ->where('category.parent_id','=', $parent[0]->id)
             ->where('products.cat_id','=',$cateId)
-            ->where('products.status','=','1')
-            ->select('products.*','pro_details.*')
+            ->where('products.status','=','1');
+
+        if ($param == 'price') {
+            switch ($value) {
+                case '0':
+                    $query->whereBetween('products.price', array('0','2000000'));
+                    break;
+                case '2':
+                    $query->whereBetween('products.price', array('2000000','4000000'));
+                    break;
+                case '4':
+                    $query->where('products.price', '>=', '4000000');
+                    break;
+            }
+        }
+
+        if ($param == 'chatlieu') {
+            if ($value) {
+                $query->where('pro_details.w_in', '=', $value);
+            }
+        }
+        
+        if ($param == 'kieumay') {
+            if ($value) {
+                $query->where('pro_details.w_type', '=', $value);
+            }
+        }
+        
+
+        $data = $query->select('products.*','pro_details.*')
             ->paginate(16);
-        return view('category.list',['data'=>$data, 'cateName' => $cateName, 'parentName' => $parentName, 'parentSlug' => $lv1,  'dataConstant' => $this->dataConstant(),  'catSlug' => $lv2]);
+
+        //dd($data);    
+        return view('category.list',['data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant(),  'catSlug' => $catSlug]);
 
     }
 
@@ -318,6 +342,22 @@ class PagesController extends Controller
         return view('category.news',['data'=>$new,'hot1'=>$top1,'all'=>$all]);
          
     }
+
+    public function getNewGroup($groupId)
+    { 
+        $new =  DB::table('news')
+                ->where('group', $groupId)
+                ->orderBy('created_at', 'desc')
+                ->paginate(3);
+        $top1 = $new->shift();
+        $all =  DB::table('news')
+                ->where('group', $groupId)
+                ->orderBy('created_at', 'desc')
+                ->paginate(5);
+        return view('category.news',['data'=>$new,'hot1'=>$top1,'all'=>$all]);
+         
+    }
+    
 
     public function detailNews($id,$slug)
     {

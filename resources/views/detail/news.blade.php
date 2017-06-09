@@ -17,7 +17,6 @@
                   <div class="text-center-home">{!!$data->title!!}
                    <hr>
                    </div>
-                  <img class="img-new" src="{!!url('uploads/news/'.$data->images)!!}" alt="{!!$data->images!!}" height="150px" >                  
                   <p class="summary-content">
                   <div class="panel-body">
                     <p class="text-left" style=" padding-bottom: 0px;">
@@ -28,8 +27,6 @@
                       <div class="accordion-inner">
                         {!!$data->full!!}
                       </div>
-                    <p class="text-left"><strong> Nguồn : <a target="#" href="#"> {!!$data->source!!}</a> </strong><br>
-                      <p class="text-right"> <span class="glyphicon glyphicon-user" style="color:blue;"></span> <strong style="text-transform: capitalize;"> {!!$data->author!!} </strong></p>
                   </div>
                   </p>
                 </div>                

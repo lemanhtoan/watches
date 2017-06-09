@@ -24,14 +24,14 @@
                     <ul class=" pull-right">
                         @if (Auth::guest())
                             <li><a href="#" data-toggle="modal" data-target="#login-modal"><span class="glyphicon glyphicon-user"></span> Đăng nhập</a></li>
-                            <li><a href="#" data-toggle="modal" data-target="#login-modal"> Đăng ký</a></li>
+                            <li><a href="{!!url('/register')!!}"> Đăng ký</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
+                                <ul class="dropdown-menu logged" role="menu">
                                     <li><a href="{{ url('/user') }}">Thông tin cá nhân</a></li>
                                     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Thoát</a></li>
                                 </ul>
@@ -100,53 +100,6 @@
                     <nav id="navRoot" class="cd-dropdown">
                         <a href="" class="cd-close">Close</a>
                         <ul class="cd-dropdown-content">
-                            <li class="dr-l1 has-children">
-                                <i class="fa fa-circle"></i>
-                                <a href="">Danh mục đồng hồ</a>
-                                <ul class="cd-secondary-dropdown is-hidden">
-                                    <li class="has-children">
-                                        <a class="a-title" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam</a>
-                                        <ul class="is-hidden">
-                                            <li><a href="{!!url('san-pham/dong-ho-nam/casio')!!}">Casio</a></li>
-                                            <li><a href="{!!url('san-pham/dong-ho-nam/citizen')!!}">Citizen</a></li>
-                                            <li><a href="{!!url('san-pham/dong-ho-nam/ogival')!!}">Ogival</a></li>
-                                            <li><a href="{!!url('san-pham/dong-ho-nam/olympianus')!!}">Olym Pianus</a></li>
-                                            <li><a href="{!!url('san-pham/dong-ho-nam/olympiastar')!!}">Olympia star</a></li>
-                                            <li><a href="{!!url('san-pham/dong-ho-nam/orient')!!}">Orient</a></li>
-                                            <li><a href="{!!url('san-pham/dong-ho-nam/seiko')!!}">Seiko</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="has-children">
-                                        <a  class="a-title" href="{!!url('dong-ho-nu')!!}">Đồng hồ nữ</a>
-                                        <ul class="is-hidden">
-                                            <li><a href="{!!url('san-pham/dong-ho-nu/casio')!!}">Casio</a></li>
-                                            <li><a href="{!!url('san-pham/dong-ho-nu/citizen')!!}">Citizen</a></li>
-                                            <li><a href="{!!url('san-pham/dong-ho-nu/olympiastar')!!}">Olympia star</a></li>
-                                            <li><a href="{!!url('san-pham/dong-ho-nu/ogival')!!}">Ogival</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="has-children">
-                                        <a  class="a-title" href="">Đồng hồ đặc biệt</a>
-                                        <ul class="is-hidden">
-                                            <li><a href="{!!url('san-pham/dong-ho-dac-biet/dong-ho-tu-dat')!!}">Đồng hồ tự đặt</a></li>
-                                            <li><a href="{!!url('san-pham/dong-ho-dac-biet/dong-ho-khac')!!}">Đồng hồ khác</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="has-children">
-                                        <a  class="a-title" href="">Các loại đồng hồ khác</a>
-                                        <ul class="is-hidden">
-                                            <li><a href="">Cardigans</a></li>
-                                            <li><a href="">Coats</a></li>
-                                            <li><a href="">Polo Shirts</a></li>
-                                            <li><a href="">Shirts</a></li>
-                                            <li><a href="">Vests</a></li>
-                                        </ul>
-                                    </li>
-                                </ul> <!-- .cd-secondary-dropdown -->
-                            </li> <!-- .has-children -->
 
                             <li class="dr-l1 has-children">
                                 <i class="fa fa-circle"></i>
@@ -191,31 +144,31 @@
                                     <li class="has-children">
                                         <a class="a-title" href="">Đồng hồ Olym Pianus</a>
                                         <ul class="is-hidden">
-                                            <li>>> Theo Khoảng Giá</li>
-                                            <li><a href="">Dưới 2 triệu đồng</a></li>
-                                            <li><a href="">Từ 2 – 4 triệu đồng</a></li>
-                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
+                                            <li class="mt-5"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Theo Khoảng Giá</li>
+                                            <li><a href="{!!url('cate/olym-pianus/price/0')!!}">Dưới 2 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/olym-pianus/price/2')!!}">Từ 2 – 4 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/olym-pianus/price/4')!!}">Từ 4 – 6 triệu đồng</a></li>
 
-                                            <li>>> Theo chất liệu dây</li>
-                                            <li><a href="">Đồng hồ dây kim loại</a></li>
-                                            <li><a href="">Đồng hồ dây da</a></li>
+                                            <li class="mt-5"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Theo chất liệu dây</li>
+                                            <li><a href="{!!url('cate/olym-pianus/chatlieu/2')!!}">Đồng hồ dây kim loại</a></li>
+                                            <li><a href="{!!url('cate/olym-pianus/chatlieu/3')!!}">Đồng hồ dây da</a></li>
 
-                                            <li>>> Theo máy</li>
-                                            <li><a href="">Đồng hồ cơ</a></li>
-                                            <li><a href="">Đồng hồ Quartz</a></li>
+                                            <li class="mt-5"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Theo máy</li>
+                                            <li><a href="{!!url('cate/olym-pianus/kieumay/3')!!}">Đồng hồ cơ</a></li>
+                                            <li><a href="{!!url('cate/olym-pianus/kieumay/4')!!}">Đồng hồ Quartz</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-children">
                                         <a class="a-title" href="">Đồng hồ Olympia Star</a>
                                         <ul class="is-hidden">
-                                            <li>>> Theo Khoảng Giá</li>
-                                            <li><a href="">Từ 2 – 4 triệu đồng</a></li>
-                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
+                                            <li class="mt-5"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Theo Khoảng Giá</li>
+                                            <li><a href="{!!url('cate/olympia-star/price/2')!!}">Từ 2 – 4 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/olympia-star/price/4')!!}">Từ 4 – 6 triệu đồng</a></li>
 
-                                            <li>>> Theo chất liệu dây</li>
-                                            <li><a href="">Đồng hồ dây kim loại</a></li>
-                                            <li><a href="">Đồng hồ dây da</a></li>
+                                            <li class="mt-5"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Theo chất liệu dây</li>
+                                            <li><a href="{!!url('cate/olympia-star/chatlieu/2')!!}">Đồng hồ dây kim loại</a></li>
+                                            <li><a href="{!!url('cate/olympia-star/chatlieu/3')!!}">Đồng hồ dây da</a></li>
                                         </ul>
                                     </li>
                                 </ul> <!-- .cd-dropdown-icons -->
@@ -382,13 +335,10 @@
                 <a class="a-lv1" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a>
             </li>
 
-            <li class="dropdown {!! set_active('dong-ho-nu') !!} {!! set_active('dong-ho-nu/casio') !!} {!! set_active('dong-ho-nu/olympia-star') !!} mn-lv1 mt-20 hidden-xs hidden-sm">
-                <a class="a-lv1" href="{!!url('dong-ho-nu')!!}" > Đồng hồ nữ</a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="{!!url('san-pham/dong-ho-nu/casio')!!}">Casio</a></li>
-                    <li><a href="{!!url('san-pham/dong-ho-nu/olympia-star')!!}">Olympia star</a></li>
-                </ul>
+            <li class="{!! set_active('dong-ho-nu') !!} mn-lv1 mt-20 hidden-xs hidden-sm ">
+                <a class="a-lv1" href="{!!url('dong-ho-nu')!!}">Đồng hồ NỮ </a>
             </li>
+
             <li class="{!! set_active('dong-ho-thuy-si') !!} mn-lv1 mt-20 hidden-xs hidden-sm">
                 <a class="a-lv1" href="{!!url('dong-ho-thuy-si')!!}" > Đồng hồ Thụy Sĩ </a>
             </li>
@@ -396,7 +346,7 @@
                 <a class="a-lv1" href="">Kiến thức đồng hồ</a>
 
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Video Xchannel</a></li>
+                    <li><a href="{!!url('tintuc/2')!!}">Video Xchannel</a></li>
                     <li><a href="#">Phân biệt đồng hồ thật, giả</a></li>
                     <li><a href="#">Dành cho người mới bắt đầu</a></li>
                     <li><a href="#">Kinh nghiệm mua hàng</a></li>
@@ -407,8 +357,8 @@
                 <a class="a-lv1" href="{!!url('tin-tuc')!!}"> Về Xwatch </a>
 
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Giới thiệu về Xwatch</a></li>
-                    <li><a href="#">Triết lý kinh doanh: Chữ tâm hàng đầu</a></li>
+                    <li><a href="{!!url('tintuc/5')!!}">Giới thiệu về Xwatch</a></li>
+                    <li><a href="#">Triết lý kinh doanh</a></li>
                     <li><a href="#">Chính sách bảo hành</a></li>
                 </ul>
             </li>

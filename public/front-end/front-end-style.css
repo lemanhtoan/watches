@@ -1144,8 +1144,7 @@ button.no-product {
 }
 
 #mainMenu li.active .dropdown-menu a {
-color: #000 !important;
-    background: #fff;
+color: #fff !important;
 }
 
 #category-list {
@@ -1332,7 +1331,7 @@ ul.suggest-items li {
 
 .menu-img {
     border: 1px solid #dadada;
-    width: 120px !important;
+    width: 110px !important;
     height: auto;
 }
 
@@ -1359,9 +1358,11 @@ ul.suggest-items li {
 }
 
 #mainContact .btn-primary {
-    font-size: 20px;
+    font-size: 18px;
     text-transform: uppercase;
-    padding: 20px 50px;
+    padding: 10px 50px;
+    background: #333;
+    border-color: #333;
 }
 
 .list-product .row {
@@ -1415,7 +1416,7 @@ ul.suggest-items li {
 }
 
 .panel.panel-default input {
-    padding: 25px 10px;
+    padding: 18px 10px;
 }
 .alert {
     border-radius: 0;
@@ -1714,7 +1715,7 @@ a#aRoot {
     text-decoration: none;
     color: #d71921;
     border-color: #d71921;
-    border: 1px solid;
+    border: 1px solid  #d71921 !important;
     border-radius: 10px;
     background: #000;
 }
@@ -1828,9 +1829,13 @@ li.mediaSelected {
     display: block;
     height: auto;
     max-width: 100%;
+    min-width: 430px;
 }
 .lSSlideOuter .lSPager.lSGallery li.active, .lSSlideOuter .lSPager.lSGallery li:hover {
     border-radius: 0 !important;
+}
+.lSSlideOuter .lSPager.lSGallery img {
+  min-width: inherit;
 }
 ul.video-list {
     float: left;
@@ -1946,4 +1951,27 @@ a.btn.btn-continue {
 
 .cd-dropdown-content .cd-secondary-dropdown.is3col > li {
     width: 33%;
+}
+.product-page .tbreadcrumb {
+  padding-left: 20px;
+}
+.mt-5 {
+  margin-top: 5px;
+}
+.logged {
+    background: #3f3f3f;
+    margin-top: 8px;
+}
+.logged a:hover {
+  background-color: #3f3f3f !important;
+  color: #fff !important;
+}
+.table-bordered {
+  text-align: left;
+}
+.news-detail .text-center-home {
+  font-size: 22px;
+}
+.lSSlideOuter .lSPager.lSGallery {
+  margin-top: 15px !important;
 }

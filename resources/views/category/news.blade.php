@@ -85,27 +85,22 @@
             
         </div>
     </div>
-    <!-- panel info 2  quản cáo 1          -->          
+    <!-- panel info 2  quản cáo 1          -->     
+    <?php
+    $dataAdvs = DB::table('advs')->where('type','2')->select('advs.*')->orderBy('id', 'asc')->paginate(5);
+    ?>     
     <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title text-center">Sự kiện HOT</h3>
       </div>
       <div class="panel-body no-padding">
-        <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/bn1.png')!!}" alt="" width="100%" height="100%"> </a> <br>
-        <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/bn2.jpg')!!}" alt="" width="100%" height="100%"> </a> <br>
-        <a href="#" title=""><img src="{!!url('public/images/slides/thumbs/bn3.jpg')!!}" alt="" width="100%" height="100%"> </a>
+      <?php if (count($dataAdvs)) : $i=0; foreach($dataAdvs as $row): $i++;?>
+        <a href="<?php echo $row->url?>" target="_blank"><img src="{!!url('/uploads/advs/'.$row->image)!!}" alt=""></a> <br>
+      <?php endforeach; endif;?>
       </div>
     </div> <!-- /panel info 2  quản cáo 1          -->        
   
-     <!-- fan pages myweb -->
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h3 class="panel-title">Fans Pages</h3>
-      </div>
-      <div class="panel-body">
-        Hãy <a href="#" title="">Like</a> facebook của Fshop để cập nhật tin mới nhất
-      </div>
-    </div> <!-- /fan pages myweb -->        
+  
   </div> 
 </div>
 <!-- ===================================================================================/news ============================== -->

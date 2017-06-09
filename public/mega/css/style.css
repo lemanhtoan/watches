@@ -625,7 +625,7 @@ header {
     /*border-color: #ebebeb;*/
     /*border-style: solid;*/
     padding: 0 30px;
-    height: 245px;
+    height: 240px;
   }
   .cd-dropdown-content .cd-secondary-dropdown > li:nth-of-type(2n) {
     border-right-width: 0;

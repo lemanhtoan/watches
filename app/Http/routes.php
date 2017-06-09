@@ -26,6 +26,8 @@ Route::post('dat-hang', ['as'  => 'postoder', 'uses' =>'PagesController@postoder
 
 
 Route::get('/tin-tuc', ['as'  => 'getNews', 'uses' =>'PagesController@getNews']);
+Route::get('tintuc/{cat}', ['as'  => 'getNewGroup', 'uses' =>'PagesController@getNewGroup']);
+
 Route::get('/tin-tuc/{id}-{slug}', ['as'  => 'getdetailnews', 'uses' =>'PagesController@detailNews']);
 
 
@@ -42,7 +44,7 @@ Route::get('/tat-ca', ['as'  => 'getcateAll', 'uses' =>'PagesController@getcateA
 Route::get('/{cat}', ['as'  => 'getcate', 'uses' =>'PagesController@getcate']);
 Route::get('/san-pham/{id}-{slug}', ['as'  => 'getdetail', 'uses' =>'PagesController@detail']);
 
-Route::get('san-pham/{cat}/{catlv2}', ['as'  => 'getcatelv2', 'uses' =>'PagesController@getcatelv2']);
+Route::get('cate/{cat}/{param}/{value}', ['as'  => 'getcateParam', 'uses' =>'PagesController@getcateParam']);
 
 Route::resource('payment', 'PayMentController');
 
