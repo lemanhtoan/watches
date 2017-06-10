@@ -41,7 +41,7 @@
 									
 								</div>
 
-								<div class="col-md-5">
+								<div class="col-md-5" style="display: none">
 									<div class="">
 										<form action="{!! url('tim-kiem-admin') !!}" method="post" id="adminSearch">
 											{{ csrf_field() }}
