@@ -43,7 +43,7 @@
 									Ảnh hiện tại: <br><?php if ( isset($dataLogoGet)) {?><img src="{!!url('uploads/commons/'.$dataLogoGet)!!}" alt="" width="120"> <?php } ?>
 								</div>
 								<div class="form-group">
-									Logo: <input type="file" name="logo" accept="image/png" class="form-control">
+									Logo: <input type="file" name="logo"   class="form-control">
 								</div>
 								<input type="submit" name="btnLogo" class="btn btn-primary" value="Lưu logo" class="button" />
 							</form>
@@ -83,6 +83,17 @@
 						</div>
 
 						<div class="row">
+							<form action="settIntro" method="POST" role="form">
+								{{ csrf_field() }}
+								<div class="form-group">
+                                    <?php $dataIntro = $dataIntro[0]['content']; ?>
+									Giới thiệu danh mục : <input type="text" name="intro" class="form-control" value="<?php if ( isset($dataIntro)) { echo $dataIntro;} ?>">
+								</div>
+								<input type="submit" name="btnIntro" class="btn btn-primary" value="Lưu Giới thiệu danh mục" class="button" />
+							</form>
+						</div>
+
+						<div class="row">
 							<form action="settCopyright" method="POST" role="form">
 								{{ csrf_field() }}
 								<div class="form-group">
@@ -102,7 +113,7 @@
 								</div>
 
 								<div class="form-group">
-									Logo thanh toán : <input type="file" name="logopay" accept="image/png" class="form-control">
+									Logo thanh toán : <input type="file" name="logopay"   class="form-control">
 								</div>
 								<input type="submit" name="btnLogopay" class="btn btn-primary" value="Lưu logo thanh toán" class="button" />
 							</form>

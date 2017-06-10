@@ -59,7 +59,24 @@ jQuery('#lightSlider').lightSlider({
     item: 1,
     loop:true,
     slideMargin: 0,
-    thumbItem: 5
+    thumbItem: 5,
+    responsive : [
+        {
+            breakpoint:800,
+            settings: {
+                item:1,
+                slideMove:1,
+                slideMargin:6,
+            }
+        },
+        {
+            breakpoint:480,
+            settings: {
+                item:1,
+                slideMove:1
+            }
+        }
+    ]
 });
 
 var owlSlider = jQuery("#owl-slider");
@@ -73,7 +90,23 @@ owlSlider.owlCarousel({
     lazyLoad: true,
     slideSpeed: 500,
     autoPlay: true,
-    autoPlaySpeed: 3000,    
+    autoPlaySpeed: 3000,
+    autoHeight: true
+});
+
+var owlSliderCate = jQuery("#owl-slider-cate");
+
+owlSliderCate.owlCarousel({
+    items : 1,
+    rtl:true,
+    stopOnHover: true,
+    pagination: true,
+    navigation: false,
+    lazyLoad: true,
+    slideSpeed: 500,
+    autoPlay: true,
+    autoPlaySpeed: 3000,
+    autoHeight: true
 });
 
 jQuery('body').click(function(evt){    

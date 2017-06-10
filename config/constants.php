@@ -2,9 +2,11 @@
 return [
     'khoanggia' => [
         '0' => 'Tất cả khoảng giá',
-        '2' => 'Dưới 2 triệu',
-        '5' => 'Từ 2 triệu - 5 triệu',
-        '6' => 'Trên 5 triệu',
+        '1' => 'Dưới 2 triệu',
+        '2' => 'Từ 2 triệu - 4 triệu',
+        '4' => 'Từ 4 triệu - 6 triệu',
+        '6' => 'Từ 6 triệu - 9 triệu',
+        '15x' => 'Trên 15 triệu',
     ],
     'sapxep' => [
         'priceDesc' => 'Giá giảm dần',

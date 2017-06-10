@@ -1,11 +1,20 @@
 @extends('layouts.special')
 @section('content')
-<?php $buyok = DB::table('settings')->where('name', 'buyok')->select('content')->get()[0]; ?>
+    <div class="breadcr">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3 class="panel-title  tbreadcrumb">
+                    <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#" title="">{!! $slug !!}</a>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+    <?php $buyok = DB::table('settings')->where('name', 'buyok')->select('content')->get()[0]; ?>
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <h3 class="panel-title  tbreadcrumb">
-      <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
-      <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#" title="">{!! $slug !!}</a>
-    </h3>              
+
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
              <div class="row">
                   <div class="text-center-home" style="font-size: 20px;">{!! $flash_massage !!} </div>
@@ -16,14 +25,14 @@
                       <?php echo $buyok->content;?>
                     </div>
 
-                   
-                  </div>  
+
+                  </div>
 
                   <p class="continue">
-                   <a href="{!!url('/')!!}" type="button" class="btn "><i class="fa fa-angle-double-left" aria-hidden="true"></i> Trở về Trang chủ</a>
+                   <a href="{!!url('/')!!}" type="button" style="margin: 15px 0; float:left;"><i class="fa fa-angle-double-left" aria-hidden="true"></i> Trở về Trang chủ</a>
                 </p>
              </div>
-    
+
               <?php if (count($relation)): ?>
                 <div class="row">
                   <div class="box-relation">
@@ -42,7 +51,7 @@
                                   $proId = $rowArr['id'];
                               }
                               if ($count%4 == 1)
-                            {  
+                            {
                                  echo "<div class='row'>";
                             }
                               ?>
@@ -60,7 +69,7 @@
                                 </div>
                           </div>  <!-- /div col-4 -->
 
-                           <?php 
+                           <?php
                   if ($count%4 == 0)
                     {
                         echo "</div>";
@@ -71,7 +80,7 @@
 
                   <?php if ($count%4 != 1) echo "</div>"; ?>
 
-                          
+
                         <!-- danh muc noi bat -->
 
                         <div class="clearfix">
@@ -82,5 +91,7 @@
                 </div>
               <?php endif; ?>
         </div>
+  </div>
+    </div>
 <!-- ===================================================================================/news ============================== -->
 @endsection

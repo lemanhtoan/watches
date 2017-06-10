@@ -17,6 +17,7 @@ use App\Day;
 use App\May;
 //call model
 use App\Model\Contacts;
+use App\Slidecate;
 use Session;
 use Validator;
 
@@ -181,16 +182,18 @@ class PagesController extends Controller
         $day = Day::where('status' ,'=' ,'1')->orderBy('name','asc')->lists( 'name', 'id')->toArray();
         $dataConstant = array(
             'w_branch' => $branch,
-            'w_type' => $may,//\Config::get('constants.w_type'),
-            'w_in' =>  $day, //\Config::get('constants.w_in'),
+            'w_type' => $may,
+            'w_in' =>  $day,
             'op_price' => \Config::get('constants.khoanggia'),
             'op_sapxep' => \Config::get('constants.sapxep'),
             'dataCount' => $dataCount
         );
-        //echo "<pre>"; var_dump($dataConstant); die;
         return $dataConstant;
     }
 
+    public function getSlideCate($cat, $cat2=null) {
+        return Slidecate::where('cateid', $cat)->orWhere('cateid', $cat2)->orderby('id', 'desc')->get();
+    }
     public function getcate($cat)
     {
         switch ($cat) {
@@ -209,18 +212,41 @@ class PagesController extends Controller
                     ->join('category', 'products.cat_id', '=', 'category.id')
                     ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
                     ->where('pro_details.w_sex','=','0') // nam
+                    ->orWhere('pro_details.w_sex', '2')
                     ->where('products.status','=','1')
                     ->select('products.*','pro_details.*')
+                     ->orderBy('products.created_at', 'desc')
                     ->paginate(16);
                 return view('category.list',['data'=>$data, 'cateName' => 'Đồng hồ nam','dataConstant' => $this->dataConstant(), 'catSlug' => '1']);
-            
+
+            case 'olym':
+                $data = DB::table('products')
+                    ->join('category', 'products.cat_id', '=', 'category.id')
+                    ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
+                    ->where('pro_details.w_sex','=','0') // nam
+                    ->orWhere('pro_details.w_sex', '2')
+                    ->where('products.status','=','1')
+                    ->where('category.slug','=','olym-pianus') // nam
+                    ->orWhere('category.slug', 'olympia-star')
+                    ->select('products.*','pro_details.*')
+                    ->orderBy('products.created_at', 'desc')
+                    ->paginate(16);
+
+                $catId1 = DB::table('category')->where('slug', 'olym-pianus')->first();
+                $catId2 = DB::table('category')->where('slug', 'olympia-star')->first();
+
+                return view('category.list',['slideCate'=>$this->getSlideCate($catId1->id, $catId2->id), 'data'=>$data, 'cateName' => 'Đồng hồ nam','dataConstant' => $this->dataConstant(), 'catSlug' => '1']);
+
+
             case 'dong-ho-nu':
                  $data = DB::table('products')
                     ->join('category', 'products.cat_id', '=', 'category.id')
                     ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
                     ->where('pro_details.w_sex','=','1') // nu
+                    ->orWhere('pro_details.w_sex', '2')
                     ->where('products.status','=','1')
                     ->select('products.*','pro_details.*')
+                     ->orderBy('products.created_at', 'desc')
                     ->paginate(16);
                 return view('category.list',['data'=>$data, 'cateName' => 'Đồng hồ nữ','dataConstant' => $this->dataConstant(), 'catSlug' => '0']);
             default:
@@ -234,8 +260,9 @@ class PagesController extends Controller
                     ->where('products.cat_id','=',$cateId)
                     ->where('products.status','=','1')
                     ->select('products.*','pro_details.*')
+                    ->orderBy('products.created_at', 'desc')
                     ->paginate(16);
-                    return view('category.list',['data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
+                    return view('category.list',['slideCate'=>$this->getSlideCate($cateId), 'data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
         }
          
     }
@@ -274,7 +301,16 @@ class PagesController extends Controller
                     $query->whereBetween('products.price', array('2000000','4000000'));
                     break;
                 case '4':
+                    $query->whereBetween('products.price', array('4000000','6000000'));
+                    break;
+                case '4x':
                     $query->where('products.price', '>=', '4000000');
+                    break;
+                case '6':
+                    $query->whereBetween('products.price', array('6000000','9000000'));
+                    break;
+                case '15x':
+                    $query->where('products.price', '>=', '15000000');
                     break;
             }
         }
@@ -462,14 +498,20 @@ class PagesController extends Controller
             $dataFilter['khoanggia']=$khoanggia;
             if ($khoanggia != '0') { // all
                 switch ($khoanggia) {
-                    case '2':
+                    case '1':
                         $sqlData .= " AND products.price BETWEEN '0' AND '2000000'";
                         break;
-                    case '5':
-                        $sqlData .= " AND products.price BETWEEN '2000000' AND '5000000'";
+                    case '2':
+                        $sqlData .= " AND products.price BETWEEN '2000000' AND '4000000'";
+                        break;
+                    case '4':
+                        $sqlData .= " AND products.price BETWEEN '4000000' AND '6000000'";
                         break;
                     case '6':
-                        $sqlData .= " AND products.price >= '5000000'";
+                        $sqlData .= " AND products.price BETWEEN '6000000' AND '9000000'";
+                        break;
+                    case '15x':
+                        $sqlData .= " AND products.price >= '15000000'";
                         break;
                 }
 

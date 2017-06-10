@@ -1,4 +1,4 @@
-<?php 
+<?php
  $data = DB::table('partners')->select('partners.*')->orderBy('id', 'asc')->paginate(50);
 ?>
 <div class="container owl-partner">
@@ -10,19 +10,3 @@
          </ul>
      </div> <!-- end Partner -->
 </div>
-
-<!--
-
-
-settings(id, name, content)
-
-logo(1, logo, 'dfdfd.dfd')
-footerlink(2, footer, '<div...>')
-diachichung(3, diachi, '<div ... >')
-copyright(4, copy, '<dddd>')
-welcome(5,'welcome, ''),
-thanhtoan(6,thanhtoan, 'rer.ere')
-social(7,social, '<fgfg>')
-
-
--->

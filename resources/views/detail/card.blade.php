@@ -1,10 +1,19 @@
 @extends('layouts.special')
 @section('content')
+    <div class="breadcr">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3 class="panel-title  tbreadcrumb">
+                    <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#" title="">Giỏ hàng</a>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <h3 class="panel-title  tbreadcrumb">
-      <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
-      <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="#" title="">Giỏ hàng</a>
-    </h3>              
+
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
           <div class="panel- panel-success">
           @if (count($errors) > 0)
@@ -56,7 +65,7 @@
                           </div>
                         </td>
 
-                      <td><b style="font-size: 23px;color: #707070; font-weight: bold;">{!! number_format($row->price) !!} đ</b></td>
+                      <td><b class="price-total">{!! number_format($row->price) !!} đ</b></td>
                       
                       <td class="qty">                        
                           @if (($row->qty) >1)
@@ -68,11 +77,11 @@
                         <a href="{!!url('gio-hang/update/'.$row->rowId.'/'.$row->qty.'-up')!!}"><span class="glyphicon glyphicon-plus-sign"></span></a>
                       </td>
 
-                      <td><b style="font-size: 23px;color: #707070; font-weight: bold;">{!! number_format($row->qty * $row->price) !!} đ</b></td>
+                      <td><b class="price-total">{!! number_format($row->qty * $row->price) !!} đ</b></td>
                     </tr>
                   @endforeach                    
                     <tr>
-                      <td colspan="6" style="font-weight: bold;background: #ECECEC; padding: 20px 10px 20px; text-align: right; font-size: 18px; text-transform: uppercase;"><b>Tổng SỐ : <?php $total = Cart::subtotal(); $show = explode(".0", $total);?> <?php echo $show[0];?> đ</b></td>                      
+                      <td colspan="6" class="sub-total"><b>Tổng SỐ : <?php $total = Cart::subtotal(); $show = explode(".0", $total);?> <?php echo $show[0];?> đ</b></td>
                     </tr>                    
                   </tbody>
                 </table>                
@@ -152,9 +161,7 @@
                     </div>
                   </div>   
 
-              </div>
 
-                        
                   </form>
                   </div>
               <?php } ?>
@@ -221,7 +228,7 @@
                 <div class="clearfix">
                 </div>
               </div>
-
+          </div>
           </div>
         </div>
       <?php endif; ?>

@@ -34,7 +34,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-envelope"></i> Gửi yếu cẩu khôi phục
+                                    <i class="fa fa-btn fa-envelope"></i> Gửi yêu cầu khôi phục
                                 </button>
                             </div>
                         </div>

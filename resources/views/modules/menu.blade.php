@@ -139,7 +139,7 @@
 
                             <li class="dr-l1 has-children">
                                 <i class="fa fa-circle"></i>
-                                <a href="">Đồng hồ OP</a>
+                                <a href="{!!url('olym')!!}">Đồng hồ OP</a>
                                 <ul class="cd-secondary-dropdown is-hidden">
                                     <li class="has-children">
                                         <a class="a-title" href="">Đồng hồ Olym Pianus</a>
@@ -150,8 +150,8 @@
                                             <li><a href="{!!url('cate/olym-pianus/price/4')!!}">Từ 4 – 6 triệu đồng</a></li>
 
                                             <li class="mt-5"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Theo chất liệu dây</li>
-                                            <li><a href="{!!url('cate/olym-pianus/chatlieu/2')!!}">Đồng hồ dây kim loại</a></li>
-                                            <li><a href="{!!url('cate/olym-pianus/chatlieu/3')!!}">Đồng hồ dây da</a></li>
+                                            <li><a href="{!!url('cate/olym-pianus/chatlieu/3')!!}">Đồng hồ dây kim loại</a></li>
+                                            <li><a href="{!!url('cate/olym-pianus/chatlieu/2')!!}">Đồng hồ dây da</a></li>
 
                                             <li class="mt-5"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Theo máy</li>
                                             <li><a href="{!!url('cate/olym-pianus/kieumay/3')!!}">Đồng hồ cơ</a></li>
@@ -167,8 +167,8 @@
                                             <li><a href="{!!url('cate/olympia-star/price/4')!!}">Từ 4 – 6 triệu đồng</a></li>
 
                                             <li class="mt-5"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Theo chất liệu dây</li>
-                                            <li><a href="{!!url('cate/olympia-star/chatlieu/2')!!}">Đồng hồ dây kim loại</a></li>
-                                            <li><a href="{!!url('cate/olympia-star/chatlieu/3')!!}">Đồng hồ dây da</a></li>
+                                            <li><a href="{!!url('cate/olympia-star/chatlieu/3')!!}">Đồng hồ dây kim loại</a></li>
+                                            <li><a href="{!!url('cate/olympia-star/chatlieu/2')!!}">Đồng hồ dây da</a></li>
                                         </ul>
                                     </li>
                                 </ul> <!-- .cd-dropdown-icons -->
@@ -176,31 +176,31 @@
 
                             <li class="dr-l1 has-children">
                                 <i class="fa fa-circle"></i>
-                                <a href="">Đồng hồ Orient</a>
+                                <a href="{!!url('orient')!!}">Đồng hồ Orient</a>
                                 <ul class="cd-secondary-dropdown is-hidden is3col">
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo máy</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Đồng hồ cơ</a></li>
-                                            <li><a href="">Đồng hồ Quartz</a></li>
+                                            <li><a href="{!!url('cate/orient/kieumay/3')!!}">Đồng hồ cơ</a></li>
+                                            <li><a href="{!!url('cate/orient/kieumay/4')!!}">Đồng hồ Quartz</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo Khoảng Giá</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Từ 2 – 4 triệu đồng</a></li>
-                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
-                                            <li><a href="">Từ 6 – 9 triệu</a></li>
-                                            <li><a href="">Trên 15 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/orient/price/2')!!}">Từ 2 – 4 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/orient/price/4')!!}">Từ 4 – 6 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/orient/price/6')!!}">Từ 6 – 9 triệu</a></li>
+                                            <li><a href="{!!url('cate/orient/price/15x')!!}">Trên 15 triệu đồng</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo chất liệu dây</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Đồng hồ nam dây kim loại</a></li>
-                                            <li><a href="">Đồng hồ nam dây da</a></li>
+                                            <li><a href="{!!url('cate/orient/chatlieu/3')!!}">Đồng hồ nam dây kim loại</a></li>
+                                            <li><a href="{!!url('cate/orient/chatlieu/2')!!}">Đồng hồ nam dây da</a></li>
                                         </ul>
                                     </li>
                                 </ul> <!-- .cd-dropdown-icons -->
@@ -208,32 +208,32 @@
 
                             <li class="dr-l1 has-children">
                                 <i class="fa fa-circle"></i>
-                                <a href="">Đồng hồ Citizen</a>
+                                <a href="{!!url('citizen')!!}">Đồng hồ Citizen</a>
                                 <ul class="cd-secondary-dropdown is-hidden is3col">
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo máy</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Đồng hồ Quartz</a></li>
-                                            <li><a href="">Đồng hồ Eco – Drive</a></li>
-                                            <li><a href="">Đồng hồ cơ</a></li>
+                                            <li><a href="{!!url('cate/citizen/kieumay/4')!!}">Đồng hồ Quartz</a></li>
+                                            <li><a href="{!!url('cate/citizen/kieumay/1')!!}">Đồng hồ Eco – Drive</a></li>
+                                            <li><a href="{!!url('cate/citizen/kieumay/3')!!}">Đồng hồ cơ</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo Khoảng Giá</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Từ 2 – 4 triệu đồng</a></li>
-                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
-                                            <li><a href="">Từ 6 – 9 triệu</a></li>
-                                            <li><a href="">Trên 15 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/citizen/price/2')!!}">Từ 2 – 4 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/citizen/price/4')!!}">Từ 4 – 6 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/citizen/price/6')!!}">Từ 6 – 9 triệu</a></li>
+                                            <li><a href="{!!url('cate/citizen/price/15x')!!}">Trên 15 triệu đồng</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo chất liệu dây</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Đồng hồ nam dây kim loại</a></li>
-                                            <li><a href="">Đồng hồ nam dây da</a></li>
+                                            <li><a href="{!!url('cate/citizen/chatlieu/3')!!}">Đồng hồ nam dây kim loại</a></li>
+                                            <li><a href="{!!url('cate/citizen/chatlieu/2')!!}">Đồng hồ nam dây da</a></li>
                                         </ul>
                                     </li>
                                 </ul> <!-- .cd-dropdown-icons -->
@@ -241,30 +241,30 @@
 
                             <li class="dr-l1 has-children">
                                 <i class="fa fa-circle"></i>
-                                <a href="">Đồng hồ Ogival</a>
+                                <a href="{!!url('ogival')!!}">Đồng hồ Ogival</a>
                                 <ul class="cd-secondary-dropdown is-hidden is3col">
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo máy</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Đồng hồ Quartz</a></li>
-                                            <li><a href="">Đồng hồ cơ</a></li>
+                                            <li><a href="{!!url('cate/ogival/kieumay/4')!!}">Đồng hồ Quartz</a></li>
+                                            <li><a href="{!!url('cate/ogival/kieumay/3')!!}">Đồng hồ cơ</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo Khoảng Giá</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
-                                            <li><a href="">Từ 6 – 9 triệu</a></li>
-                                            <li><a href="">Trên 15 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/ogival/price/4')!!}">Từ 4 – 6 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/ogival/price/6')!!}">Từ 6 – 9 triệu</a></li>
+                                            <li><a href="{!!url('cate/ogival/price/15x')!!}">Trên 15 triệu đồng</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo chất liệu dây</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Đồng hồ nam dây kim loại</a></li>
-                                            <li><a href="">Đồng hồ nam dây da</a></li>
+                                            <li><a href="{!!url('cate/ogival/chatlieu/3')!!}">Đồng hồ nam dây kim loại</a></li>
+                                            <li><a href="{!!url('cate/ogival/chatlieu/2')!!}">Đồng hồ nam dây da</a></li>
                                         </ul>
                                     </li>
                                 </ul> <!-- .cd-dropdown-icons -->
@@ -272,7 +272,7 @@
 
                             <li class="dr-l1 has-children">
                                 <i class="fa fa-circle"></i>
-                                <a href="">Đồng hồ Casio</a>
+                                <a href="{!!url('casio')!!}">Đồng hồ Casio</a>
                                 <ul class="cd-secondary-dropdown is-hidden is3col">
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo Loại</a>
@@ -284,18 +284,18 @@
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo Khoảng Giá</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Dưới 2 triệu đồng</a></li>
-                                            <li><a href="">Từ 2 – 4 triệu đồng</a></li>
-                                            <li><a href="">Từ 4 – 6 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/casio/price/0')!!}">Dưới 2 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/casio/price/2')!!}">Từ 2 – 4 triệu đồng</a></li>
+                                            <li><a href="{!!url('cate/casio/price/4')!!}">Từ 4 – 6 triệu đồng</a></li>
                                         </ul>
                                     </li>
 
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo chất liệu dây</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Đồng hồ dây da</a></li>
-                                            <li><a href="">Đồng hồ dây cao su</a></li>
-                                            <li><a href="">Đồng hồ dây kim loại</a></li>
+                                            <li><a href="{!!url('cate/casio/chatlieu/2')!!}">Đồng hồ dây da</a></li>
+                                            <li><a href="{!!url('cate/casio/chatlieu/1')!!}">Đồng hồ dây cao su</a></li>
+                                            <li><a href="{!!url('cate/casio/chatlieu/3')!!}">Đồng hồ dây kim loại</a></li>
                                         </ul>
                                     </li>
                                 </ul> <!-- .cd-dropdown-icons -->
@@ -303,17 +303,22 @@
 
                             <li class="dr-l1 has-children">
                                 <i class="fa fa-circle"></i>
-                                <a href="">Đồng hồ Seiko</a>
+                                <a href="{!!url('seiko')!!}">Đồng hồ Seiko</a>
                                 <ul class="cd-secondary-dropdown is-hidden">
                                     <li class="has-children">
                                         <a class="a-title" href="">Theo máy</a>
                                         <ul class="is-hidden">
-                                            <li><a href="">Đồng hồ Quartz</a></li>
-                                            <li><a href="">Đồng hồ cơ</a></li>
+                                            <li><a href="{!!url('cate/seiko/kieumay/4')!!}">Đồng hồ Quartz</a></li>
+                                            <li><a href="{!!url('cate/seiko/kieumay/3')!!}">Đồng hồ cơ</a></li>
                                         </ul>
                                     </li>
 
-                                    <li><a class="a-title" href="">Đồng hồ Kinetic</a></li>
+                                    <li class="has-children">
+                                        <a class="a-title" href="">Theo Kinetic</a>
+                                        <ul class="is-hidden">
+                                            <li><a href="{!!url('cate/seiko/kieumay/2')!!}">Đồng hồ Kinetic</a></li>
+                                        </ul>
+                                    </li>
                                 </ul> <!-- .cd-dropdown-icons -->
                             </li> <!-- .has-children -->
 
@@ -343,23 +348,24 @@
                 <a class="a-lv1" href="{!!url('dong-ho-thuy-si')!!}" > Đồng hồ Thụy Sĩ </a>
             </li>
             <li class="dropdown mn-lv1 mt-20 hidden-xs hidden-sm">
-                <a class="a-lv1" href="">Kiến thức đồng hồ</a>
+                <a class="a-lv1" href="{!!url('tintuc/2')!!}">Kiến thức đồng hồ</a>
 
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="{!!url('tintuc/2')!!}">Video Xchannel</a></li>
-                    <li><a href="#">Phân biệt đồng hồ thật, giả</a></li>
-                    <li><a href="#">Dành cho người mới bắt đầu</a></li>
-                    <li><a href="#">Kinh nghiệm mua hàng</a></li>
-                    <li><a href="#">Kiến thức chuyên ngành</a></li>
+                    <li><a href="{!!url('tintuc/1')!!}">Thẩm định đồng hồ</a></li>
+                    <li><a href="{!!url('tintuc/7')!!}">Video Xchannel</a></li>
+                    <li><a href="{!!url('tintuc/8')!!}">Phân biệt đồng hồ thật, giả</a></li>
+                    <li><a href="{!!url('tintuc/9')!!}">Dành cho người mới bắt đầu</a></li>
+                    <li><a href="{!!url('tintuc/3')!!}">Kinh nghiệm mua hàng</a></li>
+                    <li><a href="{!!url('tintuc/6')!!}">Kiến thức chuyên ngành</a></li>
                 </ul>
             </li>
-            <li class="dropdown {!! set_active('tin-tuc') !!} mn-lv1 mt-20 hidden-xs hidden-sm">
-                <a class="a-lv1" href="{!!url('tin-tuc')!!}"> Về Xwatch </a>
+            <li class="dropdown  mn-lv1 mt-20 hidden-xs hidden-sm">
+                <a class="a-lv1" href="{!!url('tintuc/11')!!}"> Về Xwatch </a>
 
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="{!!url('tintuc/5')!!}">Giới thiệu về Xwatch</a></li>
-                    <li><a href="#">Triết lý kinh doanh</a></li>
-                    <li><a href="#">Chính sách bảo hành</a></li>
+                    <li><a href="{!!url('tintuc/10')!!}">Triết lý kinh doanh</a></li>
+                    <li><a href="{!!url('tintuc/4')!!}">Chính sách bảo hành</a></li>
                 </ul>
             </li>
             <li class="{!! set_active('lien-he') !!} mn-lv1 mt-20 hidden-xs hidden-sm">

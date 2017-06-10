@@ -1,19 +1,26 @@
 @extends('layouts.special')
 @section('content')
+    <div class="breadcr">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3 class="panel-title tbreadcrumb">
+                    <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="{!!url('tin-tuc')!!}" title=""> Tin tức</a>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#" title="">{!!$slug!!}</a>
+                </h3>
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 news-page">
-    <h3 class="panel-title tbreadcrumb">
-      <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
-      <i class="fa fa-chevron-right" aria-hidden="true"></i><a href="{!!url('tin-tuc')!!}" title=""> Tin tức</a>
-      <i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#" title="">{!!$slug!!}</a>
-    </h3>              
-    
+
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 news-detail">
           <div class="panel panel-success">
             <div class="panel-body">
               <div class="row">
               <!-- hot new content -->
-                <div class="col-lg-12">
                   <div class="text-center-home">{!!$data->title!!}
                    <hr>
                    </div>
@@ -29,8 +36,16 @@
                       </div>
                   </div>
                   </p>
-                </div>                
               </div>
+
+              <div class="row box-comment">
+                  <!-- comment later -->
+                  <div class="text-center-home left-align">ĐÁNH GIÁ VÀ NHẬN XÉT
+                  </div>
+                  <?php $curentURL = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?>
+                  <div class="fb-comments" data-href="<?php echo $curentURL; ?>" data-numposts="10"></div>
+              </div>
+
               <div class="row">
                 <h1 style="padding: 30px; font-size: 18px; font-weight: bold;"> Tin khác</h1>
                 @foreach($relation as $row)
@@ -112,6 +127,7 @@
 
         </div>
       </div>
+    </div>
     <?php endif; ?>
 </div>
 @endsection

@@ -156,12 +156,12 @@
 }
 .lSAction>.lSPrev {
     background-image: url(../img/prev.png);
-    left: 10px;
+    left: 0px;
     background-size: 100%;
 }
 .lSAction>.lSNext {
     background-image: url(../img/next.png);
-    right: 10px;
+    right: 0px;
     background-size: 100%;
 }
 .lSAction>a.disabled {

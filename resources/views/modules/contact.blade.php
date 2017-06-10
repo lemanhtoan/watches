@@ -1,10 +1,18 @@
 @extends('layouts.special')
 @section('content')
+    <div class="breadcr">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3 class="panel-title tbreadcrumb">
+                    <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#" title="">{!!$slug!!}</a>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <h3 class="panel-title tbreadcrumb">
-      <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
-      <i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#" title="">{!!$slug!!}</a>
-    </h3>              
+
     
     <div class="row">
       <div class="text-center-home">{!!$slug!!}
@@ -46,5 +54,6 @@
            </form>
        </div>
       </div>
+    </div>
     </div>
 @endsection

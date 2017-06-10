@@ -221,6 +221,17 @@ Route::group(['middleware' => 'admin'], function () {
           Route::post('edit/{id}',['as' =>'posteditgroupnews','uses' => 'GroupnewsController@postedit'])->where('id','[0-9]+');
       });
 
+      Route::group(['prefix' => 'slidecate'], function() {
+          Route::get('add',['as'        =>'getslidecate','uses' => 'SlidecateController@getadd']);
+          Route::post('add',['as'       =>'postaddslidecate','uses' => 'SlidecateController@postadd']);
+
+          Route::get('/',['as'       =>'getslidecate','uses' => 'SlidecateController@getlist']);
+          Route::get('del/{id}',['as'   =>'getdellslidecate','uses' => 'SlidecateController@getdel'])->where('id','[0-9]+');
+
+          Route::get('edit/{id}',['as'  =>'geteditslidecate','uses' => 'SlidecateController@getedit'])->where('id','[0-9]+');
+          Route::post('edit/{id}',['as' =>'posteditslidecate','uses' => 'SlidecateController@postedit'])->where('id','[0-9]+');
+      });
+
       // -------------------- quan ly partners ----------------------
       Route::group(['prefix' => 'settings'], function() {
           Route::get('/',['as'       =>'getsettings','uses' => 'SettingsController@getlist']);
@@ -235,6 +246,8 @@ Route::group(['middleware' => 'admin'], function () {
       Route::post('/settFooterlink',['as'       =>'settFooterlink','uses' => 'SettingsController@settFooterlink']);
       Route::post('/settMessage',['as'       =>'settMessage','uses' => 'SettingsController@settMessage']);
       Route::post('/settHotline',['as'       =>'settHotline','uses' => 'SettingsController@settHotline']);
+
+      Route::post('/settIntro',['as'       =>'settIntro','uses' => 'SettingsController@settIntro']);
     });
 
 });

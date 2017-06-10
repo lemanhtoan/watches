@@ -89,7 +89,7 @@
 										<th>ID</th>										
 										<th>Hình ảnh</th>
 										<th>Tên sản phẩm</th>
-										<th>Chế độ - kèm theo</th>
+										<th>Sản phẩm giành cho</th>
 										<th>Thương hiệu</th>
 										<th>Giá bán</th>
 										<th>Trạng thái</th>
@@ -103,27 +103,7 @@
 											<td> <img src="{!!url('uploads/products/'.$row->images)!!}" alt="iphone" width="50"></td>
 											<td>{!!$row->name!!}</td>
 											<td>
-												<div class="list-backend">
-
-													@if ($row->promo1!='')
-													<p>
-										              <li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo1!!}</li>
-													</p>
-										            @endif
-													@if($row->promo2!='') <p>
-													<li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo2!!}</li>
-
-													</p>
-													@endif  @if ($row->promo3!='')<p>
-														<li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->promo3!!}</li>
-													</p>
-													@endif
-														@if ($row->packet!='')<p>
-														<li><span class="glyphicon glyphicon-ok-sign"></span>{!!$row->packet!!}</li>
-														</p>
-														@endif
-
-												</div>
+												<?php if ($row->pro_details->w_sex =='0') {echo 'Nam';}elseif($row->pro_details->w_sex =='1'){echo 'Nữ';} else {echo 'Nam và nữ';};?>
 											</td>
 											<td>{!!$row->category->name!!}</td>
 											<td><?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?></td>

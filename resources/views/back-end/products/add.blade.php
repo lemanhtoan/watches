@@ -48,7 +48,7 @@
 								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 									<label for="input-id">Đồng hồ dành cho</label>
 									<select name="w_sex" id="w_sex" required class="form-control">
-										<option value="0">Nam</option>
+										<option value="0" selected>Nam</option>
 										<option value="1">Nữ</option>
 										<option value="2">Nam và nữ</option>
 									</select>
@@ -114,7 +114,7 @@
 				      		<div class="form-group">				      			
 				      			<div class="row">
 					      			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-					      				Hình ảnh : <input type="file" name="txtimg" accept="image/png" id="inputtxtimg" value="{{ old('txtimg') }}" class="form-control" required="required">
+					      				Hình ảnh : <input type="file" name="txtimg"   id="inputtxtimg" value="{{ old('txtimg') }}" class="form-control" required="required">
 					      			</div>
 					      			
 					      			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -192,7 +192,7 @@
 				      			<div class="row">
 					      			@for( $i=1; $i<=12; $i++)
 					      			<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
-					      				Hình ảnh {!!$i!!} : <input type="file" name="txtdetail_img[]" value="{{ old('txtdetail_img[]') }}" accept="image/png" id="inputtxtdetail_img" class="form-control">
+					      				Hình ảnh {!!$i!!} : <input type="file" name="txtdetail_img[]" value="{{ old('txtdetail_img[]') }}"   id="inputtxtdetail_img" class="form-control">
 					      			</div>
 					      			@endfor
 					      		</div>				      			

@@ -1,11 +1,18 @@
 <?php  $hotline = DB::table('settings')->where('name', 'hotline')->select('content')->get()[0];?>
 @extends('layouts.special')
 @section('content')
+    <div class="breadcr">
+        <div class="container">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3 class="panel-title tbreadcrumb">
+                    <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#" title="">{!!$slug!!}</a>
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
     <div class="product-page">
-        <h3 class="panel-title tbreadcrumb">
-            <a href="{!!url('/')!!}" title=""> <i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a>
-            <i class="fa fa-chevron-right" aria-hidden="true"></i> <a href="#" title="">{!!$slug!!}</a>
-        </h3>
 
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 box-img-galary">
@@ -220,7 +227,7 @@
             <!-- comment later -->
             <div class="text-center-home left-align">ĐÁNH GIÁ VÀ NHẬN XÉT
             </div>
-            <?php $curentURL = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];?>
+            <?php $curentURL = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?>
             <div class="fb-comments" data-href="<?php echo $curentURL; ?>" data-numposts="10"></div>
         </div>
 
@@ -275,7 +282,7 @@
                     <div class="clearfix">
                     </div>
                 </div>
-
+            </div>
             </div>
         </div>
         <?php endif; ?>

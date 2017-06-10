@@ -3,6 +3,7 @@
 		<ul class="nav menu">
 			<li class="{!! set_active('admin/home') !!}"><a href="{!!url('admin/home')!!}"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Trang chủ</a></li>
 			<li id="danhmuc"  class="{!! set_active('admin/danhmuc') !!}"><a href="{!!url('admin/danhmuc')!!}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Danh mục</a></li>
+			<li id=""  class="{!! set_active('admin/slidecate') !!}"><a href="{!!url('admin/slidecate')!!}"><svg class="glyph stroked clipboard with paper"><use xlink:href="#stroked-clipboard-with-paper"/></svg> Slide show Danh mục</a></li>
 
 			<li id="sanpham"  class="{!! set_active('admin/sanpham/all') !!}"><a href="{!!url('admin/sanpham/all')!!}"><svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg> Sản phẩm </a></li>
 
