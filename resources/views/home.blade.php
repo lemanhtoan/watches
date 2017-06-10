@@ -48,110 +48,131 @@
 
         <!--========================== phan danh muc rieng   =========================================  -->
 
-      <!-- ///////////// ĐỒNG HỒ ORIENT -->
-      <div class="text-center-home">ĐỒNG HỒ ORIENT
+      <?php 
+        foreach ($data as $group) :
+        $category = $group['category'];
+        $products = $group['products'];
+      ?>
+      <?php if (count($products)):?>
+      <script type="text/javascript">
+        jQuery(document).ready(function(){
+          var ownGroup = jQuery("#owl-group-cate<?php echo $category->cateId; ?>");
+
+            ownGroup.owlCarousel({
+                slideSpeed: 500,
+                paginationSpeed: 400,
+                //autoPlay: true,
+                stopOnHover: true,
+                pagination: false,
+                navigation: true,
+                lazyLoad: true,
+                navigationText: [
+                  "<i class='fa fa-chevron-left'></i>",
+                  "<i class='fa fa-chevron-right'></i>"
+                  ],
+                items : 3,
+                itemsDesktop : [1000,3],
+                itemsDesktopSmall : [900,3], 
+                itemsTablet: [600,2], 
+                itemsMobile : [320,1] 
+            });
+        });
+        
+      </script>
+      <div class="text-center-home"><?php echo $category->cateName; ?>
         <hr>
       </div>
-      <div class="row">
-        
+      <div class="row list-owl">
+        <?php if ($category->cateType == '1') {?>
+        <!-- left -->
         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-cate-advs">
-            <?php if (count($banner_orient)) {?>
-                <a href=""><img src="uploads/category/<?php echo $banner_orient[0]->banner; ?>" /></a>
-            <?php } else { ?>
-                <a href=""><img src="{!!url('public/images/products/orient/banner-orient-1.png')!!}" /></a>
-            <?php } ?>
-        </div>  
+            <a href="{!!  $category->cateSlug !!}"><img src="uploads/category/<?php echo $category->cateImage; ?>" alt="<?php echo $category->cateName; ?>" /></a>
+        </div>          
 
          <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-         <ul id="owl-orient" class="owl-carousel owl-theme owl-listChoise">
-           @foreach($group_orient as $row)
-             <?php
-                 $rowArr = (array) $row;
-                 if (array_key_exists("pro_id", $rowArr)) {
-                     $proId = $rowArr['pro_id'];
-                 } else {
-                     $proId = $rowArr['id'];
-                 }
-             ?>
-             <li class="item item-pro">
-                <div class="pro-image">
-              <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
-                <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
-              </a>
-            </div>
-            <div class="pro-title">
-              <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
-            </div> 
-            <div class="graycolor">- - - -</div><div class="pro-price">
-                <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?>
-            </div>
+             <ul id="owl-group-cate<?php echo $category->cateId; ?>" class="owl-carousel owl-theme owl-listChoise">
+               @foreach($products as $row)
+                 <?php
+                     $rowArr = (array) $row;
+                     if (array_key_exists("pro_id", $rowArr)) {
+                         $proId = $rowArr['pro_id'];
+                     } else {
+                         $proId = $rowArr['id'];
+                     }
+                 ?>
+                 <li class="item item-pro">
+                    <div class="pro-image">
+                  <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
+                    <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
+                  </a>
+                </div>
+                <div class="pro-title">
+                  <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
+                </div> 
+                <div class="graycolor">- - - -</div><div class="pro-price">
+                    <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?>
+                </div>
 
-             </li>
-          @endforeach
-       </ul>
-          
+                 </li>
+              @endforeach
+           </ul>
          </div>
 
+         <?php } else { ?>
+         <!-- right -->
+
+           <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+               <ul id="owl-group-cate<?php echo $category->cateId; ?>" class="owl-carousel owl-theme owl-listChoise">
+               @foreach($products as $row)
+                  <?php
+                       $rowArr = (array) $row;
+                       if (array_key_exists("pro_id", $rowArr)) {
+                           $proId = $rowArr['pro_id'];
+                       } else {
+                           $proId = $rowArr['id'];
+                       }
+                   ?>
+                   <li class="item item-pro">
+                      <div class="pro-image">
+                    <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
+                      <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
+                    </a>
+                  </div>
+                  <div class="pro-title">
+                    <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
+                  </div> 
+                  <div class="graycolor">- - - -</div><div class="pro-price">
+                      <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?>
+                  </div>
+
+                   </li>
+                @endforeach
+             </ul>
+            
+           </div>
+
+           <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-cate-advs">
+               <a href="{!!  $category->cateSlug !!}"><img src="uploads/category/<?php echo $category->cateImage; ?>" alt="<?php echo $category->cateName; ?>" /></a>
+          </div>  
+
+         <?php } ?>
+
       </div>
+
+    <?php endif; ?>
+    <?php endforeach;?>
         
-      <!-- ///////////////////////// ĐỒNG HỒ OLYM PIANUS-->  
-      
-      <div class="text-center-home">ĐỒNG HỒ OLYM PIANUS
-        <hr>
-      </div>
-      <div class="row">
-        
-         <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-         <ul id="owl-olym-painus" class="owl-carousel owl-theme owl-listChoise">
-        @foreach($group_olym_pianus as $row)
-            <?php
-                 $rowArr = (array) $row;
-                 if (array_key_exists("pro_id", $rowArr)) {
-                     $proId = $rowArr['pro_id'];
-                 } else {
-                     $proId = $rowArr['id'];
-                 }
-             ?>
-             <li class="item item-pro">
-                <div class="pro-image">
-              <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
-                <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
-              </a>
-            </div>
-            <div class="pro-title">
-              <h1><a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">{!!$row->name!!}</a></h1>
-            </div> 
-            <div class="graycolor">- - - -</div><div class="pro-price">
-                <?php if ($row->price > 0) { ?> {!!number_format($row->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?>
-            </div>
 
-             </li>
-          @endforeach
-       </ul>
-          
-         </div>
-
-         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 item-cate-advs">
-             <?php if (count($banner_olym_pianus)) {?>
-             <a href=""><img src="uploads/category/<?php echo $banner_olym_pianus[0]->banner; ?>" /></a>
-             <?php } else { ?>
-                 <a href=""><img src="{!!url('public/images/products/olympianus/banner-olympianus.png')!!}" /></a>
-             <?php } ?>
-
-        </div>  
-
-      </div>
-
-        <div class="clearfix">
-        </div>
-        <?php
-        $homeAdvs = DB::table('advs')->where('type', '0')->select('url','image')->get()[0];
-        ?>
-        <div class="box-advs">
-          <a href="{!! $homeAdvs->url !!}" target="_blank">
-            <img src="{!!url('/uploads/advs/'.$homeAdvs->image)!!}" alt="" border="0" width="100%" />
-          </a>
-        </div>
+    <div class="clearfix">
+    </div>
+    <?php
+    $homeAdvs = DB::table('advs')->where('type', '0')->select('url','image')->get()[0];
+    ?>
+    <div class="box-advs">
+      <a href="{!! $homeAdvs->url !!}" target="_blank">
+        <img src="{!!url('/uploads/advs/'.$homeAdvs->image)!!}" alt="" border="0" width="100%" />
+      </a>
+    </div>
 </div>
 @endsection
 

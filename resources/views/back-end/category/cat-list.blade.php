@@ -36,7 +36,9 @@
 							<table class="table table-hover">
 								<thead>
 									<tr>										
-										<th>Tên danh mục</th>										
+										<th>Tên danh mục</th>
+										<th>Hiển thị trang chủ</th>									
+										<th>Thứ tự hiển thị</th>
 										<th>Hành động</th>
 									</tr>
 								</thead>

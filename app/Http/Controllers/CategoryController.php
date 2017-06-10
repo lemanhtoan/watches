@@ -25,6 +25,9 @@ class CategoryController extends Controller
 	  $cat = new Category();
       $cat->parent_id= $rq->sltCate;
       $cat->name= $rq->txtCateName;
+      $cat->isHome= $rq->isHome;
+      $cat->type= $rq->type;
+      $cat->position= $rq->position;
       $cat->slug = str_slug($rq->txtCateName,'-');
          $cat->created_at = new DateTime;
     if ($rq->hasFile('txtimg')) {
@@ -48,6 +51,9 @@ class CategoryController extends Controller
       $cat = category::find($id);
       $cat->name = $request->txtCateName;
       $cat->slug = str_slug($request->txtCateName,'-');
+      $cat->isHome= $request->isHome;
+      $cat->type= $request->type;
+      $cat->position= $request->position;
       $cat->parent_id = $request->sltCate;
       $cat->updated_at = new DateTime;
 

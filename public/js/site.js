@@ -20,46 +20,6 @@ owlPartner.owlCarousel({
     itemsMobile : [320,1] 
 });
 
-var ownOrient = jQuery("#owl-orient");
-
-ownOrient.owlCarousel({
-    slideSpeed: 500,
-    paginationSpeed: 400,
-    //autoPlay: true,
-    stopOnHover: true,
-    pagination: false,
-    navigation: true,
-    lazyLoad: true,
-    navigationText: [
-      "<i class='fa fa-chevron-left'></i>",
-      "<i class='fa fa-chevron-right'></i>"
-      ],
-    items : 3,
-    itemsDesktop : [1000,3],
-    itemsDesktopSmall : [900,3], 
-    itemsTablet: [600,2], 
-    itemsMobile : [320,1] 
-});
-
-var ownOlymPianus = jQuery("#owl-olym-painus");
-ownOlymPianus.owlCarousel({
-    slideSpeed: 500,
-    paginationSpeed: 400,
-    //autoPlay: true,
-    stopOnHover: true,
-    pagination: false,
-    navigation: true,
-    lazyLoad: true,
-    navigationText: [
-      "<i class='fa fa-chevron-left'></i>",
-      "<i class='fa fa-chevron-right'></i>"
-      ],
-    items : 3,
-    itemsDesktop : [1000,3],
-    itemsDesktopSmall : [900,3], 
-    itemsTablet: [600,2], 
-    itemsMobile : [320,1] 
-});
 
 var imageProduct = jQuery("#owl-detail");
 imageProduct.owlCarousel({

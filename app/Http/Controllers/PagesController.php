@@ -34,25 +34,27 @@ class PagesController extends Controller
 
     public function index()
     {
-        $group_orient = DB::table('products')
+        $data = array();
+        $cates = DB::table('category')
+            ->where('category.isHome','=','1')
+            ->orderBy('category.position', 'asc')
+            ->select(['category.id as cateId', 'category.slug as cateSlug', 'category.type as cateType', 'category.name as cateName',  'category.banner as cateImage'])
+            ->get();
+
+        foreach ($cates as $cate) { 
+            $cataId = $cate->cateId;
+            $products = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
-                ->where('category.slug','=','orient')
+                ->where('category.id','=', $cataId )
                 ->where('products.status','=','1')
                 ->where('products.isGroup','=','1')
-                ->select('products.*')
-                ->orderBy('id', 'desc')
-                ->paginate(12);
-        $banner_orient = DB::table('category')->where('category.slug','=','orient')->whereNotNull('banner')->select('banner')->get();
-        $group_olym_pianus = DB::table('products')
-                ->join('category', 'products.cat_id', '=', 'category.id')
-                ->where('category.slug','=','olym-pianus')
-                ->where('products.status','=','1')
-                ->where('products.isGroup','=','1')
-                ->select('products.*')
-                ->orderBy('id', 'desc')
-                ->paginate(12);
-        $banner_olym_pianus = DB::table('category')->where('category.slug','=','olym-pianus')->whereNotNull('banner')->select('banner')->get();
-    	return view('home',['group_orient'=>$group_orient, 'group_olym_pianus' => $group_olym_pianus, 'banner_orient' => $banner_orient, 'banner_olym_pianus' => $banner_olym_pianus ]);
+                ->select(['products.*'])
+                ->orderBy('products.id', 'desc')
+                ->get();
+            array_push($data, array('category' => $cate, 'products' => $products));
+        }
+        
+    	return view('home',['data'=>$data ]);
     }
     public function addcart($id)
     {

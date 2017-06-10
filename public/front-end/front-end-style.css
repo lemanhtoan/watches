@@ -1975,3 +1975,8 @@ a.btn.btn-continue {
 .lSSlideOuter .lSPager.lSGallery {
   margin-top: 15px !important;
 }
+
+.list-owl .pro-image img {
+  width: 85%;
+  margin: 0 auto;
+}

@@ -20,6 +20,7 @@
 		foreach ($data as $val) {
 			$id = $val["id"];
 			$ten= $val["name"];
+			$isHome=$val["isHome"]; if ($isHome == '1') {$showIsHome ='Hiển thị';} else {$showIsHome ='<span style="color:red">Tạm ẩn</span>';};
 			if ($val['parent_id'] == $parent_id) {
 				echo '<tr>';
 				if ($str =="") {
@@ -27,7 +28,15 @@
 					} else {
 						echo '<td style="color:green;">'.$str.'--|'.$ten.'</td>';
 					}	
-			echo '<td class="list_td aligncenter">
+			echo '
+				<td>
+		            '.$showIsHome.'
+		        </td> 
+			    <td>
+		            '.$val['position'].'
+		        </td> 
+
+			<td class="list_td aligncenter">
 		            <a href="../admin/danhmuc/edit/'.$id.'" title="Sửa"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;&nbsp;&nbsp;
 		            <a href="../admin/danhmuc/del/'.$id.'" title="Xóa" onclick="return xacnhan(\'Xóa danh mục này ?\') "> <span class="glyphicon glyphicon-remove"></span> </a>
 			      </td>    

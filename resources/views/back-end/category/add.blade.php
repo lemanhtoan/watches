@@ -49,6 +49,27 @@
 				      			<input type="text" name="txtCateName" id="inputTxtCateName" class="form-control" value="" required="required">
 				      		</div>
 
+				      		<div class="form-group">
+					      		<label for="input-id">Hiển thị trang chủ</label>
+					      		<select name="isHome" id="isHome" class="form-control">
+					      			<option value="1">Hiển thị</option>
+					      			<option value="0">Tạm ẩn</option>
+					      		</select>
+				      		</div>
+
+				      		<div class="form-group">
+					      		<label for="input-id">Vị trí hiển thị banner	</label>
+					      		<select name="type" id="type" class="form-control">
+					      			<option value="1">Bên trái</option>
+					      			<option value="0">Bên Phải</option>
+					      		</select>
+				      		</div>
+
+				      		<div class="form-group">
+								<label for="input-id">Thứ tự hiển thị</label>
+								<input type="number" name="position" max="100" min="0" class="form-control">
+							</div>
+
 							<div class="form-group">
 								<label for="input-id">Hình ảnh</label>
 								<input type="file" name="txtimg" accept="image/*" class="form-control">

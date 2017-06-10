@@ -49,6 +49,27 @@
 				      			<input type="text" name="txtCateName" id="inputTxtCateName" class="form-control" value="{!! old('txtCateName', isset($data['name']) ? $data['name'] : null)!!}" required="required">
 				      		</div>
 
+				      		<div class="form-group">
+					      		<label for="input-id">Hiển thị trang chủ</label>
+					      		<select name="isHome" id="isHome" class="form-control">
+					      			<option value="1" <?php if($data['isHome'] =='1') {echo 'selected';}?>>Hiển thị</option>
+					      			<option value="0" <?php if($data['isHome'] =='0') {echo 'selected';}?>>Tạm ẩn</option>
+					      		</select>
+				      		</div>
+
+				      		<div class="form-group">
+					      		<label for="input-id">Vị trí hiển thị banner	</label>
+					      		<select name="type" id="type" class="form-control">
+					      			<option value="1" <?php if($data['type'] =='1') {echo 'selected';}?>>Bên trái</option>
+					      			<option value="0" <?php if($data['type'] =='0') {echo 'selected';}?>>Bên Phải</option>
+					      		</select>
+				      		</div>
+
+				      		<div class="form-group">
+								<label for="input-id">Thứ tự hiển thị</label>
+								<input type="number" value="<?php echo $data['position'];?>" name="position" max="100" min="0" class="form-control">
+							</div>
+
 							<div class="form-group" style="width: 100%; float: left; margin-bottom: 20px;">
 								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 									Ảnh hiện tại: <br><?php if ( isset($data['banner'])) {?><img src="{!!url('uploads/category/'.$data['banner'])!!}" alt="" width="80"> <?php } ?>

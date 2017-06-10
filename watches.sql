@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 09, 2017 at 11:05 PM
+-- Generation Time: Jun 10, 2017 at 07:13 AM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -131,26 +131,29 @@ CREATE TABLE `category` (
   `parent_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `banner` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `banner` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `isHome` int(11) DEFAULT NULL,
+  `position` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type` varchar(5) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`id`, `name`, `slug`, `parent_id`, `created_at`, `updated_at`, `banner`) VALUES
-(1, 'Tin tức', 'tin-tuc', '0', '2016-11-24 01:38:46', '2017-06-05 15:57:13', NULL),
-(3, 'Casio', 'casio', '0', '2016-11-23 20:17:01', '2017-06-05 16:02:32', '1496625595_1496134220_banner-casio.png'),
-(4, 'Citizen', 'citizen', '0', '2016-11-23 20:17:39', '2017-06-05 15:54:45', NULL),
-(15, 'Ogival', 'ogival', '0', '2016-11-24 01:56:05', '2017-06-05 15:54:51', NULL),
-(16, 'Olym Pianus', 'olym-pianus', '0', '2016-11-25 02:00:27', '2017-06-05 15:54:57', '1496625743_banner-olympianus.png'),
-(17, 'Olympia star', 'olympia-star', '0', '2016-11-25 02:00:41', '2017-06-05 15:55:02', NULL),
-(19, 'Đồng hồ cơ', 'dong-ho-co', '0', '2016-11-26 00:36:11', '2017-06-05 15:58:25', NULL),
-(20, 'Đồng hồ đôi', 'dong-ho-doi', '0', '2016-11-26 00:36:27', '2017-06-05 15:57:59', NULL),
-(21, 'Đồng hồ khác', 'dong-ho-khac', '0', '2016-11-26 00:36:48', '2017-06-05 15:58:13', NULL),
-(24, 'Orient', 'orient', '0', '2017-05-19 19:25:25', '2017-06-05 15:55:06', NULL),
-(25, 'Seiko', 'seiko', '0', '2017-05-19 19:25:37', '2017-06-05 15:55:12', NULL),
-(26, 'Đồng hồ Thụy Sĩ', 'dong-ho-thuy-si', '0', '2017-05-28 00:25:26', '2017-05-28 00:25:26', NULL);
+INSERT INTO `category` (`id`, `name`, `slug`, `parent_id`, `created_at`, `updated_at`, `banner`, `isHome`, `position`, `type`) VALUES
+(1, 'Tin tức', 'tin-tuc', '0', '2016-11-24 01:38:46', '2017-06-05 15:57:13', NULL, 0, NULL, ''),
+(3, 'Casio', 'casio', '0', '2016-11-23 20:17:01', '2017-06-09 16:33:04', '1496625595_1496134220_banner-casio.png', 1, '1', '1'),
+(4, 'Citizen', 'citizen', '0', '2016-11-23 20:17:39', '2017-06-09 16:59:14', '1497052754_banner-citizen.png', 1, '2', '0'),
+(15, 'Ogival', 'ogival', '0', '2016-11-24 01:56:05', '2017-06-09 16:59:53', '1497052793_banner-ogival.png', 1, '3', '1'),
+(16, 'Olym Pianus', 'olym-pianus', '0', '2016-11-25 02:00:27', '2017-06-09 16:33:25', '1496625743_banner-olympianus.png', 1, '4', '0'),
+(17, 'Olympia star', 'olympia-star', '0', '2016-11-25 02:00:41', '2017-06-05 15:55:02', NULL, 0, NULL, NULL),
+(19, 'Đồng hồ cơ', 'dong-ho-co', '0', '2016-11-26 00:36:11', '2017-06-09 16:20:26', NULL, 0, '', NULL),
+(20, 'Đồng hồ đôi', 'dong-ho-doi', '0', '2016-11-26 00:36:27', '2017-06-05 15:57:59', NULL, 0, NULL, NULL),
+(21, 'Đồng hồ khác', 'dong-ho-khac', '0', '2016-11-26 00:36:48', '2017-06-05 15:58:13', NULL, 0, NULL, NULL),
+(24, 'Orient', 'orient', '0', '2017-05-19 19:25:25', '2017-06-09 17:00:22', '1497052822_banner-orient-1.png', 1, '5', '1'),
+(25, 'Seiko', 'seiko', '0', '2017-05-19 19:25:37', '2017-06-09 17:00:33', '1497052833_banner-seiko.png', 1, '6', '0'),
+(26, 'Đồng hồ Thụy Sĩ', 'dong-ho-thuy-si', '0', '2017-05-28 00:25:26', '2017-05-28 00:25:26', NULL, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -602,8 +605,8 @@ INSERT INTO `products` (`id`, `name`, `slug`, `intro`, `promo1`, `promo2`, `prom
 INSERT INTO `products` (`id`, `name`, `slug`, `intro`, `promo1`, `promo2`, `promo3`, `packet`, `images`, `r_intro`, `review`, `tag`, `price`, `status`, `cat_id`, `user_id`, `created_at`, `updated_at`, `isHome`, `isGroup`) VALUES
 (69, 'OPTIPLEX 3046SFF 70086073', 'optiplex-3046sff-70086073', 'Intel Core i3 6100,8G DDR3, intel HD ', 'Đặt Online hoặc Gọi 18006601 ưu tiên khuyến mãi (SL có hạn):', 'Hoặc Tặng Vali Lock & Lock ', 'Hoặc Tặng Combo Quà (Bao da S-View + Tai nghe Level Active)', 'Dây nguồn, Ốc', '1495351631_avatarfac0000bw0.png', 'https://www.youtube.com/watch?v=QzgqOuaRNZ0', '<h2>CHI TIẾT T&Iacute;NH NĂNG</h2>\r\n\r\n<h3>Thiết kế cứng c&aacute;p</h3>\r\n\r\n<p>M&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073&nbsp;mang trong m&igrave;nh t&ocirc;ng m&agrave;u đen bắt mắt, rất th&iacute;ch hợp với nhiều kh&ocirc;ng gian l&agrave;m việc. B&ecirc;n cạnh đ&oacute;, thiết kế cứng c&aacute;p c&ugrave;ng với bộ tản nhiệt được lắp đặt rất hợp l&yacute; sẽ tăng độ bền cho m&aacute;y t&iacute;nh.</p>\r\n\r\n<p><img alt="Máy tính bàn Dell Optiplex 3046SFF 70086073 thiết kế cứng cáp, độ bền cao" src="http://static.nguyenkimmall.com/images/companies/_1/Content/tin-hoc/may-tinh-de-ban/dell/may-tinh-de-ban-dell-optiplex-3046sff-70086073-core-i3-2.jpg" /></p>\r\n\r\n<p>M&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073&nbsp;c&oacute;&nbsp;thiết kế cứng c&aacute;p</p>\r\n\r\n<h3>Hiệu năng hoạt động</h3>\r\n\r\n<p>Chip Intel Core-i3 6100 tốc độ cao 3.7GHz được trang bị tr&ecirc;n m&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073 c&oacute; hiệu suất hoạt động rất hiệu quả, m&aacute;y t&iacute;nh c&oacute; thể xử l&yacute; hiệu năng đa nhiệm nhanh ch&oacute;ng m&agrave; kh&ocirc;ng bị xảy ra hiện tượng giật.</p>\r\n\r\n<p><img alt="Máy tính bàn Dell Optiplex 3046SFF 70086073 trang bị chip Intel Core-i3 6100" src="http://static.nguyenkimmall.com/images/companies/_1/Content/tin-hoc/may-tinh-de-ban/dell/may-tinh-de-ban-dell-optiplex-3046sff-70086073-core-i3--3.jpg" /></p>\r\n\r\n<p>Xử l&yacute; t&aacute;c vụ nhanh với&nbsp;Intel Core-i3 6100 tr&ecirc;n m&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073</p>\r\n\r\n<h3>Ổ đĩa cứng&nbsp;500 GB</h3>\r\n\r\n<p><a href="http://www.nguyenkim.com/may-tinh-de-ban/">M&aacute;y t&iacute;nh b&agrave;n&nbsp;</a>n&agrave;y trang bị ổ đĩa cứng với dung lượng l&ecirc;n đến 500GB, đem đến khả năng lưu trữ dữ liệu lớn, gi&uacute;p bạn c&oacute; thể c&agrave;i đặt ứng dụng, phần mềm m&agrave; kh&ocirc;ng phải lo về t&igrave;nh trạng hết bộ nhớ trống.</p>\r\n\r\n<p><img alt="Máy tính bàn Dell Optiplex 3046SFF 70086073 trang bị ổ HDD 500 GB" src="http://static.nguyenkimmall.com/images/companies/_1/Content/tin-hoc/may-tinh-de-ban/asus/may-tinh-de-ban-asus-k31ad-vn028d-core-i3-4.jpg" /></p>\r\n\r\n<p>M&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073&nbsp;lưu trữ dữ liệu lớn</p>\r\n\r\n<h3>Ổ đĩa quang DVD</h3>\r\n\r\n<p>Bạn cũng c&oacute; thể khai th&aacute;c được sự tiện lợi của đĩa DVD với ổ đĩa quang c&oacute; khả năng đọc v&agrave; ghi t&iacute;ch hợp tr&ecirc;n m&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073, hỗ trợ bạn rất nhiều trong qu&aacute; tr&igrave;nh sử dụng.</p>\r\n\r\n<p><img alt="Máy tính bàn Dell Optiplex 3046SFF 70086073 tích hợp ổ đĩa quang tiện lợi" src="http://static.nguyenkimmall.com/images/companies/_1/Content/tin-hoc/may-tinh-de-ban/dell/may-tinh-de-ban-dell-optiplex-3046sff-70086073-core-i3-5.jpg" /></p>\r\n\r\n<p>Ổ đĩa quang DVD t&iacute;ch hợp tr&ecirc;n m&aacute;y&nbsp;t&iacute;nh b&agrave;n Dell Optiplex 3046SFF 70086073</p>\r\n\r\n<h3>L&yacute; do mua h&agrave;ng</h3>\r\n\r\n<ul>\r\n	<li>\r\n	<p>C&oacute; thể dễ d&agrave;ng n&acirc;ng cấp phần cứng để ph&ugrave; hợp với nhu cầu sử dụng của m&igrave;nh.</p>\r\n	</li>\r\n	<li>\r\n	<p>Chip Intel Core-i3 6100 tốc&nbsp;độ cao c&ugrave;ng RAM 4 GB, gi&uacute;p xử l&yacute; c&aacute;c t&aacute;c vụ nhanh ch&oacute;ng.&nbsp;</p>\r\n	</li>\r\n	<li>\r\n	<p>T&iacute;ch hợp ổ đĩa quang DVD cho ph&eacute;p ghi v&agrave; đọc.</p>\r\n	</li>\r\n</ul>\r\n\r\n<h3>Ưu đ&atilde;i mua h&agrave;ng</h3>\r\n\r\n<ul>\r\n	<li>\r\n	<p>Để đặt mua&nbsp;m&aacute;y t&iacute;nh b&agrave;n của Dell, bạn c&oacute; thể gọi ngay đến tổng đ&agrave;i&nbsp;<em>1900 1267</em>&nbsp;bấm ph&iacute;m số 1.</p>\r\n	</li>\r\n	<li>\r\n	<p>Bạn cũng c&oacute; thể y&ecirc;u cầu nh&acirc;n vi&ecirc;n Nguyễn Kim gọi lại để tiết kiệm chi ph&iacute; điện thoại.</p>\r\n	</li>\r\n	<li>\r\n	<p>Dịch vụ giao h&agrave;ng tận nơi nhanh ch&oacute;ng, tiện lợi.</p>\r\n	</li>\r\n</ul>\r\n\r\n<h3>TH&Ocirc;NG SỐ KỸ THUẬT</h3>\r\n\r\n<h2>Th&ocirc;ng tin chung</h2>\r\n\r\n<p>Model:</p>\r\n\r\n<p>OPTIPLEX 3046SFF 70086073</p>\r\n\r\n<p>M&agrave;u sắc:</p>\r\n\r\n<p>Đen</p>\r\n\r\n<p>Nh&agrave; sản xuất:</p>\r\n\r\n<p>Dell</p>\r\n\r\n<p>Xuất xứ:</p>\r\n\r\n<p>Trung Quốc</p>\r\n\r\n<p>Thời gian bảo h&agrave;nh:</p>\r\n\r\n<p>12 th&aacute;ng</p>\r\n\r\n<p>Địa điểm bảo h&agrave;nh:</p>\r\n\r\n<p>Nguyễn Kim</p>\r\n\r\n<h2>Bộ vi xử l&yacute; m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>CPU:</p>\r\n\r\n<p>Intel Core-i3</p>\r\n\r\n<p>Loại CPU:</p>\r\n\r\n<p>6100</p>\r\n\r\n<p>Tốc độ CPU:</p>\r\n\r\n<p>3.70 GHz</p>\r\n\r\n<p>Bộ nhớ đệm:</p>\r\n\r\n<p>3 MB Cache</p>\r\n\r\n<p>Tốc độ CPU tối đa:</p>\r\n\r\n<p>Kh&ocirc;ng</p>\r\n\r\n<h2>Bộ nhớ m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>Loại RAM:</p>\r\n\r\n<p>SDRAM DDR3</p>\r\n\r\n<p>Dung lượng RAM:</p>\r\n\r\n<p>4 GB</p>\r\n\r\n<p>Tốc độ Bus:</p>\r\n\r\n<p>1600 MHz</p>\r\n\r\n<h2>Đĩa cứng m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>Loại ổ đĩa cứng:</p>\r\n\r\n<p>SATA</p>\r\n\r\n<p>Dung lượng đĩa cứng:</p>\r\n\r\n<p>500 GB</p>\r\n\r\n<h2>Đĩa quang m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>T&iacute;ch hợp ổ đĩa quang:</p>\r\n\r\n<p>C&oacute;</p>\r\n\r\n<p>Loại đĩa quang:</p>\r\n\r\n<p>SuperMulti DVD</p>\r\n\r\n<h2>Đồ họa m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>Bộ xử l&yacute; đồ họa:</p>\r\n\r\n<p>Integrated Intel HD Graphics</p>\r\n\r\n<p>Chipset card đồ họa:</p>\r\n\r\n<p>Intel HD</p>\r\n\r\n<p>Dung lượng card đồ họa:</p>\r\n\r\n<p>Share</p>\r\n\r\n<h2>&Acirc;m thanh m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>C&ocirc;ng nghệ &acirc;m thanh:</p>\r\n\r\n<p>High Definition</p>\r\n\r\n<p>Chuẩn &acirc;m thanh:</p>\r\n\r\n<p>High Definition Audio</p>\r\n\r\n<h2>Kết nối m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>Cổng kết nối m&agrave;n h&igrave;nh:</p>\r\n\r\n<p>VGA</p>\r\n\r\n<p>Chuẩn WiFi:</p>\r\n\r\n<p>Kh&ocirc;ng</p>\r\n\r\n<p>Chuẩn LAN:</p>\r\n\r\n<p>10 / 100 Mbps</p>\r\n\r\n<p>Bluetooth:</p>\r\n\r\n<p>Kh&ocirc;ng</p>\r\n\r\n<p>Cổng USB:</p>\r\n\r\n<p>C&oacute;</p>\r\n\r\n<p>Cổng HDMI:</p>\r\n\r\n<p>Đang cập nhật</p>\r\n\r\n<p>Khe đọc thẻ nhớ:</p>\r\n\r\n<p>Đang cập nhật</p>\r\n\r\n<p>Kết nối kh&aacute;c:</p>\r\n\r\n<p>Kh&ocirc;ng</p>\r\n\r\n<h2>Hệ điều h&agrave;nh m&aacute;y t&iacute;nh để b&agrave;n</h2>\r\n\r\n<p>HĐH k&egrave;m theo m&aacute;y:</p>\r\n\r\n<p>Ubuntu</p>\r\n\r\n<h2>K&iacute;ch thước &amp; Khối lượng th&ugrave;ng</h2>\r\n\r\n<p>K&iacute;ch thước th&ugrave;ng:</p>\r\n\r\n<p>290x92x292 mm</p>\r\n\r\n<p>Khối lượng th&ugrave;ng (kg):</p>\r\n\r\n<p>6.1 kg</p>\r\n', 'OPTIPLEX 3046SFF 70086073', 21890000, 1, 24, 1, '2016-11-28 18:10:44', '2016-11-28 18:21:42', 0, 1),
 (71, 'SGEH51P1', 'sgeh51p1', '', 'Hộp, Sạc, Tai nghe, Sách hướng dẫn, Cáp OTG, Cáp, Cây lấy sim ', '', '', ' Trả góp 0%', '1495351631_avatarfac0000bw0.png', 'https://www.youtube.com/watch?v=QzgqOuaRNZ0', '<p style="text-align:center"><a href="https://www.xwatch.vn/blog/bao-hiem-dong-ho-tieu-chuan-thuy-si-p2724.html" rel="noopener noreferrer" target="_blank"><img alt="chính sách bảo hành Xwatch" class="alignnone size-full wp-image-36297" src="//www.cdn.xwatch.vn/wp-content/uploads/2016/12/xw-banner-csbh.png" style="max-width:1177px; width:1200px" /></a> <img alt="chứng nhận đại lý Seiko" class="alignnone size-full wp-image-36358" src="//www.cdn.xwatch.vn/wp-content/uploads/2016/12/xw-banner-giay-chung-nhan-seiko-chinh-hang.jpg" style="max-width:1177px; width:1200px" /><img alt="" class="alignnone size-full wp-image-33822" src="//www.cdn.xwatch.vn/wp-content/uploads/2017/04/xw-doi-ngu-ki-thuat.png" style="max-width:1177px; width:1200px" /> <a href="https://www.xwatch.vn/lien-he" rel="noopener noreferrer" target="_blank"><img alt="hệ thống cửa hàng xwatch" class="alignnone size-full wp-image-34096" src="//www.cdn.xwatch.vn/wp-content/uploads/2017/04/xw-banner-he-thong-cua-hang.png" style="max-width:1177px; width:1200px" /></a><img alt="" class="alignnone size-full wp-image-32678" src="//www.cdn.xwatch.vn/wp-content/uploads/2016/12/phụ-kiện-của-Seiko.jpg" style="max-width:1177px; width:1099px" /></p>\r\n', '', 5123900, 1, 4, 1, '2017-05-21 00:27:11', '2017-06-05 16:44:51', 1, 1),
-(73, 'Đồng hồ TS1', 'dong-ho-ts1', NULL, 'Không có', '', '', 'Không có', '1496392203_1495249390_avatarefr-526d-7avudf.png', 'https://www.youtube.com/watch?v=QzgqOuaRNZ0', '<p>Đồng hồ Thụy Sĩ TS1</p>\r\n', '', 1000000, 1, 26, 1, '2017-05-28 00:27:20', '2017-05-28 00:27:20', 1, 0),
-(99, 'San pham 001', 'san-pham-001', 'https://www.youtube.com/watch?v=QzgqOuaRNZ0', '', '', '', '', '1496393446_1495351096_avatarfac0000bw0.png', 'https://www.youtube.com/watch?v=QzgqOuaRNZ0', '', '', 12345, 1, 15, 1, '2017-05-30 03:16:07', '2017-06-05 03:14:50', 1, 0),
+(73, 'Đồng hồ TS1', 'dong-ho-ts1', NULL, 'Không có', '', '', 'Không có', '1496392203_1495249390_avatarefr-526d-7avudf.png', 'https://www.youtube.com/watch?v=QzgqOuaRNZ0', '<p>Đồng hồ Thụy Sĩ TS1</p>\r\n', '', 1000000, 1, 26, 1, '2017-05-28 00:27:20', '2017-05-28 00:27:20', 1, 1),
+(99, 'San pham 001', 'san-pham-001', 'https://www.youtube.com/watch?v=QzgqOuaRNZ0', '', '', '', '', '1496393446_1495351096_avatarfac0000bw0.png', 'https://www.youtube.com/watch?v=QzgqOuaRNZ0', '', '', 12345, 1, 15, 1, '2017-05-30 03:16:07', '2017-06-05 03:14:50', 1, 1),
 (101, 'Đồng hồ Nei', 'dong-ho-nei', 'https://www.youtube.com/watch?v=RK6YUrMsP70', 'Đủ hộp sản phẩm', '', '', 'Không khuyến mãi', '1496624498_1495293254_avatarop995.6agsk-t.png', 'https://www.youtube.com/watch?v=RK6YUrMsP70', '<p>Chi tiet</p>\r\n', '', 6555000, 0, 16, 1, '2017-06-04 18:01:38', '2017-06-05 03:29:40', 1, 1);
 
 -- --------------------------------------------------------
@@ -927,7 +930,7 @@ ALTER TABLE `branchs`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `contacts`
 --
@@ -952,7 +955,7 @@ ALTER TABLE `group_watch`
 -- AUTO_INCREMENT for table `kieuday`
 --
 ALTER TABLE `kieuday`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `kieumay`
 --
