@@ -1,5 +1,5 @@
 <?php
-$data = DB::table('advs')->where('type','1')->select('advs.*')->orderBy('id', 'asc')->paginate(2);
+$data = DB::table('advs')->where('type','1')->where('status','1')->select('advs.*')->orderBy('id', 'asc')->paginate(2);
 ?>
 <div class="container">
      <!-- 2 post advs -->

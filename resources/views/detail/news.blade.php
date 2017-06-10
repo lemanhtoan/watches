@@ -38,7 +38,7 @@
                   </p>
               </div>
 
-              <div class="row box-comment">
+              <div class="box-comment">
                   <!-- comment later -->
                   <div class="text-center-home left-align">ĐÁNH GIÁ VÀ NHẬN XÉT
                   </div>
@@ -46,8 +46,8 @@
                   <div class="fb-comments" data-href="<?php echo $curentURL; ?>" data-numposts="10"></div>
               </div>
 
-              <div class="row">
-                <h1 style="padding: 30px; font-size: 18px; font-weight: bold;"> Tin khác</h1>
+                <div class="text-center-home left-align">CÓ THỂ BẠN QUAN TÂM
+                  </div> 
                 @foreach($relation as $row)
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
                   <div class="item-news">
@@ -56,14 +56,11 @@
                     </div>
                     <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
                       <h4><a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}"" title="{!!$row->title!!}">{!!$row->title!!}</a></h4>
-                      <p> 
-                        {!!$row->intro!!}
-                      </p>
+                      <div class="intro">{!!$row->intro!!}</div>   
                     </div>
                   </div> 
                   </div>
                 @endforeach 
-              </div><!-- /row -->
               <div class="center-page">
                 {!!$relation->render()!!}
               </div>

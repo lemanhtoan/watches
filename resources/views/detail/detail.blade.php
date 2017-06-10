@@ -101,10 +101,13 @@
                         <div class="pro-header-attr">Thông số kỹ thuật</div>
                         <table class="table table-hover">
                             <tbody>
+                            <?php if ($data->pro_details->w_group):?>
                             <tr>
                                 <td class="td-col-1">Phân nhóm<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_group!!}</td>
                             </tr>
+                            <?php endif; ?>
+                            <?php if ($data->pro_details->w_branch):?>
                             <tr>
                                 <td class="td-col-1">Nhãn hiệu<i class="fa fa-angle-right"></i></td>
                                 <td><?php $branch = $data->pro_details->w_branch;
@@ -112,54 +115,79 @@
                                 echo $dataBranch[0]->name;
                                 ?></td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_country):?>
                             <tr>
                                 <td class="td-col-1">Xuất xứ<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_country!!}</td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_role):?>
                             <tr>
                                 <td class="td-col-1">Dòng sản phẩm<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_role!!}</td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_type):?>
                             <tr>
                                 <td class="td-col-1">Kiểu máy<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_type!!}</td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_sex):?>
                             <tr>
                                 <td class="td-col-1">Đồng hồ dành cho<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_sex!!}</td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_size):?>
                             <tr>
                                 <td class="td-col-1">Kích cỡ<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_size!!}</td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_out):?>
                             <tr>
                                 <td class="td-col-1">Chất liệu vỏ<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_out!!}</td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_in):?>
                             <tr>
                                 <td class="td-col-1">Chất liệu dây<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_in!!}</td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_on):?>
                             <tr>
                                 <td class="td-col-1">Chất liệu kính<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_on!!}</td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_water):?>
                             <tr>
                                 <td class="td-col-1">Độ chịu nước<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_water!!}</td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_other):?>
                             <tr>
                                 <td class="td-col-1">Chức năng khác<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_other!!}</td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_time):?>
                             <tr>
                                 <td class="td-col-1">Bảo hiểm<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_time!!}</td>
                             </tr>
+                            <?php endif;?>
+                            <?php if ($data->pro_details->w_time_base):?>
                             <tr>
                                 <td class="td-col-1">Bảo hành quốc tế<i class="fa fa-angle-right"></i></td>
                                 <td>{!!$data->pro_details->w_time_base!!}</td>
                             </tr>
+                            <?php endif;?>
                             </tbody>
                         </table>
                     </div>
@@ -223,7 +251,7 @@
             </div>
         </div>
 
-        <div class="row box-comment">
+        <div class="box-comment">
             <!-- comment later -->
             <div class="text-center-home left-align">ĐÁNH GIÁ VÀ NHẬN XÉT
             </div>

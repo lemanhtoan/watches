@@ -12,113 +12,97 @@
     </div>
     <div class="container">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 news-list">
-
-            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-padding">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="panel panel-success">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <!-- hot new content -->
-                                    <?php if ($hot1) :?>
-                                    <div class="col-lg-6">
-                                        <a href="{!!url('tin-tuc/'.$hot1->id.'-'.$hot1->slug)!!}" title=""><img src="{!!url('uploads/news/'.$hot1->images)!!}" alt="" height="200"></a>
-                                        <h3 class="title-h3"><a href="{!!url('tin-tuc/'.$hot1->id.'-'.$hot1->slug)!!}" title="">{!!$hot1->title!!} </a></h3>
-                                        <p class="summary-content">
-                                            {!!$hot1->intro!!}
-                                        </p>
-                                    </div>
-                                    <?php endif;?>
-
-                                    <?php if ($data): ?>
-                                    <div class="col-lg-6 no-padding">
-                                        <div class="row">
-                                            @foreach($data as $row)
-                                                <div class="col-lg-12 ">
-                                                    <h4 class="title-news"><a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="{!!$row->title!!}">{!!$row->title!!}</a></h4>
-                                                    <div class="col-lg-3">
-                                                        <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title=""><img src="{!!url('uploads/news/'.$row->images)!!}" alt="" style="padding-right:10px; padding-left: 0; width: 90px; max-width: inherit !important; "></a>
-                                                    </div>
-
-                                                    <div class="col-lg-9">
-                                                        <p class="sum">{!!$row->intro!!}</p>
-                                                    </div>
-
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <?php endif;?>
-                                </div>
-
-                                <?php if ($all): ?>
-                                <div class="row">
-                                    @foreach($all as $row)
-                                        <div class="col-lg-12 no-padding">
-                                            <hr>
-                                            <div class="col-lg-3">
-                                                <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="{!!$row->slug!!}"><img src="{!!url('uploads/news/'.$row->images)!!}" alt="" width="90%" height="99%"> </a>
-                                            </div>
-                                            <div class="col-lg-9">
-                                                <h4><a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="">{!!$row->title!!}</a></h4>
-                                                <p>
-                                                    {!!$row->intro!!}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div><!-- /row -->
-
-                                <div class="center-page">
-                                    {!!$all->render()!!}
-                                </div>
-                                <?php endif; ?>
-
-                            </div>
+          <div class="row">
+                  <div class="text-center-home">{!! $cateName !!}
+                    <hr>
+                  </div>
+                  
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <?php $i = 0; foreach($news as $item) { if (++$i == 2) break;?>
+                    <a href="{!!url('tin-tuc/'.$item->id.'-'.$item->slug)!!}" title=""><img src="{!!url('uploads/news/'.$item->images)!!}" alt="" ></a>
+                      <h3 class="title-h3"><a href="{!!url('tin-tuc/'.$item->id.'-'.$item->slug)!!}" title="">{!!$item->title!!} </a></h3>
+                      <div class="summary-content">
+                          {!!$item->intro!!}
+                      </div>
+                  <?php } ?>
+                  </div>
+                  
+                  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                      <?php $i = 0; foreach($news as $item) { if (++$i == 6) break;?>
+                      <?php if ($i>1): ?>
+                           <div class="newtop news-<?php echo $i;?> col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                             <a href="{!!url('tin-tuc/'.$item->id.'-'.$item->slug)!!}" title=""><img src="{!!url('uploads/news/'.$item->images)!!}" alt="" ></a>
+                            <h3 class="title-h3"><a href="{!!url('tin-tuc/'.$item->id.'-'.$item->slug)!!}" title="">{!!$item->title!!} </a></h3>
+                           </div>
+                      
+                      <?php endif; ?>
+                    <?php } ?>
+                  </div>
+          </div>
+          <div class="break"></div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-9 col-lg-9">
+                <ul class="list-new">
+                   <?php foreach($list as $item) {?>
+                      <li>
+                        <div class="new-left">
+                          <a href="{!!url('tin-tuc/'.$item->id.'-'.$item->slug)!!}" title=""><img src="{!!url('uploads/news/'.$item->images)!!}" alt="" width="200  "></a>
                         </div>
-                    </div>
-                </div>
-            </div>
+                        <div class="new-right">
+                          <h3 class="title-h3"><a href="{!!url('tin-tuc/'.$item->id.'-'.$item->slug)!!}" title="">{!!$item->title!!} </a></h3>
+                          <div class="summary-content">
+                            {!!$item->intro!!}
+                        </div>
+                        </div>
+                     </li>
+                    <?php } ?>
+                </ul>
+                <?php if (count($list)): ?>
+                  <div class="center-page">
+                      {!!$list->render()!!}
+                  </div>
+                <?php else:?>
+                     <h4 style="text-align: left; font-size: 18px; font-weight: bold; "> Chưa có dữ liệu.</h4>
+                <?php endif;?>
 
-            <?php if ($all): ?>
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                <!-- panel inffo 1 -->
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title text-center">Tin mới</h3>
-                    </div>
-                    <div class="panel-body">
-
-                        @foreach($all as $row)
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-                                    <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="{!!$row->title!!}"><img src="{!!url('uploads/news/'.$row->images)!!}" alt="{!!$row->images!!}" width="99%" height="99%"> </a>
-                                </div>
-                                <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-                                    <a href="{!!url('/tin-tuc/'.$row->id.'-'.$row->slug)!!}" title="">{!!$row->title!!}</a>
-                                </div>
-                            </div>
-                        @endforeach
-
-
-                    </div>
-                </div>
-                <?php endif; ?>
-
-                <?php $dataAdvs = DB::table('advs')->where('type','2')->select('advs.*')->orderBy('id', 'asc')->paginate(5);?>
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <h3 class="panel-title text-center">Sự kiện HOT</h3>
-                    </div>
-                    <div class="panel-body no-padding">
-                        <?php if (count($dataAdvs)) : $i=0; foreach($dataAdvs as $row): $i++;?>
-                        <a href="<?php echo $row->url?>" target="_blank"><img src="{!!url('/uploads/advs/'.$row->image)!!}" alt=""></a> <br>
-                        <?php endforeach; endif;?>
-                    </div>
-                </div> <!-- /panel info 2  quản cáo 1          -->
-
+                 <div class="box-comment">
+                  <!-- comment later -->
+                  <div class="text-center-home left-align">ĐÁNH GIÁ VÀ NHẬN XÉT
+                  </div>
+                  <?php $curentURL = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";?>
+                  <div class="fb-comments" data-href="<?php echo $curentURL; ?>" data-numposts="10"></div>
+              </div>
 
             </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                  <div class="panel panel-info">
+                      <div class="panel-heading">
+                          <h3 class="panel-title text-center">DANH MỤC TIN</h3>
+                      </div>
+                      <div class="panel-body no-padding">
+                          <?php foreach($catenews as $item): $itemId = $item->id;?>
+                          <a class="list-news" href="{!!url('tintuc/'.$itemId)!!}"><i class="fa fa-angle-right"></i>{!!$item->name!!}</a> <br>
+                          <?php endforeach;?>
+                      </div>
+                  </div> <!-- /panel info 2  quản cáo 1          -->
+
+                  <?php $dataAdvs = DB::table('advs')->where('type','2')->where('status', '1')->select('advs.*')->orderBy('id', 'asc')->paginate(5);?>
+                  <?php if (count($dataAdvs)) : ?>
+                  <div class="panel panel-info">
+                      <div class="panel-heading">
+                          <h3 class="panel-title text-center">Sự kiện HOT</h3>
+                      </div>
+                      <div class="panel-body no-padding">
+                          <?php $i=0; foreach($dataAdvs as $item): $i++;?>
+                          <a href="<?php echo $item->url?>" target="_blank"><img src="{!!url('/uploads/advs/'.$item->image)!!}" alt=""></a> <br>
+                          <?php endforeach; ?>
+                      </div>
+                  </div> <!-- /panel info 2  quản cáo 1          -->
+                <?php endif;?>
+
+            </div>
+          </div>
+
         </div>
     </div>
 <!-- ===================================================================================/news ============================== -->

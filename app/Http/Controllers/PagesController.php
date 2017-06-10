@@ -15,6 +15,7 @@ use App\Oders_detail;
 use DB,Cart,Datetime;
 use App\Day;
 use App\May;
+use App\Groupnews;
 //call model
 use App\Model\Contacts;
 use App\Slidecate;
@@ -55,7 +56,7 @@ class PagesController extends Controller
             array_push($data, array('category' => $cate, 'products' => $products));
         }
         
-    	return view('home',['data'=>$data ]);
+        return view('home',['data'=>$data ]);
     }
     public function addcart($id)
     {
@@ -217,7 +218,8 @@ class PagesController extends Controller
                     ->select('products.*','pro_details.*')
                      ->orderBy('products.created_at', 'desc')
                     ->paginate(16);
-                return view('category.list',['data'=>$data, 'cateName' => 'Đồng hồ nam','dataConstant' => $this->dataConstant(), 'catSlug' => '1']);
+                    $slideCate =  $this->getSlideCate('1'); // tintuc
+                return view('category.list',['slideCate'=>$slideCate,'data'=>$data, 'cateName' => 'Đồng hồ nam','dataConstant' => $this->dataConstant(), 'catSlug' => '1']);
 
             case 'olym':
                 $data = DB::table('products')
@@ -235,7 +237,13 @@ class PagesController extends Controller
                 $catId1 = DB::table('category')->where('slug', 'olym-pianus')->first();
                 $catId2 = DB::table('category')->where('slug', 'olympia-star')->first();
 
-                return view('category.list',['slideCate'=>$this->getSlideCate($catId1->id, $catId2->id), 'data'=>$data, 'cateName' => 'Đồng hồ nam','dataConstant' => $this->dataConstant(), 'catSlug' => '1']);
+                if (count($this->getSlideCate($catId1->id, $catId2->id))) {
+                    $slideCate = $this->getSlideCate($catId1->id, $catId2->id);
+                } else {
+                    $slideCate =  $this->getSlideCate('1'); // tintuc
+                }
+
+                return view('category.list',['slideCate'=>$slideCate, 'data'=>$data, 'cateName' => 'Đồng hồ Olym','dataConstant' => $this->dataConstant(), 'catSlug' => '1']);
 
 
             case 'dong-ho-nu':
@@ -248,7 +256,8 @@ class PagesController extends Controller
                     ->select('products.*','pro_details.*')
                      ->orderBy('products.created_at', 'desc')
                     ->paginate(16);
-                return view('category.list',['data'=>$data, 'cateName' => 'Đồng hồ nữ','dataConstant' => $this->dataConstant(), 'catSlug' => '0']);
+                    $slideCate =  $this->getSlideCate('1'); // tintuc
+                return view('category.list',['slideCate'=>$slideCate,'data'=>$data, 'cateName' => 'Đồng hồ nữ','dataConstant' => $this->dataConstant(), 'catSlug' => '0']);
             default:
 
                 $cate = Category::where('slug', '=', $cat)->get(['name', 'id']);
@@ -262,7 +271,14 @@ class PagesController extends Controller
                     ->select('products.*','pro_details.*')
                     ->orderBy('products.created_at', 'desc')
                     ->paginate(16);
-                    return view('category.list',['slideCate'=>$this->getSlideCate($cateId), 'data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
+
+                if (count($this->getSlideCate($cateId))) {
+                    $slideCate = $this->getSlideCate($cateId); 
+                } else {
+                    $slideCate =  $this->getSlideCate('1'); // tintuc
+                }
+
+                    return view('category.list',['slideCate'=>$slideCate, 'data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
         }
          
     }
@@ -370,29 +386,41 @@ class PagesController extends Controller
 
     public function getNews()
     { 
-        $new =  DB::table('news')
-                ->orderBy('created_at', 'desc')
-                ->paginate(3);
-        $top1 = $new->shift();
-        $all =  DB::table('news')
+        $news =  DB::table('news')
                 ->orderBy('created_at', 'desc')
                 ->paginate(5);
-        return view('category.news',['data'=>$new,'hot1'=>$top1,'all'=>$all]);
+        
+        $list = DB::table('news')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+                
+        $catenews =  DB::table('groupnews')
+                ->orderBy('name', 'asc')
+                ->get();
+
+        return view('category.news',['cateName' => $cateName->name, 'news'=>$news,'list'=>$list,'catenews'=>'Tin tức']);
          
     }
 
+
     public function getNewGroup($groupId)
     { 
-        $new =  DB::table('news')
-                ->where('group', $groupId)
-                ->orderBy('created_at', 'desc')
-                ->paginate(3);
-        $top1 = $new->shift();
-        $all =  DB::table('news')
+        $news =  DB::table('news')
                 ->where('group', $groupId)
                 ->orderBy('created_at', 'desc')
                 ->paginate(5);
-        return view('category.news',['data'=>$new,'hot1'=>$top1,'all'=>$all]);
+        
+        $list = DB::table('news')
+                ->where('group', $groupId)
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+                
+        $catenews =  DB::table('groupnews')
+                ->orderBy('name', 'asc')
+                ->get();
+        $cateName = Groupnews::where('id',$groupId)->first();
+
+        return view('category.news',['cateName' => $cateName->name, 'news'=>$news,'list'=>$list,'catenews'=>$catenews]);
          
     }
     

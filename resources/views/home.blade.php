@@ -166,7 +166,7 @@
     <div class="clearfix">
     </div>
     <?php
-    $homeAdvs = DB::table('advs')->where('type', '0')->select('url','image')->get()[0];
+    $homeAdvs = DB::table('advs')->where('type', '0')->where('status','1')->select('url','image')->get()[0];
     ?>
     <div class="box-advs">
       <a href="{!! $homeAdvs->url !!}" target="_blank">

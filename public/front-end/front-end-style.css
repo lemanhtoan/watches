@@ -1572,6 +1572,15 @@ p.category-well {
     font-weight: bold;background: #ECECEC; padding: 20px 10px 20px; text-align: right; font-size: 18px; text-transform: uppercase;
 }
 @media only screen and (max-width: 1023px) {
+  #navRoot .has-children .fa-angle-double-right {
+    margin-left: 10px;
+  }
+  #mainMenu i.fa.fa-circle {
+    color: #fff !important;
+  }
+  .move-out i.fa.fa-circle{
+    display: none;
+  }
     .price-total, .sub-total {
         font-size: 14px;
     }
@@ -1834,7 +1843,7 @@ span.lienhe {
     float: right;
     margin-top: 4px;
 }
-.product-page {
+.product-page, .news-list, .news-detail {
     font-family: 'Roboto Condensed', sans-serif;
     padding-top: 30px;
 }
@@ -1873,6 +1882,9 @@ li.mediaSelected {
     max-width: 100%;
 }
 @media (min-width: 1024px) {
+  .cd-dropdown-content .cd-secondary-dropdown.is3col > li {
+    width: 33%;
+}
     .mediaDetail img {
         min-width: 430px;
         display: table;
@@ -2003,9 +2015,7 @@ a.btn.btn-continue {
   margin: 10px 0;
 }
 
-.cd-dropdown-content .cd-secondary-dropdown.is3col > li {
-    width: 33%;
-}
+
 .product-page .tbreadcrumb {
   padding-left: 20px;
 }
@@ -2040,4 +2050,81 @@ a.btn.btn-continue {
 .news-detail .panel {
     box-shadow: none;
     border: none;
+}
+
+a.list-news {
+    color: #999;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    float: left;
+    width: 100%;
+}
+
+a.list-news i {
+    margin-right: 5px;
+}
+
+.summary-content, .item-news .intro {
+  max-height: 100px;
+  overflow: hidden;
+  color: #999;
+  font-size: 14px;
+}
+
+.news-list .title-h3 a {
+  font-size: 18px;
+  color: #000;
+}
+
+.item-news h4 a{
+  color: #000;
+  font-size: 16px;
+}
+
+.break {
+    float: left;
+    margin: 30px 0;
+    border-top: 1px dotted #8a8a8a;
+    width: 100%;
+    height: 1px;
+}
+
+.new-left {
+    float: left;
+    width: 30%;
+}
+
+.new-right {
+    float: right;
+    width: 70%;
+}
+
+.new-right h3.title-h3 {
+  padding-top: 0;
+}
+
+.list-new li {
+  width: 100%;
+  float: left;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted  #8a8a8a;
+}
+
+.box-comment {
+  margin-top: 30px;
+  float: left;
+  width: 100%;
+}
+
+.newtop h3 {
+    float: left;
+    max-height: 73px;
+    overflow: hidden;
+}
+
+.newtop img {
+    max-height: 90px;
+    overflow: hidden;
+    width: 100%;
 }

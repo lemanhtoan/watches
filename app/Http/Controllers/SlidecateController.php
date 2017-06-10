@@ -12,11 +12,11 @@ class SlidecateController extends Controller
 {
     public function getlist()
    {
-		$data = Slidecate::all();
+		$data = Slidecate::orderBy('id', 'desc')->paginate(20);;
 		return View ('back-end.slidecate.list',['data'=>$data, 'cat'=>$this->getCate()]);
    }
    public  function getCate() {
-       return Category::all()->except([1]);
+       return Category::all();
    }
 
    public function getadd()
