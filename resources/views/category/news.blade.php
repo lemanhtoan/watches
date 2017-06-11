@@ -30,7 +30,7 @@
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                       <?php $i = 0; foreach($news as $item) { if (++$i == 6) break;?>
                       <?php if ($i>1): ?>
-                           <div class="newtop news-<?php echo $i;?> col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                           <div class="newtop news-<?php echo $i;?> col-xs-6 col-sm-6 col-md-6 col-lg-6">
                              <a href="{!!url('tin-tuc/'.$item->id.'-'.$item->slug)!!}" title=""><img src="{!!url('uploads/news/'.$item->images)!!}" alt="" ></a>
                             <h3 class="title-h3"><a href="{!!url('tin-tuc/'.$item->id.'-'.$item->slug)!!}" title="">{!!$item->title!!} </a></h3>
                            </div>

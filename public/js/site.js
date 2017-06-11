@@ -5,8 +5,14 @@ jQuery(document).on('click', '.mega-dropdown', function(e) {
 jQuery(window).scroll(function(){
     if (jQuery(this).scrollTop() > 135) {
         jQuery('#mainMenu').addClass('navfixed');
+        if (jQuery(window).width() >= 1024) {
+            jQuery('.product-details-tab').show();
+        }
     } else {
         jQuery('#mainMenu').removeClass('navfixed');
+        if (jQuery(window).width() >= 1024) {
+            jQuery('.product-details-tab').hide();
+        }
     }
 });
 
@@ -117,3 +123,9 @@ jQuery('body').click(function(evt){
    jQuery('#resultSuggest').hide();
 });
 
+jQuery(".thread-details").click(function() {
+    var idJump = jQuery(this).attr('id');
+    jQuery('html, body').animate({
+        scrollTop: jQuery("."+idJump).offset().top
+    }, 1500);
+});

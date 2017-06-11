@@ -14,10 +14,18 @@
     <div class="container">
     <div class="product-page">
 
+    
+        <ul class="product-details-tab cf text-center">
+            <li id="tab-attrs" class="thread-details"><i class="fa fa-file-text-o"></i> Thông số</li>
+            <li id="tab-images" class="thread-details" ><i class="fa fa-camera"></i> Hình ảnh</li>
+            <li id="tab-content" class="thread-details" ><i class="fa fa-clock-o"></i> Nội dung</li>
+            <li id="tab-comment" class="thread-details" ><i class="fa fa-thumbs-up"></i> Bình luận</li>
+        </ul>
+
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 box-img-galary">
                 <!-- image and gallery -->
-                <div class="img-media-box">
+                <div class="img-media-box tab-images">
                     <div class="mediaDetail">
                         <ul id="lightSlider">
                             <li data-thumb="{!!url('/uploads/products/'.$data->images)!!}">
@@ -96,7 +104,7 @@
                     </div>
                 </div>
 
-                <div class="box-attributes">
+                <div class="box-attributes tab-attrs">
                     <div class="table-responsive">
                         <div class="pro-header-attr">Thông số kỹ thuật</div>
                         <table class="table table-hover">
@@ -221,7 +229,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row tab-content">
             <div class="box-fulldesc">
                 <div class="text-center-home">Giới thiệu sản phẩm
                     <hr>
@@ -251,7 +259,7 @@
             </div>
         </div>
 
-        <div class="box-comment">
+        <div class="box-comment tab-comment">
             <!-- comment later -->
             <div class="text-center-home left-align">ĐÁNH GIÁ VÀ NHẬN XÉT
             </div>
