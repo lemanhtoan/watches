@@ -218,7 +218,7 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <h3 class="panel-title">Khuyễn mãi - Chính sách</h3>
+                    <h3 class="panel-title">Khuyến mãi - Chính sách</h3>
                     <div class="chinhsach">
                         <li><span class="glyphicon glyphicon-hand-right"></span> Trong hộp có: {!!$data->packet!!} </li>
                         <li><span class="glyphicon glyphicon-hand-right"></span> Giao hàng tận nơi miễn phí trong 1 ngày

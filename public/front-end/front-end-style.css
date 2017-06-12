@@ -1341,8 +1341,13 @@ ul.suggest-items li {
     border: 1px solid #dadada;
     width: 110px !important;
     height: auto;
+    min-height: 148px;
+    max-height: 148px;
+    overflow: hidden;
 }
-
+.cd-dropdown-gallery h3 {
+  text-transform: uppercase;
+}
 #mainMenu .dropdown-menu {
     border-top: 0;
     padding: 15px 10px;
@@ -1908,6 +1913,18 @@ li.mediaSelected {
     max-width: 100%;
 }
 @media (min-width: 1024px) {
+
+.pro-image {
+    max-height: 345px;
+    overflow: hidden;
+    min-height: 345px;
+}
+
+.owl-listChoise .pro-image {
+   max-height: 280px;
+   overflow: hidden;
+    min-height: 280px;
+}
   .product-details-tab {
     position: fixed;
     left: 0;
