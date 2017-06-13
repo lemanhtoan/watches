@@ -132,6 +132,7 @@ class ProductsController extends Controller
     	$pro = new Products();
 
     	$pro->name = $rq->txtname;
+        $pro->code = $rq->code;
     	$pro->slug = str_slug($rq->txtname,'-');
     	$pro->intro = $rq->txtintro;
     	$pro->promo1 = $rq->txtpromo1;
@@ -239,6 +240,7 @@ class ProductsController extends Controller
     	$pro = Products::find($id);
 
         $pro->name = $rq->txtname;
+        $pro->code = $rq->code;
         $pro->slug = str_slug($rq->txtname,'-');
         $pro->intro = $rq->txtintro;
         $pro->promo1 = $rq->txtpromo1;

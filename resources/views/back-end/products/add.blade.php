@@ -54,10 +54,21 @@
 									</select>
 				      			</div></div>
 				      		</div>
+
 				      		<div class="form-group">
-				      			<label for="input-id">Tên sản phẩm</label>
-				      			<input type="text" name="txtname" id="inputTxtname" class="form-control" value="{{ old('txtname') }}"  required="required">
-				      		</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+										<label for="input-id">Tên sản phẩm</label>
+				      					<input type="text" name="txtname" id="inputTxtname" class="form-control" value="{{ old('txtname') }}"  required="required">
+									</div>
+
+									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+										<label for="input-id">Mã sản phẩm</label>
+				      					<input type="text" name="code" id="code" class="form-control" value="{{ old('code') }}">
+									</div>
+								</div>
+							</div>
+
 
 							<div class="form-group">
 								<div class="row">

@@ -10,17 +10,4 @@ email: toanktv.it@gmail.com
 
 pass: 1212123
 
-w_group
-w_branch
-w_country
-w_role
-w_type
-w_sex
-w_size
-w_out
-w_in
-w_on
-w_water
-w_other
-w_time
-w_time_base
+add code text field products table (ma vach)

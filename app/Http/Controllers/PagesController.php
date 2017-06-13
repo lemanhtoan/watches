@@ -446,14 +446,14 @@ class PagesController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->input('txtkeyword');
-        $products = DB::table('products')->where('name', 'LIKE', '%' . $keyword . '%')->paginate(12);
+        $products = DB::table('products')->leftJoin('category','products.cat_id', '=', 'category.id')->where('products.name', 'LIKE', '%' . $keyword . '%')->orWhere('products.code', 'LIKE', '%' . $keyword . '%')->orWhere('category.name', 'LIKE', '%' . $keyword . '%')->select('products.*')->paginate(12);
         return view('category.list',['data'=>$products, 'cateName' => 'Kết quả tìm kiếm', 'dataConstant' => $this->dataConstant(), 'catSlug' =>  'Tìm kiếm']);
     }
 
     public function searchAjax(Request $request)
     {
         $keyword = $request->input('txtkeyword');
-        $products = DB::table('products')->where('name', 'LIKE', '%' . $keyword . '%')->paginate(10);
+        $products = DB::table('products')->leftJoin('category','products.cat_id', '=', 'category.id')->where('products.name', 'LIKE', '%' . $keyword . '%')->orWhere('products.code', 'LIKE', '%' . $keyword . '%')->orWhere('category.name', 'LIKE', '%' . $keyword . '%')->select('products.*')->paginate(10);
         return \Response::json($products);
     } 
 

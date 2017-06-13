@@ -89,6 +89,7 @@
 										<th>ID</th>										
 										<th>Hình ảnh</th>
 										<th>Tên sản phẩm</th>
+										<th>Mã sản phẩm</th>
 										<th>Sản phẩm giành cho</th>
 										<th>Thương hiệu</th>
 										<th>Giá bán</th>
@@ -102,6 +103,7 @@
 											<td>{!!$row->id!!}</td>
 											<td> <img src="{!!url('uploads/products/'.$row->images)!!}" alt="iphone" width="50"></td>
 											<td>{!!$row->name!!}</td>
+											<td>{!!$row->code!!}</td>
 											<td>
 												<?php if ($row->pro_details->w_sex =='0') {echo 'Nam';}elseif($row->pro_details->w_sex =='1'){echo 'Nữ';} else {echo 'Nam và nữ';};?>
 											</td>
