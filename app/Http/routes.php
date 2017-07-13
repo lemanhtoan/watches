@@ -3,7 +3,11 @@
 Route::auth();
 Route::get('/user', 'HomeController@index');
 Route::get('/user/edit', 'HomeController@edit');
-
+Route::group(['middleware' => 'admin'], function () {
+    Route::get('admin', function () {
+        return view('back-end.home');
+    });
+});
 // admin route 
 Route::get('admin/login', ['as'  => 'getlogin', 'uses' =>'Admin\AuthController@showLoginForm']);
 Route::post('admin/login', ['as'  => 'postlogin', 'uses' =>'Admin\AuthController@login']);
@@ -52,8 +56,9 @@ Route::post('/loc-du-lieu', 'PagesController@filterCate');
 
 // --------------------------------cac cong viec trong admin (back-end)--------------------------------------- 
 Route::group(['middleware' => 'admin'], function () {
-      Route::group(['prefix' => 'admin'], function() {
-        
+
+    Route::group(['prefix' => 'admin'], function() {
+
        	Route::get('/home', function() {         
          return view('back-end.home');       	
        });
