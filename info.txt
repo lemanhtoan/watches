@@ -11,3 +11,9 @@ email: toanktv.it@gmail.com
 pass: 1212123
 
 add code text field products table (ma vach)
+
+cPanel URL http://162.222.226.195/cpanel Username myaawjcz
+
+pass : NHam123##
+
+admin@admin.com / 123456Aa!

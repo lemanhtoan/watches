@@ -37,6 +37,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+//        $password = '123456Aa!';
+//        $hashedPassword = \Hash::make($password);
+//        echo $hashedPassword;
+//        die;
         $oder = DB::table('oders')->where('c_id','=',Auth::user()->id)->get();
         // print_r($oder); exit();
         return view('member.user',['data'=>$oder]);
