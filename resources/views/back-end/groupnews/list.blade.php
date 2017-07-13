@@ -56,7 +56,6 @@
 										</td>
 										<td style="width: 120px;">
 											<a href="{!!url('admin/groupnews/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>
-											<a href="{!!url('admin/groupnews/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Bạn chắc muốn xóa?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>
 										</td>
 									</tr>
 								@endforeach

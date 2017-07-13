@@ -7,9 +7,10 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{!!url('public/images/logo.png')!!}" alt="logo" width="50" height="20">
+    <?php  $logo = DB::table('settings')->where('name', 'logo')->select('content')->get()[0]; ?>
+    <link rel="icon" href="{!!url('/uploads/commons/'.$logo->content)!!}" alt="logo" width="50" >
 
-    <title>XWATCH - Đồng hồ chính hãng. Số 1 về dịch vụ bảo hành, hậu mãi</title>
+    <title>SumoWatch - Đồng hồ chính hãng. Số 1 về dịch vụ bảo hành, hậu mãi</title>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=vietnamese" rel="stylesheet">
     <!-- Bootstrap core CSS -->

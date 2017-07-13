@@ -69,8 +69,7 @@
                 <!-- name - button - attributes -->
                 <div class="box-black">
                     <div class="two-row-1">
-                        <h3 class="pro-detail-title"><a href="{!!url('/mobile/'.$data->id.'-'.$data->slug)!!}"
-                                                        title="">{!!$data->name!!}</a></h3>
+                        <h3 class="pro-detail-title">{!!$data->name!!}</h3>
                         <h3 class="pro-detail-price">
                             Giá: <?php if ($data->price > 0) {?>{!!number_format($data->price)!!} đ <?php } else {echo "<span class='lienhe'>Giá: Liên hệ</span>";}?>
                         </h3>

@@ -38,10 +38,6 @@
         <div class="text-center-home">{!! $cateName !!}
           <hr>
         </div>
-        <p class="category-well">
-            <?php $intro = DB::table('settings')->where('name', 'intro')->select('content')->get()[0]; ?>
-            <?php echo $dataConstant['dataCount'];?>+ <?php echo $intro->content; ?>
-        </p>
 
         <!-- box filter -->
         <div class="box-filter">

@@ -332,14 +332,14 @@
                             <li class="visible-xs visible-sm "><a class="" href="{!!url('tintuc/2')!!}">Kiến thức đồng hồ </a></li>
 
                         <li class="visible-xs visible-sm "><a href="{!!url('tintuc/1')!!}">Thẩm định đồng hồ</a></li>
-                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/7')!!}">Video Xchannel</a></li>
+                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/7')!!}">Video SumoWatch</a></li>
                         <li class="visible-xs visible-sm "><a href="{!!url('tintuc/8')!!}">Phân biệt đồng hồ thật, giả</a></li>
                         <li class="visible-xs visible-sm "><a href="{!!url('tintuc/9')!!}">Dành cho người mới bắt đầu</a></li>
                         <li class="visible-xs visible-sm "><a href="{!!url('tintuc/3')!!}">Kinh nghiệm mua hàng</a></li>
                         <li class="visible-xs visible-sm "><a href="{!!url('tintuc/6')!!}">Kiến thức chuyên ngành</a></li>
-                        <li class="visible-xs visible-sm "><a class="a-lv1" href="{!!url('tintuc/11')!!}"> Về Xwatch </a></li>
+                        <li class="visible-xs visible-sm "><a class="a-lv1" href="{!!url('tintuc/11')!!}"> Về SumoWatch </a></li>
 
-                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/5')!!}">Giới thiệu về Xwatch</a></li>
+                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/5')!!}">Giới thiệu về SumoWatch</a></li>
                         <li class="visible-xs visible-sm "><a href="{!!url('tintuc/10')!!}">Triết lý kinh doanh</a></li>
                         <li class="visible-xs visible-sm "><a href="{!!url('tintuc/4')!!}">Chính sách bảo hành</a></li>
                             <li class="visible-xs visible-sm "><a class="" href="{!!url('lien-he')!!}"> Liên hệ </a></li>
@@ -364,7 +364,7 @@
 
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="{!!url('tintuc/1')!!}">Thẩm định đồng hồ</a></li>
-                    <li><a href="{!!url('tintuc/7')!!}">Video Xchannel</a></li>
+                    <li><a href="{!!url('tintuc/7')!!}">Video SumoWatch</a></li>
                     <li><a href="{!!url('tintuc/8')!!}">Phân biệt đồng hồ thật, giả</a></li>
                     <li><a href="{!!url('tintuc/9')!!}">Dành cho người mới bắt đầu</a></li>
                     <li><a href="{!!url('tintuc/3')!!}">Kinh nghiệm mua hàng</a></li>
@@ -372,10 +372,10 @@
                 </ul>
             </li>
             <li class="dropdown  mn-lv1 mt-20 hidden-xs hidden-sm">
-                <a class="a-lv1" href="{!!url('tintuc/11')!!}"> Về Xwatch </a>
+                <a class="a-lv1" href="{!!url('tintuc/11')!!}"> Về SumoWatch </a>
 
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="{!!url('tintuc/5')!!}">Giới thiệu về Xwatch</a></li>
+                    <li><a href="{!!url('tintuc/5')!!}">Giới thiệu về SumoWatch</a></li>
                     <li><a href="{!!url('tintuc/10')!!}">Triết lý kinh doanh</a></li>
                     <li><a href="{!!url('tintuc/4')!!}">Chính sách bảo hành</a></li>
                 </ul>
