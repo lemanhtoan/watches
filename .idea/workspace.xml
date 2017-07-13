@@ -2883,8 +2883,8 @@
       <file leaf-file-name="info.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/info.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="754">
+              <caret line="41" column="6" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="41" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -2936,8 +2936,8 @@
       <file leaf-file-name="front-end-style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/front-end/front-end-style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="845">
-              <caret line="2220" column="22" lean-forward="false" selection-start-line="2220" selection-start-column="22" selection-end-line="2220" selection-end-column="22" />
+            <state relative-caret-position="266">
+              <caret line="1885" column="1" lean-forward="true" selection-start-line="1885" selection-start-column="1" selection-end-line="1885" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -3496,12 +3496,12 @@
       <workItem from="1496999768393" duration="4065000" />
       <workItem from="1497056109980" duration="13252000" />
       <workItem from="1497510106530" duration="1046000" />
-      <workItem from="1499929547941" duration="3376000" />
+      <workItem from="1499929547941" duration="4797000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116998000" />
+    <option name="totallyTimeSpent" value="118419000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -3933,14 +3933,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/info.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/modules/gioithieu.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -3976,10 +3968,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/info.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="754">
+          <caret line="41" column="6" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="41" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/front-end/front-end-style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="845">
-          <caret line="2220" column="22" lean-forward="false" selection-start-line="2220" selection-start-column="22" selection-end-line="2220" selection-end-column="22" />
+        <state relative-caret-position="266">
+          <caret line="1885" column="1" lean-forward="true" selection-start-line="1885" selection-start-column="1" selection-end-line="1885" selection-end-column="1" />
           <folding />
         </state>
       </provider>
