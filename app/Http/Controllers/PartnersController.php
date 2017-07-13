@@ -24,6 +24,7 @@ class PartnersController extends Controller
         $item = new Partners();
         $item->name= $rq->name;
         $item->link= $rq->link;
+        $item->isort= $rq->isort;
         if ($rq->hasFile('image')) {
         $f = $rq->file('image')->getClientOriginalName();
         $filename = time().'_'.$f;
@@ -44,7 +45,7 @@ class PartnersController extends Controller
         $cat = Partners::find($id);
         $cat->name = $request->name;
         $cat->link = $request->link;
-
+        $cat->isort= $request->isort;
         $file_path = public_path('uploads/partners/').$cat->banner;
         if ($request->hasFile('image')) {
             if (file_exists($file_path))

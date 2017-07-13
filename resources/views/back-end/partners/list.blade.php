@@ -40,6 +40,7 @@
 										<th>Tên đối tác</th>
 										<th>Hình ảnh</th>
 										<th>Đường dẫn</th>
+										<th>Thứ tự</th>
 										<th>Hành động</th>
 									</tr>
 								</thead>
@@ -50,6 +51,7 @@
 										<td>{!!$row->name!!}</td>
 										<td> <img src="{!!url('uploads/partners/'.$row->image)!!}" alt="" width="150"> </td>
 										<td>{!!$row->link!!}</td>
+										<td><b>{!! $row->isort !!}</b></td>
 										<td style="width: 120px;">
 											<a href="{!!url('admin/partners/edit/'.$row->id)!!}" title="Sửa"><span class="glyphicon glyphicon-edit">Sửa</span> </a>
 											<a href="{!!url('admin/partners/del/'.$row->id)!!}"  title="Xóa" onclick="return xacnhan('Bạn chắc muốn xóa?')"><span class="glyphicon glyphicon-remove">Xóa</span> </a>

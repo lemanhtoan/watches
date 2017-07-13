@@ -1,5 +1,5 @@
 <?php
- $data = DB::table('partners')->select('partners.*')->orderBy('id', 'asc')->paginate(50);
+ $data = DB::table('partners')->select('partners.*')->orderBy('isort', 'asc')->paginate(50);
 ?>
 <div class="container owl-partner">
      <div class="row"><!-- Partner -->

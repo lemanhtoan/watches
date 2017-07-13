@@ -1,10 +1,4 @@
-﻿https://scodeweb.com/laravel-fullcode-va-database-website-ban-hang-dien-thoai-may-tinh-tin-tuc-bang-laravel-5.html
-
-Cài đặt database:  database/myshop.sql. tiến hành import database
-
-config trong file .env cho phù hợp  localhost/url
-
-Link và tk admin: acc admin:  /admin/login
+﻿Link và tk admin: acc admin:  /admin/login
 
 email: toanktv.it@gmail.com
 
@@ -17,3 +11,32 @@ cPanel URL http://162.222.226.195/cpanel Username myaawjcz
 pass : NHam123##
 
 admin@admin.com / 123456Aa!
+
+
+UPDATE DB
+
+ALTER TABLE `partners` ADD `isort` INT(5) NULL AFTER `updated_at`;
+
+UPDATE FOOTER
+
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<h3>CHÍNH SÁCH</h3>
+<ul>
+	<li><a href="">Chính sách bảo mật</a></li>
+	<li><a href="">Điều khoản và điều kiện</a></li>
+	<li><a href="">Điều khoản và điều kiện</a></li>
+	<li><a href="">Chính sách đổi trả hàng</a></li>
+	<li><a href="">Chính sách bảo hành</a></li>
+</ul>
+</div>
+
+<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+<h3>BỘ SƯU TẬP</h3>
+<ul>
+	<li><a href="">Đàn ông muốn sở hữu nhất</a></li>
+	<li><a href="">Phụ nữ khao khát nhất</a></li>
+	<li><a href="">Đồng hồ bám chạy nhất</a></li>
+	<li><a href="">Bộ sưu tập đặc biệt</a></li>
+	<li><a href="">Sản phẩm mới nhất</a></li>
+</ul>
+</div>

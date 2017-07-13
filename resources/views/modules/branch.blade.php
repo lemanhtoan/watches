@@ -20,7 +20,7 @@
       <?php 
         if ($count%4 == 1)
           {  
-               echo "<div class='row'>";
+               echo "<div class='row'><div class='iright'>";
           }
       ?>
         
@@ -31,12 +31,12 @@
         <?php 
           if ($count%4 == 0)
             {
-                echo "</div>";
+                echo "</div></div>";
             }
             $count++;
           ?>
           <?php } ?>
-          <?php if ($count%4 != 1) echo "</div>"; ?>
+          <?php if ($count%4 != 1) echo "</div></div>"; ?>
               
       <?php endif;?>  
     </div>

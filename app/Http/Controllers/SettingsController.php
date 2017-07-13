@@ -234,7 +234,7 @@ class SettingsController extends Controller
             $checkContent = array_values($check)[0];
             $cat = Settings::find($checkId);
             $cat->name = 'hotline';
-            $cat->content = $rq->buyok;
+            $cat->content = $rq->hotline;
             $cat->save();
 
         } else {

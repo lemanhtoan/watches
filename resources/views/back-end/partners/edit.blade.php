@@ -47,6 +47,11 @@
 								<input type="text" name="link" class="form-control" value="{!! old('link', isset($data['link']) ? $data['link'] : null)!!}">
 							</div>
 
+							<div class="form-group">
+								<label for="input-id">Thứ tự</label>
+								<input min="1" type="number" name="isort" class="form-control" value="{!! old('isort', isset($data['isort']) ? $data['isort'] : null)!!}">
+							</div>
+
 							<div class="form-group" style="width: 100%; float: left; margin-bottom: 20px;">
 								<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 									Ảnh hiện tại: <br><?php if ( isset($data['image'])) {?><img src="{!!url('uploads/partners/'.$data['image'])!!}" alt="" width="150"> <?php } ?>

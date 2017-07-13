@@ -48,6 +48,11 @@
 							</div>
 
 							<div class="form-group">
+								<label for="input-id">Thứ tự</label>
+								<input type="number" min="1" name="isort" class="form-control" value="">
+							</div>
+
+							<div class="form-group">
 								<label for="input-id">Hình ảnh</label>
 								<input type="file" name="image" accept="image/*" class="form-control">
 							</div>

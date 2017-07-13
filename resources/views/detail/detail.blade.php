@@ -100,7 +100,7 @@
                         @endif
                     </div>
                     <div class="box-2-items end">
-                        <a href="tel:<?php echo  $hotline->content;?>" rel="nofollow" class="hotline">Hotline: <?php echo  $hotline->content;?></a>
+                        <a href="tel:<?php echo  $hotline->content;?>" rel="nofollow" class="hotline"><span class=""><?php echo  $hotline->content;?></span></a>
                     </div>
                 </div>
 
@@ -254,7 +254,7 @@
                     @endif
                 </div>
                 <div class="box-2-items end">
-                    <a href="tel:<?php echo  $hotline->content;?>" rel="nofollow" class="hotline">Hotline: <?php echo  $hotline->content;?></a>
+                    <a href="tel:<?php echo  $hotline->content;?>" rel="nofollow" class="hotline"><span class=""><?php echo  $hotline->content;?></span></a>
                 </div>
             </div>
         </div>

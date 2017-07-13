@@ -565,8 +565,10 @@ footer{
 }
 
 img.lol-main {
-    padding: 50px 0;
-    width: 100%;
+    /*padding: 50px 0;*/
+    /*width: 100%;*/
+    padding: 16px 0 10px 0;
+    width: 60%;
 }
 
 #mainSearch {
@@ -1447,8 +1449,8 @@ ul.suggest-items li {
         text-align: center;
     }
     .logo-box img {
-        width: 70%;
-        padding: 20px 0;
+        width: 50%;
+        padding: 20px 0 0 0;
     }
     #mainSearch {
         width: 100%;
@@ -1854,16 +1856,28 @@ span.lienhe {
 .box-comment .fb-comments, .box-comment .fb-comments span, .box-comment .fb-comments iframe {
     width: 100% !important;
 }
+.buynow {
+    text-indent: -9999px;
+}
 .hotline, .buynow {
     height: 64px;
     width: 100%;
     margin: 0 auto;
     border-radius: 5px;
-    text-indent: -9999px;
     float: left;
+    text-decoration: none;
 }
 .hotline {
     background: #1687c5 url('../images/nut-goi-dien-v2.png') center no-repeat;
+    position: relative;
+}
+.hotline span {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    top: 33px;
+    left: 95px;
 }
 .buynow {
     background: #da1818 url('../images/nut-mua-ngay.png') center no-repeat;
@@ -2196,4 +2210,13 @@ a.list-news i {
     font-size: 20px;
     display: block;
     margin-bottom: 5px;
+}
+.box-intro-footer ul {
+    margin-left: 20px;
+}
+.iright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
