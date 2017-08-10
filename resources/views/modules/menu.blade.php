@@ -328,21 +328,7 @@
                             <li class="visible-xs visible-sm "><a class="" href="{!!url('dong-ho-nam')!!}">Đồng hồ nam </a></li>
                             <li class="visible-xs visible-sm "><a class="" href="{!!url('dong-ho-nu')!!}" > Đồng hồ nữ </a></li>
                             <li class="visible-xs visible-sm "><a class="" href="{!!url('dong-ho-thuy-si')!!}" > Đồng hồ Thụy Sĩ </a></li>
-
-                            <li class="visible-xs visible-sm "><a class="" href="{!!url('tintuc/2')!!}">Kiến thức đồng hồ </a></li>
-
-                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/1')!!}">Thẩm định đồng hồ</a></li>
-                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/7')!!}">Video SumoWatch</a></li>
-                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/8')!!}">Phân biệt đồng hồ thật, giả</a></li>
-                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/9')!!}">Dành cho người mới bắt đầu</a></li>
-                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/3')!!}">Kinh nghiệm mua hàng</a></li>
-                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/6')!!}">Kiến thức chuyên ngành</a></li>
-                        <li class="visible-xs visible-sm "><a class="a-lv1" href="{!!url('tintuc/11')!!}"> Về SumoWatch </a></li>
-
-                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/5')!!}">Giới thiệu về SumoWatch</a></li>
-                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/10')!!}">Triết lý kinh doanh</a></li>
-                        <li class="visible-xs visible-sm "><a href="{!!url('tintuc/4')!!}">Chính sách bảo hành</a></li>
-                            <li class="visible-xs visible-sm "><a class="" href="{!!url('lien-he')!!}"> Liên hệ </a></li>
+                            <!-- <li class="visible-xs visible-sm "><a class="" href="{!!url('lien-he')!!}"> Liên hệ </a></li> -->
                         </ul> <!-- .cd-dropdown-content -->
                     </nav> <!-- .cd-dropdown -->
                 </div> <!-- .cd-dropdown-wrapper -->

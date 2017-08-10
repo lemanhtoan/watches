@@ -178,8 +178,8 @@
 
 @section('homeOther')
 <?php
-$bigCollect= DB::table('group_watch')->select('name','link','image')->orderBy('id', 'asc')->get()[0];
-$collection = DB::table('group_watch')->select('group_watch.*')->orderBy('id', 'asc')->paginate(20);
+$bigCollect= DB::table('group_watch')->where('status',1)->select('name','link','image')->orderBy('id', 'asc')->get()[0];
+$collection = DB::table('group_watch')->where('status',1)->select('group_watch.*')->orderBy('id', 'asc')->paginate(20);
 ?>
 <div class="fluid_container" id="box-collection"> 
     <div class="container">

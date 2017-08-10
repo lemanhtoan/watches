@@ -13,7 +13,7 @@
   color: black;
 }
 #main-mav-top ul li ul li:hover a {
-  color: red;
+  color: #CB8E67;
   background-color: #FFFFFF;
 
 }
@@ -28,7 +28,7 @@
     color: black;
 }
 #main-mav-top-fixed ul li ul li:hover a {
-    color: red;
+    color: #CB8E67;
     background-color: #FFFFFF;
 }
 .ul-sub li:last-child{
@@ -101,7 +101,7 @@
     
  }
  .thumbnail .tomtat .price span{
-  color: red;
+  color: #CB8E67;
  }
  .thumbnail:hover .hienthi {
     opacity: 0;
@@ -588,7 +588,7 @@ img.lol-main {
 }
 
 .suggest-search .red {
-    color: #f00;
+    color: #CB8E67;
     float: left;
 }
 
@@ -633,7 +633,7 @@ img.lol-main {
 
 span.d-block.upper.redcolor {
     text-transform: uppercase;
-    color: #f00;
+    color: #CB8E67;
     float: left;
     width: 100%;
 }
@@ -666,8 +666,8 @@ span.phone-numbers-inline a {
 }
 #mainMenu .mn-lv1 a.a-lv1:hover {
     text-decoration: none;
-    color: #d71921;
-    border-color: #d71921;
+    color: #CB8E67;
+    border-color: #CB8E67;
     border: 1px solid;
     border-radius: 10px;
 }
@@ -818,7 +818,7 @@ span.phone-numbers-inline a {
 }
 
 .pro-price {
-    color: red;
+    color: #CB8E67;
     font-size: 23px;
     font-weight: bold;
     text-align: center;
@@ -949,7 +949,7 @@ span.phone-numbers-inline a {
 }
 
 .footer-social i:hover {
-    color: #f00;
+    color: #CB8E67;
 }
 
 ul.footer-social {
@@ -1151,7 +1151,7 @@ button.no-product {
 
 /*CATEGORY*/
 #mainMenu li.active a {
-    color: #d71921 !important;
+    color: #CB8E67 !important;
 }
 
 #mainMenu li.active .dropdown-menu a {
@@ -1783,7 +1783,7 @@ i.fa.fa-bars {
 }
 
 .no-touch .cd-dropdown-trigger:hover {
-    background-color: #da1818 !important;
+    background-color: #CB8E67 !important;
     color: #fff !important;
     border: none !important;
     border-bottom-left-radius: 0 !important;
@@ -1797,9 +1797,9 @@ a#aRoot {
 
 #mainMenu .dropdown-menu a:hover {
     text-decoration: none;
-    color: #d71921;
-    border-color: #d71921;
-    border: 1px solid  #d71921 !important;
+    color: #CB8E67;
+    border-color: #CB8E67;
+    border: 1px solid  #CB8E67 !important;
     border-radius: 10px;
     background: #000;
 }
@@ -1831,7 +1831,7 @@ a#aRoot {
 }
 
 #dropMenu a:hover {
-  color: #f00 !important;  
+  color: #CB8E67 !important;  
 }
 .a-title {
   text-transform: uppercase;
@@ -1900,7 +1900,7 @@ span.lienhe {
     }
 }
 .buynow {
-    background: #da1818 url('../images/nut-mua-ngay.png') center no-repeat;
+    background: #da1818  url('../images/nut-mua-ngay.png') center no-repeat;
     background-size: 90%;
 }
 

@@ -10,7 +10,7 @@
     <?php  $logo = DB::table('settings')->where('name', 'logo')->select('content')->get()[0]; ?>
     <link rel="icon" href="{!!url('/uploads/commons/'.$logo->content)!!}" alt="logo" width="50" >
 
-    <title>SumoWatch - Đồng hồ chính hãng. Số 1 về dịch vụ bảo hành, hậu mãi</title>
+    <title>SumoWatch</title>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&amp;subset=vietnamese" rel="stylesheet">
     <!-- Bootstrap core CSS -->
