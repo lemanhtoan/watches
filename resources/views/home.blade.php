@@ -178,8 +178,16 @@
 
 @section('homeOther')
 <?php
-$bigCollect= DB::table('group_watch')->where('status',1)->select('name','link','image')->orderBy('id', 'asc')->get()[0];
+$bigCollectGet= DB::table('group_watch')->where('status',1)->select('name','link','image')->orderBy('id', 'asc')->get();
+$bigCollect = array();
+if (count($bigCollectGet) > 0) {
+  $bigCollect = $bigCollectGet[0];
+}
+
 $collection = DB::table('group_watch')->where('status',1)->select('group_watch.*')->orderBy('id', 'asc')->paginate(20);
+
+if ( (count($bigCollect) > 0) || (count($collection) > 0) ) :
+
 ?>
 <div class="fluid_container" id="box-collection"> 
     <div class="container">
@@ -189,12 +197,15 @@ $collection = DB::table('group_watch')->where('status',1)->select('group_watch.*
       </div>
 
       <div class="row">
-        
+        <?php if (count($bigCollect) > 0) :?>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
           <a href="{!! $bigCollect->link !!}">
             <img src="{!!url('/uploads/group_watch/'.$bigCollect->image)!!}" alt="{!! $bigCollect->name !!}" border="0" width="100%"/>
           </a>
         </div>
+        <?php endif;?>
+
+        <?php if (count($collection) > 0) : ?>
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="row">
             <?php if (count($collection)) : $i=0; foreach($collection as $row): $i++;?>
@@ -208,8 +219,12 @@ $collection = DB::table('group_watch')->where('status',1)->select('group_watch.*
           <?php endforeach; endif;?>
             </div>
         </div>
+      <?php endif;?>
       </div>
     </div>
 </div>
+
+<?php endif; ?>
+
 @endsection
 
