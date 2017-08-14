@@ -1440,6 +1440,10 @@ ul.suggest-items li {
 
 /*RESPONSIVE*/
 @media only screen and (max-width: 767px) {
+
+.pro-title h1 a, .pro-price { 
+font-size: 14px;
+}
     #mainSearch .suggest-search {
         display: none;
     }
@@ -2030,7 +2034,7 @@ ul.footer-social i{
 }
 
 #owl-slider .owl-page.active span, #owl-slider-cate .owl-page.active span {
-  background: #c00;
+  background: #CB8E67;
   opacity: 1;
 } 
 .panel-body- {
