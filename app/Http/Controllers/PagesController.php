@@ -43,7 +43,7 @@ class PagesController extends Controller
             ->select(['category.id as cateId', 'category.slug as cateSlug', 'category.type as cateType', 'category.name as cateName',  'category.banner as cateImage'])
             ->get();
 
-        foreach ($cates as $cate) { 
+        foreach ($cates as $cate) {
             $cataId = $cate->cateId;
             $products = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
@@ -55,7 +55,7 @@ class PagesController extends Controller
                 ->get();
             array_push($data, array('category' => $cate, 'products' => $products));
         }
-        
+
         return view('home',['data'=>$data ]);
     }
     public function addcart($id)
@@ -67,33 +67,33 @@ class PagesController extends Controller
 
     public function getupdatecart($id,$qty,$dk)
     {
-      if ($dk=='up') {
-         $qt = $qty+1;
-         Cart::update($id, $qt);
-         return redirect()->route('getcart');
-      } elseif ($dk=='down') {
-         $qt = $qty-1;
-         Cart::update($id, $qt);
-         return redirect()->route('getcart');
-      } else {
-         return redirect()->route('getcart');
-      }
+        if ($dk=='up') {
+            $qt = $qty+1;
+            Cart::update($id, $qt);
+            return redirect()->route('getcart');
+        } elseif ($dk=='down') {
+            $qt = $qty-1;
+            Cart::update($id, $qt);
+            return redirect()->route('getcart');
+        } else {
+            return redirect()->route('getcart');
+        }
     }
 
     public function getdeletecart($id)
     {
-     Cart::remove($id);
-     return redirect()->route('getcart');
+        Cart::remove($id);
+        return redirect()->route('getcart');
     }
 
     public function xoa()
     {
-        Cart::destroy();   
-        return redirect()->route('index');   
+        Cart::destroy();
+        return redirect()->route('index');
     }
 
     public function getcart()
-    {   
+    {
         $relation = DB::table('products')
             ->where('products.status','=','1')
             ->select('products.*')
@@ -110,7 +110,7 @@ class PagesController extends Controller
             ->select('products.*')
             ->orderBy('id', 'desc')
             ->paginate(8);
-       return view ('detail.oder', ['slug' =>'Xác nhận', 'relation' => $relation]);
+        return view ('detail.oder', ['slug' =>'Xác nhận', 'relation' => $relation]);
     }
 
     public function postoder(Request $rq)
@@ -120,7 +120,7 @@ class PagesController extends Controller
         foreach (Cart::content() as $row) {
             $total = $total + ( $row->qty * $row->price);
         }
-        
+
         if ( !Auth::guest() ) {
             $idCustomer = Auth::user()->id;
         } else {
@@ -130,18 +130,18 @@ class PagesController extends Controller
                 $idCustomer = $checkExist[0]->id;
             } else {
                 $idCustomer = DB::table('users')->insertGetId(
-                [
-                    'name' => trim($rq->cus_name), 
-                    'email' => $emailData,
-                    'password' => bcrypt('123456a@'),
-                    'phone' => trim($rq->cus_phone),
-                    'address' => trim($rq->cus_address),
-                    'status' => 0,
-                    'created_at' => new datetime,
-                ]
-            );
+                    [
+                        'name' => trim($rq->cus_name),
+                        'email' => $emailData,
+                        'password' => bcrypt('123456a@'),
+                        'phone' => trim($rq->cus_phone),
+                        'address' => trim($rq->cus_address),
+                        'status' => 0,
+                        'created_at' => new datetime,
+                    ]
+                );
             }
-            
+
         }
 
         $oder->c_id = $idCustomer;
@@ -156,14 +156,14 @@ class PagesController extends Controller
         $o_id =$oder->id;
 
         foreach (Cart::content() as $row) {
-           $detail = new Oders_detail();
-           $detail->pro_id = $row->id;
-           $detail->qty = $row->qty;
-           $detail->o_id = $o_id;
-           $detail->created_at = new datetime;
-           $detail->save();
+            $detail = new Oders_detail();
+            $detail->pro_id = $row->id;
+            $detail->qty = $row->qty;
+            $detail->o_id = $o_id;
+            $detail->created_at = new datetime;
+            $detail->save();
         }
-        Cart::destroy();   
+        Cart::destroy();
 
         $getOrderId = DB::table('oders')->where('id', $o_id)->select('note')->get()[0];
 
@@ -173,7 +173,7 @@ class PagesController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(8);
         return view ('detail.oder', ['slug' =>'Đặt hàng thành công', 'flash_massage'=>' Đơn hàng của bạn đã được gửi đi!','relation' => $relation, 'orderNumber' => $getOrderId]);
-        
+
     }
 
     public function dataConstant() {
@@ -199,26 +199,26 @@ class PagesController extends Controller
     {
         switch ($cat) {
             case 'tin-tuc':
-                 $new =  DB::table('news')
-                        ->orderBy('created_at', 'desc')
-                        ->paginate(3);
-                 $top1 = $new->shift();
-                 $all =  DB::table('news')
-                        ->orderBy('created_at', 'desc')
-                        ->paginate(5);
-                 return view('category.news',['data'=>$new,'hot1'=>$top1,'all'=>$all]);
+                $new =  DB::table('news')
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(3);
+                $top1 = $new->shift();
+                $all =  DB::table('news')
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(5);
+                return view('category.news',['data'=>$new,'hot1'=>$top1,'all'=>$all]);
 
             case 'dong-ho-nam':
-                 $data = DB::table('products')
+                $data = DB::table('products')
                     ->join('category', 'products.cat_id', '=', 'category.id')
                     ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
                     ->where('pro_details.w_sex','=','0') // nam
                     ->orWhere('pro_details.w_sex', '2')
                     ->where('products.status','=','1')
                     ->select('products.*','pro_details.*')
-                     ->orderBy('products.created_at', 'desc')
+                    ->orderBy('products.created_at', 'desc')
                     ->paginate(16);
-                    $slideCate =  $this->getSlideCate('1'); // tintuc
+                $slideCate =  $this->getSlideCate('1'); // tintuc
                 return view('category.list',['slideCate'=>$slideCate,'data'=>$data, 'cateName' => 'Đồng hồ nam','dataConstant' => $this->dataConstant(), 'catSlug' => '1']);
 
             case 'olym':
@@ -247,40 +247,53 @@ class PagesController extends Controller
 
 
             case 'dong-ho-nu':
-                 $data = DB::table('products')
+                $data = DB::table('products')
                     ->join('category', 'products.cat_id', '=', 'category.id')
                     ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
                     ->where('pro_details.w_sex','=','1') // nu
                     ->orWhere('pro_details.w_sex', '2')
                     ->where('products.status','=','1')
                     ->select('products.*','pro_details.*')
-                     ->orderBy('products.created_at', 'desc')
+                    ->orderBy('products.created_at', 'desc')
                     ->paginate(16);
-                    $slideCate =  $this->getSlideCate('1'); // tintuc
+                $slideCate =  $this->getSlideCate('1'); // tintuc
                 return view('category.list',['slideCate'=>$slideCate,'data'=>$data, 'cateName' => 'Đồng hồ nữ','dataConstant' => $this->dataConstant(), 'catSlug' => '0']);
             default:
 
                 $cate = Category::where('slug', '=', $cat)->get(['name', 'id']);
-                $cateName = $cate[0]->name; 
-                $cateId= $cate[0]->id;
+                if (count($cate)) {
+                    $cateName = $cate[0]->name;
+                    $cateId= $cate[0]->id;
+                    $data = DB::table('products')
+                        ->join('category', 'products.cat_id', '=', 'category.id')
+                        ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
+                        ->where('products.cat_id','=',$cateId)
+                        ->where('products.status','=','1')
+                        ->select('products.*','pro_details.*')
+                        ->orderBy('products.created_at', 'desc')
+                        ->paginate(16);
+
+                    if (count($this->getSlideCate($cateId))) {
+                        $slideCate = $this->getSlideCate($cateId);
+                    } else {
+                        $slideCate =  $this->getSlideCate('1'); // tintuc
+                    }
+
+                    return view('category.list',['slideCate'=>$slideCate, 'data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
+                }
+
+                $slideCate =  $this->getSlideCate('1'); // tintuc
                 $data = DB::table('products')
                     ->join('category', 'products.cat_id', '=', 'category.id')
                     ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                    ->where('products.cat_id','=',$cateId)
                     ->where('products.status','=','1')
                     ->select('products.*','pro_details.*')
                     ->orderBy('products.created_at', 'desc')
                     ->paginate(16);
-
-                if (count($this->getSlideCate($cateId))) {
-                    $slideCate = $this->getSlideCate($cateId); 
-                } else {
-                    $slideCate =  $this->getSlideCate('1'); // tintuc
-                }
-
-                    return view('category.list',['slideCate'=>$slideCate, 'data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
+                $cateName = '';
+                return view('category.list',['slideCate'=>$slideCate, 'data'=>$data, 'cateName' => $cateName, 'dataConstant' => $this->dataConstant(), 'catSlug' => $cat]);
         }
-         
+
     }
 
     public function getcateAll()
@@ -300,7 +313,7 @@ class PagesController extends Controller
         $cate = Category::where('slug', '=', $catSlug)->get(['name', 'id']);
         $cateName = $cate[0]->name;
         $cateId = $cate[0]->id;
-        
+
 
         $query = DB::table('products')
             ->join('category', 'products.cat_id', '=', 'category.id')
@@ -336,13 +349,13 @@ class PagesController extends Controller
                 $query->where('pro_details.w_in', '=', $value);
             }
         }
-        
+
         if ($param == 'kieumay') {
             if ($value) {
                 $query->where('pro_details.w_type', '=', $value);
             }
         }
-        
+
 
         $data = $query->select('products.*','pro_details.*')
             ->paginate(16);
@@ -377,70 +390,70 @@ class PagesController extends Controller
 
         $detail = Products::where('id',$id)->first();
         if (empty($detail)) {
-        return view ('errors.503');
+            return view ('errors.503');
         } else {
-           return view ('detail.detail',['data'=>$detail,'slug'=>$slug, 'relation' => $relation]);
-       }
+            return view ('detail.detail',['data'=>$detail,'slug'=>$slug, 'relation' => $relation]);
+        }
 
     }
 
     public function getNews()
-    { 
+    {
         $news =  DB::table('news')
-                ->orderBy('created_at', 'desc')
-                ->paginate(5);
-        
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
         $list = DB::table('news')
-                ->orderBy('created_at', 'desc')
-                ->paginate(10);
-                
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
         $catenews =  DB::table('groupnews')
-                ->orderBy('name', 'asc')
-                ->get();
+            ->orderBy('name', 'asc')
+            ->get();
 
         return view('category.news',['cateName' => $cateName->name, 'news'=>$news,'list'=>$list,'catenews'=>'Tin tức']);
-         
+
     }
 
 
     public function getNewGroup($groupId)
-    { 
+    {
         $news =  DB::table('news')
-                ->where('group', $groupId)
-                ->orderBy('created_at', 'desc')
-                ->paginate(5);
-        
+            ->where('group', $groupId)
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
+
         $list = DB::table('news')
-                ->where('group', $groupId)
-                ->orderBy('created_at', 'desc')
-                ->paginate(10);
-                
+            ->where('group', $groupId)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
         $catenews =  DB::table('groupnews')
-                ->orderBy('name', 'asc')
-                ->get();
+            ->orderBy('name', 'asc')
+            ->get();
         $cateName = Groupnews::where('id',$groupId)->first();
 
         return view('category.news',['cateName' => $cateName->name, 'news'=>$news,'list'=>$list,'catenews'=>$catenews]);
-         
+
     }
-    
+
 
     public function detailNews($id,$slug)
     {
         $news = News::where('id',$id)->first();
         $relation = DB::table('news')
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(5); 
+            ->orderBy('created_at', 'desc')
+            ->paginate(5);
         $newProduct = DB::table('products')
-                ->where('products.status','=','1')
-                ->select('products.*')
-                ->orderBy('id', 'desc')
-                ->paginate(8);
+            ->where('products.status','=','1')
+            ->select('products.*')
+            ->orderBy('id', 'desc')
+            ->paginate(8);
         return view('detail.news',['data'=>$news,'slug'=>$slug, 'relation' => $relation, 'newProduct' => $newProduct]);
     }
 
     public function lienhe() {
-         return view('modules.contact', ['slug'=> 'Liên hệ']);
+        return view('modules.contact', ['slug'=> 'Liên hệ']);
     }
 
     public function search(Request $request)
@@ -455,7 +468,7 @@ class PagesController extends Controller
         $keyword = $request->input('txtkeyword');
         $products = DB::table('products')->leftJoin('category','products.cat_id', '=', 'category.id')->where('products.name', 'LIKE', '%' . $keyword . '%')->orWhere('products.code', 'LIKE', '%' . $keyword . '%')->orWhere('category.name', 'LIKE', '%' . $keyword . '%')->select('products.*')->paginate(10);
         return \Response::json($products);
-    } 
+    }
 
     public function createContact(Request $request) {
         $contact = new Contacts();

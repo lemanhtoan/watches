@@ -126,7 +126,7 @@
               echo "<div class='row'>";
           }
           ?>
-        <div class="class="product-detail" width="45%" valign="top"">
+        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 item-pro">
           <div class="pro-image">
             <a href="{!!url('san-pham/'.$proId.'-'.$row->slug)!!}">
               <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="img responsive">
