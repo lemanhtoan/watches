@@ -1,3 +1,7 @@
+.pro-image img {
+    max-height: 345px !important;
+    margin: 0 auto; 
+}
 /* menu */
 .caret-up {
     width: 0;
